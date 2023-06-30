@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the standard CMS component set - bring back the fun to Content Management.&lt;/p>"
+            jcr:title="Composum Components"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="production ready components for a quick start"
+                    title="Composum Components">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Components module of Composum Pages enables starting with a new site immediately and without development. The responsive layout of the Components is driven by a &lt;a href=&quot;https://getbootstrap.com/docs/3.4/&quot;>Bootstrap&lt;/a> based client library. The &lt;a href=&quot;https://github.com/ist-dresden/composum-pages/tree/develop/components&quot;>Components implementation&lt;/a> can be used as a starting point and template for your own projects. Examples for the available components can be shown on this site and especially on the example pages."/>
+                </column-0>
+            </row>
+            <row_567409193
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Elements">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Text Elements"
+                            icon="paragraph">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>Text / Title&lt;br>the 'text' and the 'title' elements are pure text elements. The 'text' element is the glue of each content section.&lt;/li>&lt;li>Text &amp;amp; Image&lt;br>the 'textimage' element combines the text with an optional image; the text can be arranged around the image in various ways&lt;/li>&lt;/ul>"/>
+                    </section>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="dot-circle-o"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            text="&lt;p>Teasers are illustrated links to guide the user to its points of interest. A teaser is a combination of an asset or symbol and a text element both as the content of the link. The default teaser component can be used in various contexts and forms.&lt;/p>"
+                            title="Teasers"/>
+                    <teaser1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="image"
+                            link="/content/ist/composum/home/pages/components/assets"
+                            text="&lt;p>The 'image', the 'textimage' and the 'video' component are predefined asset components which are showing media content as part of a content page.&lt;/p>"
+                            title="Assets"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser2
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="th-large"
+                            link="/content/ist/composum/home/pages/components/composed"
+                            text="&lt;p>&lt;ul>&lt;li>Carousel&lt;br>a container which is sliding its elements horizontally&lt;/li>&lt;li>Accordion&lt;br>arranges a set of collapsible elements with containers within and&amp;nbsp; with various options to control the accordion items (independent or as tabs in a tabbed view)&lt;/li>&lt;li>Illustration&lt;br>an image with popup displaying points places over the image&lt;/li>&lt;li>Table&lt;/li>&lt;li>List&lt;/li>&lt;/ul>&lt;/p>"
+                            title="Composed Elements"/>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Special Elements"
+                            icon="magic">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>There are some special components delivered as part of the Pages Components:&lt;/p>&lt;p>&lt;ul>&lt;li>iFrame&lt;br>the 'iframe' component enables the responsive embedding of 'foreign' content or of dynamically generated content&lt;/li>&lt;li>Google Map&lt;br>the Google Maps component is a blueprint for Google API based components and shows a simple map of a given location&lt;/li>&lt;li>Reference&lt;br>a 'reference' component is embedding the content of an arbitrary content element in the repository (content reuse by content reference)&lt;/li>&lt;/ul>&lt;/p>"/>
+                    </section>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="search"
+                            link="/content/ist/composum/home/pages/components/search"
+                            text="&lt;p>Composum Pages provides an easy to setup search mechanism with configurable components for search fields and search results, which transparently supports Versioning of Pages.&lt;/p>"
+                            title="Search"/>
+                </column-1>
+                <column-2
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+            </row_567409193>
+            <row_1547271170
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Containers"/>
+            <row_525467965
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Pages &amp; Templates"/>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"
+                title="Components"/>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <teasers/>
+    <composed/>
+    <assets/>
+    <pages/>
+    <search/>
+</jcr:root>

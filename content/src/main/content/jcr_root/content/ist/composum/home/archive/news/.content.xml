@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - news and events - bring back the fun to Content Management&lt;/p>"
+            jcr:title="News"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="latest information about Composum"
+                    title="News">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/archive/news/adaptTo"
+                            subtitle="meet us at adaptTo(), Berlin, 2.-4. September 2019"
+                            text="This year with a talk about Composum Pages and its components framework ..."
+                            title="adaptTo() 2019"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser_1039208235
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="https://github.com/ist-dresden/composum/releases/tag/composum-nodes-2.1.0"
+                            subtitle="a new release of our 'Swiss Knife' is available"
+                            text="&lt;p>The new version can be downloaded and installed. Some new features are available&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>embedded links for potential repository resource values&lt;/li>&lt;li>links for switching between component variations&lt;/li>&lt;li>a new Browser 'Scene' view for live component testing&lt;/li>&lt;li>a new Composum for AEM package&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                            title="Composum Nodes 2.1">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://www.composum.com/home/nodes/install.html"
+                                    title="Installation and Upgrade"/>
+                        </links>
+                    </teaser_1039208235>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/setup/cloud"
+                            subtitle="the first final release is available"
+                            text="&lt;p>2019-08-24&lt;/p>&lt;p>The first final release of Composum Pages is available to download from Maven Central or Docker Hub.&lt;/p>"
+                            title="Pages 1.0 is available!">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/setup"
+                                    title="System Setup"/>
+                        </links>
+                    </teaser>
+                </column-1>
+            </row>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+    <adaptTo/>
+</jcr:root>

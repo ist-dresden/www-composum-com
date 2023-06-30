@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Composum Pages - Edititing"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Pages Editing">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"
+                title="Editing"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                path="/content/ist/composum/home/pages/editing/jcr:content/main"
+                withSpacing="{Boolean}true">
+            <row_1388725363
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The editing user interface of Composum Pages ist the central tool to browse through your repository und to manage your sites content.&lt;/p>"/>
+                </column-0>
+            </row_1388725363>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="The Pages Stage">
+                        <text_405319798
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The 'Stage' is the editing frame of the Composum Pages user interface. There are some tool panels arranged around your content page. The two sidebars on the left and on the right side and the Selection Toolbar on top the the Stages view.&lt;br>&lt;/p>"/>
+                        <illustration
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/illustration">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/pages/composum-pages-edit-view.jpg"/>
+                            <shape
+                                    jcr:primaryType="nt:unstructured"
+                                    behavior="accordion"/>
+                        </illustration>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>You can resize both Sidebars with the Arrows Icon and move the Top Tool Bar. With the Eye Icon it is possible the enable/disable the overlay mode of the Panels. This means it is possible to say the Main Page Frame should start/end at the edges of the Panels or the Panels should slide over the Main Page Frame.&lt;/p>"
+                                title="The Sidebars"/>
+                    </section>
+                    <section_1739582638
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Navigation">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The left sidebar contains the three main navigation tools:"/>
+                        <decorator
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="Pages Tree / Search"
+                                icon="sitemap">
+                            <text_0
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="The pages tree lets you browse through the pages hierarchy of the content repository. The selected page is shown in the main edit frame. The possible editing actions are available on the left side of the trees action bar. On the right side of the trees toolbar the scope of the tree is selectable (page, container, element) and you can switch to the page search view."/>
+                        </decorator>
+                        <decorator_1403111127
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="Assets Tree / Search"
+                                icon="image">
+                            <text_0
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="The assets tree lets you browse through the file resources of the content repository. Similar to the pages tree the possible editing actions of the selected element are available on the left side of the trees action bar. On the right side of the trees toolbar the scope of the tree is selectable (asset type) and you can switch to the asset search view."/>
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="A selected asset resource can can be assigned to an appropriate component by drag and drop them into a drop zone offered in the edited page by that component."/>
+                        </decorator_1403111127>
+                        <decorator_1676980483
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="Component Selector"
+                                icon="cube">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="The component selector tab is offering the set of available components which can be inserted into the current page. The content of this set depends on the design policies of the pages template and the current page content. A user can choose some filtering options and search for component types."/>
+                            <text_14743031
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="A new component of one of the presented types can be inserted into an appropriate container by dragging the type from the selector into the container and drop the element at the designated position inside of the container."/>
+                        </decorator_1676980483>
+                        <decorator_1676980484
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="Develop Tree"
+                                icon="wrench">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="In the 'deleop' mode of the Pages edit stage view an additional tab is shown. In the development tree the component implementation resources can be edited. The pieces of a Pages content component can be managed, each template file can be edited in the code editor and the help pages of a component can be edited like content pages."/>
+                        </decorator_1676980484>
+                    </section_1739582638>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_1676867767
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Main Edit View">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>In the centre of the Pages stage view the selected page is shown for content editing. The page can be shown in various display modes:&lt;/p>&lt;p>&lt;ul>&lt;li>edit / develop&lt;br>in the 'edit' mode (and also in the 'develop' mode) the container elements are decorated and each editable element can be selected and modified&lt;/li>&lt;li>preview / browse&lt;br>in the 'preview' mode the page is shown in its final markup without additional editing hooks; the sidebars are not visible except in the 'browse' mode - in ths mode the page tree is still available to browse through the repository during preview&lt;/li>&lt;/ul>&lt;/p>"/>
+                    </section_1676867767>
+                </column-1>
+            </row>
+        </main>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <sites/>
+    <pages/>
+    <internationalisation/>
+    <policies/>
+</jcr:root>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Component Styling"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>There is an implicit code convention support implemented in the &lt;a href=&quot;/content/ist/composum/home/pages/development/taglibs/cpp-rendering&quot;>Pages Taglib&lt;/a>. Each tag which is rendering a CSS class attribute is declaring and using a 'cssBase' variable. This variable an be used to build BEM like CSS class names with the 'cssBase' as the 'block identifier'.&lt;/p>&lt;p>If no explicit 'cssBase' is specified the resource type of the component to render is used to build the default 'cssBase' value. The resource type is used as is with the '/' replaced by a '-'.&lt;/p>&lt;p>The use of the component type makes is possible to declare CSS classes for component widely without side effect to other components and independently from the components content hierarchy (context free).&lt;/p>&lt;p>Yes, such CSS class names are very long but if SCSS is used the CSS rules are very clear and focussed to the component.&lt;/p>"
+                            textAlignment="left"/>
+                    <codeblock_2010688590
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineObjects/> &#xa;&lt;cpp:element var=&quot;text&quot; type=&quot;com.composum.pages.components.model.text.Text&quot; &#xa;             cssAdd=&quot;@{textCSS}_align-@{text.alignment}&quot;> &#xa;    &lt;cpn:text tagName=&quot;h${text.titleLevel}&quot; class=&quot;${textCssBase}_title&quot; value=&quot;${text.title}&quot;/> &#xa;    &lt;cpn:text class=&quot;${textCSS}_text&quot; value=&quot;${text.text}&quot; type=&quot;rich&quot;/> &#xa;&lt;/cpp:element>    "
+                            language="jsp"
+                            showLanguage="{Boolean}true"
+                            title="an example - a 'text' component"/>
+                    <text_1715838272
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The name of the 'cssBase' variable is derived from the components model variable name automatically. In the example the model variable name is 'text' and the derived 'cssBase' name 'textCssBase' or alternative 'textCSS'.&lt;/p>&lt;p>This variable is used to build CSS class names for the 'title' and the 'text' content properties. The 'element' tag in the example is rendering a 'div' tag with the 'cssBase' as CSS class in this 'div' tag. This is the default behaviour - this behaviour of the 'element' tag can be modified.&lt;/p>"
+                            textAlignment="left"/>
+                    <text_426666172
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>In the example is an additional CSS class built using the 'cssBase' and added to the 'div's CSS classes with the tag attribute 'cssAdd'. The variables declared by the 'element' tag are used here in the 'element' tag attributes itself. In this case the JSP-EL expression must start with a '@' (@{...}) instead of the '$' (${...}).&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="In the following rendering result example are the rendered CSS classes derived from the components resource type are illustrated."
+                            textAlignment="left"/>
+                    <codeblock_1627987957
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="&lt;div class=&quot;composum-pages-components-element-text_align-left composum-pages-components-element-text&quot;> &#xa;    &lt;div class=&quot;composum-pages-components-element-text_text&quot;> &#xa;        &lt;p>...&lt;/p> &#xa;    &lt;/div> &#xa;&lt;/div>"
+                            language="html"
+                            showLanguage="{Boolean}true"
+                            title="a rendered 'text' component example"/>
+                    <text_1202670070
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The CSS rule of the 'text' component are context free and cannot produce side effects to other components."
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code=".composum-pages-components-element-text { &#xa;    text-align: left; &#xa; &#xa;    &amp;_title { &#xa;        @include inline-title; &#xa;        font-size: $text-title-font-size; &#xa;    } &#xa; &#xa;    &amp;_text { &#xa;        p { &#xa;            margin: $text-spacing-default 0; &#xa;        } &#xa;    } &#xa; &#xa;    &amp;_align { &#xa; &#xa;        &amp;-right { &#xa;            text-align: right; &#xa;        } &#xa; &#xa;        &amp;-center { &#xa;            text-align: center; &#xa;        } &#xa; &#xa;        &amp;-justify { &#xa; &#xa;            .composum-pages-components-element-text { &#xa; &#xa;                &amp;_text { &#xa;                    text-align: justify; &#xa;                } &#xa;            } &#xa;        } &#xa;    } &#xa;}"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            copyright="composum/pages/components/element/text"
+                            language="scss"
+                            showLanguage="{Boolean}true"
+                            title="example SCSS rules - the 'text' component"/>
+                    <text_788348358
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The CSS rules generated from the SCSS file are very simple. No complex CSS class hierarchy is produced:&lt;/p>"
+                            textAlignment="left"/>
+                    <codeblock_974694909
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code=".composum-pages-components-element-text { &#xa;  text-align: left; &#xa;  ... &#xa;} &#xa;.composum-pages-components-element-text_title { &#xa;  margin: 15px 0; &#xa;  ... &#xa;} &#xa;.composum-pages-components-element-text_text p { &#xa;  margin: 2rem 0; &#xa;} &#xa;.composum-pages-components-element-text_align-right { &#xa;  text-align: right; &#xa;} &#xa;.composum-pages-components-element-text_align-center { &#xa;  text-align: center; &#xa;} &#xa;.composum-pages-components-element-text_align-justify .composum-pages-components-element-text_text { &#xa;  text-align: justify; &#xa;}"
+                            collapsed="small"
+                            collapsible="{Boolean}true"
+                            language="css"
+                            showLanguage="{Boolean}true"
+                            title="generated CSS rules"/>
+                </column-1>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Component Styling">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Styles"/>
+    </jcr:content>
+</jcr:root>

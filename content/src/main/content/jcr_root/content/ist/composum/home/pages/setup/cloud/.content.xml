@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more +++ try our Cloud CMS +++ fast and flexible +++ bring back the fun to Content Management&lt;/p>"
+            jcr:title="cloud.composum.com"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="the easiest way to start with Composum"
+                    title="Composum Cloud">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1447391294
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="A cloud installation to test working and developing with Composum is available. You can request your own tenant to start work in the cloud. If your tenant request is approved you are the manager of your tenant in the Composum Cloud. You can invite more tenant members in various roles."/>
+                </column-0>
+            </row_1447391294>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Try it!">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="https://cloud.composum.com/"
+                            linkTitle="Composum Cloud"
+                            subtitle="open cloud.composum.com"
+                            text="&lt;p>If you have logged in first you will see two options to continue&lt;/p>&lt;p>&lt;/p>&lt;ol>&lt;li>If you now a tenant of Composum Cloud you can send a role request to become a member of this tenant.&lt;/li>&lt;li>You can send a request for your own tenant; this tenant will be created (if not present already) and you are the manager of the new tenant.&lt;/li>&lt;/ol>&lt;p>&lt;/p>"
+                            title="Composum Cloud"
+                            variation="symbol">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/shared/composum/pages/components/assets/logo/Composum-color.svg"/>
+                    </teaser>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>In both cases a workflow is started to process your request.&lt;/p>&lt;p>In the first case - if you want to become a member of a tenant - a manager of the tenant must approve your request. This can be take a while because it's a manually step.&lt;/p>&lt;p>In the second case - you need your own tenant - a platform manager must approve your request. But probably this workflow is switched to 'automatic'. In this case you can start immediately.&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            imageRef="/content/ist/composum/assets/cloud/cloud-join.png"/>
+                </column-1>
+            </row>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Try it!"/>
+    </jcr:content>
+</jcr:root>

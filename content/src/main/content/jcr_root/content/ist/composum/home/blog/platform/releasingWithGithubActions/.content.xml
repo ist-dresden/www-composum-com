@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="Describes some experiences and gives some hints when setting up a system to create releases on the push of a button with Github Actions"
+            jcr:title="Releasing with Github Actions"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section">
+                <row
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row"
+                        columns="-12-">
+                    <column-0
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/row/column">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="When your project is hosted on Github, it is a natural idea to have continuous integration via &lt;a href=&quot;https://github.com/features/actions&quot;>Github Actions&lt;/a>, which is a really nice system for that with loads of predefined action components you can use for that. And, if you like, you can go even a step further, and release your code from Github Actions to maven central just with a click of a button. That's what I did (you can see &lt;a href=&quot;https://github.com/ist-dresden/composum-nodes/tree/develop/.github/workflows&quot;>our workflows here&lt;/a>&amp;nbsp;), and I'd like to share some insights, tricks and stumbling points I experienced."
+                                title="Github Actions"/>
+                        <text_62104330
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The &lt;a href=&quot;https://maven.apache.org/maven-release/maven-release-plugin/&quot;>maven release plugin&lt;/a>&amp;nbsp;basically works in two phases:&amp;nbsp;&lt;/p>&lt;p>&lt;ol>&lt;li>you prepare the release with&amp;nbsp;&lt;code>mvn release:prepare&lt;/code>&amp;nbsp;, which does a number of checks, then switches the version numbers in your pom.xml, creates a tag and pushes that to your git repository&lt;/li>&lt;li>you create the release with&amp;nbsp;&lt;code>mvn release:perform&lt;/code>&amp;nbsp;, which checks out the code freshly in a new directory target/checkout in your root project, compiles it there, creates the javadoc and sources JARs, GPG signs them, and uploads that to whereever you deploy your relelease (e.g. Sonatype OSS Repository hosting in our case).&lt;/li>&lt;/ol>&lt;p>An awful lot in just two steps, right? In fact, that does have the disadvantage, that if something fails in one of those steps, you'll be left with traces in the form of a tag and the release commits in your Git repository, and either have to ignore that or delete that stuff by hand (which seems an a bit improper thing to do). Right, there is&amp;nbsp;&lt;code>mvn release:rollback&lt;/code>&amp;nbsp;, but that leaves even one more commit in your git history.&lt;/p>&lt;p>But as it turns out, you can separate some steps out, pretty much to a point that a failed attempt will leave no traces except that failed Github Actions run you can examine.&lt;/p>&lt;/p>"
+                                title="Creating a Release with maven and Github Actions"/>
+                        <text_1677200901
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>It took a while, but you can see the final result in &lt;a href=&quot;https://github.com/ist-dresden/composum-nodes/blob/a557cae6dbaea90680f1576beed74e6e899b3e97/.github/workflows/createerelease.yml&quot;>createrelease.yml&lt;/a>, which we use for almost all of our projects on Github. Never mind that it's pretty long - I left a couple of steps in there that can help diagnosing when something went wrong. That's not necessary, but often helpful since on Github Actions you can't easily inspect the workspace after a failed run, like you can do e.g. on Hudson / Jenkins. So you'll probably end up running the workflow again and again with some debugging statements in there. The important points are here what helps us delay the irreversible actions until all the steps that are likely to fail are already run:&lt;/p>&lt;ol>&lt;li>Checking out the code, setting up the build environment and initializing GPG keys, configure Git etc.&lt;/li>&lt;li>Prepare the release with&amp;nbsp;&lt;code>mvn release:prepare -DpushChanges=false&lt;/code>&amp;nbsp;. That creates those release commits, but does not yet push that into your Github project.&lt;/li>&lt;li>Perform the release with&amp;nbsp;&lt;code>mvn release:perform -DlocalCheckout=true -DdeployAtEnd=true&lt;/code>&amp;nbsp;, but take care to configure your&amp;nbsp;&lt;a href=&quot;https://github.com/sonatype/nexus-maven-plugins/tree/main/staging/maven-plugin&quot;>nexus staging maven plugin&lt;/a>&amp;nbsp;with autoReleaseAfterClose=false . That way, the release is uploaded to OSSRH only after the build is mostly finished, but not yet released to the maven central repository, since we haven't pushed the commits yet.&lt;/li>&lt;li>Push the release tag and commits into the Github project.&lt;/li>&lt;li>In the directory target/checkout release to the maven central repository with&amp;nbsp;&lt;code>mvn nexus-staging:release&lt;/code>&lt;/li>&lt;li>If anything failed, do a&amp;nbsp;&lt;code>mvn nexus-staging:drop&lt;/code>, instead.&lt;/li>&lt;/ol>&lt;p>With that annoyingly elaborate ordering of steps, the likelihood that you have permanent traces because of a failed build is pretty low. Only from step 4 you have permanent changes, and once you've got that script run once, these steps will probably work every time.&lt;/p>"
+                                title="Delaying the persistent actions during the release"/>
+                        <text_1758238258
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The &lt;a href=&quot;https://central.sonatype.org/publish/publish-maven/&quot;>OSSRH documentation&lt;/a>&amp;nbsp;gives you a pretty good walk through to deployment, but there were some interesting stumbling points on the way when running with Github Actions.&lt;/p>&lt;p>&lt;ul>&lt;li>The GPG keys have to be encoded with base64 before being put into the Github project secrets, since they otherwise span multiple lines, which creates trouble when ijmporting. You also have to import the &quot;owner trust&quot; for that key.&lt;/li>&lt;li>&lt;a href=&quot;https://stackoverflow.com/a/75308228/21499&quot;>Setup permissions in Github Actions to push to Github&lt;/a>&lt;br>&lt;/li>&lt;li>For whatever weird reason, we had to run&amp;nbsp;&lt;code>mvn install javadoc:aggregate site:aggregate&lt;/code>&amp;nbsp;instead of just&amp;nbsp;&lt;code>mvn site:aggregate&lt;/code>&amp;nbsp;when creating the site, but that's from a different script (master.yml).&lt;/li>&lt;/ul>&lt;/p>"
+                                title="Other stuff"/>
+                    </column-0>
+                </row>
+            </section>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

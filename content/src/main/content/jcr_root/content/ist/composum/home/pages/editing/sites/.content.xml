@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - Site management in Composum Pages - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum Pages - Sites"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="content releases and general settings"
+                    title="Sites">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Sites"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1345458342
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The topmost element of the content in the repository ist a 'Site'. Such a site holds the general configuration for one Website and all Pages of this site. It declares the set of supported languages, the default page clientlibs and some other settings like a Google-ID for Google related components.&lt;/p>&lt;p>But the main function of a site is the release management. Versions of content pages are bundled to releases which can be managend and published in the different views and tools of a site.&lt;/p>"/>
+                </column-0>
+            </row_1345458342>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Content Releases">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The content of a site is published by releases. A release in Composum Pages is a view of the content tree with references to the page versions wich are part of the release.&lt;/p>&lt;p>The 'head' of the releases ist the always open 'current' release. Each publish operation is affecting this 'current' release. All publish related changes are collected here. On 'finalising' the 'current' release this release becomes is unique release key and is frozen; a new (next) 'current' release is opened automatically.&lt;/p>"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="left"
+                                text="&lt;p>The 'Site Releases' context tool is showing the set of releases of the selected site. There are two important markers - the 'public' and the 'preview' mark. In the default publish mode of a site ('in place replication') two releases can be published - one in the 'preview' stage and the other one in the 'public' stage mapped to the '/preview' and the '/public' path in the content repository.&lt;/p>&lt;p>If you mark a release with one of the markers this release is published at the chosen stage. You can also mark the 'current' release as the 'preview' and/or the 'publish' release. In this case each page publishing operation - activate / deactivate, revert - is performed immediately at the assigned stage.&lt;/p>">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/site/site-context-releases.png"/>
+                        </textimage>
+                        <textimage_2100661118
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="right"
+                                text="&lt;p>The 'Activated Pages' view (the second tab in the context tools of a site) list the changes made in the 'current' release. Each of the listed activations and deactivations can be reverted in this view.&lt;/p>&lt;p>The third context tool - the 'Modified Pages' view - is sowing all pages wich are modified since the last release operation without activation of these modifications. You can view the pages of the list simply by selecting them and activate the reviewed pages in this list.&lt;/p>"/>
+                        <textimage_2021915034
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/site/site-context-activated-review.png"/>
+                        </textimage_2021915034>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Site Settings">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If you select a site in the page tree of the left navigation tools the sites 'page' is shown in the main editing view. In this view are the same tools available as in the context tools views. Additionally a settings view is available and in the edit toolbar the site properties dialog can be opened."/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/site/site-screen-languages.png"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                text="&lt;p>The site declares the set of supported languages, the clientlib categories for the pages of the site in the 'view' and in the 'edit' mode and its own describing properties. All properties of a site can be modified in the sites edit dialog.&lt;/p>"/>
+                        <set
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/editing/sites"
+                                    title="Internationalisation"/>
+                            <link_2008297415
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/editing/sites"
+                                    title="Client Libraries"/>
+                        </set>
+                    </section>
+                    <section_1718690371
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Site Management"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="You can switch, add and remove sites using the 'manage sites' dialog.&amp;nbsp;"/>
+                    <illustration
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/illustration">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/pages/site/site-manage-dialog.png"/>
+                        <annotation
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                text="If a site is selected in the page tree the site manage dialog can be opened using the corresponding action button."
+                                title="Tree Toolbar">
+                            <shape
+                                    jcr:primaryType="nt:unstructured"
+                                    position.x="3"
+                                    position.y="30"/>
+                        </annotation>
+                        <annotation_1452314137
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                text="On bottom in the left navigation area the current site is visible. The site manage dialog can be reached here also."
+                                title="Site Tile">
+                            <shape
+                                    jcr:primaryType="nt:unstructured"
+                                    position.x="23"
+                                    position.y="95"/>
+                        </annotation_1452314137>
+                    </illustration>
+                </column-1>
+            </row>
+        </main>
+    </jcr:content>
+    <first/>
+</jcr:root>

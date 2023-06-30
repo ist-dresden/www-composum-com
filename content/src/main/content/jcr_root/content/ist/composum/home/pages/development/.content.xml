@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - how to create your own Sling components usiong the Pages CMS framework - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Development"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="create and customise your own CMS"
+                    title="Development">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_642598010
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Composum Pages is providing a CMS framework on top of the powerful Apache Sling framework to create your own Content Management System. The CMS implementation is driven by components which are the placeable pieces of a content page. Pages are also implemented as components and provided as preconfigured page templates. A page is referencing client libraries (clientlibs) which are containing the component styles and the necessary client code (Javascript)."/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="For the component development the Composum Pages edit frame can be used in the 'develop' mode. A developer can switch to this mode using the 'logo tools menu' in the left corner or by requesting the edit frame with the additional URL parameter&amp;nbsp;&lt;code>pages.mode=develop&lt;/code>.&amp;nbsp;"/>
+                    <text_556569401
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="See also:"/>
+                    <set
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/link/set">
+                        <link
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="/content/ist/composum/home/pages/development/projects"
+                                title="Development Projects"/>
+                        <link_1687628711
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="/content/ist/composum/home/pages/development/tools"
+                                title="Development Tools"/>
+                    </set>
+                </column-1>
+            </row_642598010>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Components">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Composum Pages components are Sling components which ere rendered by the Apache Sling scripting services. A Pages Component consists of&lt;/p>&lt;p>&lt;ul>&lt;li>a set of rendering scripts (JSP, HTL, ...) which are using Java models (Sling or Pages models or other Java objects) to access the repository resources and generate the HTML markup&lt;/li>&lt;li>a component structure description for the generic tools of the Pages edit frame&lt;/li>&lt;li>a dialog component to edit the components properties&lt;/li>&lt;li>a set of action declarations for the various contexts in the Composum Pages edit frame&lt;/li>&lt;li>a component help content page which describes the components features&lt;/li>&lt;/ul>&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_1055025051
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A set of useful components to start quickly is delivered with the Pages Components module. The examples below are references to these components."/>
+                    <set
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/link/set">
+                        <link
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="/content/ist/composum/home/pages/components"
+                                title="Pages Components"/>
+                        <link_712076992
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="/content/ist/composum/home/pages/components/teasers/implementation"
+                                title="Teaser Component Implementation"/>
+                    </set>
+                </column-1>
+            </row>
+            <row_1592949961
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Component Declaration">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="In Apache Sling everything is a resource; a component also. A components resource describes the components type and declares a resource type (the path in the repository). The components resource describes also the property and element structure of the component:"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/iframe"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/element/iframe"
+                                language="xml"
+                                serviceUri="/bin/cpm/nodes/source.content.node.xml"
+                                showLanguage="{Boolean}true"
+                                title="the 'iFrame' component declaration"/>
+                        <text_600011044
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The necessary property of such a component declaration are:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>&lt;code>jcr:primaryType&lt;/code>&lt;br>must be 'cpp:Component' if you want to select this component type for insertion in a container otherwise 'sling:Folder' or 'nt:unstructured' are possible also&lt;/li>&lt;li>&lt;code>componentType&lt;/code>&amp;nbsp;or&amp;nbsp;&lt;code>sling:resourceSuperType&lt;/code>&lt;br>a component must declare its general Type - Element, Container or Page; if a resource super type is specified this type declaration is inherited&lt;/li>&lt;li>&lt;code>category&lt;/code>&amp;nbsp;(multi)&lt;br>the set of categories to present the component type in the designated group of the Pages edit frame tools&lt;br>&lt;/li>&lt;li>&lt;code>jcr:title&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>jcr:description&lt;/code>&lt;br>useful to find the component in the component selection tools&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <text_1107664623
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The&amp;nbsp;&lt;code>jcr:content&lt;/code>&amp;nbsp;subnode of the component declaration resource contains the component structure describing meta data of the component - the set of&amp;nbsp;&lt;code>properties&lt;/code>&amp;nbsp;and the set of embedded&amp;nbsp;&lt;code>elements&lt;/code>. This meta data are used by generic editing tools such as the content comparator to use the instances of the content component."/>
+                    </section1>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Scripting"/>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Edit Dialogs">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Edit dialogs are 'subcomponents' of a content component. They are placed at the&amp;nbsp;&lt;code>edit/dialog&lt;/code>&amp;nbsp;path of the content component and they are itself also a Sling component (not of type 'cpp:Component' !). Such a dialog can be derived from a dialog super type, e.g. from a dialog component of the components super type. The dialog template is a JSP script which is using the edit widget JSP tags of theComposum Pages taglib to render the HTML markup edit dialog."/>
+                        <codeblock_1285204157
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/iframe/edit/dialog/dialog.jsp"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="the dialog of the 'iFrame' component"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="Dialog example"/>
+                    </section1>
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Edit Actions &amp; Tile"/>
+                    <section3
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Context Tools and the Help Page"/>
+                </column-1>
+            </row_1592949961>
+            <row_1731409589
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Pages and Templates">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Page Components">
+                        <text_993386043
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A content page is also rendered by a Sling component. Such a component must be of component type&amp;nbsp;&lt;code>cpp:Page&lt;/code>."/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/page"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/page"
+                                language="xml"
+                                serviceUri="/bin/cpm/nodes/source.content.node.xml"
+                                showLanguage="{Boolean}true"
+                                title="the Pages Components base page component"/>
+                        <text_993386044
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A page is declaring a set of elements and containers to construct the page content. These elements are arranged by the pages rendering scripts and normally static included. This and all the other aspects of a page component are similar to a content component."/>
+                        <text_993386045
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A page components must render a complete HTML page including the 'head' and 'body'. To support the page editing for these both elements a JSP tag is available - see the base page 'main' script of the Pages Components:"/>
+                        <codeblock1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/page/page.jsp"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/page/page.jsp"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="a page 'main' script example"/>
+                        <text_993386046
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The base page implementation in the Pages Components is using a lot of scripts for the various aspects of a page to support changing of this aspects selective by base page subtypes.&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Page Templates">
+                        <text_993386044
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A new page is created by applying a predefined page template."/>
+                        <text_993386043
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The page&amp;nbsp; templates are declaring the component type of the page and their initial content structure. They specify also the structure policies of the page."/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/templates/page/content"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/templates/page/content"
+                                language="xml"
+                                serviceUri="/bin/cpm/nodes/source.content.node.xml"
+                                showLanguage="{Boolean}true"
+                                title="the Pages Components 'content' page template"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each content page in the resource resolvers search path is a page template (if not marked with isTemplate=false). The known Sling overlay mechanism is also effective here - a template in the '/apps' folder hides the template at the same path in the '/libs' folder.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row_1731409589>
+            <row_792356466
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Client Libraries"/>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"/>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <tools/>
+    <models/>
+    <styling/>
+    <projects/>
+    <api/>
+    <scripting/>
+</jcr:root>

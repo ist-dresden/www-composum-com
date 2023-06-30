@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Page Templates"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="predefined page types"
+                    title="Page Templates">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="If you create a new page a set of available page templates is shown to choose one of them as the template for the new page. Each page located in the code area of the repository can be such a template. The Pages Components module contains a set of such page templates."/>
+                </column-0>
+            </row>
+            <row_1229494783
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Homepage"/>
+                    <section_2008780792
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Redirect Page"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Content Page"/>
+                </column-1>
+            </row_1229494783>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Pages"/>
+    </jcr:content>
+</jcr:root>

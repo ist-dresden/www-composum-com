@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the multi purpose content management platform - the basic layer for the Composum content management modules - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum - Platform"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="set up your application framework"
+                    title="Platform">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"
+                title="Platform"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_306929063
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Composum Platform module is the hidden worker in a CMS driven Composum application system setup. The Platform provides general services to manage content versions and releases. The Platform enables and controls the access to a general purpose application platform bases on the Apache Sling framework."/>
+                </column-0>
+            </row_306929063>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <reference
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/reference"
+                            contentReference="/content/ist/composum/home/blog/customizing/about/jcr:content/main/row/column-1/section"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="An enterprise platform">
+                        <reference
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/reference"
+                                contentReference="/content/ist/composum/home/platform/extensions/jcr:content/main/row_518400600/column-0/text"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/workflow/wf-status-console-wide.png"/>
+                        <teaser
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/teaser"
+                                icon="exchange"
+                                link="/content/ist/composum/home/platform/extensions/workflow"
+                                text="&lt;p>The workflow extension enables the declaration of collaborative processes. The definition of a workflow is very flexible. Workflow steps are defined by simple tasks with decision options. These tasks can then be linked to become a workflow. Interactive steps of a workflow are shown in the inbox view of the assigned users or groups.&lt;/p>"
+                                title="Workflow Extension">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"/>
+                        </teaser>
+                        <image_2084470895
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/tenants/tenant-hosts-wide.png"/>
+                        <teaser_915429615
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/teaser"
+                                icon="institution"
+                                link="/content/ist/composum/home/platform/extensions/tenants"
+                                text="&lt;p>The Composum Platform Tenants extension enables you to manage the sites of a lot of customers, corporate divisions or filiales on one Apache Slin platform. Each tenant can have its own applications, components and designs on such a platform. With the embedded domain configuration is it very easy to manage a lot of various internet sites.&lt;/p>"
+                                title="Multi-Tenancy Extension">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"/>
+                        </teaser_915429615>
+                        <teaser_1765547596
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/teaser"
+                                icon="id-badge"
+                                text="With the External Authentication option you can integrate an external authentication broker and delegate all authetication functinality to this broker. Each authentication broker which supports SAML can be integrated. A ready to use integration fpr the Keycloak authentication broker is available."
+                                title="Authentication Extension"/>
+                    </section>
+                </column-1>
+            </row>
+        </main>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <setup/>
+    <extensions/>
+    <clientlibs/>
+    <staging/>
+    <definitions/>
+</jcr:root>

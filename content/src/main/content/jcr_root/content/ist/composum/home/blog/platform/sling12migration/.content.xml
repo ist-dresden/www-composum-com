@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="This tells some of the experiences, approaches and findings when migrating our live system from Sling Launcher 11 to Sling Launcher 12."
+            jcr:title="Migration to Sling Launcher 12"
+            path="/content/ist/composum/home/blog/platform/sling12migration/jcr:content"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Introduction">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Finally, the &lt;a href=&quot;https://sling.apache.org/news/sling-12-released.html&quot;>version 12&lt;/a> of the &lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-starter&quot;>Sling Starter&lt;/a>&amp;nbsp;is released. It does feature many major changes. Notably, it moves to the &lt;a href=&quot;https://sling.apache.org/documentation/development/feature-model.html&quot;>OSGi Feature Model&lt;/a>&amp;nbsp;for deploying bundles and packages, using the &lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-feature-launcher&quot;>Sling Feature Launcher&lt;/a>. This requires various changes to the scripts starting it.&lt;/p>"/>
+            </section>
+            <section_160735230
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Setup of the system">
+                <text_248374903
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>A major difference between the Sling Starter 11 and the &lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-starter&quot;>Sling Starter 12&lt;/a> is that 12 uses features / feature archives (FAR) for collecting and deploying bundles and packages. There are &lt;a href=&quot;https://sling.apache.org/downloads.cgi&quot;>pre-made feature archives&lt;/a> for using an OAK TAR repository or an OAK MongoDB repository, which collect the many bundles that make up a Sling system. The Sling Feature Launcher, which is used to start the Sling system, is able to use the artifacts for the features from the FAR, but also from $HOME/.m2/repository, if you are running it on a developer machine, or public maven repositories. Feature files are JSON files like the following example, that includes a bundle and a package. To construct FAR from this, a maven plugin is needed - some examples for composum are contained in the&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/composum-launch&quot;>composum-launch&lt;/a>&amp;nbsp;project.&lt;em>&lt;br>&lt;br>Caution:&lt;/em>&amp;nbsp;It is convenient to deploy content packages like this - just start the sling launcher, and the whole system is up and everything is deployed. This does however require that the content packages carefully specify their dependencies to ensure they are installed in the right order. But failure to do so should just need a manual intervention with the package manager by triggering &quot;install&quot; for the packages that failed to be installed. Likewise, upgrading packages might &lt;a href=&quot;https://issues.apache.org/jira/browse/SLING-11221&quot;>currently need such manual intervention&lt;/a>, too.&lt;/p>"/>
+                <codeblock_488671822
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        code="\{&#xd;&#xa;  &quot;bundles&quot;:[&#xd;&#xa;    {&#xd;&#xa;      &quot;id&quot;:&quot;com.composum.assets:metadata-extractor-bundle::${composum.assets.version}&quot;,&#xd;&#xa;      &quot;start-order&quot;:&quot;9&quot;&#xd;&#xa;    }&#xd;&#xa;  ],&#xd;&#xa;  &quot;content-packages:ARTIFACTS|required&quot;: [&#xd;&#xa;    {&#xd;&#xa;      &quot;id&quot;: &quot;com.composum.platform:composum-platform-commons-package:zip:${composum.platform.version}&quot;`&#xd;&#xa;    }&#xd;&#xa;  ]&#xd;&#xa;}&#xd;&#xa;"/>
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Until &lt;a href=&quot;https://issues.apache.org/jira/browse/SLING-11220&quot;>SLING-11220&lt;/a> is resolved, the feature launcher is always trying to find the needed artifacts in the maven repositories before it even considers looking up the artifact in the FAR. This can be desirable, but if the server doesn't have internet access it can be a problem, and if you are using it on a production system this provides for some ways to inject code into the server, so you might want to switch that off. We will discuss a way to do that shortly.&lt;br>&lt;br>The feature launcher has a quite different command line than the previous starter - compare &lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-feature-launcher&quot;>it's description&lt;/a>. This is an example command line for starting a server, mostly tailored for local development (especially the jmxremote and debugging settings) - you can adapt that to your needs. It defines some system properties before the -jar argument; with &lt;u>-f&lt;/u> you can give some FAR (or JSON feature files, if you rather want to gather the artifacts from the maven repositories), then there are some felix properties using &lt;strong>-D&lt;/strong> - among them the HTTP port to use. (Note the different syntax of the felix properties to the system properties!)&lt;br>&lt;br>There are some particularities here. First, neither the sling feature launcher nor the Sling Starter FARs contain the actual felix framework. To avoid loading that from the network, we &lt;a href=&quot;https://github.com/ist-dresden/composum-launch/tree/feature/starter-alignment/feature/felixframeworkcontainer&quot;>packed it into a jar&lt;/a>&amp;nbsp;and added that in form of a JAR file URL as &quot;maven repository&quot; using the argument &lt;strong>-u&lt;/strong>&amp;nbsp;. Due to the &lt;a href=&quot;https://issues.apache.org/jira/browse/SLING-11220&quot;>SLING-11220&lt;/a> discussed above, we also give the Sling Starter FAR as &quot;maven repository&quot;. This is not strictly necessary, but currently avoids some 2900 logfile outputs about artifacts not being found in the maven repositories.&lt;/p>"/>
+                <codeblock
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        code="java -server -Xms768m -Xmx2048m -Djava.awt.headless=true \\&#xd;&#xa;    -Dcom.sun.management.jmxremote.port=9005 \\&#xd;&#xa;    -Dcom.sun.management.jmxremote.authenticate=false \\&#xd;&#xa;    -Dcom.sun.management.jmxremote.ssl=false \\&#xd;&#xa;    -Djava.rmi.server.hostname=localhost \\&#xd;&#xa;    --add-opens java.base/java.lang=ALL-UNNAMED \\&#xd;&#xa;    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9999 \\&#xd;&#xa;    -jar starter/org.apache.sling.feature.launcher-1.1.26.jar \\&#xd;&#xa;    -f starter/org.apache.sling.starter-12-SNAPSHOT-oak_tar_far.far \\&#xd;&#xa;    -D org.osgi.framework.system.packages.extra=sun.misc \\&#xd;&#xa;    -D org.osgi.service.http.port=9090 \\&#xd;&#xa;    -D sling.run.modes=local,develop \\&#xd;&#xa;    -u jar:file:starter/org.apache.sling.starter-12-SNAPSHOT-oak_tar_far.far! \\&#xd;&#xa;    -u jar:file:starter/composum-launcher-feature-felixcontainer-1.2.1-SNAPSHOT-zip.zip! \\&#xd;&#xa;    -D sling.fileinstall.dir=fileinstall -D felix.startlevel.bundle=30 -v -fv 7.0.3"
+                        language="shell"/>
+                <text_1922700064
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="In &lt;a href=&quot;https://github.com/ist-dresden/composum-launch&quot;>composum-launch&lt;/a> you find &lt;a href=&quot;https://github.com/ist-dresden/composum-launch/tree/feature/starter-alignment/startup/featurelauncher&quot;>an extended example&lt;/a> with various scripts that start composum using this discussed approach in a feature launcher."/>
+            </section_160735230>
+            <section_2114972893
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Content migration">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Since there is a change of the &lt;a href=&quot;https://jackrabbit.apache.org/oak/docs/&quot;>Jackrabbit OAK&lt;/a> version, we have to consider how to migrate the JCR repository. There are many changes in Sling, there are many changes in /libs, /apps, configurations etc. Thus, the easiest and most sensible approach seems to recreate the system from scratch, and copy over the JCR content that needs to be kept to the new system using the &lt;a href=&quot;https://jackrabbit.apache.org/oak/docs/migration.html&quot;>oak-upgrade tool&lt;/a>. This tool allows specifying the paths that are copied. So we can e.g. copy the content in /content (keeping the versions in version storage), but omit /libs and /apps and other paths that come from the Sling Launcher or the installed applications or from configurations. So we have to consider the paths to be copied.&lt;/p>&lt;p>In a system there are the following types of content in the JCR repository:&lt;/p>&lt;p>&lt;/p>"/>
+                <list
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/composed/list">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Actual user content (assets, sites, pages) in /content. For this we can copy /content as it is (unless we want some content from the Sling launcher to be kept, which would make some exceptions).&lt;br>&lt;/p>"/>
+                    <text_1588863526
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>(OSGI-)Configurations. We took the approach that these are only configured in exceptional cases via the Felix console - normally they are contained in the code or in the code of special setup artifacts. (&quot;Configuration is code.&quot;) Thus, they can be ignored for the content transfer.&lt;br>&lt;/p>"/>
+                    <text_397478211
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Users and groups. These can be transferred by including some paths within /home/users and /home/groups into the set of copied paths. Please note that there are also system users there which are created by the sling launcher or are service users created by the applications. So it doesn't seem wise to copy everything there, but to pick some carefully chosen paths. While many of the users would be automatically recreated by single sign on, it is still necessary to copy those to avoid losing their group assignments. In our case that amounts to copying the folders /home/groups/composum, /home/groups/tenants, /home/users/keycloak (the SSO users) and /home/users/tenants.&lt;/p>"/>
+                    <text_2086317017
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Some system specific administrative paths. There are various paths in /var or /etc that contain automatically created content (e.g. cached client library content), but some also contain important data, such as /etc/tenants (tenant configuration) and /var/composum/content (containing metadata about content releases) and /var/composum/platform/mail (the mail queue), /public and /preview that contain some content that has been replicated, /robots.txt, /jcr:content with some configuration. For /var/composum the most sane approach seemed to be to copy it all, but exclude paths /var/composum/clientlibs and /var/composum/tmp that contain temporary data.&lt;/p>"/>
+                    <text_29119320
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>JCR Version storage at /jcr:system/jcr:versionStorage. As long it is referenced by versionable documents (pages, assets), it can be automatically transferred by the oak-upgrade tool.&lt;/p>"/>
+                </list>
+                <text_557967286
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>For the migration, the old server has to be stopped to take a backup of the content for migration purposes. The new server should be started and fully initialized, so that all applications are deployed. Then it has to be stopped and the old content can now be copied in.&lt;/p>&lt;p>An example for a content migration script is &lt;a href=&quot;https://github.com/ist-dresden/composum-launch/blob/6f1907ac95aa3e0e804d8497d03ed88627190876/startup/featurelauncher/bin/copycontent&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>in project composum-launcher&lt;/a>. The actual command line is like this:&lt;/p>"/>
+                <codeblock
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        code="java -mx4g -jar oak-upgrade-*.jar oldrepository launcher/repository --copy-binaries \\&#xd;&#xa;    --include-paths=/content,/conf/composum,/conf/content,/conf/tenants,/etc/tenants,/etc/map.live,/etc/map.test,/var/audit,/var/composum,/home/groups/composum,/home/groups/tenants,/home/users/keycloak,/home/users/tenants,/public,/preview,/robots.txt,/jcr:content \\&#xd;&#xa;    --exclude-paths=/content/slingshot,/content/starter,/var/composum/clientlibs,/var/composum/tmp \\&#xd;&#xa;    --merge-paths=/content/slingshot,/content/starter,/var/composum/clientlibs"
+                        language="shell"/>
+            </section_2114972893>
+            <section_270486430
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Special Considerations">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>We stumbled over &lt;a href=&quot;https://issues.apache.org/jira/browse/OAK-9728&quot;>a particular problem with oak-update.jar&lt;/a>: it copies the version histories of mix:versionable nodes, but it does not check for other references in the version storage. But our content releases aggregate the versions of pages or assets by keeping references to the corresponding versions in the version storage. This, if a page or asset has been put into a release but has been deleted in the meantime, it's version history isn't copied, leaving the repository in an inconsistent state. So we had to run a script before executing the content migration that checks out all those orphaned version histories into an &quot;cpl:attic&quot; directory of the site, which can later be deleted on the new system. (It has to be a subdirectory of the site, since otherwise the user isn't able to access the versions: a version history is readable if the path where it was last checked out would be readable.)&lt;/p>"/>
+            </section_270486430>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Hans-Peter Störr"
+                date="{Date}2022-03-22T23:00:00.000Z"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

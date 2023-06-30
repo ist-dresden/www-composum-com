@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="The servlet component serves as an internal example how to use HTL. This has the benefit that the HTL integration is automatically checked once in a while, and it demonstrates various approaches."
+            jcr:title="Short description of the Servlet Component as an HTL example"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The servlet component serves as an internal example how to use HTL. This has the benefit that the HTL integration is automatically checked once in a while, and it demonstrates various approaches.&lt;/p>"
+                            title="About the servlet component as an HTL example"/>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="The servlet component">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>As an example for the use of HTL the Servlet component used in this site is done in HTL, as far as it seemed sensible. That is, the rendering script of the component is done in HTL, but the tag-laden edit and toolbar widgets are done as JSPs, since doing these as HTL would make the code much less readable and would prevent the IDE from giving documentation and syntax checks on those tags.&lt;br>&lt;/p>&lt;p>The component is located at /apps/ist/composum/components/documentation/servlet and contains several subcomponents.&lt;/p>&lt;p>&lt;ul>&lt;li>servlet itself has servlet.html done in HTL and uses a Sling-Models based model that explicitly declares all properties.&lt;/li>&lt;li>servlet/selector (modeling a single selector = operation of the servlet) has selector.html as HTL, but uses the generic class &lt;a href=&quot;https://github.com/ist-dresden/composum-pages/blob/develop/commons/bundle/src/main/java/com/composum/pages/commons/model/Element.java&quot;>Element&lt;/a>&amp;nbsp;as model.&lt;/li>&lt;li>servlet/parameter also uses Element as model. As a twist, we use a JSP parameter.jsp as a frame which contains the necessary composum tag(s), namely cpp:startElement, and then includes a .html written in pure HTL. Thus, it is possible to do the rendering code mainly in HTL but still have the clarity of the JSP tags.&lt;/li>&lt;/ul>&lt;/p>"
+                                title="The structure of the servlet component"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/apps/ist/composum/components/documentation/servlet/servlet.html"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="html"
+                                title="servlet.html for the servlet component"
+                                wrapLines="{Boolean}true"/>
+                        <codeblock_848408205
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/apps/ist/composum/components/documentation/servlet/selector/selector.html"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="html"
+                                title="selector.html for the selector component"
+                                wrapLines="{Boolean}true"/>
+                        <codeblock_402494649
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/apps/ist/composum/components/documentation/servlet/parameter/parameter.html"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="html"
+                                title="parameter.html for the parameter component"
+                                wrapLines="{Boolean}true"/>
+                    </section>
+                </column-0>
+            </row>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

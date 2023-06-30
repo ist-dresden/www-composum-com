@@ -1,0 +1,8 @@
+<!--/* This is the rendering code for this component, wrapped into a JSP containing the necessary composum tags. */-->
+<sly data-sly-use.model="${'com.composum.pages.commons.model.Element' @ fromScope='request', key='model'}"
+     data-sly-use.modelCSS="${'modelCSS' @ fromScope='request'}"></sly>
+<pre class="${modelCSS}_wrapper"><code class="${modelCSS}_code">${model.properties.exampleCode}</code></pre>
+<span class="${modelCSS}_remark" data-sly-test="${model.description}">${model.description @ context='html'}</span>
+<pre class="${modelCSS}_wrapper"
+     data-sly-test="${model.properties.exampleResult}"><code class="${modelCSS}_result"
+                                                             data-sly-test="${model.properties.exampleResult}">${model.properties.exampleResult}</code></pre>

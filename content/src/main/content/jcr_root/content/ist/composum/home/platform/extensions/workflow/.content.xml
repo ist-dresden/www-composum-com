@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the workflow engine extension of the Composum Platform - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Workflow Engine"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="the collaborative processing option"
+                    title="Workflow Engine">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The workflow extension enables the declaration of collaborative processes. The definition of a workflow is very flexible. Workflow steps are defined by simple tasks with decision options. These tasks can then be linked to become a workflow. Interactive steps of a workflow are shown in the inbox view of the assigned users or groups."/>
+                </column-0>
+            </row>
+            <row_981182750
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Workflow Definition">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Workflows are declared as an implicit combination of workflow tasks. These tasks are linked by the decision options of a task which are referencing the following tasks. Workflow tasks are simply repository nodes such as:"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/conf/composum/workflow/everyone/role-request"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/conf/composum/workflow/everyone/role-request"
+                                language="xml"
+                                serviceUri="/bin/cpm/nodes/source.xml"
+                                showLanguage="{Boolean}true"
+                                title="The start task of a role request workflow"/>
+                        <text_1704643384
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Each task (each task template) is declaring a set of data properties, and a set of options for the task processing. A task action implementation is changing the data during task processing. A manually step (a task which needs an interaction for processing) is showing the declared dialog of the task with the options forms embedded. An assigned user finds such an active task in its inbox and can open this dialog for task processing."/>
+                        <text_1143514041
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If a task template contains a 'workflow' node this task is the starting point of a workflow. The dialog declared in the 'workflow' node is the initial workflow start dialog which is creating an instance of the starting task template if a user is performing a workflow start of that type."/>
+                        <text_1537955834
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The workflow graph is calculated from the starting task following all available options up to the final tasks or to repeating tasks. The calculated workflow can be shown rendering the starting workflow task with selector 'page':"/>
+                        <iframe
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/iframe"
+                                copyright="an iFrame with the workflow graph of '/conf/composum/workflow/everyone/role-request'"
+                                mode="elements"
+                                serviceUri="/bin/public/workflow.graph.html"
+                                src="/conf/composum/workflow/everyone/role-request"
+                                style="bordered"/>
+                        <text_183490335
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="This graph is also available for running workflow instances and showing the workflow progress with all performed task instances and the available options for continuing."/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Workflow Processing">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>In the most cases workflows are started manually. Currently there are two workflow view components available, one embedded in the tenant management console and one as a 'Pages' main navigation tab. The functionality is in bot views the same:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>an 'inbox' is shown with a list or table of pending task which are waiting for manual processing&lt;/li>&lt;li>you can process the selected task according to the configured options&lt;/li>&lt;li>you can start a new workflow - all accessible workflows are listed to chose one; in the 'Pages' context the current page is preconfigured as a 'target' resource of the new workflow&lt;/li>&lt;li>a status graph can be opened for the selected task&lt;/li>&lt;li>a manager can cancel a workflow&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/workflow/wf-potpury.png"/>
+                        <text_266709091
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Workflows can be configured very flexible. Each task declares its own dialog type, a set of data to manipulate and a set of available processing options each with its own form element which is embedded in the dialog on choosing the option.&lt;/p>&lt;p>Processing actions are declared and referenced by topic keys similar to job definitions. Each task and each option can reference such a topic. All services which are implementation the referenced topic are processed on performing the task and a chosen option.&lt;/p>&lt;p>The workflow engine supports the internationalisation implementation of Composum Pages. Each manually step can be configured for various languages.&lt;/p>"/>
+                        <image_1554780949
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/workflow/wf-manually-assign-de.png"/>
+                    </section>
+                </column-1>
+            </row_981182750>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Workflows"/>
+    </jcr:content>
+    <email/>
+</jcr:root>

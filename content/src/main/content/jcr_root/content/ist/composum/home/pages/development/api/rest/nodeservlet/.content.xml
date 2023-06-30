@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Servlets"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <servlet
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:description="&lt;p>The servlet to fetch or manipulate data of a repository node (a resource).&lt;/p>Used to get the data for the various views and view elements in the Nodes consoles. Supports changes on the resource level (without functional constraints check)."
+                    jcr:title="NodeServlet"
+                    className="com.composum.sling.nodes.servlet.NodeServlet"
+                    path="/bin/cpm/nodes/node"
+                    suffix="the path of the repository resource">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Returns a JSON object of the tree node for the requested resource with all data needed by a tree node view and the list of child nodes&amp;nbsp; with the date to display the children in a tree."
+                            jcr:title="Tree Node"
+                            extension="json"
+                            method="[GET]"
+                            selector="tree">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter_849339819
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="the filter key (declared in the core configuration) to use for child retrieval"
+                                    jcr:title="filter"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>Returns the JSON data of the resource at '/content/tenant/site/page' in the tree view format:&lt;/p>"
+                                    exampleCode="/bin/cpm/nodes/node.tree.json/content/tenant/site/home?filter=unfiltered"
+                                    exampleResult=" { &#xa;  &quot;contentType&quot;: &quot;home&quot;, &#xa;  &quot;type&quot;: &quot;page&quot;, &#xa;  &quot;id&quot;: &quot;/content/tenant/site/home&quot;, &#xa;  &quot;name&quot;: &quot;home&quot;, &#xa;  &quot;text&quot;: &quot;home&quot;, &#xa;  &quot;path&quot;: &quot;/content/tenant/site/home&quot;, &#xa;  &quot;resourceType&quot;: &quot;cpp:Page&quot;, &#xa;  &quot;jcrState&quot;: { &#xa;    &quot;checkedOut&quot;: true, &#xa;    &quot;isVersionable&quot;: false, &#xa;    &quot;locked&quot;: false &#xa;  }, &#xa;  &quot;children&quot;: [ { ... }, ... ] &#xa;}"/>
+                        </examples>
+                    </selector>
+                    <selector_871064775
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Retrieves a nodes tree data analogous to the 'tree' operation using a nodes ID (UUID) to identify the node."
+                            jcr:title="Tree Node by ID"
+                            extension="json"
+                            method="[GET]"
+                            selector="reference">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="the uuid of the node to use; if parameter is not present the suffix is interpreted as a uuid"
+                                    jcr:title="id"/>
+                        </parameters>
+                    </selector_871064775>
+                    <selector1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Returns a JSON array of the declared mixin types for a resource identified by the path in the suffix."
+                            jcr:title="Mixin Types"
+                            extension="json"
+                            method="[GET]"
+                            selector="mixins"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector_310685900
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Executes a query an returns a HTML table with the results."
+                            jcr:title="Find Resources"
+                            extension="[html,json]"
+                            method="[GET]"
+                            selector="query">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="A query string to build a XPATH or a SQL-2 query string; it can be a XPATH / SQL-2 query but also a simple text which is extended to a XPATH query; if it is a SQL-2 or a XPATH query the query is used as is."
+                                    jcr:title="query"
+                                    required="{Boolean}true"/>
+                        </parameters>
+                    </selector_310685900>
+                    <selector_1627886784
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Maps a resource into a JSON object (GET) or updates a resource using an JSON object (POST, PUT)."
+                            jcr:title="Map - JSON"
+                            extension="json"
+                            method="[GET,POST,PUT]"
+                            selector="map"/>
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Toggles the JCR lock state of a resource identified by their path in the requests suffix."
+                            jcr:title="Toggle Lock"
+                            extension="lock"
+                            method="[POST]"
+                            selector="toggle"/>
+                    <selector_782176532
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Create a Node"
+                            extension="json"
+                            method="[POST,PUT]"
+                            selector="create"/>
+                    <selector_1310980289
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Copy a Node"
+                            extension="json"
+                            method="[POST,PUT]"
+                            selector="copy"/>
+                    <selector_2028445934
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Move a Node"
+                            extension="json"
+                            method="[POST,PUT]"
+                            selector="move"/>
+                    <selector_862008785
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Delete a Node"
+                            extension="json"
+                            method="[DELETE]"
+                            selector="delete"/>
+                </column-1>
+            </servlet>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Node"/>
+    </jcr:content>
+</jcr:root>

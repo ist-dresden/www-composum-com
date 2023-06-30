@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="&lt;p>Components consist of server-side logic (model implementations, render templates) and client-side functions (Javascript) and style. The implementation is done on the server side as Sling components and on the client side via client libraries.&lt;/p>&lt;p>Each Sling component implemented in this way defines a resource type that is referenced by the content elements, i.e. the content resources. This data of the CMS thus receives its respective function. In order to adapt this function to changing requirements without always having to create new components and modify the content, a 'theme' can be used to partially or completely change the implementation of a set of components without having to change the content of the CMS. A 'Theme' can also be assigned to an area in the page hierarchy that wants to implement the same components differently.&lt;/p>"
+            jcr:title="The power of the ‚Themes‘"
+            category="[Composum,Pages,Component,Theme,Layout,Rendering,Customizing]"
+            path="/content/ist/composum/home/blog/pages/themes/jcr:content"
+            subtitle="'Themes' allow partial redesign of existing components and content without changing data"
+            template="ist/composum/templates/blog/article">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <text
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>The 'book' theme of the Pages Components will serve us as an example of a theme implementation. This simple theme implementation adds an additional navigation bar on the left side of a standard content page like the table of contents of a book - here the table of contents of the area of a website configured with the 'book' theme.&lt;/p>"/>
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="The theme resource">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Like a component, a theme is a resource in the search path of the resource resolver. As with components, themes can have their implementation in /libs overlaid by paths of the same name in /apps.&lt;/p>&lt;p>A theme itself consists of sets of overlays for&lt;/p>&lt;p>&lt;ul>&lt;li>resource types&lt;/li>&lt;li>page templates&lt;/li>&lt;li>clientlib categories&lt;/li>&lt;/ul>&lt;/p>&lt;p>which are defined below the theme resource. The theme resource itself as the root element of the theme is of node type 'cpp:Theme'. Components, client libraries and page templates are arranged in a freely selectable structure below it.&lt;/p>"/>
+                <text_1676872876
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>In our example, the 'Book' theme, there are overlays below the theme resource&lt;/p>"/>
+                <codeblock
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        bordered="{Boolean}true"
+                        code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:cpp=&quot;http://sling.composum.com/pages/1.0&quot;&#xd;&#xa;        xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;cpp:Theme&quot;&#xd;&#xa;        jcr:title=&quot;Composum Pages Components Book Theme&quot;&#xd;&#xa;        jcr:description=&quot;a theme to navigate through a more complex set of content pages&quot;>&#xd;&#xa;&lt;/jcr:root>"
+                        copyright="/libs/composum/pages/components/themes/book"
+                        language="xml"/>
+                <text_1725881118
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>for the 'content' page component and the default client library of the Pages Components.&lt;/p>"/>
+            </section>
+            <section_1259157212
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="The ‚book‘ Page-Component">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The page component of the 'book' theme&lt;/p>"/>
+                <codeblock
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        bordered="{Boolean}true"
+                        code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;sling:Folder&quot;&#xd;&#xa;        sling:resourceSuperType=&quot;composum/pages/components/page&quot;&#xd;&#xa;        overlays=&quot;[^.*/components/page(/home)?$]&quot;>&#xd;&#xa;&lt;/jcr:root>"
+                        copyright="/libs/composum/pages/components/themes/book/components/page"
+                        language="xml"/>
+                <text_1608028743
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>overlays the default page component and the homepage component of the Pages Components and is itself derived from the default page component. The overlay is specified by the regular expression for the resource type to be overlaid in the 'overlays' property (Multi-value).&lt;/p>"/>
+                <text_1404964942
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The resource types overlaid in this way are replaced dynamically during rendering by the resource type from the theme for the content areas to which the 'book' theme is assigned. The content elements themselves continue to refer to the original resource type, so they remain unchanged.&lt;/p>"/>
+                <text_1069016158
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>By deriving the theme component from the standard page component, it is sufficient here to merely adjust the rendering of the page content&lt;/p>"/>
+                <codeblock_802704812
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        bordered="{Boolean}true"
+                        code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;UTF-8&quot; %>&#xd;&#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %>&#xd;&#xa;&lt;cpp:defineObjects/>&lt;%&#xd;&#xa;    slingRequest.setAttribute(&quot;NARROW_MAIN&quot;, true);&#xd;&#xa;%>&#xd;&#xa;&lt;div class=&quot;composum-pages-components-page_content&quot;>&#xd;&#xa;    &lt;div class=&quot;composum-pages-components-page_content_top&quot;>&#xd;&#xa;        &lt;cpp:include path=&quot;top&quot; resourceType=&quot;composum/pages/components/container/iparsys&quot;/>&#xd;&#xa;    &lt;/div>&#xd;&#xa;    &lt;cpp:include resourceType=&quot;composum/pages/components/navigation/breadcrumbs&quot;/>&#xd;&#xa;    &lt;div class=&quot;composum-pages-components-page_content-row row&quot;>&#xd;&#xa;        &lt;a class=&quot;composum-pages-components-page_content_nav_toggle fa fa-bars&quot; href=&quot;#&quot;>&lt;/a>&#xd;&#xa;        &lt;nav class=&quot;composum-pages-components-page_content_nav col-xl-2 col-md-3 col-sm-12&quot;>&#xd;&#xa;            &lt;cpp:include resourceType=&quot;composum/pages/components/navigation/sidebar&quot; replaceSelectors=&quot;showroot&quot;/>&#xd;&#xa;        &lt;/nav>&#xd;&#xa;        &lt;main class=&quot;composum-pages-components-page_content_main col-xl-10 col-md-9 col-sm-12&quot;>&#xd;&#xa;            &lt;div class=&quot;composum-pages-components-page_main-body&quot;>&#xd;&#xa;                &lt;cpp:include path=&quot;main&quot; resourceType=&quot;composum/pages/components/container/parsys&quot;/>&#xd;&#xa;            &lt;/div>&#xd;&#xa;        &lt;/main>&#xd;&#xa;    &lt;/div>&#xd;&#xa;    &lt;div class=&quot;composum-pages-components-page_content_bottom&quot;>&#xd;&#xa;        &lt;cpp:include path=&quot;bottom&quot; resourceType=&quot;composum/pages/components/container/iparsys&quot;/>&#xd;&#xa;    &lt;/div>&#xd;&#xa;&lt;/div>"
+                        collapsed="medium"
+                        collapsible="{Boolean}true"
+                        copyright="/libs/composum/pages/components/themes/book/components/page/content.jsp"
+                        language="jsp"
+                        showLanguage="{Boolean}true"
+                        title="content.jsp"/>
+                <text_181095132
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>and thus provide for the additional rendering of the navigation on the left side ('book' table of contents). At the same time, the request attribute 'NARROW_MAIN' is used to provide all components with a hint that the content area of the page is narrower than usual in the context of the theme. The Row component from the Pages Components then adjusts the responsive rendering of the columns slightly.&lt;/p>"/>
+                <text_1279882782
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The 'content.jsp' rendering template of the default content page is replaced by this implementation in the page component of the 'book' theme for each corresponding content page configured with the 'book' theme without modifying the resource type in the content itself.&lt;/p>"/>
+                <set
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/element/link/set">
+                    <link
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/link"
+                            link="https://github.com/ist-dresden/composum-pages/tree/develop/components/package/src/main/content/jcr_root/libs/composum/pages/components/themes/book/components/page"
+                            linkTarget="_top"
+                            title="Pages Components 'book' theme page component source code (GitHub)"/>
+                    <link_1126355610
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/link"
+                            link="https://github.com/ist-dresden/composum-pages/tree/develop/components/package/src/main/content/jcr_root/libs/composum/pages/components/page"
+                            linkTarget="_top"
+                            title="overlaid Pages Components general page component source code (GitHub)"/>
+                </set>
+            </section_1259157212>
+            <section1
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="The ‚book‘ Clientlib">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The client-side implementation of the components can be customized in the theme by overlaying the corresponding default clientlibs of the pages to be changed.&lt;/p>"/>
+                <text_1791036041
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>In our example, the 'book' theme, only extensions to the styles for the additional navigation and related Javascript functions for the responsive behavior of the navigation elements are added.&lt;/p>"/>
+                <text_1503922749
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>A new clientlib is defined for the 'book' theme, which overlays and inherits the default view clientlib of the Pages Components.&lt;/p>"/>
+                <codeblock
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/codeblock"
+                        bordered="{Boolean}true"
+                        code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;sling:Folder&quot;&#xd;&#xa;        sling:resourceType=&quot;composum/nodes/commons/clientlib&quot;&#xd;&#xa;        jcr:description=&quot;the Components clientlib for the Book theme of the common components&quot;&#xd;&#xa;        category=&quot;[composum.pages.components.book]&quot;&#xd;&#xa;        overlays=&quot;[^composum\\\\.pages\\\\.components\\\\.view$]&quot;>&#xd;&#xa;    &lt;css&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            depends=&quot;[category:composum.pages.components.view]&quot;&#xd;&#xa;            embed=&quot;[composum/pages/components/themes/book/components/page/css/page.css]&quot;/>&#xd;&#xa;    &lt;js&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            depends=&quot;[category:composum.pages.components.view]&quot;&#xd;&#xa;            embed=&quot;[composum/pages/components/themes/book/components/page/js/page.js]&quot;/>&#xd;&#xa;    &lt;link&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            depends=&quot;[category:composum.pages.components.view]&quot;/>&#xd;&#xa;&lt;/jcr:root>"
+                        language="xml"/>
+                <text_1693313338
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Analogous to the components, overlaying is done the regular expression for the clientlib categories to be overlaid in the 'overlays' property (multi-value). The different aspects of the clientlib (css, js, link) derive with 'depends' from the overlaid clientlib and add the assets of the 'book' clientlib in the respective 'embed' property.&lt;/p>"/>
+                <text_188530746
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Overlaying templates is also possible in a theme. In our example, there was no use for it.&lt;/p>"/>
+            </section1>
+            <section_418668474
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Powerful and useful">
+                <text_2004289154
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Any aspect of a component (render templates, edit dialog, toolbar, tile,...) can be customized by the overlaying component in the theme. A theme can be a separate project with any number of overlays of components, templates and clientlibs.&lt;/p>"/>
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>A theme can be used to efficiently modify the functionality, appearance and structure of existing content components. One and the same component can thus behave completely differently. The edited content remains completely unchanged.&lt;/p>"/>
+                <text_2003848067
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Each content page can reference such a theme.&lt;/p>"/>
+                <image
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/pages/theme/pages-theme_page-settings.png"/>
+                <text_675830234
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>These references are inherited by subpages. In this way, individual areas of a website can be given completely different properties with basically the same content.&lt;/p>"/>
+                <set
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/element/link/set">
+                    <link
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/link"
+                            link="https://github.com/ist-dresden/composum-pages/tree/develop/components/package/src/main/content/jcr_root/libs/composum/pages/components/themes/book"
+                            linkTarget="_top"
+                            title="Pages Components 'book' theme source code (GitHub)"/>
+                </set>
+            </section_418668474>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Ralf Wunsch"
+                date="{Date}2021-06-16T22:00:00.000Z"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+        <seo
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

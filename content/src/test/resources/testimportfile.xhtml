@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        View Source
+    </title>
+    <link rel="canonical" href="/wiki/pages/viewpage.action?pageId=$action.page.id" /><script
+        type="text/javascript" xml:space="preserve">//<![CDATA[
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};window.WRM._unparsedErrors=window.WRM._unparsedErrors||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/wiki\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:curl.cross-origin-resources"]="false";
+if(window.WRM._dataArrived)window.WRM._dataArrived();//]]></script>
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/665c4f36dbcb24d2d1d6d38b4b62b3f0/_/download/contextbatch/css/_super/batch.css?externals=__local-default__&amp;relative-url=true" media="all" />
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/0a755ea35227a7421e0ea53ab68cc31b/_/download/contextbatch/css/plugin.viewsource,-_super/batch.css?externals=__local-default__&amp;relative-url=true" media="all" />
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/7d2421ef9626861c48b2be761f3d1b54/_/download/contextbatch/css/page,-_super/batch.css?build-number=6452&amp;externals=__local-default__&amp;relative-url=true" media="all" />
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/7d2421ef9626861c48b2be761f3d1b54/_/download/contextbatch/css/page,-_super/batch.css?build-number=6452&amp;externals=__local-default__&amp;media=print&amp;relative-url=true" media="print" />
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/f1b748a2868458f2948b8c98f7b8003a/_/download/contextbatch/css/editor-content,-_super/batch.css?confluence.table.resizable=true&amp;externals=__local-default__&amp;relative-url=true" media="all" />
+    <!-- [if lte IE 9]> <link type="text/css" rel="stylesheet"
+                              href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/d41d8cd98f00b204e9800998ecf8427e-CDN/434198047/h/f1b748a2868458f2948b8c98f7b8003a/_/download/contextbatch/css/editor-content,-_super/batch.css?conditionalComment=lte+IE+9&amp;confluence.table.resizable=true&amp;externals=__local-default__&amp;relative-url=true"
+                              data-wrm-key="editor-content,-_super" data-wrm-batch-type="context"
+                              media="all"> <![endif] -->
+    <link type="text/css" rel="stylesheet" href="//d2m1anlfqtrtqt.cloudfront.net/ist-software.atlassian.net/wiki/s/-2074060290/6452/2149566789c6329314f4015897cec4517af2824c/2/_/styles/colors.css" media="all" />
+</head>
+<body class="mceContentBody aui-theme-default wiki-content fullsize">
+<p>
+    &nbsp;
+</p>
+<p>
+    Composum supports the use ofÂ <a
+        href="https://docs.adobe.com/docs/en/spec/jcr/2.0/15_Versioning.html">JCR
+    versioning</a>Â to support a publication flow. Versions of pages can
+    be checked in, and such checkins can be composed into releases that can be
+    previewed and published.
+</p>
+<h2>
+    Definitions of Terms
+</h2>
+<p>
+    A <strong>site</strong> provides the frame for versioned
+    resources and releases and configures e.g. which release is public, and
+    whether it is accessible to the public at all.
+</p>
+<p>
+    A <strong>version</strong> is tagged by a labelÂ
+</p>
+<p>
+    A <strong>release</strong> is a collection of versions of
+    resources.
+</p>
+<h2>
+    Delivery of versioned content via REST
+</h2>
+<p>
+    The <code>ResourceResolverChangeFilter</code> provides access to
+    the public version, a specific release specified in a cookie <code>composum-platform-release-label</code>,
+    or the current version if accessed from specific authoring hosts
+    designated for editing - as allowed by theÂ <code>PlatformAccessFilter</code>.
+</p>
+<p>
+    TODO: how are public releases / preview supported / configured?
+</p>
+<h2>
+    QueryBuilder for transparent search within released, unreleased and
+    unversioned content
+</h2>
+<p>
+    To provide a simple query facility that is able to search the version
+    space, a QueryBuilder is supported which supports queries over content
+    belonging to a specific release without bothering over details of JCR. It
+    is both able to perform queries over unversioned content, as well as over
+    versioned content, when the resolver is restricted to a particular
+    release.
+</p>
+<table class="wrapped confluenceTable">
+    <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th class="confluenceTh">
+            Method of Query
+        </th>
+        <th colspan="1" class="confluenceTh">
+            Default
+        </th>
+        <th class="confluenceTh">
+            Meaning
+        </th>
+        <th class="confluenceTh">
+            Examples
+        </th>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            path
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+        <td class="confluenceTd">
+            The absolute path of which the selected nodes must be subnodes.
+        </td>
+        <td class="confluenceTd">
+            /somewhere/startpoint
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            element
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+        <td class="confluenceTd">
+            Name of the selected nodes.
+        </td>
+        <td class="confluenceTd">
+            someelement
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            type
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+        <td class="confluenceTd">
+            Type of the selected nodes. Nodes that have this type as supertype
+            or mixin are also found.
+        </td>
+        <td class="confluenceTd">
+            nt:base
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            orderBy
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+        <td class="confluenceTd">
+            Attribute of the selected nodes by which the result is sorted
+        </td>
+        <td class="confluenceTd">
+            jcr:lastModified
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" class="confluenceTd">
+            ascending<br />descending
+        </td>
+        <td colspan="1" class="confluenceTd">
+            ascending
+        </td>
+        <td colspan="1" class="confluenceTd">
+            Switches to asdending or descending ordering when orderBy is set
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" class="confluenceTd">
+            condition
+        </td>
+        <td colspan="1" class="confluenceTd">
+            <br />
+        </td>
+        <td colspan="1" class="confluenceTd">
+            Sets an optional additional condition that the selected node has to
+            fulfill. A DSL-like builder can be used to create the condition.
+        </td>
+        <td colspan="1" class="confluenceTd">
+            Query.notNull(PROP_CREATED)<br />Query.eq(Query.upper(PROP_TITLE),
+            &quot;THE TITLE&quot;)
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h2>
+    Query DSL
+</h2>
+<p>
+    For building a condition the selected nodes have to match, a Java-internal
+    DSL (&quot;domain specific language&quot;) in fluent API style is
+    provided. It provides the functionality of a singleÂ <a
+        href="http://www.h2database.com/jcr/grammar.html#condition">Condition</a>
+    of the <a
+        href="https://docs.adobe.com/docs/en/spec/jcr/2.0/6_Query.html">JCR-SQL2</a>
+    language that applies to a single node - that is, no joins can be
+    involved.
+</p>
+<table class="wysiwyg-macro" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NvZGV9&amp;locale=en_GB&amp;version=2); background-repeat: no-repeat;">
+    <tr>
+        <td class="wysiwyg-macro-body">
+<pre xml:space="preserve">Query q = resourceResolver.adaptTo(QueryBuilder.class).createQuery();
+q.path(folder).element("elementname").type("cpp:Component").orderBy("jcr:title").descending();
+q.condition(q.conditionBuilder().name().eq().val("something").and().property("jcr:title").eq().val("the title").or().contains("hello"));
+Iterable&lt;Resource> resourceResults = q.execute();
+// or:
+Iterable&lt;QueryValueMap> columnResults = q.selectAndExecute("jcr:path", "jcr:title","jcr:score","rep:excerpt", "jcr:lastModified");
+
+// SELECT n.[jcr:path], n.[jcr:title], n.[jcr:score], excerpt(n), n.[jcr:lastModified] FROM [cpp:Component] AS n
+// WHERE NAME(n)='something' AND n.[jcr:title]='the title' OR CONTAINS(n.*, 'hello')</pre>
+        </td>
+    </tr>
+</table>
+<p>
+    The syntax is intentionally very similar to JCR-SQL2, but the
+    implementation in Java allows for code completion with JavaDoc on each
+    syntax construct, and ensures that the condition is syntactically
+    complete. If parentheses are neccesary for complex conditions, these can
+    be created withÂ <code>.startGroup</code> andÂ <code>.endGroup</code>.
+    For example, these ConditionDsl and JCR-SQL2 conditions are equivalent:Â
+</p>
+<table class="wysiwyg-macro" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NvZGV9&amp;locale=en_GB&amp;version=2); background-repeat: no-repeat;">
+    <tr>
+        <td class="wysiwyg-macro-body">
+<pre xml:space="preserve">q.conditionBuilder().isNotNull("jcr:created").and().startGroup() .upper().property("jcr:title").eq().val("hello").or().contains("jcr:title", "something").endGroup()
+
+n.[jcr:created] IS NOT NULL AND ( UPPER( n.[jcr:title] ) = 'hello' OR CONTAINS(n.[jcr:title] , 'something' )</pre>
+        </td>
+    </tr>
+</table>
+<h3>
+    Joins
+</h3>
+<p>
+    The Query interface supports the use of joins. However, since querying the
+    versioned releases has to be supported transparently, there are some
+    limitations: the joined resources can only be children or descendants of
+    the selected node, and cannot cross the boundary between unversioned and
+    versioned nodes. That is, you have to choose the join such that you know
+    in advance that either the selected node and the joined nodes are all
+    subnodes of a versionable node, or neither of them.
+</p>
+<table class="wysiwyg-macro" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NvZGV9&amp;locale=en_GB&amp;version=2); background-repeat: no-repeat;">
+    <tr>
+        <td class="wysiwyg-macro-body">
+<pre xml:space="preserve">Query q = resourceResolver.adaptTo(QueryBuilder.class).createQuery();
+q.path(folder).type("cpp:PageContent").orderBy("jcr:score").descending();
+q.condition(q.conditionBuilder().contains("jcr:title", "hello"));
+QueryCondition joinCondition = q.joinConditionBuilder().contains("world");
+q.join(JoinType.Inner, JoinCondition.Descendant, joinCondition);
+Iterable&lt;QueryValueMap> columnResults = q.selectAndExecute("jcr:path", joinCondition.joinSelector("jcr:path"));
+
+// SELECT n.[jcr:path], m.[jcr:path] FROM [cpp:Component] AS n
+// INNER JOIN [nt:base] AS m ON ISDESCENDANTNODE(m, n)
+// WHERE CONTAINS(n.[jcr:title], 'hello') AND CONTAINS(m.*, 'WORLD')</pre>
+        </td>
+    </tr>
+</table>
+<p>
+    <br />
+</p>
+<h2>
+    Limitations
+</h2>
+<ul>
+    <li>
+        The <code>StagingResourceResolver</code>Â resolves resources in
+        releases when the current nodes are already removed. The resources that
+        are versioned can be emulated by a StagingResource, but if you callÂ <code>.getParent()</code>
+        enough times, there might be nodes that are neither versioned nor
+        present in the release. Here, the <code>StagingResource</code>Â returns
+        aÂ <code>NonExistingResource</code>.
+    </li>
+</ul>
+<h2>
+    Some implementation details
+</h2>
+<h3>
+    Details on JCR versioning usage
+</h3>
+<p>
+    Support of full JCR versioning is required. For all documents the <code>jcr:content</code>Â node
+    is <code>mix:versionable</code> and has a linear history where
+    each version is labelled with the releases it is in, if any. All documents
+    are always checked out.
+</p>
+<h3>
+    Classes
+</h3>
+<table class="wrapped confluenceTable">
+    <colgroup>
+        <col style="width: 184.0px;" />
+        <col style="width: 318.0px;" />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th class="confluenceTh">
+            Class name (withinÂ <br />com.composum.sling.platform.staging<br />and
+            subpackages)
+        </th>
+        <th class="confluenceTh">
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            StagingResource
+        </td>
+        <td class="confluenceTd">
+            Provides access to frozen nodes as if it was a normal Sling
+            Resource.
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            StagingResourceResolver
+        </td>
+        <td class="confluenceTd">
+            Resolves frozen nodes for a specified release using StagingResource
+            as if they were normal Sling nodes. It provides a view that is as
+            far as possible identical to the situation when the resources are
+            checked in with the versions in the release.
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            QueryBuilder<br />Query
+        </td>
+        <td class="confluenceTd">
+            A query builder for transparently accessing releases, which creates
+            aÂ <code>Query</code>.
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            ResourceResolverChangeFilter
+        </td>
+        <td class="confluenceTd">
+            Selects the appropriate resolver according to configured patterns
+            (the StagingResourceResolver, if appropriate).
+        </td>
+    </tr>
+    </tbody>
+</table>
+<h3>
+    Structure of the JCR-SQL2 queries to search the released versions
+</h3>
+<p>
+    The queries do depend on the release set when the resolver is aÂ <code>StagingResourceResolver</code>.
+    If there is no release set, a single SQL2-query is performed on the nodes
+    belowÂ <code>path</code>. However, if there is a release set,
+    three SQL2-queries need to be executed:
+</p>
+<ol>
+    <li>
+        Query theÂ <code>default</code> attributes of allÂ <code>nt:versionHistory</code>
+        nodes with a label corresponding to the release whether they match a
+        prefix of the path, to determine whether the <code>path</code>Â reaches
+        into a versioned node.
+    </li>
+    <li>
+        Query all versioned and unversioned nodes below <code>path</code>.
+        It returns the path of the matching node, theÂ attribute for <code>orderBy</code>,
+        and an indication whether the node is within a versioned document.
+    </li>
+    <li>
+        Query all versioned documents that version nodes belowÂ <code>path</code>.
+        If <code>path</code> reaches into a versioned document, only
+        the corresponding nodes within that document are queried. It returns the
+        path of the matching node, and theÂ attribute for <code>orderBy</code>.
+    </li>
+</ol>
+<p>
+    The final result are the results of Queries 2 and 3 merged - possibly
+    observing the ordering by theÂ <code>orderBy</code> attribute.
+    Query 2 needs to return both versioned and unversioned nodes, since the
+    results of Query 2 and 3 need to be filtered by
+    ReleaseMapper.releaseMappingAllowed(String path): only results of 3 are
+    returned for which ReleaseMapper yields true, and of Query 2 only
+    versioned nodes for which ReleaseMapper yields false (they don't need to
+    match the release), but all unversioned nodes.
+</p>
+<h4>
+    Coarse structure of the query to search for versioned documents (Query 3)
+</h4>
+<p class="auto-cursor-target">
+    <br />
+</p>
+<table class="wysiwyg-macro" style="background-image: url(/wiki/plugins/servlet/confluence/placeholder/macro-heading?definition=e2NvZGU6bGFuZ3VhZ2U9c3FsfQ&amp;locale=en_GB&amp;version=2); background-repeat: no-repeat;">
+    <tr>
+        <td class="wysiwyg-macro-body">
+<pre xml:space="preserve">SELECT n.*
+FROM [nt:versionHistory] as history
+INNER JOIN [nt:version] AS version ON ISCHILDNODE(version, history)
+INNER JOIN [nt:versionLabels] AS labels ON version.[jcr:uuid] = labels.[theRelease]
+INNER JOIN [nt:frozenNode] AS n ON ISDESCENDANTNODE(n, version)
+WHERE ISDESCENDANTNODE(history, '/jcr:system/jcr:versionStorage')
+AND history.[default] like '/folder/%'</pre>
+        </td>
+    </tr>
+</table>
+<p class="auto-cursor-target">
+    <br />
+</p>
+<table class="wrapped confluenceTable">
+    <colgroup>
+        <col />
+        <col />
+    </colgroup>
+    <tbody>
+    <tr>
+        <th class="confluenceTh">
+            selector
+        </th>
+        <th class="confluenceTh">
+            meaning
+        </th>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            history
+        </td>
+        <td class="confluenceTd">
+            top node of versioned node in version storage, with primaryType
+            <code>nt:versionHistory</code>Â and its path asÂ <code>default</code>
+            attribute.
+        </td>
+    </tr>
+    <tr>
+        <td class="confluenceTd">
+            version
+        </td>
+        <td class="confluenceTd">
+            <p class="auto-cursor-target">
+                child ofÂ <code>history</code>Â with typeÂ <code>nt:version</code>
+                , itsÂ <code>jcr:uuid</code> is used in labels
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" class="confluenceTd">
+            label
+        </td>
+        <td colspan="1" class="confluenceTd">
+            the <code>nt:versionLabels</code>Â that contains the
+            releases as attributes, containing theÂ <code>jcr:uuid</code>
+            of theÂ <code>release</code> node
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1" class="confluenceTd">
+            n
+        </td>
+        <td colspan="1" class="confluenceTd">
+            a node to match with the condition
+        </td>
+    </tr>
+    </tbody>
+</table>
+<p>
+    (TODO: Is there any way to restrictÂ <code>labels</code> to be a
+    child ofÂ <code>history</code>? This could reduce the query
+    runtime, but there is no way to formulate both the uuid condition and that
+    child condition due to the weird syntax restrictions.)
+</p>
+<p>
+    Subcases:
+</p>
+<ul style="list-style-type: square;">
+    <li>
+        path is outside of versioned content. The full version storage with
+        paths that extend path have to be searched, as well as unversioned
+        content below path.
+    </li>
+    <li>
+        path reaches into versioned content. Only the version storage of this
+        path has to be searched with a modified query.
+    </li>
+</ul>
+<h2>
+    Possible Extensions / Open Points
+</h2>
+<ul>
+    <li>
+        Documentation of the user interface
+    </li>
+    <li>
+        TheÂ <code>StagingResourceResolver</code> does currently not
+        provide any modification functions, but it could provide such functions
+        for unversioned resources.
+    </li>
+    <li>
+        StagingResource.adaptTo(Node.class) could deliver a wrapper for the node
+        that simulates the historical node instead of the frozen node, but with
+        modifications disallowed.
+    </li>
+    <li>
+        The Composum Browser could support using a StagingResourceResolver with
+        a specific release.
+    </li>
+    <li>
+        If you search for the top node of the versioned document (often
+        jcr:content), Query.element works right, but if you build a condition to
+        compare the name it won't find the node. This is very hard to fix, since
+        this is the only node that is renamed (to jcr:froyenNode) and whose
+        actual name is only encoded in history.[default].
+    </li>
+</ul>
+<p>
+    &nbsp;
+</p>
+</body>
+</html>

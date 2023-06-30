@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the configuration and usage of client side libraries - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum Client Libraries"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65588
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text=" "
+                            textAlignment="text"/>
+                    <text_65610
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Composum client libraries provide a mechanism to group resources like css and javascript libraries needed for a module together, including versioning and dependencies from one another, and provide an efficient mechanism to deliver these in compressed form to the browser by the ClientlibServlet."
+                            textAlignment="text"/>
+                    <title_65620
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Format of a client library">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65620>
+                    <text_65622
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A client library is given as a sling:Folder with a sling:resourceType of composum/nodes/commons/clientlib that contains subfolders (typically of resourceType sling:OrderedFolder since the inclusion order is often important) for each resource type. Currently there are three resource types: js, css, link - other folders are ignored."
+                            textAlignment="text"/>
+                    <column_65653
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="/apps/someapplication/somemodule/firstclientlib &#xa;+-- css &#xa;&#x9;+-- cssmodule1 &#xa;&#x9;+-- something.css &#xa;&#x9;+-- somefolder/somethingelse.css &#xa;+-- js &#xa;&#x9;+-- jsmodule1 &#xa;&#x9;+-- jsmodule2 &#xa;&#x9;+-- somethingother.js &#xa;+-- link &#xa;&#x9;+-- iconlink1 &#xa;&#x9;+-- iconlink2"
+                            title="Example - Client library structure. All folders / items are optional"/>
+                    <text_65675
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The client library itself (here firstclientlib) can specify the following attributes:"
+                            textAlignment="text"/>
+                    <table_65680
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_65697
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65698
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="category"/>
+                            <column_65703
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="array of strings"/>
+                            <column_65708
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>Alternatively to referencing client libraries by their absolute or relative path (relative to the search paths) it is possible to give a set of categories and reference these by their category. This way the client libraries can be extended by introducing a new client library with the same category.&amp;nbsp;&lt;/p>&lt;p>A category name has to match the regex [a-zA-Z0-9._-]+ .&lt;/p>"
+                                    width="80%"/>
+                            <column_65722
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_65697>
+                        <row_65727
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65728
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="order"/>
+                            <column_65733
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="integer"/>
+                            <column_65738
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Specifies an ordering when client libraries are referenced by category: they are included in increasing order. Default 0, but it is recommended to specify an order attribute when category is given. To leave the possibility to put client libraries later in the middle of the existing ordering of client libraries of the same category, it is recommended to have this a multiple of 1000."/>
+                            <column_65749
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_65727>
+                    </table_65680>
+                    <text_65754
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Each of the resource folders (js,css,link) can specify resources that need to be included into the page with the following optional properties. For modularization it is also possible to put other children into the resource folders who declare additional embeddings or dependencies."
+                            textAlignment="text"/>
+                    <table_65756
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_65773
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65774
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="depends"/>
+                            <column_65779
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="array of resource patterns"/>
+                            <column_65784
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="An array of dependencies that have to be included into the page, too. This can specify either other client libraries, or resources like javascript or css files. It is possible to give patterns to define version ranges for e.g. javascript libraries. If such a resource was already included into the rendered resource this client library is rendered by tag cpp:clientlib (see below), the dependency is satisfied and thus ignored. Otherwise it is included into this client library. It is also possible to reference categories e.g. as category:composum.assets.commons or external URLs (http / https / protocol omitted)."
+                                    width="80%"/>
+                            <column_65795
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_65773>
+                        <row_65800
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65801
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="embed"/>
+                            <column_65806
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="array of resources"/>
+                            <column_65811
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="The resources that belong to the client library. These are output with the cpp:clientlib tag. In case of CSS and javascripts these are possibly concatenated (if not forbidden by the expanded property) by the ClientlibServlet to minimize the number of requests."/>
+                            <column_65827
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_65800>
+                        <row_65832
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65833
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="optional"/>
+                            <column_65838
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="boolean expression"/>
+                            <column_65843
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="If false, a warning is logged if one of the client libraries resources cannot be found."/>
+                            <column_65851
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional, default: false"/>
+                        </row_65832>
+                        <row_65856
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65857
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="expanded"/>
+                            <column_65862
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="boolean expression"/>
+                            <column_65868
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="If true, the resources will not be appended into one file, but served separately. Relevant for types css and js only."/>
+                            <column_65879
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional, default: false"/>
+                        </row_65856>
+                    </table_65756>
+                    <text_65884
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="For example, the resource folder js could have the following attributes:"
+                            textAlignment="text"/>
+                    <column_65894
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;        jcr:primaryType=&quot;sling:OrderedFolder&quot; &#xa;        optional=&quot;{Boolean}false&quot; expanded=&quot;{Boolean}false&quot; &#xa;        depends=&quot;[https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.7/ace.js, &#xa;                  jslibs/jquery/([1-3]*:3.4.1)/jquery.js, &#xa;                  jslibs/underscore/(1.*:1.9.1)/underscore.js, &#xa;                  jslibs/bootstrap/(3.*:3.4.1)/js/bootstrap.js, &#xa;                  composum/nodes/commons/components/clientlibs/components]&quot; &#xa;        embed=&quot;[category:composum.assets.commons, &#xa;                composum/assets/commons/widgets/asset/finder/finder.js, &#xa;                composum/assets/commons/dialogs/asset/select/select.js]&quot;/>"
+                            language="xml"/>
+                    <title_65897
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Clientlib resolution">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65897>
+                    <text_65899
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A clientlib can be referenced by the absolute path to the clientlib top node (in the example /apps/someapplication/somemodule/firstclientlib), by a relative path wrt. to the resource resolver search path (relative path resolution, by default /apps then /libs), or by categories (see below). If there are several client libraries with the same relative path wrt. to the search path, the first one will hide the others. E.g., if the search path is /apps,/libs, a client library /apps/some/thing will hide a client library /libs/some/thing."
+                            textAlignment="text"/>
+                    <title_65906
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Version ranges"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65906>
+                    <text_65908
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="It is recommended to store the version of javascript / css libraries as part of the path - e.g. /libs/jslibs/jquery/2.2.4/jquery.js to enable a stepwise upgrade of the application. A client library can specify a pattern of versions of the library which it is compatible with, and a default version that is included when there isn't already a compatible version of the library included into the rendered resource. The general format for such a range of versions is"
+                            textAlignment="text"/>
+                    <text_65914
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="(&lt;versionpattern>:&lt;defaultversion>)"
+                            textAlignment="text"/>
+                    <text_65916
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="where versionpattern can be a string ending with a * (which matches any string not containing a slash) or it can contain character ranges like [1-3], matching characters 1 to 3. For example, ([1-3]*,2.2.4) matches any version starting with 1,2 or 3; if no version of the library was included yet we should use 2.2.4. The pattern (1.8.*:1.8.3) means we can use any version starting with 1.8. but will use 1.8.3 if there wasn't already a version of that library included."
+                            textAlignment="text"/>
+                    <title_65933
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Categories"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65933>
+                    <text_65935
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="To enable application-specific extensions to (even predefined) client libraries, the client libraries can be referenced in the depends and embed attributes and in the path attribute to the cpp:clientlib tag as e.g. category:examplecategory. This searches all search path entries for all client libraries with an attribute category (multi string) that contains the named category (here &quot;examplecategory&quot;). The thusly referenced client libraries are processed in the order given by the attribute order (an integer) - least are processed first. If there are several client libraries with the same relative path wrt. to (different) search path entries, the first one will hide the later."
+                            textAlignment="text"/>
+                    <title_65958
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Request count reduction, handling of minified versions and the development (debug) mode">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65958>
+                    <text_65960
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The client libraries can deliver both minified and un-minified versions of the CSS / JS. The module takes care of automatical minification of CSS using the &lt;a href=&quot;http://yui.github.io/yuicompressor/css.html&quot;>YUI Compressor&lt;/a>. For Javascript files there is no automatic minification available; here we have the convention that a minified version should be available with the extension .min.js whereas the un-minified version should be available with the extension .js. (Such minified versions can for instance be generated by the &lt;a href=&quot;http://samaxes.github.io/minify-maven-plugin/&quot;>Minify Maven Plugin&lt;/a>.) If only one of these versions is present, it is always used.&lt;/p>"
+                            textAlignment="left"/>
+                    <text_65978
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Libraries that have only a minified version should be available as a resource with the appropriate selector, e.g. .min.js, but should be referenced without the .min selector when included as dependencies or embedded files. (Rationale: when later an unminified version is introduced, too, that shouldn't change the client libraries.)"
+                            textAlignment="text"/>
+                    <text_65986
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Furthermore, the request count for CSS / JS is minimized by appending all css or js files into one file. The request count minimization can be switched off for a client library or a resource folder with the expanded attribute."
+                            textAlignment="text"/>
+                    <text_65991
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="During development, both behaviours (minification and request count minimization) can be switched of by the OSGI configuration debug of the clientlib module. This has the same effect as if every client library has expand=true on its resource folders."
+                            textAlignment="text"/>
+                    <title_65999
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="cpp:clientlib">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65999>
+                    <text_66001
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A tag that specifies a reference to a client library and outputs links to the resources of the given type (e.g. CSS, javascript) referenced by the client library. Compare also Page Rendering examples: for css resources it is usually used in the head of a document to output the links to the CSS files and at the end of the document body to output links to the javascript files."
+                            textAlignment="text"/>
+                    <table_66008
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_66025
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66026
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="type"/>
+                            <column_66031
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="link, css, js"/>
+                            <column_66048
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="type of the resources that should be linked / written. Default: link."/>
+                            <column_66056
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_66025>
+                        <row_66061
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66062
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="path"/>
+                            <column_66067
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="path to the client library"/>
+                            <column_66072
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="the path to the client library - a folder with sling:resourceType composum/nodes/commons/clientlib containing subfolders for the individual types. This can be an absolute path, a relative path wrt. the resource resolver search path, or a category declaration category:examplecategory."/>
+                            <column_66084
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_66061>
+                        <row_66089
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66090
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="category"/>
+                            <column_66095
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="category of the client libraries"/>
+                            <column_66100
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="alternatively to path, a category of client libraries can specified. All client libraries with this value in their attribute &quot;category&quot; are included, ordered by their attribute &quot;ordering&quot;."/>
+                            <column_66105
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="optional"/>
+                        </row_66089>
+                    </table_66008>
+                    <title_66110
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Rendering of client libraries">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66110>
+                    <text_66112
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="When rendering a client library or category is requested (cpp:clientlib tag), it is located by its path (see clientlib resolution) and its resource folder named according to the requested type is rendered as follows. In case of resolution via categories, the resolved client libraries are processed consecutively in the order as specified by their order attribute. For all files declared as dependencies or embedded, version ranges are applied. If the clientlib debug configuration is active (true), everything is treated as if the expand attribute is true. If optional is false, a warning is logged if something is not found. In each case, the rendered item is processed only if the resource was not already rendered in the current request (class RendererContext ) - for brevity this is not explicitly mentioned."
+                            textAlignment="text"/>
+                    <text_66135
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&#xa;                &lt;ol>&#xa;                &#xa;                    &lt;li>&#xa;                    All client libraries / resources contained in its depend attribute are processed: if it is a file, a link to it is rendered. if it is a client library, it is processed and rendered.&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    All client libraries / resources contained in it's embed attribute are processed: if it is a file, a link to it is rendered iff expand is true. (Otherwise, it is embedded into the response by the ClientlibServlet/ClientlibCategoryservlet for the request to the client library rendered later.) if it is a client library or -category, its content is processed recursively. If this client library was already rendered, an error is logged, since this client library will be included twice into the page.&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    All other folders or resources contained in it are processed (if needed, an ordering can be specified by using sling:OrderedFolder): if it is a file, a link to it is rendered iff expand is true. (Otherwise, it is embedded into the response by the ClientlibServlet/ClientlibCategoryservlet for the request to the client library rendered later.) if it is another resource, it is rendered recursively. That is, its embed and depends attributes are read and their contents rendered as given here; if it has expands and optional attributes, these override these settings for the currently rendered item.&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ol>&#xa;            "
+                            textAlignment="left"/>
+                    <text_66186
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Last, a request to the ClientlibServlet is rendered for the client library if there is any embedded content, or to the ClientlibCategoryServlet if that's appropriate. (This is not done in the recursive case, unless mentioned in the previous steps.)"
+                            textAlignment="text"/>
+                    <text_66188
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Links to files (either because they are given as depend or with expand is true) are only rendered if there it was not not already a link rendered in the page (possibly matching the version range)."
+                            textAlignment="text"/>
+                    <title_66196
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Delivery of client libraries">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66196>
+                    <text_66198
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The ClientlibServlet delivers the concatenated embedded content of client libraries for extensions js / css for which expand is false. The embedded content is concatenated in the order it is processed by the rendering algorithm. If the client library / category depends directly or indirectly (via client libraries / categories it depends on) on any files it also directly or indirectly embeds, these are omitted from embedding, and a warning is logged."
+                            textAlignment="text"/>
+                    <text_66214
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="For the delivery of concatenated embedded content of categories of client libraries there is the ClientlibCategoryServlet which matches the path /bin/cpm/nodes/clientlibs(.min).&lt;type>/category ."
+                            textAlignment="text"/>
+                    <title_66225
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Versioning of client library cache content">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66225>
+                    <text_66227
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="To ensure that a request for a client library content (inclusive its embedded contents) is always served with the newest cache content, regardless of any browser or HTTP-proxy caches between the application and the browser, we append a hash in an artificial suffix of the URL to the ClientlibServlet or ClientlibCategoryServlet containing this hash. Whenever the client library contents change, the hash (as calculated during the rendering process) will change also, such that all caches are forced to update their contents, since they encounter an URL they haven't seen so far. Any requests to old versions of the client library are served with a redirect to the newest version."
+                            textAlignment="text"/>
+                    <text_66229
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="URL: ...something.min.js/&lt;hash>/something.min.js"
+                            textAlignment="text"/>
+                    <text_66231
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Algorithm:"
+                            textAlignment="text"/>
+                    <text_66233
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    If the hash is consistent with the hash saved in the cache file, the cached file is served if the user has permissions to read the client library (or any of the client libraries of a category).&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    If the hash is not consistent with the hash saved in the cache file, and there is an If-Modified-Since header older than the last-modified of the cache file, we just assume the request comes from an obsolete cached version of a page referring to the client library, and serve a permanent redirect to the cached version without checking the client library.&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    Otherwise we check the client library to determine the last hash and update time, update the cache file if this is changed wrt. the cached version and serve a permanent redirect to the new version. (Possible improvement: in the future the redirect could be served in parallel to the regeneration of the cache file).&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                            textAlignment="left"/>
+                    <text_66240
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="For files there is no such mechanism implemented, since they have an obvious last modification date. A reduction of transfer volume can be reached by, say, given them a Cache-Control header with a maximum age of a day, and relying on If-Modified-Since to further reduce the bandwidth."
+                            textAlignment="text"/>
+                    <title_66252
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Gotchas and possible errors">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66252>
+                    <text_66262
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="                &lt;ul> &#xa;                 &#xa;                    &lt;li>&lt;strong> &#xa;                    If a user has permissions to read only some parts of a client library, there are warnings logged (if they aren't optional). If a client library is visible for the use, but some embedded parts are invisible, they will be delivered by the ClientlibServlet, anyway, since its result is cached for all users. Please avoid different permissions for a client library and embedded parts - it's probably best to have everything public. This might also have a serious performance impact, since this triggers a up to date check for client library on every delivery, since the hash generated by the cpp:clientlib tag will reflect only the parts visible to the user.&lt;/strong>&lt;/li> &#xa;                 &#xa;                    &lt;li>&lt;strong> &#xa;                    If a client library was rendered (possibly by recursive embedding / dependencies from the currently rendered client library) and is embedded in the currently rendered client library, this is an error since it will be included twice into the page. &#xa;                    &lt;/strong>&lt;/li> &#xa;                 &#xa;                    &lt;li>&lt;strong> &#xa;                    If a resource is not found, a warning is logged unless the resource / folder including it was marked as optional. &#xa;                    &lt;/strong>&lt;/li> &#xa;                 &#xa;                    &lt;li>&lt;strong> &#xa;                    Embedding of several versions of one resource cannot be reliably detected in all cases. That can occur when you have transitive dependencies between client library that declare different version ranges. &#xa;                    &lt;/strong>&lt;/li> &#xa;                 &#xa;                &lt;/ul> &#xa;            "
+                            textAlignment="left"/>
+                    <title_66274
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Logged warnings and errors">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66274>
+                    <table_66276
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_66287
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66288
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Typ"/>
+                            <column_66293
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Vorgang"/>
+                            <column_66298
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Bedingung"/>
+                        </row_66287>
+                        <row_66303
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66304
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Warnung"/>
+                            <column_66309
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Rendering / Delivery"/>
+                            <column_66314
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="A resource was referenced that was not found and not declared optional."/>
+                        </row_66303>
+                        <row_66322
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66323
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Error"/>
+                            <column_66328
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Rendering"/>
+                            <column_66333
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="A link to a client library or category is rendered that embeds files for which either links are already rendered or which are embedded into already rendered links to client libraries or categories."/>
+                        </row_66322>
+                        <row_66338
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66339
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Warning"/>
+                            <column_66344
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Delivery"/>
+                            <column_66349
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="The delivered client library or category wants to embed a file to which is embedded into any of its dependencies / is a dependency. This file is not embedded, so the page should work, anyway, but this is a hint that the dependency structure probably unfortunate."/>
+                        </row_66338>
+                    </table_66276>
+                    <title_66357
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Tips and Tricks">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66357>
+                    <text_66359
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Example X-Paths for searching the repository e.g. with the browser:"
+                            textAlignment="text"/>
+                    <text_66367
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    all client libraries: //element(*,sling:Folder)[@sling:resourceType='composum/nodes/commons/clientlib'] order by @path&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    all client libraries below /libs with some categories: /jcr:root/libs//element(*,sling:Folder)[@sling:resourceType='composum/nodes/commons/clientlib'][@category='clientlib1' or @category='clientlib2'] order by @path&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                            textAlignment="left"/>
+                    <text_66372
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text=" "
+                            textAlignment="text"/>
+                </column-0>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="Group CSS and Javascript for a module together"
+                    title="Composum Client Libraries">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Clientlibs"/>
+    </jcr:content>
+    <implementation/>
+</jcr:root>

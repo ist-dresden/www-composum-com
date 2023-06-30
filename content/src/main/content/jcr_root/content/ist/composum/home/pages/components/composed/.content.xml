@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Composed Components"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="components to arrange elements"
+                    title="Composed Components">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_571522862
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Composed components are general purpose containers or containers with special items within to create and edit complex content structures. The general container components - 'parsys' and 'iparsys' - are normally included as static content components in a page component to define the general page structure. The other components can be arranged and nested within this predefined containers of a page."/>
+                </column-0>
+            </row_571522862>
+            <row_739622241
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Section">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A section component is a universal container to combine a set of elements. Such a section can be move, copied and referenced will all the elements within. There are some decoration options available to improve the attention or the recognition value of a section."/>
+                        <section
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="#1 Section Example - Title and Symbol"
+                                icon="graduation-cap">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="A section with a text element within and a symbol to merk the section."/>
+                        </section>
+                        <section1
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="#2 Section Example - Warning box"
+                                icon="exclamation-triangle"
+                                level="danger">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="A section with a text element within as a 'warning' decorated panel."/>
+                        </section1>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Each column of this page contains a set of sections one for each component type. Sections can be nested; the examples are nested sections inside of the 'Section' which is describing the 'Section' component."/>
+                    </section1>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Accordion">
+                        <accordion
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/accordion">
+                            <item
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/accordion/item"
+                                    initialOpen="{Boolean}true"
+                                    title="The first Item">
+                                <text1
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/text"
+                                        text="&lt;p>An accordion is a set of collapsible elements. There are three options / variations of an accordion&lt;/p>&lt;ul>&lt;li>independent:&lt;br>each element in the accordion can be collapsed and expanded independently&lt;/li>&lt;li>accordion (default):&lt;br>only one element can be opened at a time; opening an element is closing each other element automatically&lt;/li>&lt;li>tabbed:&lt;br>the items are lined up as tab navigation elements; this variation is probably not so responsive&lt;/li>&lt;/ul>&lt;p>The elements of an accordion are paragraph systems of (normally simpler) element types.&lt;/p>"/>
+                                <text
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/text"
+                                        text="This first item is configured as the initial open item in this accordion."/>
+                            </item>
+                            <item_1446513849
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/accordion/item"
+                                    title="The 2nd Item">
+                                <image
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/image"
+                                        imageRef="/content/ist/composum/assets/adaptto/slide-platform-filter.png"
+                                        title="The 2nd Item"/>
+                            </item_1446513849>
+                        </accordion>
+                        <accordion_800373696
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/accordion"
+                                behavior="tabbed">
+                            <item
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/accordion/item"
+                                    initialOpen="{Boolean}true"
+                                    title="Tab 01">
+                                <text
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/text"
+                                        text="The 'tabbed' variation of an accordion... - tab #1"/>
+                            </item>
+                            <item_1344565218
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/accordion/item"
+                                    title="Tab 02">
+                                <text
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/text"
+                                        text="&lt;p>The 'tabbed' variation of an accordion... - tab #2&lt;/p>"/>
+                            </item_1344565218>
+                            <item_650515992
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/accordion/item"
+                                    title="Tab 03">
+                                <text
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/element/text"
+                                        text="&lt;p>The 'tabbed' variation of an accordion... - tab #3&lt;/p>"/>
+                            </item_650515992>
+                        </accordion_800373696>
+                    </section>
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Carousel">
+                        <carousel
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/carousel"/>
+                    </section2>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Illustration">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>An illustration component combines an image with a set of 'hotspots' which are placed inside of the image and opening a popup window on click with a text message for the marked image detail.&lt;/p>"/>
+                        <reference
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/reference"
+                                contentReference="/content/ist/composum/home/pages/jcr:content/main/row-2/column-0/section/illustration-01"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The annotations - the 'items' of an illustration - can be added as separate elements inside of the illustration component. An item is placed using a percentage position property. The items can be numbered or illustrated by a symbol.&lt;/p>"/>
+                    </section2>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="List">
+                        <list
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/list"/>
+                    </section>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Table">
+                        <section1
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                icon="exclamation-triangle"
+                                level="warning">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="&lt;p>Tables are useful in desktop views but not really responsive.&lt;/p>"/>
+                        </section1>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>A table component to create an HTML table element as a collection of rows with inserted cells. The rows are edited (inserted / moved / deleted) as the elements of the table itself. The cells are the elements of the rows an must be inserted also.&lt;/p>"/>
+                        <table
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table"
+                                bordered="{Boolean}true"
+                                hover="{Boolean}true"
+                                striped="{Boolean}true">
+                            <row
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row"
+                                    head="{Boolean}true">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        head="{Boolean}true"
+                                        level="info"
+                                        text="a table head row with title cells"/>
+                                <cell_1671219474
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        head="{Boolean}true"
+                                        text="the head od column 2"/>
+                            </row>
+                            <row_395409944
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="a table data cell in column 1"/>
+                                <cell_987356121
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="another cell in column 2"/>
+                            </row_395409944>
+                            <row_1340710081
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        colspan="{Long}2"
+                                        level="success"
+                                        text="a two columns cell"/>
+                            </row_1340710081>
+                            <row_2139128022
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        level="info"
+                                        rowspan="{Long}3"
+                                        text="a three rows cell"/>
+                                <cell_958582752
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="a table cell conatins rich text like a 'text' compnent"/>
+                            </row_2139128022>
+                            <row_1295572983
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="but such a simple table can't containe more complex elements"/>
+                            </row_1295572983>
+                            <row_2047821810
+                                    jcr:primaryType="cpp:Container"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <cell
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="there are some decoration options for a table"/>
+                            </row_2047821810>
+                        </table>
+                    </section1>
+                </column-1>
+            </row_739622241>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Composed"/>
+    </jcr:content>
+</jcr:root>

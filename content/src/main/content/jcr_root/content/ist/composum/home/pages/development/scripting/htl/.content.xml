@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="A discussion how to use Adobe HTL (formerly Sightly) together with Composum, especially it's flavor of Models and its JSP Tag libraries."
+            jcr:title="Composum and HTL"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="Usage of HTL within the Composum Framework"
+                    title="Composum and HTL">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_817711143
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="General details">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_173461469
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Status: proof of concept"
+                            icon="exclamation"
+                            level="warning">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>This is an exploration how to use HTL / Sightly within the Composum framework, and thus not guaranteed to be stable. It is available at github with&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl&quot;>cpm-platform-htl&lt;/a> .&lt;/p>"/>
+                    </section_173461469>
+                    <section_1532716657
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="What is HTL?">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The &lt;a href=&quot;https://github.com/Adobe-Marketing-Cloud/htl-spec&quot;>HTML Template Language HTL&lt;/a> (formerly called Sightly) is a modern replacement for JSP that provides the dynamic behaviour by using HTML5 like data attributes and using HTML elements as block statements, and provides enhanced security against XSS by tightly integrating with HTML syntax and automatically escaping data properly.&lt;/p>"/>
+                    </section_1532716657>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_404138866
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Scope">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>This is an initial approach to integrate the &lt;a href=&quot;https://docs.adobe.com/content/help/en/experience-manager-htl/using/htl/expression-language.html&quot;>Adobe HTL Expression Language&lt;/a> (formerly called Sightly) with the Composum Pages framework.&lt;/p>&lt;p>Unfortunately HTL is quite limited in it's expressiveness, and does not (yet?) support an equivalent of JSP tag libraries. Since the &lt;a href=&quot;/content/ist/composum/home/pages/development/taglibs&quot;>Composum Tag libraries&lt;/a> are an important part of the Pages framework, this is a bit limited, and thus not recommended for production usage. There is a somewhat limited adapter that allows using the Composum tags within HTL, which uses one HTL template for the tag start and one for the tag end. Obviously this cannot hide or change the content of the tag, as it is possible in JSP, and it is more verbose.&lt;/p>&lt;p>This project provides the UseProviders that enable the creation of &lt;a href=&quot;/content/ist/composum/home/pages/development/models&quot;>Composum models&lt;/a> within HTL, and the discussed Tag adapter. As an example, the test artefact defines a search component completely with HTL.&lt;/p>&lt;p>More details please find here.&lt;/p>"/>
+                    </section_404138866>
+                </column-1>
+            </row_817711143>
+            <row_1167917073
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Usage">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_2099523239
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Integration with Composum Models">
+                        <text_65622
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The&amp;nbsp;&lt;code>ComposumModelUseProvider&lt;/code>&amp;nbsp;extends the &lt;a href=&quot;https://docs.adobe.com/docs/en/htl/docs/use-api/java.html&quot;>HTL Java Use-Api&lt;/a> such that an object can be created not only from the request and the rendered resource, but also if it can be created from the&amp;nbsp;&lt;code>BeanContext&lt;/code>&amp;nbsp;with&amp;nbsp;&lt;code>BeanContext.adaptTo&lt;/code>, which supports the creation of both&amp;nbsp;&lt;code>SlingBean&lt;/code>s and Pages&amp;nbsp;&lt;code>Model&lt;/code>s with or without Sling-Models. Thus, to create a &lt;a href=&quot;/content/ist/composum/home/pages/development/models&quot;>Composum Model&lt;/a> is as easy as e.g."/>
+                        <column_65649
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="// no parameters&#xa;&lt;sly data-sly-use.someobject=&quot;foo.bar.SomeClass&quot;>&#xa;// with parameters&#xa;&lt;sly data-sly-use.someobject=&quot;${'foo.bar.SomeClass' @ parameter=resource}&quot;>"/>
+                    </section_2099523239>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="The emulated page context">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>To enable communication between templates we implement a kind of pagecontext for HTL by putting a map into a request attribute. There are separate maps for each script name (that is, the resource of the script) plus the rendered resource path. The emulated page context can be accessed from the Composum tags, or via the AttributesUseProvider (see below).&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_865144643
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Replacement for Composum Tag libraries">
+                        <text_65662
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Since HTL there is &lt;a href=&quot;http://blogs.adobe.com/experiencedelivers/experience-management/htl-intro-part-5/&quot;>no direct counterpart for JSP tag libraries&lt;/a>, we created a partial emulation of the &lt;a href=&quot;/content/ist/composum/home/pages/development/taglibs&quot;>composum tag libraries&lt;/a> as HTL templates. Unfortunately the&lt;a href=&quot;https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md#22102-call&quot;>&amp;nbsp;data-sly-call&amp;nbsp;&lt;/a>to a template cannot access the elements content where the call is placed at. Thus, the usual JSP mechanisms for wrapping some content into a custom tag that modifies it and possibly adds variables valid in that context cannot be easily be carried over.&lt;/p>"/>
+                        <text_65674
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="As a workaround the tags that expect content have to be split into templates, one for the start and one for the end of the tag. For instance the cpp:element Tag can be used as follows:"/>
+                        <column_65689
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;sly data-sly-call=&quot;${cpp.startElement @ var='field', type='com.composum.pages.components.model.search.SearchField'}&quot;/>&#xa;... content that would be within a cpp:element tag in JSP ...&#xa;&lt;sly data-sly-call=&quot;${cpp.endElement}&quot;/>"/>
+                        <text_65692
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>If needed, the defined variable&amp;nbsp;&lt;code>field&lt;/code>&amp;nbsp;(which is set in an emulated page context, to be comparable to the JSP mechanisms) from the HTL, it can be read as follows (see 'Further extensions' below):&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;sly data-sly-use.field=&quot;${'com.composum.pages.components.model.search.SearchField' @ fromScope='page', key='field'}&quot;/>"
+                                language="html"/>
+                    </section_865144643>
+                </column-1>
+            </row_1167917073>
+            <row_2089842651
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_621184780
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Access request / session / page context attributes">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The AttributesUseProvider allows reading request- or session-attributes or the EmulatedPageContext with a data-sly-use statement such that the IDE knows the specific class and can provide code-completion etc. This use provider is activated whenever the &lt;code>fromScope&lt;/code>&amp;nbsp;parameter is present. Usage example (reads the search result from a request attribute searchresult):&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;sly data-sly-use.searchresult=&quot;${'com.composum.pages.commons.service.search.SearchService.Result' @ fromScope='request', key='searchresult'}&quot;/>"
+                                language="html"/>
+                        <text_1284666153
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Possible scopes (case insensitive) are&amp;nbsp;&lt;code>bindings&lt;/code>&amp;nbsp;for the script bindings,&amp;nbsp;&lt;code>page&lt;/code>&amp;nbsp;for the emulated page context, and&amp;nbsp;&lt;code>request&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>session&lt;/code>.&lt;/p>&lt;p>It is also possible to explicitly pass an explicit value with parameter&amp;nbsp;&lt;code>value&lt;/code>&amp;nbsp;to effect a IDE-visible typecast. (The given value is not changed).&lt;/p>"/>
+                    </section_621184780>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_205601868
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Setting request / session / page context attributes">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The&amp;nbsp;&lt;code>AttributeHelper&lt;/code>&amp;nbsp;allows setting and reading request-/session-attributes, request parameters, script bindings or a simulated pageContext (EmulatedPageContext) since there is no standard HTL way to read, much less set, those. If there should be something written, the parameter scope should be one of&amp;nbsp;&lt;code>bindings&lt;/code>,&amp;nbsp;&lt;code>page&lt;/code>,&amp;nbsp;&lt;code>request&lt;/code>,&amp;nbsp;&lt;code>session&lt;/code>&amp;nbsp;(page being the emulated page context), and there can be a key and value parameter to set one value, or an arbitrary number key1, key2, key3 ... and corresponding value1, value2, value3, ... parameters to set the values in that scope. Example:&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;sly data-sly-use.attrs=&quot;${'com.composum.platform.htl.AttributeHelper' @ scope='page', key='themodel', value=model}&quot;>&lt;/sly> &#xa;&lt;sly data-sly-use.attrs=&quot;${'com.composum.platform.htl.AttributeHelper @ scope='page', key1='something', value1=foo&quot;, key2='else', value2=bar}&quot;>&lt;/sly>"
+                                language="html"/>
+                        <text_19266117
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>It also allows reading request and session attributes and the emulated page context by providing maps&amp;nbsp;&lt;code>requestAttributes&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>sessionAttributes&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>pageContext&lt;/code>:&lt;/p>"/>
+                        <codeblock_449151382
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;sly data-sly-use.attrs=&quot;com.composum.platform.htl.AttributeHelper&quot;>${attrs.requestAttributes['sling.core.current.servletName']}&lt;/sly>"
+                                language="html"/>
+                    </section_205601868>
+                </column-1>
+            </row_2089842651>
+            <row_1251351611
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Examples and Tips">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="A search component as an example">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>As an example for the use of HTL we reimplemented the &lt;a href=&quot;https://github.com/ist-dresden/composum-pages/tree/develop/components/package/src/main/content/jcr_root/libs/composum/pages/components/search&quot;>search component&lt;/a> in a &lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/tree/develop/test/src/main/content/jcr_root/apps/test/composum/platform/htl/components/search&quot;>sma&lt;/a>&lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/tree/develop/test/src/main/content/jcr_root/apps/composum/prototype/platform/htl/components/search&quot;>&lt;/a>ll test site&lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/tree/develop/test/src/main/content/jcr_root&quot;>&lt;/a> within cpm-platform-htl, so it's easy to compare the JSP to the HTL approach.&lt;/p>&lt;p>The component is located at &lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/tree/develop/test/src/main/content/jcr_root/apps/composum/prototype/platform/htl/components/search&quot;>/apps/composum/prototype/platform/htl/components/search&lt;/a> and contains two subcomponents.&lt;/p>&lt;ul>&lt;li>the field component demonstrates the use of the HTL emulation of the composum tags startElement and startForm within the HTL file.&lt;/li>&lt;li>the result component has an alternative approach: it puts the composum tags in their normal form into a JSP wrapper result.jsp (see below) which then includes a pure HTL script result.htl.html that does the HTML markup. This works well when the composum tags can easily be wrapped around the markup, as with the cpp:element tag here, and combines the clarity and IDE-support of JSP tags with the possibility to do the rendering code mainly in HTL. The attributes generated by the cpp:element tag are transported as request attributes and are retrieved in the HTL with data-sly-use statements with fromScope=&quot;request&quot; as discussed above.&lt;br>&lt;/li>&lt;/ul>"/>
+                        <text_504251584
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="It is also possible to implement dialogs and other parts of the component which are heavily laden with Composum tags in HTL, too. That does, however, not seem very advisable, since that reduces readability - please compare&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/composum-pages/blob/develop/components/package/src/main/content/jcr_root/libs/composum/pages/components/search/result/edit/dialog/dialog.jsp&quot;>dialog.jsp&lt;/a>&amp;nbsp;with the &lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/blob/develop/bundle/src/test/java/com/composum/platform/htl/HTLifyJsp.java&quot;>HTLized&lt;/a> equivalent&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl/blob/develop/test/src/main/content/jcr_root/apps/composum/prototype/platform/htl/components/search/result/edit/dialog/dialog.html&quot;>dialog.html&lt;/a>."/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_229026474
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Tips">
+                        <text_65698
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Some of the less obvious things:"
+                                textAlignment="text"/>
+                        <text_65700
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If you use of the &lt;a href=&quot;https://sling.apache.org/documentation/bundles/models.html#injector-specific-annotations&quot;>injector-specific annotations&lt;/a>, adding @Inject is unneccesary. These annotations can be recognized by carrying the @InjectAnnotation annotation."/>
+                    </section_229026474>
+                    <section_2047911660
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Limitations">
+                        <text_65768
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    The JSP Expression language cannot be used in the Composum Tags when these are used in HTL.&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                                textAlignment="left"/>
+                    </section_2047911660>
+                    <section_814906965
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Links">
+                        <text_65712
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="                &lt;ul> &#xa;                 &#xa;                    &lt;li> &#xa;                    &lt;a href=&quot;https://docs.adobe.com/docs/en/htl/overview.html&quot;>https://docs.adobe.com/docs/en/htl/overview.html&lt;/a> &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    &lt;a href=&quot;https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md&quot;>HTL Specification&lt;/a>&lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    &lt;a href=&quot;http://blogs.adobe.com/experiencedelivers/experience-management/htl-intro-part-1/&quot;>http://blogs.adobe.com/experiencedelivers/experience-management/htl-intro-part-1/&lt;/a>, incl. some FAQ &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li>&lt;a href=&quot;https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>Sling: HTL Scripting Engine&lt;/a>&lt;/li>&lt;li> &#xa;                    HTL Repl &lt;a href=&quot;http://localhost:9090/htl/repl.html&quot;>http://localhost:9090/htl/repl.html&lt;/a> &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    Slides about &lt;a href=&quot;https://de.slideshare.net/GabrielWalt/component-development&quot;>AEM Sightly Template Language&lt;/a> &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    &lt;a href=&quot;https://sling.apache.org/project-information.html&quot;>https://sling.apache.org/project-information.html&lt;/a> &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    Stackoverflow: &lt;a href=&quot;https://stackoverflow.com/questions/tagged/sling-models&quot;>Tag sling-models&lt;/a>, &lt;a href=&quot;https://stackoverflow.com/questions/tagged/sling&quot;>Tag sling&lt;/a> &#xa;                    &lt;/li> &#xa;                 &#xa;                &lt;/ul> &#xa;            "/>
+                    </section_814906965>
+                </column-1>
+            </row_1251351611>
+            <row_2091474395
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/apps/composum/prototype/platform/htl/components/search/field/field.html"
+                            collapsed="small"
+                            collapsible="{Boolean}true"
+                            language="html"
+                            title="field.html for the field component"
+                            wrapLines="{Boolean}true"/>
+                    <codeblock_848408205
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/apps/composum/prototype/platform/htl/components/search/result/result.jsp"
+                            collapsed="small"
+                            collapsible="{Boolean}true"
+                            language="html"
+                            title="result.jsp wrapper in the result component"
+                            wrapLines="{Boolean}true"/>
+                    <codeblock_402494649
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/apps/composum/prototype/platform/htl/components/search/result/result.htl.html"
+                            collapsed="small"
+                            collapsible="{Boolean}true"
+                            language="html"
+                            title="result.htl.html for the result component"
+                            wrapLines="{Boolean}true"/>
+                </column-0>
+            </row_2091474395>
+            <row_228673398
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Implementation concerns">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_823022734
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Limitations of HTL">
+                        <text_65798
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="When trying to carry over the concept of tag libraries to HTL, there are the following limitations that hurt the possibilities:"
+                                textAlignment="text"/>
+                        <text_65800
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="                &lt;ul>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    A &lt;a href=&quot;https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md#22102-call&quot;>data-sly-call &lt;/a>on an element throws away the content of the element. Thus, it is not possible to modify, conditionally throw away, or repeat the content of the element, or easily surround some content with a computed number of elements. Partial solution: split up the tags with content into a start and an end template. Problem: functionality that concerns the content of a tag cannot be implemented, and no variables for the content of the tag can be set. (Possible extension of HTL: the content of the data-sly-call element could be delivered to the template e.g. as a &lt;a href=&quot;https://sling.apache.org/apidocs/sling9/org/apache/sling/scripting/sightly/java/compiler/RenderUnit.html&quot;>RenderUnit&lt;/a> as a binding variable, which could be rendered once or several times via a new mechanism.)  &#xa;                    &lt;/li>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    There seems no way to define something like functions as in a tag library. (Idea: Use-Provider that calls a static function and delivers the result? (no IDE support.) Special class for each taglib function with constructor parameters corresponding to the arguments of the taglib function?)  &#xa;                    &lt;/li>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    In a template the parameters cannot be documented. Thus, it is not possible to see documentation within the IDE.  &#xa;                    &lt;/li>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    It is not possible to modify the global variables from a template. Thus, it its not possible to emulate a tag like &lt;a href=&quot;/content/ist/composum/home/pages/development/taglibs/cpp-rendering&quot;>cpp:defineObjects&lt;/a> that defines several objects at once - the closest you can do is to create a model class that has several attributes with the objects to define. (Mostly OK; perhaps HTL could be extended that a template could also define some models, not only templates.).  &#xa;                    &lt;/li>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    &lt;a href=&quot;https://github.com/Adobe-Marketing-Cloud/htl-spec/blob/master/SPECIFICATION.md#2210-template--call&quot;>data-sly-use&lt;/a> for template libraries etc. does not use the resource search path (/apps, /libs, ...)  &#xa;                    &lt;/li>  &#xa;                  &#xa;                    &lt;li>  &#xa;                    To output an attribute of type URI one needs to insert .toString - URI are silently swallowed.  &#xa;                    &lt;/li>  &#xa;                  &#xa;                &lt;/ul>  &#xa;            "/>
+                    </section_823022734>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Extension points of HTL">
+                        <text_65775
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="                &lt;ul> &#xa;                 &#xa;                    &lt;li>&lt;code>org.apache.sling.scripting.sightly.use.UseProvider&lt;/code>&amp;nbsp;provides ways to instantiate the objects for data-sly-use blocks; the&amp;nbsp;&lt;code>ComposumModelUseProvider&lt;/code>&amp;nbsp;is a&amp;nbsp;&lt;code>UseProvider&lt;/code>&amp;nbsp;that instantiates Sling-Models also from a&amp;nbsp;&lt;code>BeanContext&lt;/code>. &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li>&lt;code>org.apache.sling.scripting.sightly.extension.RuntimeExtension&lt;/code>&amp;nbsp;: handler for various built in functions, see&amp;nbsp;&lt;code>RuntimeFunction&lt;/code>. Could e.g. be used to extend i18n to the Composum Pages way, or extend uriManipulation or includeResource with additional arguments or functionality. &#xa;                    &lt;/li> &#xa;                 &#xa;                &lt;/ul> &#xa;            "/>
+                    </section>
+                    <section_1943395182
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Misc. findings">
+                        <text_65782
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Defining a global with use within a template doesn't work - that's only local to the template. Thus, a template cannot declare global variables. (Idea: special composum variables as one model composum).Statements in a template library are not executed when loading - HTL just takes the templates out of there.Unknown variables are taken from the bindings, but are initialized before everything else, so we can't define additional globals.The bindings passed on by the Java Use-Api are freshly generated - if it's neccesary to keep something permanently, one needs to put it into the request attributes."
+                                textAlignment="text"/>
+                    </section_1943395182>
+                    <section_1787948158
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Open points / possible extensions">
+                        <text_65838
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    Model that extends ResourceHandle and can provide e.g. inheritedValues (while setting the inheritancetype). Partial solution:Â &lt;sly data-sly-use.resourceHandle=&quot;com.composum.sling.core.ResourceHandle&quot; />&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    EL Function equivalents&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    Model that provides the defineObjects functionality&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                                textAlignment="left"/>
+                    </section_1787948158>
+                </column-1>
+            </row_228673398>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+            </row>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="HTL"/>
+    </jcr:content>
+</jcr:root>

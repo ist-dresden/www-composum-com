@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="For remote replication we need servlets that are used to communicate with the remote servers. This page gives details on these and on the implementation."
+            jcr:title="Servlets used in remote replication, Implementation details"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Remote replication implementation details">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <servlet_533212630
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:description="This servlet allows querying the state of the replication processes for a release root."
+                    jcr:title="Composum Platform Staging Servlet"
+                    className="com.composum.sling.platform.staging.impl.PlatformStagingServlet"
+                    path="/bin/cpm/platform/staging"
+                    suffix="Path to release root">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Retrieves the states of the ReleaseChangeProcess(es) for a release root.&amp;nbsp;"
+                            jcr:title="Replication State"
+                            extension="json"
+                            method="[GET]"
+                            selector="replicationState">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="In this example there are two remote replications configured at the paths given as id. The second one is enabled and was recently run (this data is not persistent). All timestamps are Unix timestamps in milliseconds."
+                                    exampleCode="http://localhost:9090/bin/cpm/platform/staging.replicationState.json/content/composum/prototype/assets/pagesintegration"
+                                    exampleResult="\{&#xd;&#xa;  &quot;status&quot;: 200,&#xd;&#xa;  &quot;success&quot;: true,&#xd;&#xa;  &quot;warning&quot;: false,&#xd;&#xa;  &quot;data&quot;: {&#xd;&#xa;    &quot;replicationStates&quot;: {&#xd;&#xa;      &quot;/conf/content/composum/prototype/assets/pagesintegration/replication/launch2fullsite&quot;: {&#xd;&#xa;        &quot;id&quot;: &quot;/conf/content/composum/prototype/assets/pagesintegration/rep  lication/launch2fullsite&quot;,&#xd;&#xa;        &quot;name&quot;: &quot;2nd local server&quot;,&#xd;&#xa;        &quot;description&quot;: &quot;Replication to a second local server at port 9100.&quot;,&#xd;&#xa;        &quot;state&quot;: &quot;idle&quot;,&#xd;&#xa;        &quot;messages&quot;: [],&#xd;&#xa;        &quot;enabled&quot;: false&#xd;&#xa;      },&#xd;&#xa;      &quot;/conf/content/composum/prototype/assets/pagesintegration/replication/localfullsite&quot;: {&#xd;&#xa;        &quot;id&quot;: &quot;/conf/content/composum/prototype/assets/pagesintegration/replication/localfullsite&quot;,&#xd;&#xa;        &quot;name&quot;: &quot;same server&quot;,&#xd;&#xa;        &quot;description&quot;: &quot;For debugging - replication to the testserver itself at 9090 with a debugging root.&quot;,&#xd;&#xa;        &quot;state&quot;: &quot;success&quot;,&#xd;&#xa;        &quot;startedAt&quot;: 1579260024881,&#xd;&#xa;        &quot;finishedAt&quot;: 1579260025129,&#xd;&#xa;        &quot;messages&quot;: [&#xd;&#xa;          {&#xd;&#xa;            &quot;level&quot;: &quot;info&quot;,&#xd;&#xa;            &quot;text&quot;: &quot;Replication done for upd-CtAWlOiwBtjS&quot;,&#xd;&#xa;            &quot;timestamp&quot;: 1579260025129&#xd;&#xa;          }&#xd;&#xa;        ],&#xd;&#xa;        &quot;isSynchronized&quot;: true,&#xd;&#xa;        &quot;enabled&quot;: true,&#xd;&#xa;        &quot;lastReplicationTimestamp&quot;: 1579260025089&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  }&#xd;&#xa;}"/>
+                        </examples>
+                    </selector>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Retrieves a short view of the states of the ReleaseChangeProcess(es) of a release root, that summarizes whether there are any running operations and whether there are any errors."
+                            jcr:title="Aggregated Replication State"
+                            extension="json"
+                            method="[GET]"
+                            selector="aggregatedReplicationState">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&quot;everythingIsSynchronized&quot; means all remote repositories are at the same release change number. There are currently no replications running, and none of the replication processes show errors."
+                                    exampleCode="http://localhost:9090/bin/cpm/platform/staging.aggregatedReplicationState.json/content/composum/prototype/assets/pagesintegration"
+                                    exampleResult="\{&#xd;&#xa;  &quot;status&quot;: 200,&#xd;&#xa;  &quot;success&quot;: true,&#xd;&#xa;  &quot;warning&quot;: false,&#xd;&#xa;  &quot;data&quot;: {&#xd;&#xa;    &quot;aggregatedReplicationState&quot;: {&#xd;&#xa;      &quot;result&quot;: {&#xd;&#xa;        &quot;everythingIsSynchronized&quot;: true,&#xd;&#xa;        &quot;replicationsAreRunning&quot;: false,&#xd;&#xa;        &quot;haveErrors&quot;: false,&#xd;&#xa;        &quot;numberEnabledProcesses&quot;: 1&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  }&#xd;&#xa;}"/>
+                        </examples>
+                    </selector>
+                    <selector_1137844687
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="&lt;p>Verifies whether the content of a remotely published site corresponds to the content of the release published there. The suffix is either a release root, in which case the whole release content is compared, or a path of a subtree within a release root.&lt;/p>&lt;p>It returns whether the release roots differ, and the number of new / updated / removed versionables, parent nodes and children orderings. Details are normally omitted - only given if the parameter &quot;details&quot; is true.&lt;/p>"
+                            jcr:title="Compare remote content"
+                            extension="json"
+                            method="[POST]"
+                            selector="compareTree">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="If given, we do the compare operation only for the release change process with the given id. Can be given multiple times."
+                                    jcr:title="processId"/>
+                            <parameter_260825136
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="Numeric detail level. If 0, only difference counts are returned. If 1, the paths for the different nodes are returned, too. Normally these are not returned since there might be a large number of differences."
+                                    jcr:title="details"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>Compares the content of the replicated release from /content/composum/prototype/assets/pagesintegration to the remote content. As requested with parameter details, the response gives full details, including the different paths.&lt;/p>&lt;p>The node below compareTree is named as the ID of the replication configuration - if there are several, there can be several results.&lt;/p>"
+                                    exampleCode="http://localhost:9090/bin/cpm/platform/staging.compareContent.json/content/composum/prototype/assets/pagesintegration?details=true"
+                                    exampleResult="\{&#xd;&#xa;  &quot;status&quot;: 200,&#xd;&#xa;  &quot;success&quot;: true,&#xd;&#xa;  &quot;warning&quot;: false,&#xd;&#xa;  &quot;data&quot;: {&#xd;&#xa;    &quot;compareTree&quot;: {&#xd;&#xa;      &quot;/conf/content/composum/prototype/assets/pagesintegration/replication/localfullsite&quot;: {&#xd;&#xa;        &quot;equal&quot;: false,&#xd;&#xa;        &quot;releaseChangeNumbersEqual&quot;: false,&#xd;&#xa;        &quot;differentVersionablesCount&quot;: 3,&#xd;&#xa;        &quot;changedParentNodeCount&quot;: 3,&#xd;&#xa;        &quot;changedChildrenOrderCount&quot;: 1,&#xd;&#xa;        &quot;differentVersionables&quot;: [&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home/jcr:content&quot;,&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home/noassets/jcr:content&quot;,&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home/test/jcr:content&quot;&#xd;&#xa;        ],&#xd;&#xa;        &quot;changedParentNodes&quot;: [&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home&quot;,&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home/noassets&quot;,&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/meta/search&quot;&#xd;&#xa;        ],&#xd;&#xa;        &quot;changedChildrenOrders&quot;: [&#xd;&#xa;          &quot;/content/composum/prototype/assets/pagesintegration/home&quot;&#xd;&#xa;        ]&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  }&#xd;&#xa;}"/>
+                        </examples>
+                    </selector_1137844687>
+                </column-1>
+            </servlet_533212630>
+            <servlet
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:description="This servlet is active on the publisher host and is called from the author host to check the state of the content there and to transmit changed content."
+                    jcr:title="Remote replication receiver servlet"
+                    className="com.composum.sling.platform.staging.remote.RemotePublicationReceiverServlet"
+                    path="/bin/cpm/platform/replication/publishreceiver"
+                    suffix="a path into a site or a path to the site's top directory">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="The servlet returns a JSON describing the versionables within the path within a site (or the path of the whole site) given as suffix."
+                            jcr:title="Get the content state"
+                            extension="json"
+                            method="[GET]"
+                            selector="contentstate">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>Retrieves the versions of the versionables in the release as it is replicated at /content/composum/prototype/assets/pagesintegration/home .&lt;/p>"
+                                    exampleCode="http://localhost:9100/bin/cpm/platform/replication/publishreceiver.contentstate.json?&#xd;&#xa;path=/content/composum/prototype/assets/pagesintegration/home"
+                                    exampleResult="\{&#xd;&#xa;  &quot;versionables&quot;: [&#xd;&#xa;    {&#xd;&#xa;      &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration/home/test/jcr:content&quot;,&#xd;&#xa;      &quot;version&quot;: &quot;1f18eb90-f3ba-47c2-8307-f4ce93b1beb9&quot;&#xd;&#xa;    },&#xd;&#xa;    {&#xd;&#xa;      &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration/home/noassets/jcr:content&quot;,&#xd;&#xa;      &quot;version&quot;: &quot;08146707-1bbf-45f8-ab61-7b04e58edb6f&quot;&#xd;&#xa;    }&#xd;&#xa;  ],&#xd;&#xa;  &quot;status&quot;: 200, &quot;success&quot;: true, &quot;warning&quot;: false&#xd;&#xa;}"/>
+                        </examples>
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The path(s) for which we return information about the present versionables."
+                                    jcr:title="path"
+                                    required="{Boolean}true"/>
+                        </parameters>
+                    </selector>
+                    <selector1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Creates a temporary directory to upload the content to and returns it's identifier. Returns the ID of the created directory, and the current value of the replication counter to doublecheck for concurrent modifications."
+                            jcr:title="Start a content update"
+                            extension="json"
+                            method="[POST]"
+                            selector="startupdate">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The root of the release containing the path."
+                                    jcr:title="releaseRoot"
+                                    required="{Boolean}true"/>
+                            <parameter_802914820
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="&lt;p>Optionally, the path of the content that is actually replicated - can be releaseRoot or a subpath. Default: releasRoot.&lt;/p>"
+                                    jcr:title="srcPath"/>
+                            <parameter_282986393
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="&lt;p>Optionally, the path where the content below srcPath is placed - if different than srcPath this will imply reference transformation. Default: releaseRoot&lt;/p>"
+                                    jcr:title="targetPath"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>A new temporary directory with the id upd-vicgwNl6NbG6 was created. The release change number and the timestamp of the last replication (Unix timestamp in milliseconds) of the synchronized content are also included.&lt;/p>"
+                                    exampleCode="http://localhost:9100/bin/cpm/platform/replication/publishreceiver.startupdate.json/content/composum/prototype/assets/pagesintegration/home"
+                                    exampleResult="\{&#xd;&#xa;  &quot;updateInfo&quot;: {&#xd;&#xa;    &quot;updateId&quot;: &quot;upd-vicgwNl6NbG6&quot;,&#xd;&#xa;    &quot;originalPublisherReleaseChangeId&quot;: &quot;chg9000483602364128923&quot;,&#xd;&#xa;    &quot;lastReplication&quot;: 1579260025089&#xd;&#xa;  },&#xd;&#xa;  &quot;status&quot;: 200, &quot;success&quot;: true,  &quot;warning&quot;: false&#xd;&#xa;}"/>
+                        </examples>
+                    </selector1>
+                    <selector_1468670854
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Receives information about the versionables present on the author server and compares the current content with it, returning differences. The suffix is a directory within the release root."
+                            jcr:title="Compare remote content"
+                            extension="json"
+                            method="[PUT]"
+                            selector="comparecontent">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="&lt;p>The update id returned by the startupdate operation.&lt;br>&lt;/p>"
+                                    jcr:title="updateid"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="Returned are the paths that are different - either because they are not present correspond to a different version."
+                                    exampleCode="http://localhost:9090/bin/cpm/platform/replication/publishreceiver.comparecontent.json/content/composum/prototype/assets/pagesintegration/home&#xd;&#xa;&#xd;&#xa;[&#xd;&#xa;  {&#xd;&#xa;    &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration/home/test/jcr:content&quot;,&#xd;&#xa;    &quot;version&quot;: &quot;1f18eb90-f3ba-47c2-8307-f4ce93b1beb9&quot;&#xd;&#xa;  },&#xd;&#xa;  {&#xd;&#xa;    &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration/home/noassets/jcr:content&quot;,&#xd;&#xa;    &quot;version&quot;: &quot;08146707-1bbf-45f8-ab61-7b04e58edb6f&quot;&#xd;&#xa;  }&#xd;&#xa;]"
+                                    exampleResult="\{&#xd;&#xa;  &quot;status&quot;: 200,  &quot;success&quot;: true,  &quot;warning&quot;: false,&#xd;&#xa;  &quot;data&quot;: {&#xd;&#xa;    &quot;data&quot;: {&#xd;&#xa;      &quot;path&quot;: [&#xd;&#xa;        &quot;/content/composum/prototype/assets/pagesintegration/home/jcr:content&quot;&#xd;&#xa;      ]&#xd;&#xa;    }&#xd;&#xa;  }&#xd;&#xa;}"/>
+                        </examples>
+                    </selector_1468670854>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector_1018641685
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Uploads a part of the content that is to be updated as a content package. The suffix must be the path where it is to be written."
+                            jcr:title="Uploads a package for one path"
+                            extension="json"
+                            method="[PUT]"
+                            selector="pathupload">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The update id returned by the startupdate operation."
+                                    jcr:title="updateid"
+                                    required="{Boolean}true"/>
+                            <parameter_1281028862
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The request contains a content package containing the data from the path."
+                                    jcr:title="(request)"
+                                    required="{Boolean}true"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>Unpacks the package with one versionable which transmitted in the request input stream to the temporary directory identified by the updateId. The suffix is the path to the versionable.&lt;/p>"
+                                    exampleCode="http://localhost:9090/bin/cpm/platform/replication/publishreceiver.pathupload.zip/content/composum/prototype/assets/pagesintegration/home/jcr:content?&#xd;&#xa;updateId=upd-MhGbZhJtuWGv"
+                                    exampleResult="\{&quot;status&quot;:200,&quot;success&quot;:true,&quot;warning&quot;:false}"/>
+                        </examples>
+                    </selector_1018641685>
+                    <selector_204348044
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="&lt;p>Finishes the update of content: the content that was unpacked into the temporary directory is now moved to the real content directory, and the paths marked for deletion are deleted.&lt;/p>&lt;br>&lt;p>The content of the request is a JSON that contains a list of sibling orderings for various nodes in the tree which should be checked and corrected if necessary.&lt;/p>"
+                            jcr:title="Finishes and commits the content update"
+                            extension="json"
+                            method="[POST]"
+                            selector="commitupdate">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The update id created in the startreplacement operation."
+                                    jcr:title="updateid"
+                                    required="{Boolean}true"/>
+                            <parameter_1305196799
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="A path that is to be deleted from the content. Can occur multiple times."
+                                    jcr:title="deletedpath"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="The deletedpath(s) are deleted, the uploaded versionables are moved from the temporary directory into the release root and the child orderings are changed to the given child orderings: for each path with orderable children the childNames in their JCR order are transmitted."
+                                    exampleCode="http://localhost:9100/bin/cpm/platform/replication/publishreceiver.commitupdate.json&#xd;&#xa;&#xd;&#xa;{&#xd;&#xa;  &quot;updateId&quot;: &quot;upd-MhGbZhJtuWGv&quot;,&#xd;&#xa;  &quot;releaseChangeNumber&quot;: &quot;chg8900357471976124478&quot;,&#xd;&#xa;  &quot;deletedpath&quot;: [&#xd;&#xa;    &quot;/content/composum/prototype/assets/pagesintegration/home/jcr:content&quot;&#xd;&#xa;  ],&#xd;&#xa;  &quot;childOrderings&quot;: [&#xd;&#xa;    {&#xd;&#xa;      &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration&quot;,&#xd;&#xa;      &quot;childNames&quot;: [&#xd;&#xa;        &quot;releasedassets&quot;,&#xd;&#xa;        &quot;jcr:content&quot;,&#xd;&#xa;        &quot;home&quot;,&#xd;&#xa;        &quot;meta&quot;&#xd;&#xa;      ]&#xd;&#xa;    },&#xd;&#xa;    {&#xd;&#xa;      &quot;path&quot;: &quot;/content/composum/prototype/assets/pagesintegration/home&quot;,&#xd;&#xa;      &quot;childNames&quot;: [&#xd;&#xa;        &quot;test&quot;,&#xd;&#xa;        &quot;noassets&quot;&#xd;&#xa;      ]&#xd;&#xa;    }&#xd;&#xa;  ]&#xd;&#xa;}"
+                                    exampleResult="\{&quot;status&quot;:200,&quot;success&quot;:true,&quot;warning&quot;:false}"/>
+                        </examples>
+                    </selector_204348044>
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="&lt;p>Aborts the update and deletes the temporary directory.&lt;/p>"
+                            jcr:title="Abort the update"
+                            extension="json"
+                            method="[POST]"
+                            selector="abortupdate">
+                        <parameters
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/parameters">
+                            <parameter
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/parameter"
+                                    jcr:description="The updateid created in the startupdate operation."
+                                    jcr:title="updateid"
+                                    required="{Boolean}true"/>
+                        </parameters>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    exampleCode="http://localhost:9100/bin/cpm/platform/replication/publishreceiver.abortupdate.json?&#xd;&#xa;updateId=upd-MhGbZhJtuWGv"
+                                    exampleResult="\{&quot;status&quot;:200,&quot;success&quot;:true,&quot;warning&quot;:false}"/>
+                        </examples>
+                    </selector>
+                    <selector_1461029449
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="&lt;p>Queries the release change number of a release and the last updated timestamp.&lt;/p>&lt;p>The suffix is the release root directory.&lt;/p>"
+                            jcr:title="Get information about release state"
+                            extension="json"
+                            method="[GET]"
+                            selector="releaseinfo">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>The example says that the path /content/composum/prototype/assets/pagesintegration contains the release with the release change number chg9000483602364128923 , which was last replicated at Unix timestamp 1579260025089 (milliseconds).&lt;/p>"
+                                    exampleCode="https://localhost:9100/bin/cpm/platform/replication/publishreceiver.releaseinfo.json/content/composum/prototype/assets/pagesintegration"
+                                    exampleResult="\{&#xd;&#xa;  &quot;updateInfo&quot;: {&#xd;&#xa;    &quot;originalPublisherReleaseChangeId&quot;: &quot;chg9000483602364128923&quot;,&#xd;&#xa;    &quot;lastReplication&quot;: 1579260025089&#xd;&#xa;  },&#xd;&#xa;  &quot;status&quot;: 200,&#xd;&#xa;  &quot;success&quot;: true,&#xd;&#xa;  &quot;warning&quot;: false&#xd;&#xa;}"/>
+                        </examples>
+                    </selector_1461029449>
+                </column-1>
+            </servlet>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Implementation"/>
+    </jcr:content>
+</jcr:root>

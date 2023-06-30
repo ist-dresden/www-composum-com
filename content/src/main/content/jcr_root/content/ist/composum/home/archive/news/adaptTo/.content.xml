@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/time/event/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - neet us at adaptTo() 2019 - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum at adaptTo() 2019"
+            date="{Date}2019-09-01T22:00:00.000Z"
+            dateEnd="{Date}2019-09-03T22:00:00.000Z"
+            link="https://adapt.to/2019/en.html"
+            linkTitle="adaptTo() 2019, Berlin"
+            subtitle="meet us at adaptTo()"
+            template="/apps/ist/composum/templates/page/event">
+        <map
+                jcr:primaryType="nt:unstructured"
+                location="KOSMOS KG, Karl-Marx-Allee 131a, 10243 Berlin"/>
+        <image
+                jcr:primaryType="cpp:Element"
+                sling:resourceType="composum/pages/components/element/image/background"
+                imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="adaptTo()"/>
+        <style
+                jcr:primaryType="nt:unstructured"
+                category.theme="composum.pages.components.dark.theme"
+                theme="ist/composum/themes/dark"/>
+        <logo
+                jcr:primaryType="nt:unstructured"
+                imageRef="/content/ist/composum/assets/adaptto/adaptTo-logo.svg"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;br>&lt;p>We are at adaptTo() 2019 in Berlin. This year with a talk about the development with the Composum Pages framework.&lt;/p>&lt;p>Composum Pages is a free basic open source CMS based on Apache Sling, and a framework to create your own extensions, based on a platform providing JCR document versioning, release management and publication and client libraries modularizing with Javascript and CSS.&lt;/p>&lt;p>Composum Pages, the Composum Plattform and the demonstrated source code is provided via GitHub and free to re-use.&lt;/p>&lt;p>This site and all content published here is built on &lt;a href=&quot;/content/ist/composum/home/cloud&quot; title=&quot;Composum Cloud&quot;>Composum Cloud&lt;/a> using the standard components.&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="https://adapt.to/2019/en/schedule.html#day-3"
+                            linkTitle="adaptTo() 2019, Day 3"
+                            subtitle="Everything is a Component - Site Development with Composum Pages"
+                            text="&lt;p>This talk demonstrates it's guiding principle 'Everything is a Component' in the development of both content components and CMS extensions as modular Sling components. It covers:&lt;/p>&lt;ul>&lt;li>A short overview of the Pages features&lt;/li>&lt;li>An implementation example for a content component (with live demo)&lt;/li>&lt;li>The development of a custom dialog widget (with live demo)&lt;/li>&lt;li>The extension of the Pages tools (with live demo)&lt;/li>&lt;li>'How it works together' - live demonstration of the components usage&lt;/li>&lt;/ul>"
+                            title="Day 3, 13:50 - 14:35">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://adapt.to/2019/en/schedule/everything-is-a-component-site-development-with-composum-pages.html"
+                                    linkTitle="adaptTo() talk outline link"
+                                    title="adaptTo() schedule - talk outline"/>
+                        </links>
+                    </teaser>
+                </column-1>
+            </row>
+            <row_397491009
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="the talk...">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/blog/customizing/about"
+                            subtitle="a short feature overview"
+                            text="&lt;p>Composum Pages is a free basic open source CMS based on Apache Sling, and a framework to create your own extensions, based on a platform providing JCR document versioning, release management and publication and client libraries modularizing Javascript and CSS.&lt;/p>"
+                            title="About Pages"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/blog/customizing/component"
+                            subtitle="create your first content component"
+                            text="Switch to the 'develop' mode of the Composum Pages editing user interface and create your first component. Combine component editing and the development of components in your preferred IDE with builds driven by Maven. Complete your component with styles and drop zones."
+                            title="A Component"/>
+                </column-1>
+            </row_397491009>
+            <row_888711568
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/blog/customizing/extension"
+                            subtitle="some examples how can i extend the editing UI"
+                            text="&lt;p>All components and the editing user interface are implemented as Sling components. You can add your own components to extend the Pages user interface. There are two examples, one new custom widget and a simple new context tool illustrated.&lt;/p>"
+                            title="Extending 'Pages'"/>
+                </column-0>
+            </row_888711568>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"
+                childInheritanceCancelled="{Boolean}true"/>
+    </jcr:content>
+</jcr:root>

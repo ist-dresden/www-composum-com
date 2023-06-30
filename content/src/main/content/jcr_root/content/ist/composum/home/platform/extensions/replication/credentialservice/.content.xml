@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="For use with proxies and communication with other servers (such as for remote replication) Composum provides a service to store and manage credentials in the JCR."
+            jcr:title="Credential service"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Credential service">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="General idea">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="General idea">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The credential service allows storing the credentials for remote systems (such as the publish servers for remote replication or proxies) such that the usernames and passwords are encrypted and access to the credentials are restricted to users that have access to a certain JCR path stored in the credentials."/>
+                        <text_1135586930
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The Credential Service allows with the method com.composum.platform.commons.credentials.CredentialService#initHttpContextCredentials to use the credentials with an HttpClient."
+                                title="Usage"/>
+                        <text_1261483865
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The passwords need to be encrypted with a master password which can be configured in the Composum Platform Credential Service. This can either be set in the configuration directly, or it is possible to configure a file which contains the password and which can be initialized with a random password.&lt;/p>&lt;p>The encryption of the&amp;nbsp;passwords&amp;nbsp;can be done with a UI (TBD), or via a servlet: e.g.:&lt;br>&lt;/p>"
+                                title="Configuration"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="echo -n thepasswordtoencode | &#xd;&#xa;    curl -X PUT -T - http://localhost:9090/bin/cpm/platform/security/credentials.encryptPassword.raw"
+                                language="shell"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Repository structure">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The credentials are stored in resources below /var/composum/platform/security/credentials . Each resource can be addressed by a credentialId that is the relative path to a resource below this node. It has the following properties:&lt;/p>&lt;ul>&lt;li>&lt;code>encryptedUser&lt;/code>&amp;nbsp;,&amp;nbsp;&lt;code>encryptedPasswd&lt;/code>&amp;nbsp;: the username and password encrypted with a master password stored in the OSGI configuration of the Composum Platform Credential Service.&lt;/li>&lt;li>&lt;code>enabled&lt;/code>&amp;nbsp;: a boolean property that allows to enable or disable this particular set of credentials&lt;/li>&lt;li>&lt;code>referencePath&lt;/code>&amp;nbsp;: an optional resource path. Access to these credentials is restricted to users that can read this path.&lt;/li>&lt;/ul>&lt;p>For testing purposes it is also possible to store usernames and passwords unencrypted form in properties&amp;nbsp;&lt;code>user&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>password&lt;/code>, but this is not recommended for production use.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+            <servlet
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:description="Servlet with methods related to credential handling."
+                    jcr:title="Composum Platform Credential Servlet"
+                    className="com.composum.platform.commons.credentials.CredentialServlet"
+                    path="/bin/cpm/platform/security/credentials">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="This method can be used to generate a encrypt a password or username to be stored for use with the credential service. It expects the password / username in the request in raw form, and returns the encrypted value in raw form. (Internally, the CryptoService is used, which encrypts as a base64 value)."
+                            jcr:title="Encode password or username"
+                            extension="raw"
+                            method="[PUT]"
+                            selector="encodePassword"/>
+                </column-0>
+            </servlet>
+            <row_615355533
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Discussion">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Planned changes:&lt;/p>&lt;p>&lt;ul>&lt;li>The credentials are grouped into vaults and are adressed into vaultId (usually the tenantid) and credentialId. There is only this level hierarchy.&lt;/li>&lt;li>The credentials of a vault are encrypted by the vault password, the vault password is encrypted by the master password. The master password can be changed from the UI only by the admin user. The vault password can be changed by someone who has write permissions on the reference path.&lt;/li>&lt;li>The code (incl. the proxyservice) is moved to platform/services/security. Access to the vault is only provided to the new service user composum-platform-security.&lt;/li>&lt;li>list method for credentials of a vault, no list for vaults.&lt;/li>&lt;li>Credentials are write only: input Map&amp;lt;String,String&amp;gt; (or ValueMap?), properties starting with &quot;encrypted&quot; are stored in encrypted form. Using them in different ways needs changing the CredentialServiceImpl.&lt;/li>&lt;/ul>&lt;/p>"
+                            title="TODO"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>The aclpath mechanism protects against accidential use of credentials by normal code, but is easy to fool from malicious code with passing a resource resolver mock for the acl check. It's&amp;nbsp;&lt;a href=&quot;https://stackoverflow.com/q/63774424/21499&quot;>not quite clear how to identify the current user&lt;/a>&amp;nbsp;reliably from the service. Possibly we can use&amp;nbsp;&lt;a href=&quot;https://sling.apache.org/apidocs/sling11/org/apache/sling/api/resource/ResourceResolverFactory.html#getThreadResourceResolver--&quot;>ResourceResolverFactory.getThreadResourceResolver()&lt;/a>&amp;nbsp;or PlatformAccessService.getAccessContext instead. Unfortunately, both of them do not work if the service is to be used by a service with a service user.&lt;/li>&lt;/ul>"
+                            title="Open points"/>
+                </column-1>
+            </row_615355533>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

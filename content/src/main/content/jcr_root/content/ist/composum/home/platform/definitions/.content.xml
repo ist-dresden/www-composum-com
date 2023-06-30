@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="This page explains terms used in the description of the Composum Platform."
+            jcr:title="Definitions of Terms"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>A mode set by the PlatformAccessFilter - one of &lt;strong>AUTHOR&lt;/strong>, &lt;strong>PREVIEW&lt;/strong>, &lt;strong>PUBLIC&lt;/strong> . This influences the presentation of content outside of the Pages editor. It can be set in various ways:&amp;nbsp;&lt;/p>&lt;ul>&lt;li>If so configured in the Platform Access Filter Configuration, this can be set by an equally named Sling runmode for the whole Sling instance.&amp;nbsp;&lt;/li>&lt;li>On Author hosts (whose hostnames are configured there), it is set by default to AUTHOR.&lt;/li>&lt;li>On Author hosts, it can be set for the current session via a request parameter &lt;strong>cpm.access&lt;/strong>&amp;nbsp;to one of the values given above.&lt;/li>&lt;li>If configured, it is set on preview hosts to PREVIEW.&lt;/li>&lt;li>Otherwise it's set to PUBLIC.&lt;/li>&lt;/ul>"
+                            textAlignment="left"
+                            title="Access Mode"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>&lt;strong>author server&lt;/strong>: the server the editors use&lt;/li>&lt;li>&lt;strong>publish server&lt;/strong>: the server that delivers the site content to the users - might be the same machine like the editor server, or &lt;a href=&quot;/content/ist/composum/home/platform/staging/replication&quot;>a separate system&lt;/a>.&lt;/li>&lt;/ul>"
+                            title="Glossary"/>
+                </column-1>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Term definitions for the Composum Platform">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                hideInNav="{Boolean}true"
+                title="Definitions"/>
+    </jcr:content>
+</jcr:root>

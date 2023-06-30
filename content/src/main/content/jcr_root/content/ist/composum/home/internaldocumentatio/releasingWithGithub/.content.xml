@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Describes how to configure release creation with Github Actions, and how to use it."
+            jcr:title="How to create a release with Github Actions"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="General">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>For creating Releases with Github Actions there is a workflow createrelease.yml = Create Release , that triggers the release build in a way that is as defensive as possible in that all actions that leave permanent traces - that is, push something to the Github repository or to the Nexus staging, will be done as late as possible. Thus, a failing maven build can easily be fixed or retried, and a new attempt can be done without losing a release number or having to remove tags again.&lt;br>&lt;br>The job does not create and deploy the site - for that there is another job master.yml that is triggered once the release is merged to the master branch.&lt;/p>"
+                                title="General idea"/>
+                        <text_299350595
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>In the &quot;Actions&quot; tab of the repository one has to choose the &quot;Create Release&quot; workflow (e.g. at https://github.com/ist-dresden/composum-nodes/actions/workflows/createerelease.yml ). On the right appears &quot;This workflow has a workflow_dispatch event trigger.&quot; with a &quot;Run Workflow&quot; button, which then allows one to select the branch to run the workflow on. (Only the branches where that file is already merged in do appear in the drop down list). There are currently no parameters to give - it'll just remove the -SNAPSHOT from the version.&lt;/p>&lt;p>If the artifact version has to be changed: there is also a &quot;Set Version&quot; workflow that allows setting the version in the pom.xml of the project.&lt;/p>"
+                                title="Usage"/>
+                    </section>
+                    <section_461190117
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Tipps and Tricks">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>Starting with parent release 1.7, the release creation is meant to be done automatically in github actions. There are two kinds of workflow: in Nodes at .github/workflows/createrelease.yml (meant to be copied to all the other Github projects) it builds the whole tree in the project, but for composum-meta .github/workflows/createrelease.yml does permit to select a subdirectory, as there are several trees (ist/parent and assembly) with different release schedules.&lt;/li>&lt;li>To check release creation locally in a dry run, you can use the following command lines:&lt;br>mvn clean release:clean&lt;br>mvn -B -ntp -P nexus-staging release:prepare -DdryRun=true -DpushChanges=false&lt;br>mvn -B -ntp -P nexus-staging release:perform -DdryRun=true -DlocalCheckout=true -DdeployAtEnd=true&lt;br>(The latter doesn't do much, though.)&lt;/li>&lt;li>To create a release locally for testing purposes, you can use the following command lines:&lt;br>mvn -B -ntp -s .github/settings-istrepo.xml release:prepare -DpushChanges=false&lt;br>mvn -B -ntp -P nexus-staging release:perform -DlocalCheckout=true -DdeployAtEnd=true &quot;-Dgoals=clean install package source:jar javadoc:jar install&quot;&lt;br>This does not push the release commits to upstream, and just does an install instead of deploy at the end, so nothing is uploaded. The commits can be rolled back with mvn release:rollback release:clean ; you'll want to reset the git HEAD later, though.&lt;br>&lt;br>&lt;/li>&lt;/ul>"/>
+                    </section_461190117>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Configuration of Secrets / Repository variables for Github Actions">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>We need the GPG key and password to sign the artifacts as Actions secrets (preferably for the organization), and variables for the commit author, and OSSRH credentials. These can be configured in the Github repository settings at Security / Secrets and variables / Actions . (For Composum nodes that should be at https://github.com/ist-dresden/composum-nodes/settings/secrets/actions ). Specifically:&lt;/p>&lt;p>Repository Variables (not Secrets):&lt;/p>&lt;ul>&lt;li>RELEASE_USEREMAIL configures the release creation commit author, previously Ralf Wunsch .&lt;/li>&lt;li>RELEASE_USERNAME configures the release creation commit author email, previously r.wunsch@ist-software.com .&lt;/li>&lt;/ul>&lt;p>Repository Secrets :&lt;/p>&lt;ul>&lt;li>GPG_SECRET_KEYS contains a base64 encoding of the exported with the command&amp;nbsp;&lt;code>gpg --export-secret-keys -a &quot;info@composum.com&quot; | base64 &amp;gt; composum.secret.asc.base64&lt;/code>&lt;/li>&lt;li>GPG_PASSPHRASE contains the password for the private key&lt;/li>&lt;li>GPG_OWNERTRUST contains a trust specification for the used key. It can be exported with&amp;nbsp;&lt;code>gpg --export-ownertrust &amp;gt; composum.ownertrust.txt&lt;/code>&amp;nbsp;, it's sensible to remove the keys not used in GPG_SECRET_KEYS from that file. Then it has to be base64 encoded:&amp;nbsp;&lt;code>base64 &amp;lt; composum.ownertrust.txt &amp;gt; composum.ownertrust.txt.base64&lt;/code>&amp;nbsp;.&amp;nbsp;&lt;/li>&lt;li>OSSRH_USER and OSSRH_PASSWD are the credentials to use for uploading to &lt;a href=&quot;https://central.sonatype.org/&quot;>Sonatype OSS Repository Hosting&lt;/a> .&lt;/li>&lt;/ul>&lt;p>Caution: the GPG_SECRET_KEYS and GPG_OWNERTRUST are cleartext, but still have to be base64 encoded, since they contain multiple lines and the base64 encoding is just one very long line, which is easier to deal with in the Github Actions scripts.&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>&lt;code>&lt;/code>&lt;/li>&lt;/ul>"
+                                title="Necessary Github repository variables / secrets"/>
+                        <text_1074530205
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>We need to enable arbitrary github actions in workflows, since we use actions not provided by Github (namely, stCarolas/setup-maven to use maven 3.8.7). This is configured in the project on Github at Settings / Code and automation / Actions / General: &quot;Action permissions&quot; &quot;Alow all actions and reusable workflows&quot;. In the same place a little further below there is the section &quot;Workflow permissions&quot; - there we need &quot;Read and write permissions&quot;, since the release creation workflow needs to push the pom.xml version switches into the Git repository. For Composum nodes, this should be at URL https://github.com/ist-dresden/composum-nodes/settings/actions .&lt;/p>"
+                                title="Further needed configurations"/>
+                    </section>
+                </column-1>
+            </row>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

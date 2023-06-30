@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="ACL Setup"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="ACL Setup">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The RepositorySetupService generally provided with Composum Nodes allows the configuration of the JCR repository's Access Control Lists (ACLs) through JSON configuration files stored in the repository. Each module can provide such configurations via deployment and also automatically execute them during installation if required.&lt;/p>&lt;p>In addition, descriptive meta-information about these script files can be provided. These are collected in the ACL view of the Composum Browser and offered for selection or execution.&lt;/p>"/>
+                </column-0>
+            </row>
+            <row2
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="The ACL Setup View">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>In the ACL view of the browser, two actions are available since Nodes release 2.2.1 to control the execution of the ACL setup scripts in the browser.&lt;/p>&lt;p>If a node is detected as an ACL setup script, then the action for direct execution of the selected script is activated:&lt;/p>"/>
+                    <illustration
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/illustration">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/console/browser/nodes-acl-script.png"/>
+                        <annotation
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                text="the single setup script view action">
+                            <shape
+                                    jcr:primaryType="nt:unstructured"
+                                    icon="arrow-up"
+                                    level="primary"
+                                    placement="bottom"
+                                    position.x="90.3"
+                                    position.y="20"/>
+                        </annotation>
+                        <shape
+                                jcr:primaryType="nt:unstructured"
+                                behavior="independent"/>
+                    </illustration>
+                    <text_686791318
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The execution of the selected script is possible directly in the script view ('Run Current...'). The log messages of the RespositorySetupService logged during the execution appear in the lower view.&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_611472263
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Setup Script Configuration View presents all the scripts for which configuration data could be determined. The view can be filtered using the categories defined in the meta data. Several of the displayed scripts can be selected and executed as a block in the predefined order.&lt;/p>"/>
+                    <illustration
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/illustration">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/console/browser/nodes-acl-setup.png"/>
+                        <annotation
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                text="the view of the set of preconfigured setup script">
+                            <shape
+                                    jcr:primaryType="nt:unstructured"
+                                    icon="arrow-up"
+                                    level="primary"
+                                    placement="bottom"
+                                    position.x="93.3"
+                                    position.y="20"/>
+                        </annotation>
+                    </illustration>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Here, too, the log of the execution is displayed in the lower area.&lt;/p>&lt;p>As meta data for determining the available predefined script files, all resources with the matching resource type are automatically determined and combined into a view of all preconfigured options.&lt;/p>"/>
+                </column-1>
+            </row2>
+            <row_850640776
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="The ACL Setup Configuration">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Setup Script Meta Data">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each resource of resource type&lt;/p>"/>
+                        <codeblock_681756187
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="composum/nodes/commons/components/security/config"/>
+                        <text_959247367
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>is interpreted as a descriptive configuration of a set of ACL setup scripts.&lt;/p>&lt;p>The resource itself describes the entire set. Each child resource in it describes a single setup script.&lt;/p>&lt;p>The following is an example of the configuration for the ACL setup scripts of the Composum Platform module.&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        xmlns:nt=&quot;http://www.jcp.org/jcr/nt/1.0&quot;&#xd;&#xa;        xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;        sling:resourceType=&quot;composum/nodes/commons/components/security/config&quot;&#xd;&#xa;        jcr:title=&quot;Composum Platform Security Setup&quot;&#xd;&#xa;        jcr:description=&quot;the Composum Platform security configuration set&quot;&#xd;&#xa;        category=&quot;[composum,platform]&quot;&#xd;&#xa;        rank=&quot;{Long}20&quot;>&#xd;&#xa;    &lt;everyone jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            category=&quot;[everyone,ondemand]&quot;&#xd;&#xa;            autoSetup=&quot;{Boolean}false&quot;&#xd;&#xa;            jcr:title=&quot;Composum Platform 'everyone' ACL script&quot;&#xd;&#xa;            jcr:description=&quot;the access control rule script to setup the Composum Platform rules for 'everyone'&quot;&#xd;&#xa;            script=&quot;/conf/composum/platform/security/acl/everyone.json&quot;/>&#xd;&#xa;    &lt;login jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            category=&quot;[login,setup]&quot;&#xd;&#xa;            autoSetup=&quot;{Boolean}true&quot;&#xd;&#xa;            jcr:title=&quot;Composum Platform 'login' ACL script&quot;&#xd;&#xa;            jcr:description=&quot;the access control rule script to setup rules to enable login for 'anonymous'&quot;&#xd;&#xa;            script=&quot;/conf/composum/platform/security/acl/login.json&quot;/>&#xd;&#xa;    &lt;service jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            category=&quot;[service,setup]&quot;&#xd;&#xa;            autoSetup=&quot;{Boolean}true&quot;&#xd;&#xa;            jcr:title=&quot;Composum Platform 'service' ACL script&quot;&#xd;&#xa;            jcr:description=&quot;the access control rule script to setup the rules for the Composum Platform service users&quot;&#xd;&#xa;            script=&quot;/conf/composum/platform/security/acl/service.json&quot;/>&#xd;&#xa;&lt;/jcr:root>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/conf/composum/platform/security/config"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="Composum Platform Script Meta Data"/>
+                        <text_404978384
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>the attributes of the configurations set resource are:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>jcr:title&lt;br>the title in the sets view&lt;/li>&lt;li>jcr:description&lt;br>a more descriptive (longer) text displayed also in the set view&lt;/li>&lt;li>category&lt;br>a multi value of category keys for all scripts described by this set&lt;/li>&lt;li>rank&lt;br>the rank in the order of all declared configurations sets (to determine the execution order)&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                                title="the configuration set resource"/>
+                        <text_404978385
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>the attributes of each child (of each JSON script reference) in the configuration set are:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>jcr:title&lt;br>a short title for the described script file&lt;/li>&lt;li>jcr:description&lt;br>a longer text to describe the purpose of the setup script&lt;/li>&lt;li>category&lt;br>a multi value of category keys for the described script only&lt;/li>&lt;li>script&lt;br>the repository path of the JSON setup script&lt;/li>&lt;li>autoSetup (bool)&lt;br>a hint for the user; 'true' if the script is executed automatically during module (package) setup&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                                title="the configuration set child resources"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Setup Script JSON format">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>A JSON ACL setup script is a simple array of JSON objects. Each object defines ACL rules to a set of repository paths, example:&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="\[&#xd;&#xa;  {&#xd;&#xa;    &quot;description&quot;: &quot;allows a 'walk through' the given paths for 'everyone'&quot;,&#xd;&#xa;    &quot;path&quot;: [&#xd;&#xa;      &quot;/&quot;,&#xd;&#xa;      &quot;/apps&quot;,&#xd;&#xa;      &quot;/libs&quot;,&#xd;&#xa;      &quot;/libs/sling&quot;,&#xd;&#xa;      &quot;/libs/sling/servlet&quot;,&#xd;&#xa;      &quot;/libs/composum&quot;,&#xd;&#xa;      &quot;/libs/composum/nodes&quot;,&#xd;&#xa;      &quot;/var&quot;,&#xd;&#xa;      &quot;/var/composum&quot;&#xd;&#xa;    ],&#xd;&#xa;    &quot;jcr:primaryType&quot;: &quot;sling:Folder&quot;,&#xd;&#xa;    &quot;acl&quot;: {&#xd;&#xa;      &quot;principal&quot;: &quot;everyone&quot;,&#xd;&#xa;      &quot;reset&quot;: true,&#xd;&#xa;      &quot;rule&quot;: {&#xd;&#xa;        &quot;grant&quot;: &quot;jcr:read&quot;,&#xd;&#xa;        &quot;restrictions&quot;: {&#xd;&#xa;          &quot;rep:glob&quot;: &quot;&quot;&#xd;&#xa;        }&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  },&#xd;&#xa;  {&#xd;&#xa;    &quot;description&quot;: &quot;removes each rule for 'everyone' from the given paths&quot;,&#xd;&#xa;    &quot;path&quot;: &quot;/content&quot;,&#xd;&#xa;    &quot;jcr:primaryType&quot;: &quot;sling:Folder&quot;,&#xd;&#xa;    &quot;acl&quot;: {&#xd;&#xa;      &quot;principal&quot;: &quot;everyone&quot;,&#xd;&#xa;      &quot;reset&quot;: true&#xd;&#xa;    }&#xd;&#xa;  },&#xd;&#xa;  {&#xd;&#xa;    &quot;description&quot;: &quot;allows the access to clientlib resources for 'everyone' at the given paths&quot;,&#xd;&#xa;    &quot;path&quot;: &quot;/apps&quot;,&#xd;&#xa;    &quot;acl&quot;: {&#xd;&#xa;      &quot;principal&quot;: &quot;everyone&quot;,&#xd;&#xa;      &quot;rule&quot;: {&#xd;&#xa;        &quot;grant&quot;: &quot;jcr:read&quot;,&#xd;&#xa;        &quot;restrictions&quot;: [&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/clientlib&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/clientlib/*&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/clientlibs&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/clientlibs/*&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/*.css&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/*.css/jcr:content&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/*.js&quot;&#xd;&#xa;          },&#xd;&#xa;          {&#xd;&#xa;            &quot;rep:glob&quot;: &quot;/*/*.js/jcr:content&quot;&#xd;&#xa;          }&#xd;&#xa;        ]&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  },&#xd;&#xa;  {&#xd;&#xa;    &quot;description&quot;: &quot;allows read access for 'everyone' at the given paths&quot;,&#xd;&#xa;    &quot;path&quot;: [&#xd;&#xa;      &quot;/libs/sling/servlet/errorhandler&quot;,&#xd;&#xa;      &quot;/libs/composum/nodes/commons&quot;,&#xd;&#xa;      &quot;/var/composum/clientlibs&quot;&#xd;&#xa;    ],&#xd;&#xa;    &quot;jcr:primaryType&quot;: &quot;sling:Folder&quot;,&#xd;&#xa;    &quot;acl&quot;: {&#xd;&#xa;      &quot;principal&quot;: &quot;everyone&quot;,&#xd;&#xa;      &quot;rule&quot;: {&#xd;&#xa;        &quot;grant&quot;: &quot;jcr:read&quot;&#xd;&#xa;      }&#xd;&#xa;    }&#xd;&#xa;  }&#xd;&#xa;]"
+                                collapsed="large"
+                                collapsible="{Boolean}true"
+                                copyright="/conf/composum/platform/security/acl/everyone.json"
+                                language="json"
+                                showLanguage="{Boolean}true"
+                                title="the platform ACL setup script for 'everyone'"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>A single path or a list of paths can be specified.&lt;/p>&lt;p>Optionally, it is possible to specify a primaryType which is applied if one of the paths does not exist. In this case the path will be created if the primaryType is specified.&lt;/p>&lt;p>Each of the objects in the JSON array contains an 'acl' object, which can be a single object or an array of objects.&lt;/p>"/>
+                        <text_1591206430
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each 'acl' object defines a set of rules about one or more principals.&lt;/p>&lt;p>For 'principal' a single value or an array of names can be specified.&lt;/p>&lt;p>The ACL rule is an object or an array of rule objects.&lt;/p>&lt;p>If all existing rules for the given principals should be removed before applying the rules defined in the script, then this can be specified with 'reset'=true in the ACL object.&lt;/p>"
+                                title="ACL object ('acl')"/>
+                        <text_1536040964
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each object in the 'rules' list (or the 'rule' object) defines either a 'grant' or a 'deny' rule. The value for the 'grant' or 'deny' rule can also be a single value or an array of privileges.&lt;/p>"
+                                title="the 'rule' or 'rules' object"/>
+                        <set
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://jackrabbit.apache.org/oak/docs/security/privilege/default.html"
+                                    title="OAK Privilege Management"/>
+                        </set>
+                        <text_1536040965
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Optionally, a 'restrictions' object or an array of such objects can be specified. Each 'restrictions' object is a map of restriction keys and matching values.&lt;/p>"/>
+                        <set1
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://jackrabbit.apache.org/oak/docs/security/authorization/restriction.html"
+                                    title="OAK Restriction Management"/>
+                        </set1>
+                    </section>
+                </column-1>
+            </row_850640776>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="ACLs"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

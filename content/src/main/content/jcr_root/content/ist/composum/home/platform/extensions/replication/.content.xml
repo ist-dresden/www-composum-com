@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Setup of a publish server that serves the public release"
+            jcr:title="Replication to a Publish Server"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Replication to a Publish Server">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Requirements">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Basic Idea">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>While it is possible to serve the public release of a site using the same server the editors use (compare&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/setup&quot;>setup&lt;/a>&amp;nbsp;e.g.&amp;nbsp;in-place replication), this is sometimes undesirable if a site with high load is to be served. Depending on the performance and availability demands, it might be useful to separate concerns and set up one or several separate servers or clusters of servers (called here &lt;strong>publish servers&lt;/strong>). For this, it is necessary to deploy the application code on that server (which can be done with the standard Sling means), and to replicate the content of the site from the &lt;strong>author server&lt;/strong>. In the simplest case with very infrequent changes this could be done by manually creating packages of the site content (e.g. after in-place replication copied the content to /public) and deploying these on the publish servers. But for larger site with frequent changes this quickly becomes infeasible. This page discusses requirements and our solution to achieve an automatic replication of the site content to the publish servers.&lt;br>&lt;/p>"/>
+                        <text_1822259634
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>In advanced cases it might also be necessary to share / replicate or collect user generated content on the site, such as comments, likes, orders etc.  We leave this out for now, since there are a variety of thinkable settings for this. If the availability / performance requirements for this content are low enough, it might be easiest to put that on a separate server and integrate it in the browser via AJAX, or to just have this data on the publish server or a common datastore used by all hosts.&lt;/p>"/>
+                        <text_1471987710
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>If you are familiar with&amp;nbsp;&lt;a href=&quot;https://experienceleague.adobe.com/docs/experience-manager-65/deploying/configuring/replication.html?lang=en&quot;>AEM replication&lt;/a>: there is a fundamental differences between AEM and our way of managing content. In AEM, you publish a page more or less individually: after triggering the publication, it is transferred to all publication servers. In Composum, the page versions are collected into releases, and you trigger the publication of a whole release. With this you can ensure that the pages are consistent wrt. each other, can easily deploy or roll back content changes that affect many pages, and it's easy to automatically synchronize servers. On the other hand - if you are just continuously publishing a lot of small changes to pages, it might be better not to use the release mechanism, since that' amount to a daily release or worse. But Composum allows you to emulate that behaviour: the latest release is the open release you're working on, where you can easily add / change pages, and you can set that release to be published immediately, so that page changes become effective within seconds once you activate a page (that is, create a version and add it to the open release).&lt;/p>"/>
+                    </section>
+                    <section_1430118676
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Implementation of the transfer">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Since a larger site can easily have thousands of pages and gigabytes of assets, we want to minimize the transfer needed for release changes (that is, only transfer the actual changes) and split it up into parts of manageable size.&lt;/p>&lt;p>There are several facets of the content that need to be transferred:&lt;/p>&lt;ul>&lt;li>the content of the versionables&lt;/li>&lt;li>the attributes of their parent nodes&lt;/li>&lt;li>the ordering of the siblings at the parent nodes.&lt;/li>&lt;/ul>&lt;p>We also want to avoid buffering everything in memory, but want to use streaming into the requests / from the responses while processing the data in parallel.&lt;/p>"
+                                title="Basics"/>
+                        <text_1912654998
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The transfer is done in the following steps using the&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/extensions/replication/replicationservlets&quot;>replication servlet&lt;/a>:&lt;/p>&lt;ol>&lt;li>Operation startupdate creates a temporary directory on the publishers side and returns it's ID.&lt;/li>&lt;li>Operation contentstate is used to get information which versionables are present at the publishers side but not at the authors side. The resulting nodes to delete are saved in memory on the authors side.&lt;/li>&lt;li>Operation comparecontent is used to get information about missing versionables. The content of the request are the version ids of the versionable nodes at the authors side. The publisher checks which versionables are new, have changed paths or are updated and returns the information about changed versionables in the response to the author.&lt;/li>&lt;li>Operation pathupload is used repeatedly to transmit all new / updated / deleted versionables to the publisher. (The packages for deleted versionables just contain the parent nodes as far as still present).&lt;/li>&lt;li>Operation commitupdate is used to transmit both the versionables to delete, as well as the sibling orderings of all parent nodes of new / updated versionables to the publisher, who updates the actual content and deletes the temporary directory. Also the attributes of the parent nodes are set from the information that was present in the packages.&lt;/li>&lt;/ol>&lt;p>All operations can be done in one transaction. In each step at beginning and at the end the release change number of the transmitted release is checked for changes - if it was modified the whole process is aborted and repeated.&lt;/p>"
+                                title="Flow of the implementation"/>
+                    </section_1430118676>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Requirements">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ol>&lt;li>A change or release switch should be transactional on the publish server - that is, all pages should change at the same time after the changed content was fully replicated.&lt;/li>&lt;li>The editor and publish servers should run independently - downtimes of one of them should not influence the other.&lt;/li>&lt;li>The replication should be capable of handling several gigabytes of data for a site.&lt;/li>&lt;li>It should be possible to replicate several releases (e.g. the public and preview release) on one server. Different sites and different parts of a site should be able to be replicated to different locations.&lt;/li>&lt;li>The switch of the release to publish or adding / deleting content to a release should not be impeded by a failing replication. The replication should be carried out as a separate job.&lt;/li>&lt;/ol>"/>
+                    </section>
+                    <section_1345644704
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Basic implementation decisions">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>Just like the&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/staging&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>staging&lt;/a>, the basic unit of replication are versionables whose state in a particular JCR-version is replicated. This avoids the need to replicate a whole release of a site at once (which could be gigabytes of data). It does, however, need mechanisms to still make the whole replication transactional, so that all parts of a release becomes active at the same time.&lt;/li>&lt;li>To have several releases of the same site on one server, it is necessary to rewrite the references in the content. Depending on the configuration, this can be done on the author servers site (first, in-place replication is done, and then the replicated content is transferred to the publish server), or on the publish servers side (by providing a hook-mechanism that could do that).&lt;/li>&lt;li>The configuration for the replication for a site /content/{pathtosite}/{site} is at /conf/{pathtosite}/{site}/replication/ with subnodes for each replication to perform.&lt;/li>&lt;/ul>"/>
+                    </section_1345644704>
+                    <section_1412374231
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Implementation of repository comparison">
+                        <text_314438733
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>For a large site it is infeasible to compare the whole site. To simplify that, we make the assumption that the publication of a versionable does not change it's content, which seems reasonable since it is transferred in one piece as a package. So we need only to make sure that:&lt;/p>&lt;p>&lt;ol>&lt;li>release change numbers agree. (If they don't, there isn't much point in even comparing the contents.)&lt;/li>&lt;li>all versionables present on our side have the same version on the other side&lt;/li>&lt;li>all versionables present on the other side have the same version on our side&lt;/li>&lt;li>the child orderings of all parent nodes of versionables that have orderable children are the same&lt;/li>&lt;li>the attributes of all parent nodes of versionables are the same (excluding protected attributes like jcr:created)&lt;/li>&lt;/ol>&lt;/p>"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>call operation contentstate on the remote system to verify point 2&lt;/li>&lt;li>call operation comparecontent on the remote system to verify point 1&lt;/li>&lt;/ul>"
+                                title="Flow of the implementation of comparison"/>
+                    </section_1412374231>
+                </column-1>
+            </row>
+            <row_1860822523
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Configuration">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Configuration of the Servers">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The following configurations have to be set for the remote replication to be operative.&lt;/p>&lt;p>Author server:&lt;/p>&lt;ul>&lt;li>Composum Platform Remote Replication Service has to be enabled&lt;/li>&lt;li>Composum Platform Replication Receiver Backend Service has to be enabled (enabled by default) if in-place replication is wanted&lt;/li>&lt;li>Composum Platform Credential Service has to be enabled and configured (you'll want to configure a master password or master password file to have stored passwords encrypted)&lt;/li>&lt;/ul>&lt;p>Publisher server:&lt;/p>&lt;p>&lt;ul>&lt;li>Composum Platform Replication Receiver Backend Service has to be enabled (enabled by default)&lt;/li>&lt;/ul>&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_627817299
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Configuration">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>For a site at /content/{pathtosite}/{site} we save each replication configuration as a subnode of /conf/{pathtosite}/{site}/replication , with the following attributes:&lt;/p>&lt;ul>&lt;li>&lt;code>replicationType&lt;/code>&amp;nbsp;: the type of replication service - default &quot;default&quot;.&lt;/li>&lt;li>&lt;code>jcr:title&lt;/code>&amp;nbsp;: a short name for the replication configuration&lt;/li>&lt;li>&lt;code>jcr:description&lt;/code>&amp;nbsp;: an optional description giving details&lt;/li>&lt;li>&lt;code>enabled&lt;/code>&amp;nbsp;: boolean value that allows to enable or disable a configuration&lt;/li>&lt;li>&lt;code>stage&lt;/code>&amp;nbsp;: either &quot;preview&quot; or &quot;public&quot;&amp;nbsp;&lt;/li>&lt;li>&lt;code>sourcePath&lt;/code>&amp;nbsp;: optional, an absolute path within the site below which this configuration applies&lt;/li>&lt;li>&lt;code>targetPath&lt;/code>&amp;nbsp;: optional, an absolute path to which the sourcePath is moved in the publication server&lt;/li>&lt;li>&lt;code>targetUrl&lt;/code>&amp;nbsp;: the url of the replication receiver servlet of the environment we are replicating to. Normally that'll be http://publisher:8080/bin/cpm/platform/replication/publishreceiver (with appropriate hostname / port, of course)&lt;/li>&lt;li>&lt;code>credentialId&lt;/code>&amp;nbsp;: an ID for the&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/extensions/replication/credentialservice&quot;>Credential Service&lt;/a>&amp;nbsp;at which the user and password for the replication server is kept&lt;/li>&lt;li>&lt;code>proxyKey&lt;/code>&amp;nbsp;: optional key for the proxy service we use to connect from the author host to the replication receiver (targetUrl)&lt;/li>&lt;/ul>&lt;p>This basic configuration is tailored to replication via a remote servlet receiving the data. Depending on the type of replicator, there can be additional attributes or some of these attributes can be meaningless - the mechanism is extensible by adding new replication services through OSGI.&lt;/p>&lt;p>If the optional tenants module is installed, an editor for the replication configurations of the tenants sites is available.&lt;/p>"/>
+                    </section_627817299>
+                </column-1>
+            </row_1860822523>
+            <row_1463130929
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Open points">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>Reverse replication of user generated data and/or statistics to the editor server&lt;/li>&lt;li>How to deal with changes in the application code&lt;/li>&lt;li>Invalidation of cached content for a cache like apache or a CDN like akamai.&lt;/li>&lt;/ul>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>Replication into a filesystem. (Probably makes sense only for static content - files etc.)&lt;/li>&lt;li>replication of parent node attributes - both immediately over jcr:content as well as higher.&lt;/li>&lt;/ul>"
+                            title="(Yet?) unused ideas"/>
+                </column-1>
+            </row_1463130929>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Replication"/>
+    </jcr:content>
+    <replicationservlets/>
+    <replicationimplementation/>
+    <credentialservice/>
+</jcr:root>

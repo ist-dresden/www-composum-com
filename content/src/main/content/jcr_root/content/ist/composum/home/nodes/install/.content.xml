@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Installation and Upgrade"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Installation and Upgrade">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Bundle Installation">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Download or build all Core modules (OSGi bundles)&lt;/p>&lt;p>&lt;/p>&lt;ol>&lt;li>Composum Nodes Framework (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-commons&quot;>&lt;/a>&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-commons&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-commons&quot;>composum-nodes-commons&lt;/a>)&lt;/li>&lt;li>Composum Nodes Javascript Libraries (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-jslibs&quot;>&lt;/a>&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-jslibs&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-jslibs&quot;>composum-nodes-jslibs&lt;/a>)&lt;/li>&lt;li>Composum Nodes Console (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-console&quot;>&lt;/a>&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-console&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-console&quot;>composum-nodes-console&lt;/a>); this includes the JCR Browser&lt;/li>&lt;li>Composum Nodes Package Manager (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-pckgmgr&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-pckgmgr&quot;>composum-nodes-pckgmgr&lt;/a>)&lt;/li>&lt;li>Composum Nodes User Management (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-usermgr&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-usermgr&quot;>composum-nodes-usermgr&lt;/a>)&lt;/li>&lt;/ol>&lt;p>&lt;/p>"/>
+                        <text_1118789096
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Install and activate all bundles using the OSGi Web Console or the Bundle Installer HTTP-API. No further installation steps necessary.&lt;/p>&lt;p>Start it with a simple '/bin/browser.html' on your Apache Sling based system.&lt;/p>"
+                                title="Deployment instructions"/>
+                    </section>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Bundle Upgrade">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>For the upgrade of the Composum Nodes major release it's recommended to uninstall and remove each existing Composum Nodes bundle from your system. Deactivate and remove all bundles using the OSGi Web Console or the Bundle Installer HTTP-API.&lt;/p>&lt;p>After uninstalling install the new bundles as described in 'Bundle Installation'. At the end it's recommended to restart your system.&lt;/p>"/>
+                    </section1>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Nodes for AEM Package">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>If you want to use the Composum Nodes tools on an AEM system simply install the 'Nodes for AEM Package' via the AEM Package Manager.&lt;/p>&lt;p>&lt;/p>&lt;ol>&lt;li>Nodes for AEM Package (&lt;a href=&quot;https://search.maven.org/search?q=a:composum-nodes-aem-package&quot; title=&quot;https://search.maven.org/search?q=a:composum-nodes-aem-package&quot;>composum-nodes-aem-package&lt;/a>)&lt;/li>&lt;/ol>&lt;p>&lt;/p>"/>
+                        <text_2051085295
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>After installation of this package a new 'Composum Browser' tool is configured in the added 'Composum Nodes' tools section.&lt;/p>&lt;p>The Nodes for AEM Package doesn't contain the Composum Package Manager. Instead of this two links, one to the 'CRXDE Lite' AEM tool and the other one to the AEMs package manager are added to the Composum Consoles top navigation.&lt;/p>&lt;p>You can use the preconfigured AEM Foundation Scene bundled with the Nodes for AEM Package as blueprint for Scene configurations of your own project.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Setup"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

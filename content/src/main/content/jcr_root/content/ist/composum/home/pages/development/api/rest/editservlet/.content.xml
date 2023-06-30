@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Pages Edit Servlet"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <servlet
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:title="Pages Edit Servlet"
+                    className="com.composum.pages.commons.servlet.EditServlet"
+                    path="/bin/cpm/pages/edit"
+                    suffix="the resource to edit">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector_379895616
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Resource Data"
+                            extension="json"
+                            method="[GET]"
+                            selector="resourceInfo">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    exampleCode="/bin/cpm/pages/edit.resourceInfo.json/content/tenant/site/home/jcr:content"
+                                    exampleResult=" { &#xa;  name: &quot;jcr:content&quot;, &#xa;  path: &quot;/content/tenant/site/home/jcr:content&quot;, &#xa;  type: &quot;composum/pages/components/page/home&quot;, &#xa;  prim: &quot;cpp:Page&quot;, &#xa;  synthetic: false, &#xa;  title: &quot;jcr:content&quot; &#xa;}"/>
+                        </examples>
+                    </selector_379895616>
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Page Data"
+                            extension="json"
+                            method="[GET]"
+                            selector="pageData">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    exampleCode="/bin/cpm/pages/edit.pageData.json/content/tenant/site/home/jcr:content"
+                                    exampleResult=" { &#xa;  &quot;contentType&quot;: &quot;home&quot;, &#xa;  &quot;type&quot;: &quot;page&quot;, ... &#xa;  &quot;release&quot;: { &#xa;    &quot;status&quot;: &quot;activated&quot; &#xa;  }, &#xa;  &quot;jcrState&quot;: { ... }, &#xa;  &quot;children&quot;: [], &#xa;  &quot;reference&quot;: { &#xa;    &quot;name&quot;: &quot;home&quot;, &#xa;    &quot;path&quot;: &quot;/content/tenant/site/home&quot;, &#xa;    &quot;type&quot;: &quot;composum/pages/components/page/home&quot;, &#xa;    &quot;prim&quot;: &quot;cpp:Page&quot; &#xa;  }, &#xa;  &quot;jcrContent&quot;: { &#xa;    &quot;contentType&quot;: &quot;home&quot;, &#xa;    &quot;type&quot;: &quot;pagecontent&quot;, ... &#xa;    &quot;resourceType&quot;: &quot;composum/pages/components/page/home&quot;, &#xa;    &quot;uuid&quot;: &quot;efa4e5e1-5e4e-4c29-8f03-2855fd135fe7&quot;, &#xa;    &quot;treeType&quot;: &quot;intermediate&quot;, &#xa;    &quot;jcrState&quot;: { &#xa;      &quot;checkedOut&quot;: true, &#xa;      &quot;isVersionable&quot;: true, &#xa;      &quot;locked&quot;: false &#xa;    }, &#xa;    &quot;children&quot;: [] &#xa;  }, &#xa;  &quot;meta&quot;: { &#xa;    &quot;site&quot;: &quot;/content/tenant/site&quot;, &#xa;    &quot;template&quot;: &quot;/libs/composum/pages/components/templates/page/home&quot;, &#xa;    &quot;isTemplate&quot;: false, &#xa;    &quot;language&quot;: &quot;en&quot;, &#xa;    &quot;defaultLanguage&quot;: &quot;en&quot; &#xa;  } &#xa;}"/>
+                        </examples>
+                    </selector>
+                    <selector_1670784722
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Page Tree Node"
+                            extension="json"
+                            method="[GET]"
+                            selector="pageTree"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Get Edit Dialog"
+                            extension="html"
+                            method="[GET]"
+                            selector="editDialog"/>
+                    <selector1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="Load the Dialog to insert a new element - opens with the type selector with the list of allowed components."
+                            jcr:title="Get New Dialog"
+                            extension="html"
+                            method="[GET]"
+                            selector="newDialog"/>
+                    <selector2
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:title="Get Edit Tile"
+                            extension="html"
+                            method="[GET]"
+                            selector="editTile"/>
+                </column-1>
+            </servlet>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Edit"/>
+    </jcr:content>
+</jcr:root>

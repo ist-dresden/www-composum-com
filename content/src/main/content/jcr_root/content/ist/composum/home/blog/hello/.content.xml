@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="&lt;p>In Composum Pages, websites are configured using 'Site' objects, the root elements of the pages of a website. These root elements control the publication of the content of a website. Through a suitable resolver mapping to the published content, any host (a domain) can be linked to the published content. On the Composum Cloud System this publication of a website is directly possible via the user interfaces of the Composum Platform.&lt;/p>"
+            jcr:title="'Hello World'"
+            path="/content/ist/composum/home/blog/hello/jcr:content"
+            subtitle="Creating and publishing a website with Composum Pages "
+            template="ist/composum/templates/blog/article">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <text
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In order to publish a website in Composum Pages, it must first be created as a site object in the repository. This can be done directly from the Pages home page&lt;/p>"/>
+            <image
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-home_site-select.png"/>
+            <text_66869651
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>or from the site management dialog. The site management dialog is accessible via the buttons with the 'Database' icon (stacked discs) at the bottom left of the site tile or in the site toolbar in the tree at the top right.&lt;/p>"/>
+            <image_257924613
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_site-manager.png"/>
+            <text_751183521
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>With 'Create a new site' / 'Create' the wizard for creating a site is activated. First, a list of available templates for a new site is offered.&lt;/p>"/>
+            <image_1559350176
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-home_site-create_template.png"/>
+            <text_1809289838
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>After selecting the appropriate template, the next step is simply to assign the desired tenant and define the name of the site, i.e. the name of the resource of the site in the content repository.&lt;/p>"/>
+            <image_920544439
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-home_site-create_names.png"/>
+            <text_671030335
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Depending on the view from which the creation of the site is activated, the site is opened directly after creation (creation from the Pages start page) or must be explicitly selected and opened (Site Management dialog).&lt;/p>"/>
+            <text_1947474950
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>The new website shows its status page when selected in the repository tree and thus also after opening. In the tree on the left, the content initially taken from the template can be selected, modified and extended.&lt;/p>"/>
+            <image_1207939254
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_releases.png"/>
+            <text_75775910
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>However, more interesting for our case is the publishing of the existing content.&lt;/p>"/>
+            <text_2132772850
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In order to publish all content that has been transferred from the template to the new site, this content must first be activated. This can be done for each content element in its edit view. In our case, however, it is easier to switch to the list of modified elements, select them in the block and activate them with 'Activate'.&lt;/p>"/>
+            <image_1672740134
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_modified_select-all.png"/>
+            <text_312614338
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>With activation, the selected content is assigned to the current release. This release is always present and collects all content items released with their activation for the next publication.&lt;/p>"/>
+            <image_1743497515
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_activated_all.png"/>
+            <text_7062204
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In the 'Releases' view of the site status page, the publication of all content collected in the open 'current' release can be triggered by 'Finalize' at any time.&lt;/p>"/>
+            <text_1362099794
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>A number is assigned to the new release. Optionally, a title and a description for the release can be added. At the same time, we specify which stage the release should be assigned to. In our case, we specify that the new final release should be assigned to the 'public' stage. At the same time, we specify that the new, automatically generated 'current' release is assigned to the 'preview' stage.&lt;/p>"/>
+            <image_544834865
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_release_publish.png"/>
+            <text_49513127
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Thus, after publication, i.e. 'Finalize', all future activations will be automatically replicated to the 'preview' stage. A user in a 'visitor' role can already see this content via the preview views before it is made public via the 'public' stage.&lt;/p>"/>
+            <image_704402409
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_release_published.png"/>
+            <text_393502371
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>The stages ('preview'/'public') can be assigned to the existing releases as desired. With the assignment, i.e. in our case with the 'Finalize', the replication takes place automatically according to the assigned replication configuration.&lt;/p>"/>
+            <image_69902215
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-site_first-open_synchronized.png"/>
+            <text_45143431
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In the corresponding status view of the site, this replication can be explicitly triggered, evaluated and controlled.&lt;/p>&lt;p>With the replication, the contents of the new site are already 'public'. With the implicit in-place replication (nothing else is configured initially), all related content of the new site will be&lt;/p>&lt;p>is replicated&amp;nbsp;&lt;/p>&lt;p>&lt;ul>&lt;li>from /content/... to /public/... and&amp;nbsp;&lt;/li>&lt;li>in this specific case also to /preview/...&lt;/li>&lt;/ul>and all references are adjusted accordingly.&lt;/p>"/>
+            <text_273414444
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>The result can be viewed directly in the repository browser. This can be accessed directly from Pages via the 'Tools' menu behind the Composum logo.&lt;/p>"/>
+            <image_313465926
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-logo_tools-menu.png"/>
+            <text_1465571268
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In our example, I used the cloud installation of Composum (cloud.composum.com), in whose multi-tenancy context each client is assigned matching root paths to each stage. The contents of the 'public' stage can therefore be found under /public/tenant/site, matching the root path of the client (/content/tenant) and the name of the new site (site).&lt;/p>"/>
+            <image_1332014950
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-public_browser-view.png"/>
+            <text_387400284
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>In the Composum Cloud, content published in this way is also immediately accessible at &lt;a href=&quot;https://cloud.composum.com/&quot; title=&quot;Composum Cloud&quot;>https://cloud.composum.com&lt;/a> with the corresponding path of the public stage, i.e. here at &lt;a href=&quot;https://cloud.composum.com/public/teanant/site.html&quot; title=&quot;Open site homepage at public path...&quot;>https://cloud.composum.com/public/teanant/site.html&lt;/a>.&lt;/p>"/>
+            <image_1147974329
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/pages-public_public-repo-view.png"/>
+            <text_1751531835
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>But this should not be enough. With the multi-tenancy module on the Composum Cloud, the appropriate host of the 'public' stage of the new site can also be configured and assigned if the user is in the 'manager' role.&lt;/p>&lt;p>The tenant configuration can also be accessed from the Tools menu (Pages logo). The host 'demo.composum.com' is assigned a CNAME record in the DNS configuration that points to cloud.composum.com.&lt;br>&lt;/p>"/>
+            <codeblock
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/codeblock"
+                    code="demo  CNAME  cloud.composum.com."
+                    language="shell"/>
+            <text_2118882588
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>A host configuration can be created directly in the Tenant console for this host name.&lt;/p>"/>
+            <image_1161223045
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/pages/site/tenants_demo-host.png"/>
+            <text_428580514
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>A tenant manager of the client can assign any stage of one of its available sites to each host configured in this way. Once the 'public' stage of the new site has been assigned, it is then also accessible via the configured host at &lt;a href=&quot;https://demo.composum.com/&quot; title=&quot;Show public site content...&quot;>https://demo.composum.com/&lt;/a>.&lt;/p>"/>
+            <text_532147191
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Just try it once on Composum Cloud - &lt;a href=&quot;https://cloud.composum.com/&quot; title=&quot;Composum Cloud&quot;>cloud.composum.com&lt;/a>.&lt;/p>"/>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Ralf Wunsch"
+                date="{Date}2021-06-10T22:00:00.000Z"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

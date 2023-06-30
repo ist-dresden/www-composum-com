@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Edit Widgets"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Edit Widgets">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <taglib
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib"
+                            jcr:title="Edit Dialog Widgets"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>&lt;ul>&lt;li>assetfield&lt;/li>&lt;li>checkbox&lt;/li>&lt;li>checkselect&lt;/li>&lt;li>clientlib&lt;/li>&lt;li>codearea&lt;/li>&lt;li>combobox&lt;/li>&lt;li>datefield&lt;/li>&lt;li>datetimefield&lt;/li>&lt;li>dimension&lt;/li>&lt;li>email&lt;/li>&lt;li>fileupload&lt;/li>&lt;li>hidden&lt;/li>&lt;li>iconcombobox&lt;/li>&lt;li>imagefield&lt;/li>&lt;li>linkfield&lt;/li>&lt;li>multicheck&lt;/li>&lt;li>multiselect&lt;/li>&lt;li>multiwidget&lt;/li>&lt;li>numberfield&lt;/li>&lt;li>pathfield&lt;/li>&lt;li>position&lt;/li>&lt;li>radio&lt;/li>&lt;li>radiolist&lt;/li>&lt;li>richtext&lt;/li>&lt;li>select&lt;/li>&lt;li>slider&lt;/li>&lt;li>static&lt;/li>&lt;li>textarea&lt;/li>&lt;li>textfield&lt;/li>&lt;li>timefield&lt;/li>&lt;li>videofield&lt;/li>&lt;/ul>&lt;/p>"/>
+                </column-0>
+            </row>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Widgets"/>
+    </jcr:content>
+</jcr:root>

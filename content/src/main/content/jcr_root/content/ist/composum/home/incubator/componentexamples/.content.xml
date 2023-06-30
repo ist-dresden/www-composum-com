@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Some component examples"
+            jcr:title="Some component examples"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Titles subtitle"
+                            title="Title">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title>
+                    <table
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            copyright="Subtext of table"
+                            striped="{Boolean}true"
+                            title="A table of something">
+                        <row
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row"
+                                head="{Boolean}true">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="First colum - Head"/>
+                            <column_1606304142
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Other column"/>
+                        </row>
+                        <row_751701033
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_1555576738
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Head column"/>
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Second column"/>
+                        </row_751701033>
+                    </table>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The &lt;a href=&quot;https://www.example.net/&quot;>actual&lt;/a> text&lt;/p>&lt;p>&lt;strong>text of something&lt;/strong>. &lt;em>asdf asdf asdf&lt;/em> asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf&amp;nbsp;&lt;/p>&lt;ul>&lt;li>bla&lt;/li>&lt;li>blu&lt;/li>&lt;/ul>&lt;ol>&lt;li>blx&lt;/li>&lt;li>bluf&lt;/li>&lt;/ol>"
+                            textAlignment="left"
+                            title="Subtitle"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="this is &#xa;the code"
+                            copyright="subtext"
+                            language="xml"
+                            title="Code title"/>
+                    <list
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/list"
+                            listType="ul">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="listitem"
+                                textAlignment="left"/>
+                        <text_835254865
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="listitem"
+                                textAlignment="left"
+                                title="other"/>
+                    </list>
+                </column-0>
+            </row>
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    anchor="anchor"
+                    subtitle="with some subtitle"
+                    title="A content section">
+                <image
+                        jcr:primaryType="nt:unstructured"/>
+            </section>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Some component examples">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+    </jcr:content>
+</jcr:root>

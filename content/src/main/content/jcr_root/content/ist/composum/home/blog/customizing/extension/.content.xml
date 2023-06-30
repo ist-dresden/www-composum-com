@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Pages UI extension examples: a simple new custom widget and an additional context tool"
+            jcr:title="Extending Pages"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="Pages UI extension examples"
+                    title="Extension">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Dialogs and Widgets">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Everything is a component - a dialog widget also. Widgets are used in the edit dialog components to declare the forms for property editing, see the following dialog examples:&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;utf-8&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineFrameObjects/> &#xa;&lt;cpp:editDialog title=&quot;@{dialog.selector=='create'?'Create a Link':'Edit Link'}&quot;> &#xa;    &lt;cpp:widget label=&quot;Link Text&quot; property=&quot;title&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; hint=&quot;the label of the link&quot;/> &#xa;    &lt;cpp:widget label=&quot;Link&quot; property=&quot;link&quot; type=&quot;linkfield&quot; &#xa;                hint=&quot;the path of the links target page or an external link&quot;/> &#xa;    &lt;div class=&quot;row&quot;> &#xa;        &lt;div class=&quot;col col-xs-8&quot;> &#xa;            &lt;cpp:widget label=&quot;Link Title&quot; property=&quot;linkTitle&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;                        hint=&quot;the text for the link tooltip (optional)&quot;/> &#xa;        &lt;/div> &#xa;        &lt;div class=&quot;col col-xs-4&quot;> &#xa;            &lt;cpp:widget label=&quot;Link Target&quot; property=&quot;linkTarget&quot; type=&quot;combobox&quot; options=&quot;_blank,_parent,_top,_self&quot;/> &#xa;        &lt;/div> &#xa;    &lt;/div> &#xa;&lt;/cpp:editDialog>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="Link component dialog"/>
+                        <codeblock1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/reference/edit/dialog/dialog.jsp"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="/libs/-c-/-p-/-c-/element/reference/edit/dialog/dialog.jsp"/>
+                        <codeblock3
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/teaser/edit/dialog/dialog.jsp"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="/libs/-c-/-p-/-c-/element/teaser/edit/dialog/dialog.jsp"/>
+                        <text_284062557
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each widget is rendered using the 'widget' tag of the Pages tag library (cpp):&lt;br>&lt;/p>"/>
+                        <codeblock2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;cpp:widget label=&quot;Link Title&quot; property=&quot;linkTitle&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;            hint=&quot;the text for the link tooltip (optional)&quot;/>"
+                                language="jsp"/>
+                        <text_284062558
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>This 'widget' tag is using the WidgetManager service which is collecting all implemented widgets of a system to determine the implementation of a widget type and delegate the rendering to this implementation.&lt;/p>&lt;p>The widget implementation itself is a Sling component. The resource name of this component declares the widgets 'type'. Widgets are searched in the resolvers search path with the known overriding mechanism.&lt;br>&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Pages Tools Definition">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Similar to the tools set of the Composum Console (part Composum Nodes) the set of available tools in the Composum Pages editing frame can be configured, extended and restricted.&lt;/p>"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>In the Console the children of each resource of the resource type&amp;nbsp;&lt;code>composum/nodes/console/page&lt;/code>&amp;nbsp;are used as console tool definitions to embed additional tools in the console view; the Pages UI is embedding a hook to switch to 'Pages' from the Console:&lt;/p>"/>
+                        <codeblock1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;          xmlns:nt=&quot;http://www.jcp.org/jcr/nt/1.0&quot; &#xa;          xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; &#xa;          jcr:primaryType=&quot;sling:OrderedFolder&quot; &#xa;          jcr:description=&quot;the Composum &amp;apos;Pages&amp;apos; navigation item for the Composum Nodes console view&quot; &#xa;          sling:resourceType=&quot;composum/nodes/console/page&quot;> &#xa;    &lt;pages &#xa;            jcr:primaryType=&quot;nt:unstructured&quot; &#xa;            jcr:mixinTypes=&quot;[sling:Redirect]&quot; &#xa;            jcr:title=&quot;Pages&quot; &#xa;            sling:redirect=&quot;/bin/pages.html${path}&quot; &#xa;            categories=&quot;[nodes,pages]&quot; &#xa;            description=&quot;/libs/composum/pages/stage/edit/console/description&quot; &#xa;            order=&quot;{Long}150&quot; &#xa;            target=&quot;pages&quot;/> &#xa;&lt;/jcr:root>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/stage/edit/console/content"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="the 'Pages' console hook"/>
+                        <text2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The Composum Pages UI has a similar tools registry. The children of each resource of the resource type&amp;nbsp;&lt;code>composum/pages/tools/collection&lt;/code>&amp;nbsp;are used as Pages tool definitions to embed additional tools in the Pages UI view; e.g. the Composum Platform Workflow extension is embedding the workflow inbox in the Pages main navigation on the left side:&lt;/p>"/>
+                        <codeblock2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;        jcr:primaryType=&quot;sling:Folder&quot; &#xa;        jcr:description=&quot;the tools declaration for tools to extend Composum Pages&quot; &#xa;        sling:resourceType=&quot;composum/pages/tools/collection&quot;> &#xa;    &lt;userView &#xa;            jcr:primaryType=&quot;nt:unstructured&quot; &#xa;            sling:resourceType=&quot;composum/platform/workflow/pages/tools/inbox&quot; &#xa;            categories=&quot;[navigation,browse,edit,develop]&quot; &#xa;            iconClass=&quot;inbox&quot; &#xa;            hint=&quot;Users Workflow Inbox&quot; &#xa;            title=&quot;Inbox&quot; &#xa;            order=&quot;{Long}20&quot;/> &#xa;&lt;/jcr:root>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="the Workflow Inbox tool registration example"/>
+                        <text3
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Also similar to the console in the Pages UI the category is important to declare the context in which the tool is useful. The combination of categories controls the tools visibility:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>navigation / context (one only):&lt;br>the tool is placed on the left (navigation) or on the right sidebar (context); navigation tools are general tools - they must be independent from the current selection; the context tools are shown only if the element type category matches...&lt;/li>&lt;li>site / page / container / element (combination possible):&lt;br>if one or more of the element type categories specified for a tool (useful for context tools only) the tool is shown if the current selection matches to one of the specified element types&lt;/li>&lt;li>preview / browse / edit / develop (combination possible):&lt;br>if display mode categories defined the tool is shown only if the current display mode matches to one of the specified display mode categories&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <text4
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The access to the registered tools can be restricted by ACLs. If a child resource of a registered tools collection is not readable for the current user this tool is not available for that user in the user interface.&lt;/p>"/>
+                        <text5
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>All tools of the Composum Pages edit frame are declared as described above. So it's easy to customise the editing user interface.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+            <row_608527202
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Examples">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="A custom Widget">
+                        <text_284062562
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The simplest way to implement a new widget is the creation of a new widget resource derived from an existing widget component. The demonstration example in the prototype project contains such a widget.&lt;/p>"/>
+                        <text_346171042
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>&lt;a href=&quot;https://github.com/ist-dresden/composum-prototype/tree/develop/pages/demo/tenant&quot;>prototype-tenant-project@GitHuB&lt;/a>&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <text_284062559
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The 'confidentiality' widget is extending the standard 'select' widget. Some attributes of the 'select' widget are predefined in the new widget ('-t-/-d-/-p-' = 'tenant/domain/project'):&lt;br>&lt;/p>"/>
+                        <codeblock4
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:cpp=&quot;http://sling.composum.com/pages/1.0&quot; &#xa;          xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;          xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; &#xa;          jcr:primaryType=&quot;cpp:Widget&quot; &#xa;          sling:resourceSuperType=&quot;composum/pages/commons/widget/select&quot;> &#xa;    &lt;attributes &#xa;            jcr:primaryType=&quot;nt:unstructured&quot; &#xa;            default=&quot;internal&quot; &#xa;            options=&quot;secret,confidential,internal,public&quot; &#xa;            required=&quot;true&quot;/> &#xa;&lt;/jcr:root>"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/widgets/confidentiality"/>
+                        <text_284062560
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>All resources of the primary type 'cpp:Widget' are registered by the widget manager using their names as the type key. All predefined tag attributes (the &lt;attributes> node) are merged with the attributes specified in the 'widget' tag of the dialog which is using that widget (with precedence of the dialog attributes over the predefined attributes).&lt;/attributes>&lt;/p>&lt;p>Let's add a new property to our new image component using the 'confidentiality' widget...&lt;/p>"/>
+                        <codeblock5
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;utf-8&quot; %> &#xa;&lt;%@taglib prefix=&quot;sling&quot; uri=&quot;http://sling.apache.org/taglibs/sling/1.2&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineFrameObjects/> &#xa;&lt;cpp:editDialog title=&quot;Element Properties&quot;> &#xa;    &lt;cpp:widget label=&quot;Image&quot; property=&quot;imageRef&quot; type=&quot;imagefield&quot; &#xa;                hint=&quot;the path to the image asset in the repository or an URL&quot;/> &#xa;    &lt;cpp:widget label=&quot;Title&quot; property=&quot;title&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;                hint=&quot;the title text normally shown as the elements tooltip&quot;/> &#xa;    &lt;div class=&quot;row&quot;> &#xa;        &lt;div class=&quot;col col-xs-8&quot;> &#xa;            &lt;cpp:widget label=&quot;Alt Text&quot; property=&quot;alt&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;                        hint=&quot;the text used as alternative content in text based view&quot;/> &#xa;        &lt;/div> &#xa;        &lt;div class=&quot;col col-xs-4&quot;> &#xa;            &lt;cpp:widget label=&quot;Confidentiality&quot; property=&quot;confidentiality&quot; &#xa;                        type=&quot;confidentiality&quot; required=&quot;false&quot;/> &#xa;        &lt;/div> &#xa;    &lt;/div> &#xa;&lt;/cpp:editDialog>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/components/image/edit/dialog/dialog.jsp"/>
+                        <text_284062563
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>... and we can use our new widget:&lt;br>&lt;/p>"/>
+                        <image_678018664
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/adaptto/example-widget-final.png"/>
+                        <text_284062561
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Such a widget component can be arbitrarily complex. Necessary CSS or JS code should be added to an appropriate client library. All widgets of the Composum Pages component development framework are implemented as such components - look at the 'Commons Widgets'&amp;nbsp; of the Pages implementation to find examples:&lt;br>&lt;/p>"/>
+                        <text_346171043
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>&lt;a href=&quot;https://github.com/ist-dresden/composum-prototype/tree/develop/pages/demo/tenant&quot;>&lt;a href=&quot;https://github.com/ist-dresden/composum-pages/tree/develop/commons/package/src/main/content/jcr_root/libs/composum/pages/commons/widget&quot;>composum-pages-commons-widgets@GitHuB&lt;/a>&lt;/a>&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="An additional Context Tool">
+                        <text4
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>As an example let's create a new panel (a tab) in the context tools area (right sidebar) which is shown if an element (not a container) is selected in 'de' edit mode.&lt;/p>"/>
+                        <text5
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>We need a Sling component which is implementing the new context tool:&lt;/p>"/>
+                        <codeblock4
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;UTF-8&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineFrameObjects/> &#xa;&lt;cpp:element var=&quot;model&quot; type=&quot;com.composum.pages.stage.model.edit.FrameElement&quot; mode=&quot;none&quot; &#xa;             cssAdd=&quot;composum-pages-tools&quot;> &#xa;    &lt;div class=&quot;composum-pages-tools_actions btn-toolbar&quot;> &#xa;        &lt;div class=&quot;composum-pages-tools_right-actions&quot;> &#xa;            &lt;div class=&quot;composum-pages-tools_button-group btn-group btn-group-sm&quot; role=&quot;group&quot;> &#xa;                &lt;button type=&quot;button&quot; class=&quot;fa fa-pencil composum-pages-tools_button btn btn-default&quot;>&lt;/button> &#xa;            &lt;/div> &#xa;        &lt;/div> &#xa;    &lt;/div> &#xa;    &lt;div class=&quot;${modelCSS}_panel composum-pages-tools_panel&quot;> &#xa;        &lt;cpn:text tagName=&quot;p&quot; i18n=&quot;true&quot; value=&quot;My new panel - visible if an Element is selected.&quot;/> &#xa;        &lt;cpn:text i18n=&quot;true&quot; value=&quot;the selected element:&quot;/> &#xa;        &lt;dl> &#xa;            &lt;dt>${cpn:i18n(slingRequest,'Name')}&lt;/dt> &#xa;            &lt;dd>${cpn:text(model.name)}&lt;/dd> &#xa;            &lt;dt>${cpn:i18n(slingRequest,'Path')}&lt;/dt> &#xa;            &lt;dd>${cpn:text(model.pathHint)}&lt;/dd> &#xa;        &lt;/dl> &#xa;    &lt;/div> &#xa;&lt;/cpp:element>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/tools/mycontext"/>
+                        <text6
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>This simple panel is presenting a headline and the path and name of the selected element. The DIV element structure adopted from the other Pages tools - this makes it easy to integrate the new tool using the CSS style of the other tools.&lt;/p>"/>
+                        <text8
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>After adding &amp;nbsp;the resource which describes our new tool...&lt;/p>"/>
+                        <codeblock5
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;        jcr:primaryType=&quot;sling:Folder&quot; &#xa;        jcr:description=&quot;the tools declaration for the example tools&quot; &#xa;        sling:resourceType=&quot;composum/pages/tools/collection&quot;> &#xa;    &lt;mycontext &#xa;            jcr:primaryType=&quot;nt:unstructured&quot; &#xa;            sling:resourceType=&quot;tenant/domain/project/tools/mycontext&quot; &#xa;            categories=&quot;[context,element,edit,develop]&quot; &#xa;            iconClass=&quot;graduation-cap&quot; &#xa;            hint=&quot;A context tool example&quot; &#xa;            title=&quot;My Context&quot; &#xa;            order=&quot;{Long}200&quot;/> &#xa;&lt;/jcr:root>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/tools/collection"/>
+                        <text7
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>... and with a small extension of the Pages client library for the edit frame&amp;nbsp;&lt;code>composum.pages.edit.frame&lt;/code>...&lt;/p>"/>
+                        <codeblock6
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &#xa;&lt;jcr:root xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot; &#xa;          xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; &#xa;          jcr:primaryType=&quot;sling:Folder&quot; &#xa;          sling:resourceType=&quot;composum/nodes/commons/clientlib&quot; &#xa;          category=&quot;[composum.pages.edit.frame]&quot;> &#xa;    &lt;css &#xa;            jcr:primaryType=&quot;sling:OrderedFolder&quot; &#xa;            embed=&quot;[tenant/domain/project/tools/mycontext/css/mycontext.css]&quot;/> &#xa;&lt;/jcr:root>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/tools/clientlib"/>
+                        <codeblock7
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="@charset &quot;UTF-8&quot;; &#xa; &#xa;.tenant-domain-project-tools-mycontext { &#xa; &#xa;    p { &#xa;        padding: 0.5em 1em; &#xa;        font-size: 17px; &#xa;        font-weight: bold; &#xa;        background: #c00; &#xa;    } &#xa;}"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="scss"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/tools/mycontext/css/..."/>
+                        <text9
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>...our new context tool is working and looks like this:&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/adaptto/example-context-final.png"/>
+                    </section>
+                </column-1>
+            </row_608527202>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Extension"/>
+    </jcr:content>
+</jcr:root>

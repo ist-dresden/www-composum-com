@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the standard 'teaser' component blueprint - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Teaser Element"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="a very flexible component example"
+                    title="Teasers">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_326112113
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Teasers are illustrated links to guide the user to its points of interest. A teaser is a combination of an asset or symbol and a text element both as the content of the link. The default teaser component can be used in various contexts and forms.&lt;/p>&lt;p>The image or video can be in the teasers background or side by side with the text. In the context of a carousel component the style and editing is a litte bit different.&lt;/p>&lt;p>An additional Link list can be filled within the teaser to decorate the teaser with links to related pages or interesting details.&lt;/p>"/>
+                </column-0>
+            </row_326112113>
+            <row_853394559
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Image / Video">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the image should be on the left"
+                            text="&lt;p>the teaser text is shown on the right an not floating around the asset&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>the image claims 40% of the width on the left&lt;/li>&lt;li>no symbol is shown&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                            title="A teaser with an image">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+                    </teaser>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the video should be on the left"
+                            text="&lt;p>the teaser text is shown on the right analogous to an image&lt;br>&lt;/p>"
+                            title="A teaser with a video">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"/>
+                        <video
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/video"
+                                autoplay="{Boolean}true"
+                                controls="{Boolean}true"
+                                loop="{Boolean}true"
+                                videoRef="/content/ist/composum/assets/video/pixabay/Future_-_12917.mp4"/>
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/test-cs/home"/>
+                            <link_1317421913
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/components/teasers"/>
+                        </links>
+                    </teaser>
+                </column-1>
+            </row_853394559>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Text only">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the subtitle of the 'text only' teaser"
+                            text="&lt;p>a teaser without image or video and without a symbol in the default layout&amp;nbsp;&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>shout be rendered as on link if no link list are in the teaser link set&lt;/li>&lt;li>if links are specified the teasers text block should be rendered as the teasers link&lt;/li>&lt;li>the link area of the teaser should be a drop zone for pages to define the teasers link&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                            title="A 'text only' teaser">
+                        <video
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/video"/>
+                    </teaser>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the 'text only' teaser with a link set"
+                            text="&lt;p>a teaser without image or video and without a symbol in the default layout with a link set&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>the teasers text block should be rendered as the teasers link&lt;br>&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                            title="the 'text only' teaser">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/components/teasers"/>
+                            <link_625244217
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/test-cs/home"/>
+                        </links>
+                    </teaser>
+                </column-1>
+            </row>
+            <row_1066674508
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Symbols">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="lightbulb-o"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="no image or video - symbol is used"
+                            text="the symbol should be rendered at the left side; the text block is aligned left but on the right of the symbol"
+                            title="A teaser with a symbol"/>
+                    <teaser1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="cogs"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the symbol teaser with a link list"
+                            text="the link list declares an additional set of 'more' links"
+                            title="A teaser with a symbol">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/test-cs/home"/>
+                            <link_1920747840
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/components/teasers"
+                                    title="Components Teasers"/>
+                        </links>
+                    </teaser1>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            subtitle="the image should be shown like a symbol"
+                            text="The symbol is placed on the left like a symbol but with more space on the left. Don't mix this with symbol teasers."
+                            title="A Teaser with an image as symbol"
+                            variation="symbol">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/general/Composum-color.svg"/>
+                    </teaser>
+                    <teaser_1754092389
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/components/teasers"
+                            text="&lt;p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.&lt;/p>"
+                            title="Another teaser with an image symbol"
+                            variation="symbol">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/general/Commons-logo.svg"/>
+                    </teaser_1754092389>
+                </column-1>
+            </row_1066674508>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Teasers"/>
+    </jcr:content>
+    <implementation/>
+</jcr:root>

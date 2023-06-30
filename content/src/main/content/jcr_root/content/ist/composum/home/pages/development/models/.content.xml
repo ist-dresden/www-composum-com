@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Composum Models"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="nt:unstructured"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Composum Models">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+            <row_0
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+            </row_0>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_769683460
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <decorator_36614373
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            icon="info-circle"
+                            level="info">
+                        <text_0
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Describes the usage of Composum Models and its integration with &lt;a href=&quot;https://sling.apache.org/documentation/bundles/models.html&quot;>Sling Models&lt;/a>.&lt;/p>"/>
+                    </decorator_36614373>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Composum includes a framework to facilitate creating model objects. The base class AbstractModel includes many helper methods for accessing commonly used items including properties inherited from upwards in the page hierarchy. The &lt;a href=&quot;/content/ist/composum/home/pages/development/taglibs&quot;>Composum Taglibs&lt;/a> support the creation of such models.&amp;nbsp;&lt;/p>&lt;p>Sling-Models provides a declarative way to access properties, while keeping the code lean. This page describes how to use Sling Models in the Composum framework and how to get the best of both worlds.&lt;/p>"
+                            title="Scope"/>
+                    <text_1622036430
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Sling-Models is integrated into the Sling &lt;a href=&quot;https://sling.apache.org/documentation/the-sling-engine/adapters.html&quot;>Adapter framework&lt;/a>, creating models from a single object like a Resource or SlingHttpServletRequest. Since Models often not only depend on the Resource, but also on the SlingHttpServletRequest and sometimes even on the response, the Composum Framework suggests to use a container BeanContext as basis for the creation of models, which contains a resource, a resolver, the request, the response and also supports the storage of additional attributes in various scopes and the access to OSGI-Services. Using BeanContext it is not necessary to restructure the Model if one discovers later during development the need to use information from other things than the e.g. resource. Thus, the use of BeanContext is recommended as the Adaptable to create the models from.&lt;/p>"
+                            title="Creation of Models"/>
+                    <text_409048648
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The &lt;a href=&quot;/content/ist/composum/home/pages&quot;>Composum Pages&lt;/a> module provides a base class AbstractModel for models that provides many utility methods for accessing elements of the Pages framework and accessing properties read from the resource(s). The &lt;a href=&quot;/content/ist/composum/home/platform&quot;>Composum Platform&lt;/a> includes a module models that provides extensions to &lt;a href=&quot;https://sling.apache.org/documentation/bundles/models.html&quot;>Sling-Models&lt;/a> allow its relatively easy annotation-based injection in a way compatible to AbstractModel and the other parts of the Pages framework.&amp;nbsp;&lt;/p>&lt;p>The following example illustrates various features of this:&lt;/p>"
+                            title="AbstractModel.getProperty / @Property Annotation"/>
+                </column-0>
+            </row_769683460>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="@Model(adaptables = BeanContext.class) &#xa;@PropertyDefaults(i18nStrategy = PagesInternationalizationStrategy.class, &#xa;    inheritanceType = InheritedValues.Type.contentRelated) &#xa;@PropertyDetermineResourceStrategy(Page.PageDetermineResourceStrategy.class) &#xa;public static class MyOwnModel extends AbstractModel { &#xa;  &#xa;    @Property &#xa;    private String cssClass; &#xa;  &#xa;    @Property(name = &quot;test/avalue&quot;, basePath = &quot;config&quot;, inherited = true) &#xa;    @Default(intValues = 7) &#xa;    private Integer avalue; &#xa;  &#xa;    @Property(i18n = true) &#xa;    @Optional &#xa;    private String title; &#xa;  &#xa;    @Self &#xa;    @Via(value = &quot;config&quot;, type = DescendantPath.class) &#xa;    MyProps props; &#xa;  &#xa;    MyProps getProps() { return myprops; } &#xa;  &#xa;    @Model(adaptables = BeanContext.class) &#xa;    public interface MyProps { &#xa;  &#xa;        @Property(i18n = true) &#xa;        String getHeadline(); &#xa;    } &#xa;}"
+                            language="java"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The annotation @Property provides the injection of values compatible to AbstractModel.getProperty and AbstractModel.getInherited, providing configurable internationalization and various inheritance strategies from parent reources or containing pages.&lt;/p>&lt;p>The inner interface MyProps illustrates a pattern that could reduce the necessary code when exporting many properties. Sling-Models is able to inject values into fields, which require a corresponding getter when exported. But it is able to automatically implement an interface (here MyProps) with methods annotated with the injection annotations. Thus, every exported property requires only the getter. The DescendantPath ViaProvider allows selecting descendant paths (e.g. &quot;config&quot;) from the current resource while keeping the original adaptable type at SlingHttpServletRequest or BeanContext (or Resource).&lt;/p>&lt;p>The @PropertyDefaults allows to specify defaults for all @Property annotations given in the class, such as the strategy for finding internationalized values and for property inheritance, and the @PropertyDetermineResourceStrategy is a hook that allows to change the resource that is used for finding the properties to, in this case, the containing page of the resource. Both are just put in for illustration here, these are not necessary when deriving a model from AbstractModel since it already contains the appropriate default annotations.&amp;nbsp;&lt;/p>&lt;p>The following discussion applies to both the use of AbstractModel.getProperty / AbstractModel.getInherited and use of the (Composum-)annotation @Property within Sling-Models.&lt;/p>"/>
+                </column-1>
+            </row>
+            <row_691843853
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Composum Pages framework supports the storage of internationalized (that is in this context locale dependent) properties within the JCR-repository. When a i18n-able property name is stored at a resource at path, it is looked up at the following paths, depending on the current locale (the examples refer to a hypothetical locale with language=de, country=DE, variant=EURO).&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>path/i18n/language_country_variant/name, for example path/i18n/de_DE_EURO/name&lt;/li>&lt;li>path/i18n/language_country/name, for example path/i18n/de_DE/name&lt;/li>&lt;li>path/i18n/language/name, for example path/i18n/de/name&lt;/li>&lt;li>path/name, as is; the value in the default language&lt;/li>&lt;/ul>&lt;p>&lt;/p>&lt;p>Please note that path is often the node jcr:content of e.g. a page or site or a subnode of that, and name can itself be a path - resulting e.g. in /content/site/home/about/jcr:content/meta/i18n/de_DE/search/title.&amp;nbsp;&lt;/p>"
+                            title="Internationalization / Localization"/>
+                    <text_2
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If a property cannot be found for the current resource, it is possible to apply inheritance by searching the property at paths starting from parents of the resource. There are various strategies (compare InheritedValues.Type); in the Composum Pages framework the strategy InheritedValues.Type.contentBased is usually used. If the property is not found at the current resource, the property is looked up with the same relative path below the jcr:content parent at the parents of the resource. For example, if the resource has a path is /n1/n2/n3/jcr:content/aaa/bbb and the name of the property is the relative path p1/p2, the property is set to the first value found at the paths /n1/n2/n3/jcr:content/aaa/bbb/p1/p2, /n1/n2/jcr:content/aaa/bbb/p1/p2 and /n1/jcr:content/aaa/bbb/p1/p2.&lt;/p>"
+                            title="Property Inheritance"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+            </row_691843853>
+            <row_1218923114
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>The &lt;a href=&quot;/content/ist/composum/home/pages&quot;>Composum Pages&lt;/a> model classes extending com.composum.pages.commons.model.Model do not currently use Sling-Models - the instantiation of the classes is usually done directly by calling a constructor with various arguments. When creating new classes implementing Model or extending AbstractModel are created, it is possible to introduce Sling-Models annotations and instantiate these with BeanContext.adaptTo instead of a constructor or the Composum Taglibs.&lt;/li>&lt;/ul>"
+                            title="Notes"/>
+                    <text-2
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Since Sling-Models does unfortunately not allow to initialize already constructed objects, it is no longer possible to create a SlingBean by calling its constructor and initialize(BeanContext) it, since one cannot know whether there are Sling-Model parts contained in it that would not be initialized. It is always necessary to use BeanContext.adaptTo, instead, possibly using .withResource:&lt;/p>"
+                            title="Implementation concerns and limitations"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="model = beanContext.adaptTo(TheModelClass.class); &#xa;// or if initializing with a special resource, as in formerly calling SlingBean.initialize(beanContext,resource) &#xa;model = beanContext.cloneWith(resource).adaptTo(TheModelClass.class);"
+                            collapsed="expanded"
+                            language="java"/>
+                    <text_2099266489
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Since the injectors within Sling-Models do not have access to the class being constructed nor the object being constructed, the defaults for injecting with @Property can only be determined by the @PropertyDefaults annotation found from the AnnotatedElement to be injected. Thus, these cannot be changed downwards the inheritance hierarchy of a model, and it is not possible to use @Property on constructor parameters, since these do currently (as of Sling-Models 1.4.2) not allow determine the actual constructor with its declaring class.&lt;/p>"/>
+                </column-0>
+            </row_1218923114>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Models"/>
+    </jcr:content>
+</jcr:root>

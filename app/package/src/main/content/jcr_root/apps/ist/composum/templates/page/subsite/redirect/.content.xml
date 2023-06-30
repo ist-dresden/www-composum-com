@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page/subsite/redirect"
+            jcr:description="A simple navigation point with a redirect to another page and without own content."
+            jcr:title="Composum Site Subsite Redirect"
+            allowedParentTemplates="[
+                ^(.*/)?ist/composum/templates/page/subsite/.+$
+            ]"
+            allowedChildTemplates="[
+                ^(.*/)?ist/composum/templates/page/subsite/(content|redirect)$
+            ]"/>
+</jcr:root>

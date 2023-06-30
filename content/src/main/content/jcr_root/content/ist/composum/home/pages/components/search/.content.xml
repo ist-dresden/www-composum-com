@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the standard search components - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Search Components"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="embed search functionality into a site"
+                    title="Search Components">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1209059530
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65614
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Composum Pages provides an easy to setup search mechanism with configurable components for search fields and search results, which transparently supports Versioning of Pages."
+                            textAlignment="text"/>
+                    <text_65633
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Composum search components utilizes the&amp;nbsp;&lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/6_Query.html#6.7.19%20FullTextSearch&quot;>JCR fulltext search&lt;/a> to search for Composum pages. This includes functionality to ensure that search words spread out over the whole subtree of nodes of a page will still find the page, for generating excerpts containing the search words from the page, and configurable components to display a search field and the search results. If the site is configured to display a certain release (see&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/staging&quot;>Content Staging /&amp;nbsp;Versioning of Pages&lt;/a>), the search only searches this release. The search query searches for Composum Pages (more specifically, only the parent nodes of nodes with primary type cpp:PageContent&amp;nbsp;are found."/>
+                </column-0>
+            </row_1209059530>
+            <row_661567751
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Components">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Search Field">
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="composum/pages/components/search/result"/>
+                        <text_65754
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="There is a search field component embedded in the navigation bar. In the Pages editor it's properties can be edited by selecting it and the &quot;edit&quot; icon. Its properties are primarily concerned with its appearance, and the page at which the search result component is embedded that displays the results."
+                                textAlignment="text"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                text="Property dialog of the search field component"
+                                textAlignment="center">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/pages/search/SearchFieldPropertyDialog.png"
+                                    title="Search page example"/>
+                        </textimage>
+                    </section>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section">
+                        <title_65822
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/title"
+                                textAlignment="left"
+                                title="Query Syntax">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </title_65822>
+                        <text_65825
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The search uses &lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/6_Query.html#6.7.19%20FullTextSearch&quot;>JCR 2.0 fulltext queries&lt;/a>. The query can contain a number of search terms, phrases enclosed in double quotes, and negated search terms or phrases starting with a minus. Each search term can contain the wildcards * for an arbitrary number or characters and&amp;nbsp;? for a single character. For example, the search&amp;nbsp;Composum Widget* -Wiki &quot;Search Component&quot; will only find pages that contain the word&amp;nbsp;Composum,&amp;nbsp;a word starting with&amp;nbsp;Widget and the phrase&amp;nbsp;Search Component, but do not contain the word&amp;nbsp;Wiki."/>
+                        <title_65855
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/title"
+                                textAlignment="left"
+                                title="Example in the Prototype">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </title_65855>
+                        <text_65858
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The pages prototype contains at /content/prototype/pages/components/site/home/meta/search an example search result page (see screenshot above), including configurations for the components. The configuration for the search box can be found at the site homepage."
+                                textAlignment="text"/>
+                        <title_65860
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/title"
+                                textAlignment="left"
+                                title="Presentation of the search results">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </title_65860>
+                        <title_65863
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/title"
+                                textAlignment="left"
+                                title="Highlighting of search terms in the results">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </title_65863>
+                        <text_65866
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="In the result overview, an excerpt with textual fragments that contain the search words is displayed, and the search terms are highlighted. When the user calls up one of the results by clicking on a link, it is desirable that the search words are highlighted on that page also. If these are out of view due to scrolling or folding, it might be a good idea to scroll the page or unfold the corresponding regions. As a preparation for such a mechanism the positive search terms and phrases contained in the query are appended as parameters to the URL with name&amp;nbsp;&lt;code>search.term&lt;/code>. If there are several search terms, this parameter occurs once for each term. These could be used by e.g. a Javascript highlighting mechanism."/>
+                    </section1>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Search Result">
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="composum/pages/components/search/result"/>
+                        <text_65780
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The search result component can be embedded into a container and provides configurations which path serves as search root, the number of search results presented in one page, the headline and error texts to display, and instructions how to display each result. This can either be done by a special selector, at which all pages would have to display an excerpt of themselves, or by a template that is called for each result. In both cases, the search result is transmitted in the request attribute searchresult that contains informations about the result to display within the component. This attribute can e.g. be accessed with"
+                                textAlignment="text"/>
+                        <column_65790
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&lt;jsp:useBean id=&quot;searchresult&quot; type=&quot;com.composum.pages.commons.service.SearchService.Result&quot; scope=&quot;request&quot; />"
+                                language="xml"/>
+                        <text_65796
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="An example template is provided as composum/pages/components/search/defaulttemplate."
+                                textAlignment="text"/>
+                        <textimage_718104344
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                text="&lt;p>Property dialog for the search result component&lt;/p>"
+                                textAlignment="center">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/pages/search/SearchResultPropertyDialog.png"/>
+                        </textimage_718104344>
+                        <section_1833250810
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section">
+                            <text_65721
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="There is a component provided for the display of the search field and one for the display of search results. The configuration can be provided at the resource including the component itself, or inherited. For the search field embedded in the navigation the configuration is put into the home page at jcr:content/search (possibly also inherited)."
+                                    textAlignment="text"/>
+                            <textimage_446095088
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/textimage"
+                                    text="&lt;p>Example search page /content/prototype/pages/components/site/home/meta/search in the prototype, showing the search field in the navigation, a search field embedded into the page and the search results component, using the provided template composum/pages/components/search/defaulttemplate.&lt;/p>"
+                                    textAlignment="center">
+                                <image
+                                        jcr:primaryType="nt:unstructured"
+                                        imageRef="/content/ist/composum/assets/pages/search/SearchPage.png"/>
+                            </textimage_446095088>
+                        </section_1833250810>
+                    </section>
+                </column-1>
+            </row_661567751>
+            <row_1265663903
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Implementation">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Implementation Remarks">
+                        <text_65916
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A heuristic in ExcerptGeneratorImpl looks for fragments containing the search words in the page content n and the descendant nodes o."
+                                textAlignment="text"/>
+                        <text_65889
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The implementation uses the &lt;a href=&quot;content/ist/composum/home/platform/staging.html&quot;>Composum Query mechanism&lt;/a> that transparently supports versioned pages. To generate excerpts we search in one joined query both for the&amp;nbsp;cpp:PageContent nodes that match all of the search words simultaneously and for the descendant nodes that match at least one of the search words:"/>
+                        <text_65874
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="While Jackrabbit can generate an excerpt, this is not usable for our purposes because it only collects the excerpts from the attributes of the found node, not from the aggregated subnodes. Thus, an excerpt can only be formed by searching those nodes."
+                                textAlignment="text"/>
+                        <column_65910
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="&#xa;SELECT n.[jcr:path], o.[jcr:path], ... FROM [cpp:PageContent] AS n &#xa;LEFT OUTER JOIN [nt:base] AS o ON ISDESCENDANTNODE(o, n)&#xa;WHERE ISDESCENDANTNODE(n, '/content') &#xa;AND (CONTAINS(n.* , &quot;searchword1 searchword2&quot; ) ) &#xa;AND (CONTAINS(o.* , 'searchword1 OR searchword2' ) ) ORDER BY n.[jcr:score] DESC &#xa;"/>
+                    </section2>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Setup">
+                        <text_65695
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="To use the search, such an aggregation can be configured by importing &lt;a href=&quot;https://github.com/ist-dresden/composum-pages/tree/develop/commons/bundle/src/test/resources/aggregates.json&quot;>aggregates.json&lt;/a>&amp;nbsp;e.g. using the browser into&amp;nbsp;/oak:index/lucene/aggregates, assuming the standard sling launchpad setup. It configures that descendants of&amp;nbsp;cpp:PageContent up to a depth of 9 are aggregated, and the descendants of&amp;nbsp;&lt;code>nt:frozenNode&lt;/code>&amp;nbsp;are also recursively aggregated up to depth 9."/>
+                        <title
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/title"
+                                subtitle="Configuration of Lucene aggregation"/>
+                        <text_65667
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Background: A search should find all pages that contain all the search words, even if they are distributed over several paragraphs in the page. These, however, are represented by different JCR-nodes, so a simple&amp;nbsp;&lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/6_Query.html#6.7.19%20FullTextSearch&quot;>fulltext search&lt;/a> would not find such pages. The lucene engine used for the fulltext search can however be configured such that the words found in descendant nodes&amp;nbsp;are &lt;a href=&quot;https://jackrabbit.apache.org/oak/docs/query/lucene.html#aggregation&quot;>aggregated into the node&lt;/a>. Thus, the repository needs to be configured such that all subnodes of nodes of primary type&amp;nbsp;cpp:PageContent are aggregated into that node. (We search for&amp;nbsp;&lt;code>cpp:PageContent&lt;/code>&amp;nbsp;instead of, e.g.,&amp;nbsp;&lt;code>cpp:Page&lt;/code>&amp;nbsp;since, when using versioning, the page content is versioned and appears as frozen node in the version storage). To support search in versioned content, the descendants of&amp;nbsp;&lt;code>nt:frozenNode&lt;/code>s are also aggregated recursively - unfortunately it is not possible to distinguish between frozen nodes of cpp:PageContent or other nodes."/>
+                    </section>
+                </column-1>
+            </row_1265663903>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Search"/>
+    </jcr:content>
+</jcr:root>

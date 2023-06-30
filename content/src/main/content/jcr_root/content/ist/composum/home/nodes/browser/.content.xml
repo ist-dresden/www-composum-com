@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Console - Browser"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="(/bin/browser.html)"
+                    title="Console Browser">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Browser"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1054385332
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            anchor="intro">
+                        <text_65608
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The&amp;nbsp;Composum Browser&amp;nbsp;is part of the Composum Console and gives you the ability to explore your Sling repository with a lot of useful features:&lt;/p>"/>
+                        <text_65637
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    repository tree with configurable filters&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    node creation / deletion / move / reorder&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    property manipulation&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    binary data upload / download&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    component rendering and asset view&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    template based queries with history&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    JSON view, download and upload&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    ACL view and manipulation&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    Groovy script execution&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                                textAlignment="left"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="It is one of the standard parts of the&amp;nbsp;&lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-starter&quot;>Apache Sling Starter&lt;/a>."/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/console/browser/browser-props.png"/>
+                    </textimage>
+                </column-1>
+            </row_1054385332>
+            <row_1062899363
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Features">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Display View">
+                        <text_65664
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If you select the preview tab in your node browser then each node which can be displayed such as pages, renderable content nodes, images and videos is rendered on node selection. For all renderable content nodes (must have a 'sling:resourceType' property) the URL can be parameterized in the user interface."
+                                textAlignment="text"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/console/browser/browser-view.png"/>
+                        </textimage>
+                    </section>
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section">
+                        <text_65685
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="During browsing through the repository the appropriate view type (HTML, image, video) for the selected node is displayed automatically. If the HTML view type is shown a set of properties can be specified to modify the URL used to render the node."
+                                textAlignment="text"/>
+                        <textimage_1108390817
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/console/browser/features/html-view-parameterizing.png"/>
+                        </textimage_1108390817>
+                        <text_65706
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The URL to the nodes view is built by the following rule:"
+                                textAlignment="text"/>
+                        <text_65708
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>[&amp;lt;path prefix&amp;gt;]&amp;lt;node path&amp;gt;[.&amp;lt;selectors&amp;gt;][.&amp;lt;extension&amp;gt;][/&amp;lt;suffix&amp;gt;][?&amp;lt;parameters]&lt;/p>"/>
+                        <text_65711
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Each modifier is used only to build the URL if not empty; the extension is used as specified if not empty otherwise 'html' is used as default extension instead of the specified value is '-'; in this case no extension is added to the nodes URL."
+                                textAlignment="text"/>
+                        <text_65713
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="You can open this URL in a new browser tab by clicking on the rightmost button in the HTML view toolbar. With the leftmost button you are toggling the mapping mode for the URL; if mapping is 'on' the URL is transformed by a final 'resolver.map()'."
+                                textAlignment="text"/>
+                    </section2>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Useful Servlet URL patterns for the Display View">
+                        <table_65720
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table"
+                                bordered="{Boolean}true"
+                                striped="{Boolean}true">
+                            <row_65731
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65732
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Source Servlet"/>
+                                <column_65739
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        colspan="{Long}2"
+                                        text="The source servlet generates 'source code' of the repository content (trees of '.content.xml' files). A generated content source XML file doesn't contain dynamic repository properties such as 'jrc:lastModified'. Files (subnodes of type 'nt:file') are embedded as simple files in the ZIP or Package output."/>
+                            </row_65731>
+                            <row_65752
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65753
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/bin/cpm/nodes/source.xml"/>
+                                <column_65758
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource> (no &lt;ext>!)"/>
+                                <column_65764
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Download / View the XML source code (.content.xml file) for a single page..."/>
+                            </row_65752>
+                            <row_65769
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65770
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/bin/cpm/nodes/source.zip"/>
+                                <column_65775
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource> (no &lt;ext>!)"/>
+                                <column_65780
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Download the whole tree of a page and their subpages as ZIP file."/>
+                            </row_65769>
+                            <row_65785
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65786
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/bin/cpm/nodes/source.pkg"/>
+                                <column_65791
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource> (no &lt;ext>!)"/>
+                                <column_65796
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Download the whole tree of a page and their subpages as Package ZIP file."/>
+                            </row_65785>
+                            <row_65801
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65802
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Composum Pages"/>
+                                <column_65809
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        colspan="{Long}2"/>
+                            </row_65801>
+                            <row_65816
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65817
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/bin/pages.html"/>
+                                <column_65822
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource>[.&lt;ext>]"/>
+                                <column_65827
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Visualize the edit view of 'Composum Pages' with the current resource within..."/>
+                            </row_65816>
+                            <row_65832
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65833
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Adobe AEM (CQ5)"/>
+                                <column_65842
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        colspan="{Long}2"/>
+                            </row_65832>
+                            <row_65849
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65850
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/editor.html"/>
+                                <column_65855
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource>.&lt;ext>"/>
+                                <column_65860
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Visualize the edit view of AEMs Touch UI with the current resource within..."/>
+                            </row_65849>
+                            <row_65865
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/row">
+                                <column_65866
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="/cf#"/>
+                                <column_65871
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="&lt;path to resource>.&lt;ext>"/>
+                                <column_65876
+                                        jcr:primaryType="cpp:Element"
+                                        sling:resourceType="composum/pages/components/composed/table/cell"
+                                        text="Visualize the content finder of AEMs ClassicUI with the current resource within..."/>
+                            </row_65865>
+                        </table_65720>
+                    </section1>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Favorites">
+                        <text_65884
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Working in the Repository you often switch between different nodes. To make this easier the 'favorites' feature is now available. You can mark resources as favorites and toggle between the tree view and the favorites view in the left navigation area."
+                                textAlignment="text"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/console/browser/features/favorites.png"/>
+                        </textimage>
+                        <text_65905
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The favorites view lists all marked favorites sorted by their path on the views top area. The bottom area lists the last 20 resources selected recently. This list is filled automatically."
+                                textAlignment="text"/>
+                    </section>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Script Runner">
+                        <text_65933
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Since release 1.5 this script runner uses a new job control service to execute scripts controlled by an asynchronous job. The user interface is synchonized with the current job state and an audit log is written including the complete execution output."
+                                textAlignment="text"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/console/browser/features/groovyrunner.png"/>
+                        </textimage>
+                        <text_65910
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Selecting a node which is a Groovy script file an additional feature is available in the text view of such a node. This Groovy Runner feature enables the execution of the selected script on the repositories server."
+                                textAlignment="text"/>
+                        <text_65931
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The script implementation provides some useful variables to access the repository such as the session, a resource resolver, the bundle context and much more, but you can configure your own script runner setup script in the OSGi configuration."
+                                textAlignment="text"/>
+                    </section1>
+                    <section2
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Filters">
+                        <textimage_1792388635
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="top"
+                                textAlignment="left">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/console/browser/features/filters.png"/>
+                        </textimage_1792388635>
+                        <textimage_1198232381
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="bottom"
+                                text="&lt;p>selects all resources which name ends as 'page' and starts with a namespace or file resources with the HTML mime type.&lt;/p>&lt;p>You can select your filter in the tree actions toolbar on the bottom of the tree. The selected filter is also used to filter out the query results unless this filter usage is switched off in the query panel.&lt;/p>"
+                                textAlignment="left">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </textimage_1198232381>
+                        <textimage_1457409328
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="bottom"
+                                text="&lt;p>The resource tree uses filters to define the current scope of interest of the resource content. The 'default' filter for example hides all special content nodes of the repository such as ACLs or node types. If you want to see all resources/nodes the the 'unfiltered' filter configuration is the right choice.&lt;/p>&lt;p>Some filters are preconfigured and used by the Composum Console Browser implementation for special purposes such as the selection of node reference targets (needs 'referenceable' nodes) with the preconfigured 'referenceable' filter.&lt;/p>&lt;p>All Filter configurations can be modified or extended in the OSGi configuration (Composum Core Configuration). You can add your own filters or modify the preconfigured filters. A filter is declared by a string in a kind of an RPN using short names of the filter implementation classes and regular expressions to describe the filter rules, for example - the 'Page' filter:&lt;/p>">
+                            <image
+                                    jcr:primaryType="nt:unstructured"/>
+                        </textimage_1457409328>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="or{ResourceType(+'^[a-z]+:.*[Pp]age$'),and{PrimaryType(+'^nt:file$'),MimeType(+'^text/html$')}}"
+                                language="java"
+                                wrapLines="{Boolean}true"/>
+                    </section2>
+                </column-1>
+            </row_1062899363>
+            <row1
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="The ACL view">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The ACL view allows you to set the ACLs on the selected node. The view is divided into two parts. The upper list shows the ACLs defined directly on the currently selected node. The lower list shows all ACL rules that are valid for the currently selected node. This list also shows the rules that have been defined at parent nodes.&lt;/p>"/>
+                    <illustration
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/illustration">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/console/browser/nodes-acl-view.png"/>
+                    </illustration>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>In the upper view, new ACL rules can be added and existing rules can be deleted or moved in order.&lt;/p>&lt;p>The order is relevant for the application of a rule when accessing the node. Especially 'deny' rules often cause a complete override of all previously defined 'allow' rules for the corresponding principal. If deny rules are unavoidable, they should be defined at the beginning of the list for the respective principal or at the beginning of the list in general. To achieve this, rules can be moved in the top view.&lt;/p>"/>
+                    <text_1598123672
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>With version 2.2.1, two additional views are available for selecting and running ACL setup scripts. Such scripts can be used via the repository setup service to set predefined ACL rules.&amp;nbsp;&lt;/p>&lt;p>If the current node is detected as such a script, then this script can be executed directly via the 'Setup Execution' action.&lt;/p>&lt;p>With the help of additional meta data, such scripts can be offered for selection in the ACL 'Setup Control View', supplemented by additional notes.&lt;/p>"/>
+                    <set
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/link/set">
+                        <link
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                title="ACL setup control"/>
+                    </set>
+                </column-1>
+            </row1>
+        </main>
+    </jcr:content>
+    <queries/>
+    <scenes/>
+    <aclsetup/>
+    <groovy/>
+</jcr:root>

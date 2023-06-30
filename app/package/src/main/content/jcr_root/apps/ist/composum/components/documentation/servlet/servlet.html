@@ -1,0 +1,46 @@
+<sly data-sly-use.cpp="/libs/composum/platform/htl/cppl.html"
+     data-sly-use.cpn="/libs/composum/platform/htl/cpnl.html"
+     data-sly-use.cpm="/libs/composum/platform/htl/composum.html"
+     data-sly-use.pageContext="com.composum.platform.htl.impl.EmulatedPageContext"
+></sly>
+
+<sly data-sly-call="${cpp.defineObjects}"></sly>
+<sly data-sly-call="${cpp.startContainer @ var='servlet', type='com.composum.site.components.model.servlet.Servlet', cssBase='composum-pages-components-container-row', cssAdd='row ist-composum-components-documentation-servlet'}"></sly>
+<!--/* cpp:startElement created variables in the (simulated) pageContext. We fetch these into HTL (separate sly tag needed!) */-->
+<sly data-sly-use.servletCSS="${'servletCSS' @ fromScope='page'}"
+     data-sly-use.servlet="${'com.composum.site.components.model.servlet.Servlet' @ fromScope='page', key='servlet'}">
+
+    <div class="${servletCSS}_header">
+        <h2 class="${servletCSS}_title"><span class="${servletCSS}_label">${'Name'@i18n}</span><span
+                class="${servletCSS}_value">${servlet.title}</span></h2>
+    </div>
+
+    <div class="${servletCSS}_top col col-xs-12">
+        <div class="row">
+            <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <h4 class='${servletCSS}_path' data-sly-test="${servlet.servletPath}"><span
+                        class="${servletCSS}_label">${'Path'@i18n}</span><span
+                        class="${servletCSS}_value">${servlet.servletPath}</span>
+                </h4>
+                <h4 class='${servletCSS}_type' data-sly-test="${servlet.servletResourceType}"><span
+                        class="${servletCSS}_label">${'Resource Type'@i18n}</span><span class="${servletCSS}_value">${servlet.servletResourceType}</span>
+                </h4>
+                <h4 class='${servletCSS}_suffix' data-sly-test="${servlet.suffix}"><span class="${servletCSS}_label">${'Suffix'@i18n}</span><span
+                        class="${servletCSS}_value">${servlet.suffix}</span></h4>
+                <div class='${servletCSS}_class'><span class="${servletCSS}_label">${'Class'@i18n}</span><span
+                        class="${servletCSS}_value">${servlet.className}</span></div>
+            </div>
+            <div class="col col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class='${servletCSS}_description'>${servlet.description @ context='html'}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="${servletCSS}_column ${servletCSS}_column-first col col-lg-6 col-md-12 col-sm-12 col-xs-12"
+         data-sly-resource="${'column-0' @ resourceType='ist/composum/components/documentation/servlet/selectors'}"></div>
+    <div class="${servletCSS}_column ${servletCSS}_column-last col col-lg-6 col-md-12 col-sm-12 col-xs-12"
+         data-sly-resource="${'column-1' @ resourceType='ist/composum/components/documentation/servlet/selectors'}"></div>
+
+    <!--/* Close the cpp:startElement tag: */-->
+    <sly data-sly-call="${cpp.endContainer}"></sly>
+</sly>

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <taglib
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/taglib"
+                    jcr:description="&lt;p>The tags to implement editing UI components such as dialogs are the subject of this tag description page. The tags for rendering the HTML code of a content component&amp;nbsp; are described in &lt;a href=&quot;/content/ist/composum/home/pages/development/api/taglibs/cpp-rendering&quot;>Pages Component Tags&lt;/a>.&lt;/p>"
+                    jcr:title="Pages Editing Tags"
+                    key="cpp">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/taglib/tags">
+                    <tag_N68936
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the extended define objects tag for edit frame components"
+                            jcr:title="defineFrameObjects"/>
+                    <tag_N68309
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the action tag for the edit toolbars"
+                            jcr:title="editAction">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68326
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="icon"
+                                    valueType="String"/>
+                            <attribute_N68341
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N68356
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="condition"
+                                    valueType="String"/>
+                            <attribute_N68371
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="action"
+                                    valueType="String"/>
+                            <attribute_N68386
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The title of the item."
+                                    jcr:title="title"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N68309>
+                    <tag_N67202
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="The EditDialogTag creates the HTML code for an edit dialog of a component."
+                            jcr:title="editDialog">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N67219
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the name of the model variable; this name must be unique in the chosen scope"
+                                    jcr:title="var"
+                                    valueType="String"/>
+                            <attribute_N67237
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the full class name of the models Java class"
+                                    jcr:title="type"
+                                    valueType="String"/>
+                            <attribute_N67255
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The scope in which the variable is stored: page (= default), request or session ."
+                                    jcr:title="scope"
+                                    valueType="String"/>
+                            <attribute_N67273
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="if 'true' an existing value of the same type is replaced by a new instance otherwise an existing instance of the chosen type is reused"
+                                    jcr:title="replace"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67291
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the optional DOM tree id for the HTML tag"
+                                    jcr:title="tagId"
+                                    valueType="String"/>
+                            <attribute_N67309
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The title of the item."
+                                    jcr:title="title"
+                                    valueType="String"/>
+                            <attribute_N67327
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="languageContext"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67342
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The rendered resource."
+                                    jcr:title="resource"
+                                    valueType="org.apache.sling.api.resource.Resource"/>
+                            <attribute_N67360
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The path of the resource to edit; if it ends with * then the dialog is meant to create a new resource."
+                                    jcr:title="resourcePath"
+                                    valueType="String"/>
+                            <attribute_N67378
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="resourceType"
+                                    valueType="String"/>
+                            <attribute_N67393
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="primaryType"
+                                    valueType="String"/>
+                            <attribute_N67408
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="selector"
+                                    valueType="String"/>
+                            <attribute_N67423
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="specifies the 'cssBase' value and overwrites the default value derived from the component resource type"
+                                    jcr:title="cssBase"
+                                    valueType="String"/>
+                            <attribute_N67441
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the 'main' CSS class for the produced tag (hides the 'cssBase' class)"
+                                    jcr:title="cssSet"
+                                    valueType="String"/>
+                            <attribute_N67459
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="additional CSS classes added to the 'main' CSS class specified by the 'cssBase' or 'cssSet' attribute"
+                                    jcr:title="cssAdd"
+                                    valueType="String"/>
+                            <attribute_N67477
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="submit"
+                                    valueType="String"/>
+                            <attribute_N67492
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the validation action selector or an uri for server side validation"
+                                    jcr:title="validation"
+                                    valueType="String"/>
+                            <attribute_N67510
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the event key of the event to trigger after a successful change request"
+                                    jcr:title="successEvent"
+                                    valueType="String"/>
+                            <attribute_N67528
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="disabled"
+                                    valueType="java.lang.Object"/>
+                        </attributes>
+                    </tag_N67202>
+                    <tag_N67640
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="Creates a group within an edit dialog."
+                            jcr:title="editDialogGroup">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N67657
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="an identifier for the group"
+                                    jcr:title="groupId"
+                                    valueType="String"/>
+                            <attribute_N67675
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the label of the group"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N67693
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="expanded"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67708
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="can be used to disable the group"
+                                    jcr:title="disabled"
+                                    valueType="java.lang.Object"/>
+                            <attribute_N67726
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Object"/>
+                        </attributes>
+                    </tag_N67640>
+                    <tag_N67547
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="Creates a tab witin an edit dialog."
+                            jcr:title="editDialogTab">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N67564
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="identifier of the tab"
+                                    jcr:title="tabId"
+                                    valueType="String"/>
+                            <attribute_N67582
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the label of the tab"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N67600
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="can be used to disable the tab"
+                                    jcr:title="disabled"
+                                    valueType="java.lang.Object"/>
+                            <attribute_N67618
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Object"/>
+                        </attributes>
+                    </tag_N67547>
+                    <tag_N68144
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="Creates the html markup for an edit toolbar."
+                            jcr:title="editToolbar">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68161
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the name of the model variable; this name must be unique in the chosen scope"
+                                    jcr:title="var"
+                                    valueType="String"/>
+                            <attribute_N68179
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the full class name of the models Java class"
+                                    jcr:title="type"
+                                    valueType="String"/>
+                            <attribute_N68197
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The scope in which the variable is stored: page (= default), request or session ."
+                                    jcr:title="scope"
+                                    valueType="String"/>
+                            <attribute_N68215
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="if 'true' an existing value of the same type is replaced by a new instance otherwise an existing instance of the chosen type is reused"
+                                    jcr:title="replace"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N68233
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the optional DOM tree id for the HTML tag"
+                                    jcr:title="tagId"
+                                    valueType="String"/>
+                            <attribute_N68251
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="specifies the 'cssBase' value and overwrites the default value derived from the component resource type"
+                                    jcr:title="cssBase"
+                                    valueType="String"/>
+                            <attribute_N68269
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the 'main' CSS class for the produced tag (hides the 'cssBase' class)"
+                                    jcr:title="cssSet"
+                                    valueType="String"/>
+                            <attribute_N68287
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="additional CSS classes added to the 'main' CSS class specified by the 'cssBase' or 'cssSet' attribute"
+                                    jcr:title="cssAdd"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N68144>
+                    <tag_N68741
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the general action tag to embed action calls to the edit layer into a page"
+                            jcr:title="invoke">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68755
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the tag name to render the wrapping tag (default: 'div')"
+                                    jcr:title="tagName"
+                                    valueType="String"/>
+                            <attribute_N68773
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="action"
+                                    valueType="String"/>
+                            <attribute_N68788
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="actionUrl"
+                                    valueType="String"/>
+                            <attribute_N68803
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="model"
+                                    valueType="com.composum.pages.commons.model.Model"/>
+                            <attribute_N68818
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="resource"
+                                    valueType="org.apache.sling.api.resource.Resource"/>
+                            <attribute_N68833
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="path"
+                                    valueType="String"/>
+                            <attribute_N68848
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="resourceType"
+                                    valueType="String"/>
+                            <attribute_N68863
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N68881
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the 'main' CSS class for the produced tag (hides the 'cssBase' class)"
+                                    jcr:title="cssSet"
+                                    valueType="String"/>
+                            <attribute_N68899
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="additional CSS classes added to the 'main' CSS class specified by the 'cssBase' or 'cssSet' attribute"
+                                    jcr:title="cssAdd"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N68741>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/taglib/tags">
+                    <tag_N68624
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the menu item action tag for the dropdown menus of the toolbars"
+                            jcr:title="menuItem">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68641
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="icon"
+                                    valueType="String"/>
+                            <attribute_N68656
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N68671
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="condition"
+                                    valueType="String"/>
+                            <attribute_N68686
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="action"
+                                    valueType="String"/>
+                            <attribute_N68701
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The title of the item."
+                                    jcr:title="title"
+                                    valueType="String"/>
+                            <attribute_N68719
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Boolean"/>
+                        </attributes>
+                    </tag_N68624>
+                    <tag_N67991
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the widget rendering tag for structured multi value properties"
+                            jcr:title="multiwidget">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68008
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N68023
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="property"
+                                    valueType="String"/>
+                            <attribute_N68038
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="i18n"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N68053
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the name of the model variable; this name must be unique in the chosen scope"
+                                    jcr:title="var"
+                                    valueType="String"/>
+                            <attribute_N68071
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="modelClass"
+                                    valueType="String"/>
+                            <attribute_N68086
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="specifies the 'cssBase' value and overwrites the default value derived from the component resource type"
+                                    jcr:title="cssBase"
+                                    valueType="String"/>
+                            <attribute_N68104
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the 'main' CSS class for the produced tag (hides the 'cssBase' class)"
+                                    jcr:title="cssSet"
+                                    valueType="String"/>
+                            <attribute_N68122
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="additional CSS classes added to the 'main' CSS class specified by the 'cssBase' or 'cssSet' attribute"
+                                    jcr:title="cssAdd"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N67991>
+                    <tag_N68408
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the action tag for the tree toolbars"
+                            jcr:title="treeAction">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68425
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="icon"
+                                    valueType="String"/>
+                            <attribute_N68440
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N68455
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="condition"
+                                    valueType="String"/>
+                            <attribute_N68470
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="action"
+                                    valueType="String"/>
+                            <attribute_N68485
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The title of the item."
+                                    jcr:title="title"
+                                    valueType="String"/>
+                            <attribute_N68503
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Boolean"/>
+                        </attributes>
+                    </tag_N68408>
+                    <tag_N68525
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the action menu tag for the tree toolbars"
+                            jcr:title="treeMenu">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N68542
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="key"
+                                    valueType="String"/>
+                            <attribute_N68557
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="icon"
+                                    valueType="String"/>
+                            <attribute_N68572
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N68587
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="condition"
+                                    valueType="String"/>
+                            <attribute_N68602
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The title of the item."
+                                    jcr:title="title"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N68525>
+                    <tag_N67748
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="the dialog widget rendering tag"
+                            jcr:title="widget">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N67765
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the full class name of the models Java class"
+                                    jcr:title="type"
+                                    valueType="String"/>
+                            <attribute_N67783
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="label"
+                                    valueType="String"/>
+                            <attribute_N67798
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="property"
+                                    valueType="String"/>
+                            <attribute_N67813
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="name"
+                                    valueType="String"/>
+                            <attribute_N67828
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="value"
+                                    valueType="java.lang.Object"/>
+                            <attribute_N67843
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="i18n"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67858
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="multi"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67873
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="If true, the property is mandatory."
+                                    jcr:title="required"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67891
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="If true, a blank property is stored, otherwise the property is removed if the value is blank."
+                                    jcr:title="blank"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67909
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="hint"
+                                    valueType="String"/>
+                            <attribute_N67924
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="disabled"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67939
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="placeholder"
+                                    valueType="String"/>
+                            <attribute_N67954
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="nothing is rendered if the test attribute value is &quot;false' (general condition)"
+                                    jcr:title="test"
+                                    valueType="java.lang.Object"/>
+                            <attribute_N67972
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="modelClass"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N67748>
+                    <tag_N66944
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="The form tag to use edit widgets in a normal HTML form."
+                            jcr:title="widgetForm">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N66961
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the name of the model variable; this name must be unique in the chosen scope"
+                                    jcr:title="var"
+                                    valueType="String"/>
+                            <attribute_N66979
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the full class name of the models Java class"
+                                    jcr:title="type"
+                                    valueType="String"/>
+                            <attribute_N66997
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="The scope in which the variable is stored: page (= default), request or session ."
+                                    jcr:title="scope"
+                                    valueType="String"/>
+                            <attribute_N67015
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="if 'true' an existing value of the same type is replaced by a new instance otherwise an existing instance of the chosen type is reused"
+                                    jcr:title="replace"
+                                    valueType="java.lang.Boolean"/>
+                            <attribute_N67033
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the optional DOM tree id for the HTML tag"
+                                    jcr:title="tagId"
+                                    valueType="String"/>
+                            <attribute_N67051
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="formType"
+                                    valueType="String"/>
+                            <attribute_N67066
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="action"
+                                    valueType="String"/>
+                            <attribute_N67081
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="method"
+                                    valueType="String"/>
+                            <attribute_N67096
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="encType"
+                                    valueType="String"/>
+                            <attribute_N67111
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the validation action selector or an uri for server side validation"
+                                    jcr:title="validation"
+                                    valueType="String"/>
+                            <attribute_N67129
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:title="disabled"
+                                    valueType="java.lang.Object"/>
+                            <attribute_N67144
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="specifies the 'cssBase' value and overwrites the default value derived from the component resource type"
+                                    jcr:title="cssBase"
+                                    valueType="String"/>
+                            <attribute_N67162
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the 'main' CSS class for the produced tag (hides the 'cssBase' class)"
+                                    jcr:title="cssSet"
+                                    valueType="String"/>
+                            <attribute_N67180
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="additional CSS classes added to the 'main' CSS class specified by the 'cssBase' or 'cssSet' attribute"
+                                    jcr:title="cssAdd"
+                                    valueType="String"/>
+                        </attributes>
+                    </tag_N66944>
+                </column-1>
+            </taglib>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Pages Taglib - Component Tags">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Editing Tags"/>
+    </jcr:content>
+</jcr:root>

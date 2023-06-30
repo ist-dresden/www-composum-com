@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Composum supports the use of JCR versioning to support a publication flow. Versions of pages can be checked in, and such checkins can be composed into releases that can be previewed and published.&lt;/p>"
+            jcr:title="Versioning of Pages"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_799576967
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65585
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Composum supports the use of &lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/15_Versioning.html&quot; target=&quot;_blank&quot;>JCR versioning&lt;/a> to support a publication flow. Versions of pages can be checked in, and such checkins can be composed into releases that can be previewed and published."
+                            textAlignment="left"/>
+                    <title_65592
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Definitions and general idea">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65592>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>A &lt;strong>site&lt;/strong> provides the frame for versioned resources and releases and configures e.g. which release is public, and whether it is accessible to the public at all.&lt;/p>&lt;p>A &lt;strong>release&lt;/strong> is a collection of versions of &lt;strong>versionable&lt;/strong> resources (e.g. Pages) whose versions are stored using &lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/3_Repository_Model.html#3.13%20Versioning Model&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>JCR versioning&lt;/a>.&lt;/p>&lt;p>A release is tagged by a &lt;strong>release number&lt;/strong> (such as r1, r3.5, r4.8.9) and has some additional metadata (title, description etc). The idea behind the release number - for instance r3.8.17 - is that they have a major number (3) that is increased for e.g. relaunches or major restructurings, a minor number (8) in between major releases and a bugfix number (17) that is increased e.g. if a couple of page updates is published.&lt;/p>&lt;p>Each release can be accessed through a special named &lt;strong>StagingResolver&lt;/strong>, that presents all versionables, their locations in the site resource tree and the attributes on the hierarchy nodes as they were when the versionables were checked in. (This presentation of releases through the resolver is called &lt;strong>release mapping&lt;/strong>.) This way, the Sling components are rendered on the released versions of the versionables as they are stored in the JCR version store.&lt;/p>&lt;p>Releases can get the special labels (called &lt;strong>release function&lt;/strong>s)&amp;nbsp;&lt;strong>public&lt;/strong> or &lt;strong>preview&lt;/strong>. The public and preview release can each be presented e.g. on a separate virtual host. Making a different release public or releasing it as preview to the editors is as easy as moving these labels to a different release.&lt;/p>&lt;p>There are three &lt;strong>access modes&lt;/strong>: &lt;em>author, preview &lt;/em>and&lt;em> public&lt;/em>. These usually correspond to virtual hosts used for authoring, previewing a release and presenting content to the general public.&lt;/p>&lt;p>Alternatively to rendering a release directly using the StagingResolver, the data visible through it can be can be replicated automatically into separate locations in the resource tree to be rendered directly - by default&amp;nbsp;&lt;code>/public/...&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>/preview/...&lt;/code>&amp;nbsp;instead of&amp;nbsp;&lt;code>/content/...&lt;/code>&amp;nbsp;(&lt;strong>In-Place Replication&lt;/strong>).&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_65609
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Delivery of versioned content via REST">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65609>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The presentation of the releases (usually on various virtual host for authoring, the preview release and the public release) can be configured&amp;nbsp;in the OSGI-Configuration of the following filters, all of which have to be enabled and possibly reconfigured if the public and preview releases are to be presented transparently from JCR version storage using the StagingResolver. &lt;/p>&lt;p>For In-Place replication this is different: the virtual hosts have to be configured using the usual&amp;nbsp;&lt;a href=&quot;https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html&quot;>Sling Mappings&lt;/a>&amp;nbsp;to present the proper parts of the resource tree (/public/... or /preview/...).&lt;/p>"
+                            textAlignment="left"/>
+                    <table
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true"
+                            title="OSGI-configurable filters relevant to release staging">
+                        <row
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row"
+                                head="{Boolean}true">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Filter name"/>
+                            <column_1385096470
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Function"/>
+                        </row>
+                        <row_1756852123
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Platform Access Filter"/>
+                            <column_775430242
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Configures which virtual hosts are authoring hosts and which hosts are used to show public content, and which URLs (often resource tree parts) are generally (anonymously) accessible and which not."/>
+                        </row_1756852123>
+                        <row_1756852124
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Pages Release Filter"/>
+                            <column_775430242
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>If the Access Filter has determined that the virtual host accessed by the current request is not an author host, the Release Filter determines the site the request belongs to and which release should be presented for this kind of host.&lt;/p>&lt;p>&lt;p>It is possible to configure parts of the resource tree / which URL patterns are exempt from this mechanism.&lt;/p>&lt;/p>"/>
+                        </row_1756852124>
+                        <row_1756852125
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Platform Release Resolver Filter"/>
+                            <column_775430242
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>For public / preview hosts or if requested by a parameter / cookie, this filter replaces the normal Sling ResourceResolver in the request by a StagingResourceResolver.&lt;/p>&lt;p>Configures which parts of the resource tree / which URL patterns are subject to the release mapping mechanism, and for which just the current content is shown.&lt;/p>"/>
+                        </row_1756852125>
+                        <row_1756852126
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Platform Staging Release Manager"/>
+                            <column_775430242
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="The release manager service, for which it can be configured which parts of the current content tree (usually primarily the site configuration) are visible for the releases, too."/>
+                        </row_1756852126>
+                    </table>
+                    <text_65611
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="On author hosts (as determined by the Platform Access Filter), the presented release can also be selected by the parameter&amp;nbsp;&lt;code>cpm.release&lt;/code>, which memorizes the release number in the session. Otherwise, the current version is presented.&lt;p>&lt;br>&lt;/p>"
+                            textAlignment="left"/>
+                </column-1>
+            </row_799576967>
+            <row_1830149889
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Tracking the version presented by the StagingResourceResolver"
+                            anchor="replicatedVersion">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>When a release is presented using the StagingResourceResolver (or replicated from this presentation to /public or /preview), a property&amp;nbsp;&lt;code>cpl:replicatedVersion&lt;/code>&amp;nbsp;is added to each versionable which contains the uuid of the version that is presented - that is, the uuid of the version of that versionable which is part of the release. Since not all resources admit adding new properties (for example nt:file), a mixin&amp;nbsp;&lt;code>mix:ReplicatedVersionable&lt;/code>&amp;nbsp;is added, that defines this property as reference.&lt;/p>"/>
+                    </section>
+                    <title_65862
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Limitations">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65862>
+                    <text_65864
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="                &lt;ul> &#xa;                 &#xa;                    &lt;li>Since the StagingResourceResolver simulates a resource tree from checked in versions in the version storage, the usual querying mechanisms (XPATH or SQL2) cannot easily be used. Instead, we provide a querying mechanism that supports similar functionality to some extend (see section Querying).&lt;/li> &#xa;                 &#xa;                &lt;/ul> &#xa;            "
+                            textAlignment="left"/>
+                    <title_66144
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Possible Extensions / Open Points">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66144>
+                    <text_66146
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="                &lt;ul> &#xa;                 &#xa;                    &lt;li> &#xa;                    Documentation of the user interface &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li> &#xa;                    The StagingResourceResolver does currently not provide any modification functions, but it could provide such functions for unversioned resources. &#xa;                    &lt;/li> &#xa;                 &#xa;                    &lt;li>The Composum Browser could support using a StagingResourceResolver with a specific release.&lt;/li> &#xa;                 &#xa;                    &lt;li>Queries: If you search for the top node of the versioned document (often jcr:content), Query.element works right, but if you build a condition to compare the name it won't find the node. This is very hard to fix, since this is the only node that is renamed (to jcr:frozenNode) and whose actual name is only encoded in history.[default]. &#xa;                    &lt;/li> &#xa;                 &#xa;                &lt;/ul> &#xa;            "
+                            textAlignment="left"/>
+                </column-1>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            title="Release storage in the JCR">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The&amp;nbsp;&lt;code>StagingReleaseManager&lt;/code>&amp;nbsp;is used to create and maintain the following structure of a site with its releases in the resource tree (JCR content). This is then used by the&amp;nbsp;&lt;code>StagingReleaseResolver&lt;/code>&amp;nbsp;to construct the releases resource tree.&lt;/p>"
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="site root (mixin cpl:releaseRoot) - the release / site root &#xa;    jcr:content (mixin cpl:releaseConfig) - the site configuration &#xa;        cpl:releases - a node containing data about the various releases &#xa;            r1.0 - the root for data for the release r1.0 &#xa;                metaData - a node where metadata about the release is stored &#xa;                root - the release content tree containing &#xa;                    ... a copy of the working tree for r1.0, referencing versionables &#xa;                        in the version storage &#xa;            r1.1 - the root for data for the release r1.0 &#xa;                ... &#xa;            current - the root for data about the current release"
+                            title="example for the structure of releases in the JCR tree"/>
+                    <text_663974804
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>For each release, we store a copy of the tree of hierarchy nodes that contain the released versionables for this release in the release content root. The versionables are not stored by themselves, but as references (primary type&lt;code> cpl:versionReference&lt;/code>) pointing a specific version of the versionable in the JCR version store.&lt;/p>&lt;p>The view of the resource tree presented through the StagingResourceResolver (and thus also in the case of In-Place replication the structure of the replications in /preview/... and /public/...) replaces the current content of the site root by the content below the release content root. The references to the released versions of the versionables in this tree are replaced by the content of the versionables reconstructed on the fly from the frozen nodes of that version in the version storage.&lt;/p>"
+                            textAlignment="left"/>
+                    <text_1602727594
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Additionally, we add the release number prefixed by&amp;nbsp;&lt;code>composum-release-&lt;/code>&amp;nbsp;as a label to the versions contained in a release (e.g. composum-release-r3.1.4). This allows easily finding the versionables contained in a release in the version storage by a query.&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+            </row_1830149889>
+            <title_127128633
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="(TBD.)"
+                    title="Managing Releases">
+                <image
+                        jcr:primaryType="nt:unstructured"/>
+            </title_127128633>
+            <text
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="... heuristical update of hierarchy on inclusion / version change of a versionable in a release ..."
+                    textAlignment="left"/>
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Querying">
+                <image
+                        jcr:primaryType="nt:unstructured"/>
+            </title>
+            <row_761171511
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_65624
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="QueryBuilder for transparent search within released, unreleased and unversioned content">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65624>
+                    <text_65626
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Since it would be very difficult to emulate search in the version space using query languages like JCR XPATH or SQL2 directly, we instead provide a QueryBuilder that supports both queries over normal JCR ResourceResolvers, as well as over content presented by a&amp;nbsp;&lt;code>StagingResourceResolver&lt;/code>&amp;nbsp;for a specific release without bothering over details of the releases internal representation in the JCR.&lt;/p>&lt;p>For building a condition the selected nodes have to match, a Java-internal DSL (&quot;domain specific language&quot;) in fluent API style is provided, which covers much of the JCR-SQL2 functionality and is intentionally very similar to SQL2. It does have, however, some limitations - see below.&lt;/p>&lt;br>"
+                            textAlignment="left"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>From this result some limitations you need to understand when using this:&lt;/p>&lt;ul>&lt;li>Joins cannot cross boundaries from outside the release into the release, and from the release hierarchy nodes into released versionables stored in version storage.&lt;br>&lt;/li>&lt;li>When searching within the released versionable content, we can internally limit the search only to versionables living below release root, but not to a specific release or path within one release. This is filtered only after performing the actual JCR query, and might lead to problematic performance.&lt;/li>&lt;/ul>&lt;p>Therefore, if query performance is important or the mentioned boundaries are crossed by the queries, the query mechanism should therefore be only be used on content accessible without a StagingResourceResolver (that is, the current content below a release root or replicated content at&amp;nbsp;&lt;code>/public/...&lt;/code>&amp;nbsp;or&amp;nbsp;&lt;code>/preview/...&lt;/code>).&amp;nbsp;&lt;/p>&lt;p>That said, the Query Builder can also be used in general on JCR content as an elegant DSL replacing SQL2 to create queries sporting JavaDoc documentation on most syntactical constructs and partial syntax checking through the Java compiler.&lt;/p>"
+                            textAlignment="left"
+                            title="Limitations"/>
+                    <table_65628
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true"
+                            title="Methods of a Query">
+                        <row_65641
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65642
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Method of Query"/>
+                            <column_65647
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Default"/>
+                            <column_65652
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Meaning"/>
+                            <column_65657
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Examples"/>
+                        </row_65641>
+                        <row_65662
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65663
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="path"/>
+                            <column_65668
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                            <column_65674
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="The absolute path of which the selected nodes must be subnodes."/>
+                            <column_65679
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="/somewhere/startpoint"/>
+                        </row_65662>
+                        <row_65684
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65685
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="element"/>
+                            <column_65690
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                            <column_65696
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Name of the selected nodes."/>
+                            <column_65701
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="someelement"/>
+                        </row_65684>
+                        <row_65706
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65707
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="type"/>
+                            <column_65712
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                            <column_65718
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Type of the selected nodes. Nodes that have this type as supertype or mixin are also found."/>
+                            <column_65723
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="nt:base"/>
+                        </row_65706>
+                        <row_65728
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65729
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="orderBy"/>
+                            <column_65734
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                            <column_65740
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Attribute of the selected nodes by which the result is sorted"/>
+                            <column_65745
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="jcr:lastModified"/>
+                        </row_65728>
+                        <row_65750
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65751
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>ascending&lt;/p>&lt;p>descending&lt;/p>"/>
+                            <column_65759
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="ascending"/>
+                            <column_65764
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Switches to asdending or descending ordering when orderBy is set"/>
+                            <column_65769
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                        </row_65750>
+                        <row_65775
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65776
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="condition"/>
+                            <column_65781
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"/>
+                            <column_65787
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Sets an optional additional condition that the selected node has to fulfill. A DSL-like builder can be used to create the condition."/>
+                            <column_65792
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>Query.notNull(PROP_CREATED)&lt;/p>&lt;p>Query.eq(Query.upper(PROP_TITLE), &quot;THE TITLE&quot;)&lt;/p>"/>
+                        </row_65775>
+                    </table_65628>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_65800
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Query DSL">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65800>
+                    <text_65802
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A query can be created by a QueryBuilder adapted from a ResourceResolver. The following example shows a simple case (where no joins are involved), including the SQL2-Statement that would be equivalent if no releases were involved:"
+                            textAlignment="left"/>
+                    <column_65822
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="Query q = resourceResolver.adaptTo(QueryBuilder.class).createQuery(); &#xa;q.path(folder).element(&quot;elementname&quot;).type(&quot;cpp:Component&quot;).orderBy(&quot;jcr:title&quot;).descending(); &#xa;q.condition(q.conditionBuilder() &#xa;    .name().eq().val(&quot;something&quot;) &#xa;    .and().property(&quot;jcr:title&quot;).eq().val(&quot;the title&quot;) &#xa;    .or().contains(&quot;hello&quot;)); &#xa;Iterable&lt;Resource> resourceResults = q.execute(); &#xa;// or: &#xa;Iterable&lt;QueryValueMap> columnResults =  &#xa;    q.selectAndExecute(&quot;jcr:path&quot;, &quot;jcr:title&quot;, &quot;jcr:score&quot;, &quot;rep:excerpt&quot;, &quot;jcr:lastModified&quot;); &#xa; &#xa;// SELECT n.[jcr:path], n.[jcr:title], n.[jcr:score], excerpt(n), n.[jcr:lastModified] FROM [cpp:Component] AS n &#xa;// WHERE NAME(n)='something' AND n.[jcr:title]='the title' OR CONTAINS(n.*, 'hello')"
+                            language="java"/>
+                    <text_65825
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The syntax is intentionally very similar to JCR-SQL2, but the implementation in Java allows for code completion with JavaDoc on each syntax construct, and ensures that the condition is syntactically complete. If parentheses are neccesary for complex conditions, these can be created with .startGroup and .endGroup. For example, these ConditionDsl and JCR-SQL2 conditions are equivalent:"
+                            textAlignment="text"/>
+                    <column_65841
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="q.conditionBuilder().isNotNull(&quot;jcr:created&quot;).and() &#xa;    .startGroup() &#xa;        .upper().property(&quot;jcr:title&quot;).eq().val(&quot;hello&quot;) &#xa;        .or().contains(&quot;jcr:title&quot;, &quot;something&quot;) &#xa;    .endGroup() &#xa; &#xa;n.[jcr:created] IS NOT NULL AND ( UPPER( n.[jcr:title] ) = 'hello' OR CONTAINS(n.[jcr:title] , 'something') )"
+                            language="java"/>
+                    <title_65844
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Joins">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65844>
+                    <text_65846
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Query interface supports the use of joins. However, since querying the versioned releases has to be supported transparently, there are some limitations: the joined resources can only be children or descendants of the selected node, and cannot cross the boundary between unversioned and versioned nodes, and the child condition would fail at the boundary from outside the release tree into the release tree. That is, you have to choose the join such that you know in advance that either the selected node and the joined nodes are all subnodes of a versionable node, or neither of them."
+                            textAlignment="left"/>
+                    <column_65856
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="Query q = resourceResolver.adaptTo(QueryBuilder.class).createQuery();&#xa;q.path(folder).type(&quot;cpp:PageContent&quot;).orderBy(&quot;jcr:score&quot;).descending();&#xa;q.condition(q.conditionBuilder().contains(&quot;jcr:title&quot;, &quot;hello&quot;));&#xa;QueryCondition joinCondition = q.joinConditionBuilder().contains(&quot;world&quot;);&#xa;q.join(JoinType.Inner, JoinCondition.Descendant, joinCondition);&#xa;Iterable&lt;QueryValueMap> columnResults = q.selectAndExecute(&quot;jcr:path&quot;, joinCondition.joinSelector(&quot;jcr:path&quot;));&#xa;&#xa;// SELECT n.[jcr:path], m.[jcr:path] FROM [cpp:Component] AS n&#xa;// INNER JOIN [nt:base] AS m ON ISDESCENDANTNODE(m, n)&#xa;// WHERE CONTAINS(n.[jcr:title], 'hello') AND CONTAINS(m.*, 'WORLD')"/>
+                </column-1>
+            </row_761171511>
+            <title_65879
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    textAlignment="left"
+                    title="Some implementation details">
+                <image
+                        jcr:primaryType="nt:unstructured"/>
+            </title_65879>
+            <row_1218469225
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_65881
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Details on JCR versioning usage"
+                            textAlignment="left">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65881>
+                    <text_65883
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Support of full JCR versioning is required. For all documents the jcr:content node is mix:versionable and has a linear history where each version is labelled with the releases it is in, if any. All documents are always checked out."
+                            textAlignment="text"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Some experimental results about the function of the version storage /jcr:system/jcr:versionStorage :&lt;/p>&lt;p>&lt;ul>&lt;li>a resolver can access the versions in /jcr:system/jcr:versionStorage only if it can access the path where the current versionable is stored in the default property of the version history.&amp;nbsp;&lt;/li>&lt;li>If a versionable is moved around, the default property is modified automatically to match the new location.&amp;nbsp;&lt;/li>&lt;li>If a document is deleted, the default property of the version history is unchanged and the jcr:versionableUuid is also not changed.&amp;nbsp;&lt;/li>&lt;li>The version history of deleted versionables still only accessible if the resolver can or could read the path in the default property of the version history. (Caution: this means that another user might be able read it if he comes to own that path later.)&lt;/li>&lt;/ul>This means that no service user is needed for the implementation of the StagingResolver, since the users resolver has exactly the needed rights about reading the version storage.&lt;/p>"
+                            textAlignment="left"
+                            title="JCR VersionStorage permissions"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="mostly in com.composum.sling.platform.staging and subpackages"
+                            textAlignment="left"
+                            title="Important classes"/>
+                    <table_65893
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_65904
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65905
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="&lt;p>Class name&lt;br>&lt;/p>"/>
+                            <column_65916
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="Description"/>
+                        </row_65904>
+                        <row
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="StagingReleaseManager"/>
+                            <column_156948400
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>General entrypoint for managing releases and getting a ResourceResolver (actually a StagingResourceResolver) that gives the contents of the release. &lt;/p>&lt;p>Users of the staging / release mechanism normally only need to be concerned with this class (and possibly the QueryBuilder) since the mechanism emulates a normal ResourceResolver and Resources as far as possible.&lt;/p>"/>
+                        </row>
+                        <row_65960
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65961
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="ResourceResolverChangeFilter"/>
+                            <column_65966
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="&lt;p>Injects the appropriate resource resolver (StagingResourceResolver returned from the StagingReleaseManager) into the Sling Request, if a certain release was requested.&lt;/p>The URL/paths that are mapped to releses can be customized with patterns."/>
+                        </row_65960>
+                        <row_65932
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65933
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="StagingResourceResolver"/>
+                            <column_65938
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Resolves frozen nodes for a specified release using StagingResource as if they were normal Sling nodes. It provides a view that is as far as possible identical to the situation when the resources are checked in with the versions in the release."/>
+                        </row_65932>
+                        <row_65921
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65922
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="StagingResource"/>
+                            <column_65927
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="Provides access to frozen nodes as if it was a normal Sling Resource, and also serves as a ResourceWrapper for resources outside the release scope if they are resolved via the StagingResourceResolver."/>
+                        </row_65921>
+                        <row_65943
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_65944
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="QueryBuilderQuery"/>
+                            <column_65952
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="A query builder for transparently accessing releases, which creates a Query."/>
+                        </row_65943>
+                    </table_65893>
+                </column-1>
+            </row_1218469225>
+            <title_65971
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="Structure of the JCR-SQL2 queries to search the released versions"
+                    textAlignment="left">
+                <image
+                        jcr:primaryType="nt:unstructured"/>
+            </title_65971>
+            <row_1310108109
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65973
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The queries do depend on whether they apply to a release presented by a StagingResourceResolver, or on not release-mapped content. If the resolver is not a StagingResourceResolver, a single SQL2-query is performed on the nodes below path. However, on a StagingResourceResolver presenting a specific release, two SQL2-queries might need to be executed:"
+                            textAlignment="left"/>
+                    <text_65981
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="                &lt;ol> &#xa;                 &#xa;                    &lt;li>a query for nodes below the release root excluding the releases node, and&lt;/li>&lt;li>a query for nodes below the release content root.&lt;/li> &#xa;                 &#xa;                    &lt;li>a query to all versions for which the version history's&amp;nbsp;&lt;code>default&lt;/code>&amp;nbsp;attribute reaches into the release tree, and which have a label indicating that they belong to the queried release.&lt;/li> &#xa;                 &#xa;                &lt;/ol>&lt;p>All queries return the path of the matching node, the attribute for orderBy and, if applicable, the attributes to be returned by the query.&lt;/p> &#xa;            "
+                            textAlignment="left"/>
+                    <text_66012
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The final results are the results of Queries 1, 2 and 3 merged - possibly observing the ordering by the orderBy attribute. Query 1 needs to return both versioned and unversioned nodes, since the results of Query 1 and 2 need to be filtered by ReleaseMapper.releaseMappingAllowed(String path): only results of 2 are returned for which ReleaseMapper yields true, and of Query 1 only versioned nodes for which ReleaseMapper yields false (they don't need to match the release), but all unversioned nodes. Query 3 is filtered to whether it applies to a versionable whose location in the release matches the path, since this part of the condition cannot be matched formulated in the query directly."
+                            textAlignment="left"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If the path reaches into a versionable in the release, only the corresponding nodes within that versionable are queried (Query 3).&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_66017
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Coarse structure of the query to search for versioned documents (Query 3)"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_66017>
+                    <column_66031
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="SELECT n.*&#xa;FROM [nt:versionHistory] as history&#xa;INNER JOIN [nt:version] AS version ON ISCHILDNODE(version, history)&#xa;INNER JOIN [nt:versionLabels] AS labels ON version.[jcr:uuid] = labels.[theRelease]&#xa;INNER JOIN [nt:frozenNode] AS n ON ISDESCENDANTNODE(n, version)&#xa;WHERE ISDESCENDANTNODE(history, '/jcr:system/jcr:versionStorage')&#xa;AND history.[default] like '/folder/%'"/>
+                    <table_66038
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/composed/table"
+                            bordered="{Boolean}true"
+                            striped="{Boolean}true">
+                        <row_66047
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66048
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="selector"/>
+                            <column_66053
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    head="{Boolean}true"
+                                    text="meaning"/>
+                        </row_66047>
+                        <row_66058
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66059
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="history"/>
+                            <column_66064
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="top node of versioned node in version storage, with primaryType nt:versionHistory and its path as default attribute."/>
+                        </row_66058>
+                        <row_66075
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66076
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="version"/>
+                            <column_66081
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="child of history with type nt:version , its jcr:uuid is used in labels"/>
+                        </row_66075>
+                        <row_66097
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66098
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="label"/>
+                            <column_66103
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="the nt:versionLabels that contains the releases as attributes, containing the jcr:uuid of the release node"/>
+                        </row_66097>
+                        <row_66117
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/row">
+                            <column_66118
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="n"/>
+                            <column_66123
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/table/cell"
+                                    text="a node to match with the condition"/>
+                        </row_66117>
+                    </table_66038>
+                    <text_66128
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="(TODO: Is there any way to restrict labels to be a child of history? This could reduce the query runtime, but there is no way to formulate both the uuid condition and that child condition due to the weird syntax restrictions.)"
+                            textAlignment="text"/>
+                    <text_66136
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Subcases:"
+                            textAlignment="text"/>
+                    <text_66138
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&#xa;                &lt;ul>&#xa;                &#xa;                    &lt;li>&#xa;                    path is outside of versioned content. The full version storage with paths that extend path have to be searched, as well as unversioned content below path.&#xa;                    &lt;/li>&#xa;                &#xa;                    &lt;li>&#xa;                    path reaches into versioned content. Only the version storage of this path has to be searched with a modified query.&#xa;                    &lt;/li>&#xa;                &#xa;                &lt;/ul>&#xa;            "
+                            textAlignment="left"/>
+                </column-1>
+            </row_1310108109>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="A staging mechanism that supports combining page versions into releases"
+                    title="Versioning of Pages">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Staging"/>
+    </jcr:content>
+    <stagingimplementation/>
+</jcr:root>

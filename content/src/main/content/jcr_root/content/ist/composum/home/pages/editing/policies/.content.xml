@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Content Structure"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="nt:unstructured">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Content Structure">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="nt:unstructured">
+                    <title
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            title="Templates">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>New pages are normally created as copies of page templates in Composum Pages. Each page resource can be a page template, each site resource can be a site template. Templates are searched in the resource resolvers search paths - normally '/apps, '/libs' with the known overlay mechanism of the resource resolver.&lt;/p>"/>
+                    <text_908140919
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If you want to create a new website it's a good idea to create a copy of a predefined site template. In the 'Create Site' dialog all available site templates are offered to make your choice.&lt;/p>"
+                            textAlignment="left"
+                            title="Site Templates"/>
+                    <text_643982915
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If you create a new site using a template the structure of the template is copied to the parent you have chosen with the name specified in the create dialog. Each content page of the site template is also copied. The new site is referencing their site template and each copied page is referencing their page template to apply all rules specified in the template without copying these rules. If you change rules of a template the rules of each referrer of this template are changed.&lt;/p>"
+                            textAlignment="left"/>
+                    <text_1579734303
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If you want to create a new content page the hierarchy rules of the parents template are used to produce the list of allowed templates for child pages of the designated parent. This list is shown in the page create dialog and you can only choice one of the allowed templates from this list to create a new page.&lt;/p>"
+                            title="Page Templates"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            codeRef="/apps/ist/composum/templates/page/content"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            language="xml"
+                            serviceUri="/bin/cpm/nodes/source.xml"
+                            showLanguage="{Boolean}true"
+                            title="Composum Site content page template"/>
+                    <text_1748717851
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            textAlignment="left"/>
+                </column-0>
+            </row>
+        </main>
+    </jcr:content>
+</jcr:root>

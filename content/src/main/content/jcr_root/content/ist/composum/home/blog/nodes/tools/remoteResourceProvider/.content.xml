@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="&lt;p>There is a nifty debugging feature hidden in the configurations, which can allow you to inspect the JCR repository of a faulty instance if it serves Sling standard GET servlet requests with JSON, or is accessible via WevDAV. That helps if the server you need to debug does not carry a browser (e.g. an AEM as a Cloud Service publish instance) or too broken to even run the browser.&lt;/p>"
+            jcr:title="Remote Resource Provider"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="To diagnose trouble in a Sling instance, a JCR browser like the Composum Nodes Browser or the CRX DE Lite in Adobe Experience Manager is an invaluable tool. But what do you do if the system does not have a browser installed or even browser doesn't run? If the system is configured such that it serves requests like /content/something.1.json with the default Sling GET servlet, there is a trick you can pull from the Composum toolbox. You can fire up a plain &lt;a href=&quot;https://github.com/apache/sling-org-apache-sling-starter&quot;>Sling Starter&lt;/a>&amp;nbsp;running the Composum Browser (or just use an existing system running the Browser), and add a configuration there that effectively mounts the Sling repository of the system you want to debug into the Sling repository of this starter:"/>
+            </section>
+            <image
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="/content/ist/composum/assets/nodes/nodes-remote-resource-provider.png"
+                    title="Example Configuration of the Nodes Resource Provider"/>
+            <section1
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>This will let you view the content of the remote repository available at https://systemtodebug.example.net/ below /remote/systemtodebug in the local repository. The username given has to be a local user of that system, and can be omitted if you want to view just the anonymously visible content there (or there is no login available, as in the case of AEMaaCS publish instances).&lt;/p>&lt;p>Please take care that the &quot;Ignored Path Patterns&quot; do not match the &quot;Provider Root Path&quot;, or nothing will happen.&lt;/p>"/>
+            </section1>
+            <section_703950988
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    level="warning">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="Caution: for every resource presented in the resource tree of the browser this submits a JSON request to the remote system. So this is for debugging only, and it'd probably be a bad idea to do e.g. a tree traversal since that'd swamp that system with requests."/>
+            </section_703950988>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Hans-Peter Störr"
+                date="{Date}2022-04-03T22:00:00.000Z"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

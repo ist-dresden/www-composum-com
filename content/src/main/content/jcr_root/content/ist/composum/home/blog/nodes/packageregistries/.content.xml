@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="The Composum package registry browser provides a UI to manage content packages in package registries - both JCR and in the filesystem."
+            jcr:title="Package Registry Browser"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Introduction">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Since 12/2022 the package manager of Composum Nodes contains both a package manager for managing the packages contained in the JCR repository, and a browser for the newer package registries interface. While the package manager contains more functionality (which is still only available for the old package manager interface), the registry interface only contains as much basic management and introspection functionality as the &lt;a href=&quot;https://jackrabbit.apache.org/filevault/apidocs/org/apache/jackrabbit/vault/packaging/registry/PackageRegistry.html&quot;>filevault PackageRegistry&lt;/a>&amp;nbsp;interface provides so far - except, of course, that this not only supports JCR packages but packages provided throught the FileRegistry.&lt;/p>"/>
+            </section>
+            <section_745416674
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Setup">
+                <textimage
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="right"
+                        text="To enable the filesystem (FS) package registry service, the &quot;Apache Jackrabbit FS Package Registry Service&quot; has to be configured - above all it is necessary to enter an existing directory into the &quot;Home path&quot; , below which the packages are put into the filesystem. If the path is relative, it's relative to the launcher/repository. Please node: the configured directory is an internal directory that contains .xml with metadata about the packages contained in the file registry, and normally also the .zip files referenced from these .xml files. Creating packages there needs the package registry interface.">
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            imageRef="/content/ist/composum/assets/nodes/fsPackageRegistryConfiguration"/>
+                </textimage>
+            </section_745416674>
+            <section_2080626729
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Usage">
+                <textimage
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        text="In the package manager the tree view has a second tab &quot;Registry&quot; that shows the package registries mounted in the system, and the packages that are registered in that registry. The right side shows the details of the selected package version. This view can also be switched to &quot;merged&quot; mode (see the checkbox at the bottom) that joins the trees of all package registries into one common tree.">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/nodes/fsPackageRegistryFullView"/>
+                </textimage>
+            </section_2080626729>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Hans-Peter Störr"
+                date="{Date}2022-12-12T00:00:00.000Z"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

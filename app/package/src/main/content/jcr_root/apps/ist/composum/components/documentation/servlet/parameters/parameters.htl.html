@@ -1,0 +1,11 @@
+<!--/* This is the rendering code for this component, wrapped into a JSP containing the necessary composum tags. */-->
+<sly data-sly-use.parameters="${'com.composum.pages.commons.model.Container' @ fromScope='request', key='parameters'}"
+     data-sly-use.parametersCSS="${'parametersCSS' @ fromScope='request'}"></sly>
+<h4>${'Parameters'@i18n}</h4>
+<ul class="${parametersCSS}_xmpl-list">
+    <sly data-sly-list.element="${parameters.elements}">
+        <li class="${parametersCSS}_xmpl">
+            <div data-sly-resource="${element.path}"></div>
+        </li>
+    </sly>
+</ul>

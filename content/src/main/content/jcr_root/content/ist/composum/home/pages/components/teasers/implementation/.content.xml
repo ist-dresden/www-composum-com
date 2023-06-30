@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the standard teaser component implementation - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Teaser Implementation"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="a component development blueprint"
+                    title="Teaser Implementation">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1592949961
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            textAlignment="left"/>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/pages/development"
+                            subtitle="a teaser can also have a subtitle"
+                            text="A teaser element points to a page with a short description and an optional image, video or symbol. A set of additional links is also part of a default teaser."
+                            title="Teaser Title (Headline)">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/general/Composum-color.svg"/>
+                    </teaser>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The content element above is showing a teaser. The resource type of the teaser component is"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="composum/pages/components/element/teaser"
+                            language="html"/>
+                    <text2
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The base implementation shipped as part of the Composum Pages Components is located in the&amp;nbsp;&lt;code>/libs&lt;/code>&amp;nbsp;resource resolver root. The component declaration here"/>
+                    <codeblock1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/libs/composum/pages/components/element/teaser"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            copyright="/libs/composum/pages/components/element/teaser"
+                            language="xml"
+                            serviceUri="/bin/cpm/nodes/source.content.node.xml"
+                            showLanguage="{Boolean}true"
+                            title="the 'Teaser' component declaration"/>
+                    <text3
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="defines a placable component (&lt;code>cpp:Component&lt;/code>&amp;nbsp;primary type). Such a Sling component is registered by the Pages Component Manager automatically and offered in the various component type selector widgets for insertion into a container of a content page."/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Teaser Scripting">
+                        <codeblock_341471757
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/teaser/teaser.jsp"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="teaser.jsp"/>
+                        <text_993386043
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="This looks very simple because the main template is delegation the rendering to the teasers variation declared by a property of the teaser. This property 'defined' in the teasers edit dialog."/>
+                    </section>
+                    <section_1379321449
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Edit Dialog">
+                        <codeblock_1285204157
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/teaser/edit/dialog/dialog.jsp"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="dialog.jsp"/>
+                    </section_1379321449>
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="The Model Class">
+                        <codeblock_341471757
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="/* &#xa; * copyright (c) 2015ff IST GmbH Dresden, Germany - https://www.ist-software.com &#xa; * &#xa; * This software may be modified and distributed under the terms of the MIT license. &#xa; */ &#xa;package com.composum.pages.components.model.teaser; &#xa; &#xa;import com.composum.pages.components.model.ImageRelatedElement; &#xa;import org.apache.commons.lang3.StringUtils; &#xa;import org.apache.sling.api.resource.Resource; &#xa; &#xa;import static com.composum.pages.components.model.text.Text.PROP_TEXT; &#xa; &#xa;public class Teaser extends ImageRelatedElement { &#xa; &#xa;    public static final String PROP_VARIATION = &quot;variation&quot;; &#xa;    public static final String DEFAULT_VARIATION = &quot;default&quot;; &#xa; &#xa;    public static final String PROP_LINK = &quot;link&quot;; &#xa;    public static final String PROP_LINK_TITLE = &quot;linkTitle&quot;; &#xa; &#xa;    public static final String PROP_SUBTITLE = &quot;subtitle&quot;; &#xa; &#xa;    public static final String NODE_IMAGE = &quot;image&quot;; &#xa;    public static final String PROP_IMAGE_REF = NODE_IMAGE + &quot;/imageRef&quot;; &#xa; &#xa;    public static final String NODE_VIDEO = &quot;video&quot;; &#xa;    public static final String PROP_VIDEO_REF = NODE_VIDEO + &quot;/videoRef&quot;; &#xa; &#xa;    public static final String PROP_ICON = &quot;icon&quot;; &#xa; &#xa;    public static final String NODE_LINKS = &quot;links&quot;; &#xa;    public static final String SELECTOR_LINK_SET = NODE_LINKS; &#xa; &#xa;    public static final String SELECTOR_TEXTBLOCK = &quot;textblock&quot;; &#xa;    public static final String SELECTOR_PLACEHOLDER = &quot;placeholder&quot;; &#xa; &#xa;    private transient String variation; &#xa; &#xa;    private transient String subtitle; &#xa;    private transient String text; &#xa; &#xa;    private transient String icon; &#xa; &#xa;    public String getVariation() { &#xa;        if (variation == null) { &#xa;            variation = getProperty(PROP_VARIATION, DEFAULT_VARIATION); &#xa;            if (isHasLinkSet()) { &#xa;                variation += &quot;-&quot; + SELECTOR_LINK_SET; &#xa;            } &#xa;        } &#xa;        return variation; &#xa;    } &#xa; &#xa;    public String getShape() { &#xa;        return isUseVideo() ? &quot;video&quot; : isUseImage() ? &quot;image&quot; : isUseIcon() ? &quot;symbol&quot; : &quot;text&quot;; &#xa;    } &#xa; &#xa;    public boolean isNoAsset() { &#xa;        return !isUseVideo() &amp;&amp; !isUseImage(); &#xa;    } &#xa; &#xa;    public boolean isUseVideo() { &#xa;        return StringUtils.isNotBlank(getProperty(PROP_VIDEO_REF, &quot;&quot;)); &#xa;    } &#xa; &#xa;    public boolean isUseImage() { &#xa;        return !isUseVideo() &amp;&amp; StringUtils.isNotBlank(getProperty(PROP_IMAGE_REF, &quot;&quot;)); &#xa;    } &#xa; &#xa;    public boolean isUseIcon() { &#xa;        return !isUseImage() &amp;&amp; StringUtils.isNotBlank(getIcon()); &#xa;    } &#xa; &#xa;    public boolean isHasIcon() { &#xa;        return StringUtils.isNotBlank(getIcon()); &#xa;    } &#xa; &#xa;    public String getIcon() { &#xa;        if (icon == null) { &#xa;            icon = getProperty(PROP_ICON, &quot;&quot;); &#xa;        } &#xa;        return icon; &#xa;    } &#xa; &#xa;    public String getSubtitle() { &#xa;        if (subtitle == null) { &#xa;            subtitle = getProperty(PROP_SUBTITLE, &quot;&quot;); &#xa;        } &#xa;        return subtitle; &#xa;    } &#xa; &#xa;    public String getText() { &#xa;        if (text == null) { &#xa;            text = getProperty(PROP_TEXT, &quot;&quot;); &#xa;        } &#xa;        return text; &#xa;    } &#xa; &#xa;    public boolean isTextValid() { &#xa;        return StringUtils.isNotBlank(getTitle()) &#xa;                || StringUtils.isNotBlank(getSubtitle()) &#xa;                || StringUtils.isNotBlank(getText()); &#xa;    } &#xa; &#xa;    public boolean isHasLinkSet() { &#xa;        Resource links = getResource().getChild(NODE_LINKS); &#xa;        return links != null &amp;&amp; links.hasChildren(); &#xa;    } &#xa; &#xa;    public String getTextSelector() { &#xa;        return isTextValid() ? SELECTOR_TEXTBLOCK : SELECTOR_PLACEHOLDER; &#xa;    } &#xa;}"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="com.composum.pages.components.model.teaser.Teaser"
+                                language="java"
+                                showLanguage="{Boolean}true"
+                                title="Teaser.java"/>
+                        <text_993386043
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="This looks very simple because the main template is delegation the rendering to the teasers variation declared by a property of the teaser. This property 'defined' in the teasers edit dialog."/>
+                    </section1>
+                </column-1>
+            </row_1592949961>
+            <row_844558834
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="the default teaser variation">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_36910152
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/libs/composum/pages/components/element/teaser/default.jsp"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            language="jsp"
+                            title="default.jsp"/>
+                    <text_632039124
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            textAlignment="left"/>
+                </column-0>
+            </row_844558834>
+            <row_1589465861
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="the other teaser variations">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="'bgvideo' teaser">
+                        <text_536140795
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                        <carousel
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/carousel">
+                            <teaser
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/teaser"
+                                    link="/content/ist/composum/home/pages/development"
+                                    subtitle="a 'bgvideo' type teaser"
+                                    text="&lt;p>Such a teaser points also to a page with a short description but the video is played in the teasers background.&lt;/p>"
+                                    title="Another Teaser"
+                                    variation="bgvideo">
+                                <image
+                                        jcr:primaryType="nt:unstructured"/>
+                                <video
+                                        jcr:primaryType="nt:unstructured"
+                                        autoplay="{Boolean}true"
+                                        loop="{Boolean}true"
+                                        muted="{Boolean}true"
+                                        videoRef="/content/ist/composum/assets/video/pixabay/Waves_-_5778.mp4"/>
+                            </teaser>
+                        </carousel>
+                        <text_1744966487
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                        <codeblock_882402664
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/teaser/bgvideo.jsp"
+                                language="jsp"
+                                title="bgvideo.jsp"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                    </section>
+                </column-1>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="'bgimage' teaser">
+                        <text_536140795
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                        <carousel
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/carousel">
+                            <teaser
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/teaser"
+                                    link="/content/ist/composum/home/pages/development"
+                                    subtitle="a 'bgimage' type teaser"
+                                    text="&lt;p>Such a teaser points also to a page with a short description but the image is rendered as the teaser background.&lt;/p>"
+                                    title="Another Teaser"
+                                    variation="bgimage">
+                                <image
+                                        jcr:primaryType="nt:unstructured"
+                                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+                            </teaser>
+                        </carousel>
+                        <text_1744966487
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                        <codeblock_882402664
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                codeRef="/libs/composum/pages/components/element/teaser/bgimage.jsp"
+                                language="jsp"
+                                title="bgimage.jsp"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                textAlignment="left"/>
+                    </section>
+                </column-0>
+            </row_1589465861>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

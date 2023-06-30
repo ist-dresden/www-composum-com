@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more +++ maintain your Sling Application +++ the Swiss Knife for the JCR Repository&lt;/p>"
+            jcr:title="Composum - Nodes"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Composum Nodes">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                isNavRoot="{Boolean}true"
+                title="Nodes"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1852485565
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="&lt;p>The Composum Nodes module provides the core API fo all Composum modules. The Console framework is part of the Nodes module and builds the base for a set of useful administration and development tools for the Sling Framework which are bundled with the Compsum Nodes module. The console framework is also used by some Composum extensions and the Assets module to implement and integrate their management user interfaces.&lt;/p>">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </textimage>
+                </column-0>
+            </row_1852485565>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/nodes/browser"
+                            subtitle="the Swiss knife for the repository"
+                            text="&lt;p>The Composum Browser gives you the ability to explore your Sling repository with a lot of useful features:&lt;/p>&lt;p>&lt;ul>&lt;li>repository tree with configurable filters&lt;/li>&lt;li>node creation / deletion / move / reorder&lt;/li>&lt;li>property manipulation&lt;/li>&lt;li>binary data upload / download&lt;/li>&lt;li>component rendering and asset view&lt;/li>&lt;li>template based queries with history&lt;/li>&lt;li>JSON view, download and upload&lt;/li>&lt;li>ACL view and manipulation&lt;/li>&lt;li>Groovy script execution&lt;/li>&lt;/ul>&lt;/p>"
+                            title="Browser">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/console/browser/browser-props.png"/>
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/nodes/browser/queries"
+                                    title="Queries"/>
+                        </links>
+                    </teaser>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser_1961779711
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/nodes/install"
+                            text="Download ans install the newest release of Composum Nodes..."
+                            title="Installation and Upgrade"/>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            link="/content/ist/composum/home/nodes/pckgmgr"
+                            subtitle="import, export and transfer content packages"
+                            text="&lt;p>To export and import collections of content nodes the Apache Jackrabbit FileVault extension is very useful.&lt;/p>&lt;br>&lt;p>The Composum Package Manger adds a user interface to the Jackrabbit Vault and makes is easy to manage Vault packages.&lt;/p>"
+                            title="Package Manager">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/console/pckgmgr/package-manager.png"/>
+                    </teaser>
+                </column-1>
+            </row>
+        </main>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <browser/>
+    <pckgmgr/>
+    <usermgr/>
+    <install/>
+</jcr:root>

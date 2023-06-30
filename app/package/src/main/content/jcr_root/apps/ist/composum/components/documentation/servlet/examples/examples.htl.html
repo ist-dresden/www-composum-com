@@ -1,0 +1,11 @@
+<!--/* This is the rendering code for this component, wrapped into a JSP containing the necessary composum tags. */-->
+<sly data-sly-use.examples="${'com.composum.pages.commons.model.Container' @ fromScope='request', key='examples'}"
+     data-sly-use.examplesCSS="${'examplesCSS' @ fromScope='request'}"></sly>
+<h4>${'Examples'@i18n}</h4>
+<ul class="${examplesCSS}_xmpl-list">
+    <sly data-sly-list.element="${examples.elements}">
+        <li class="${examplesCSS}_xmpl">
+            <div data-sly-resource="${element.path}"></div>
+        </li>
+    </sly>
+</ul>

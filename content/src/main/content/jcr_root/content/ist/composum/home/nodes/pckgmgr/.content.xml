@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Nodes - Package Manager"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="/bin/packages.html"
+                    title="Package Manager">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Package Manager"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1487812575
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="&lt;p>The package details view of the package manager&lt;/p>"
+                            textAlignment="center">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/console/pckgmgr/package-manager.png"/>
+                    </textimage>
+                </column-1>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65604
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Composum Package Manager adds a user interface to the &lt;a href=&quot;https://jackrabbit.apache.org/filevault/&quot;>Apache Jackrabbit Vault&lt;/a> and makes is easy to import, export and manage Vault packages containing collections of content nodes.&lt;/p>"/>
+                    <title_65618
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Packages">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65618>
+                    <text_65621
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Package Manager for&amp;nbsp;Apache Sling&amp;nbsp;is a Composum Console Module which provides a user interface for the&amp;nbsp;&lt;a href=&quot;https://jackrabbit.apache.org/filevault/&quot;>Jackrabbit Vault Bundle&lt;/a>&amp;nbsp;which handles Content Packages. The&amp;nbsp;Jackrabbit Vault Bundle&amp;nbsp;must be installed and activated to use the Composum Package Manager console. If the Vault bundle is not available the Package Manager is not visible in the Composum Console Main Menu.&lt;/p>"/>
+                    <title_65647
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            textAlignment="left"
+                            title="Package Browser">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65647>
+                    <text_65650
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The first view displays the available packages arranged on the left side as a tree according to the package groups (the API doesn't know a group hierarchy but it's possible to arrange the packages similar to the nodes browser). The view is structured as known from the Browser view. On the right side a query panel is visible on top and below the details panel.&lt;/p>&lt;p>The details view contains a list of packages if a group is selected in the tree; if a package is selected then the package status with all package actions and two additional 'tabs' - the filter manipulation view and the coverage view - is shown.&lt;/p>"/>
+                </column-0>
+            </row_1487812575>
+            <row_287355
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Actions">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="&lt;p>available actions:&lt;/p>&lt;p>&lt;ul>&lt;li>edit the basic package properties&lt;/li>&lt;li>download the package ZIP file&lt;/li>&lt;li>install / reinstall the package&lt;/li>&lt;li>build / rebuild the package ZIP file from current content&lt;/li>&lt;li>uninstall the package by reinstalling the snapshot of the last 'install'&lt;/li>&lt;li>delete the package (no implicit unistall before)&lt;/li>&lt;li>add / create a new package&lt;/li>&lt;li>upload a package&lt;/li>&lt;li>refresh the current view&lt;/li>&lt;/ul>&lt;/p>">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/console/pckgmgr/pckg-install.png"/>
+                    </textimage>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title_65723
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Install a package"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65723>
+                    <text_65726
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="If you click install the package content will be copied to the repository according to the filter rules declared for the package. On each 'install' a snapshot of the content affected by the package is created and stored in the context ot the package; this snapshot is used to reset the content if the package is uninstalled."
+                            textAlignment="text"/>
+                    <title_65728
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Build the package"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65728>
+                    <text_65731
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="On each build the current content in the repository which is appropriate to the filter configuraten of the package is stored in the packages ZIP file and can be downloaded or reinstalled if the build is done."
+                            textAlignment="text"/>
+                    <title_65733
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Unistall the package"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65733>
+                    <text_65736
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="If the package was installed and a snapshot with the content state before this install the package can be uninstalled; in this case the content of the snapshot is installed and replaces the content of the package."
+                            textAlignment="text"/>
+                    <title_65738
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Delete the package"
+                            textAlignment="text">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title_65738>
+                    <text_65741
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A click to 'delete' removes the package definition, the ZIP file of the package and a probably existing snapshot from the repository; the package is not uninstalled before the removal."
+                            textAlignment="text"/>
+                </column-1>
+            </row_287355>
+            <row_49350090
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Filters">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65746
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The second tab in the package view presents the package filter definitions in a table. You can add, change and remove filter definitions in this view using the action buttons in the toolbar of this filter view."
+                            textAlignment="text"/>
+                    <text_65767
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="You can also change the ordering of the filters in this table."
+                            textAlignment="text"/>
+                    <text_65769
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Each filter in this list declares the rules for one piece of the package content."
+                            textAlignment="text"/>
+                    <text_65771
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="A filter must be determined at least by its root path. Without the optional include and/or exclude patterns the hohle content of the root will be part of the package."
+                            textAlignment="text"/>
+                    <text_65773
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="You can add regular expressions for the content paths to include nodes explicitly (and exclude the others implicitly) or to exclude nodes from the package content."
+                            textAlignment="text"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="The filter view"
+                            textAlignment="center">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/console/pckgmgr/pckg-filter-view.png"/>
+                    </textimage>
+                </column-1>
+            </row_49350090>
+            <row_1792459242
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Create or deploy a package">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_65778
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="You can create a package from scratch using th action button '+' in the tree view of the Package Manager."
+                            textAlignment="text"/>
+                    <text_65780
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Currently only the main attributes of a package (group, name and version) are editable - special things such as ACL handling, dependencies, ... will be added in one of the next releases."
+                            textAlignment="text"/>
+                    <text_65782
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="If you already have a package file then you can upload it and than modify or install the package."
+                            textAlignment="text"/>
+                    <text_65784
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Another way to create a package ist the deployment via HTTP request. A request like"
+                            textAlignment="text"/>
+                    <column_65786
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="&#xa;curl -u admin:admin -F file=@my-package-1.0.0.zip  http://localhost:8080/bin/cpm/package.service.html&#xa;&#xa;"/>
+                    <text_65800
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>uploads a package file and installs it. This can be used in an Maven build configuration like this, which is using the&amp;nbsp;&lt;a href=&quot;https://docs.adobe.com/docs/en/aem/6-2/develop/dev-tools/vlt-mavenplugin.html&quot;>Content Package Maven Plugin&lt;/a>&amp;nbsp;provided by&amp;nbsp;&lt;a href=&quot;http://www.adobe.com/&quot;>Adobe&lt;/a>&amp;nbsp;for the&amp;nbsp;&lt;a href=&quot;https://www.adobe.com/ca/marketing-cloud/enterprise-content-management.html&quot;>AEM&lt;/a>&amp;nbsp;platform:&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <column_65794
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="&#xa;&lt;build>&#xa;    &lt;pluginManagement>&#xa;        &lt;plugins>&#xa;&#xa;            &lt;plugin>&#xa;                &lt;groupId>com.day.jcr.vault&lt;/groupId>&#xa;                &lt;artifactId>content-package-maven-plugin&lt;/artifactId>&#xa;                &lt;version>0.0.24&lt;/version>&#xa;                &lt;extensions>true&lt;/extensions>&#xa;                &lt;configuration>&#xa;                    &lt;failOnError>true&lt;/failOnError>&#xa;                    &lt;targetURL>http://${sling.host}:${sling.port}${sling.context}/bin/cpm/package.service.html&lt;/targetURL>&#xa;                    &lt;userId>${sling.user}&lt;/userId>&#xa;                    &lt;password>${sling.password}&lt;/password>&#xa;                    &lt;useProxy>false&lt;/useProxy>&#xa;                    &lt;failOnMissingEmbed>true&lt;/failOnMissingEmbed>&#xa;                &lt;/configuration>&#xa;            &lt;/plugin>&#xa;&#xa;        &lt;/plugins>&#xa;    &lt;/pluginManagement>&#xa;&lt;/build>&#xa;&#xa;"/>
+                </column-1>
+            </row_1792459242>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column"/>
+            </row>
+        </main>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

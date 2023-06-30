@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="The Composum Nodes Browser contains a useful search panel in the top right area of the main view. This tool can be used to execute repository queries and navigate through the search results. You can configure your own set of query templates to use with the query panel."
+            jcr:title="Working with Queries"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Working with Queries">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1567327796
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The query panel in the top right area of the Composum Console Browser provides another way to navigate trough the repository. You can input SQL2 or XPath queries in the panels input field and execute the query. The found resources are displayed in a table below the input field. With a click on an table item the browser is navigating to the selected resource and their properties can be edited in the properties view."
+                            textAlignment="justify"/>
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            alt="query panel of the browser"
+                            imageRef="/content/ist/composum/assets/console/browser/browser-queries.png"/>
+                </column-0>
+            </row_1567327796>
+            <row_1981559756
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>A query can contain up to four placeholder patterns in the query code:&lt;br>&lt;/p>"
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="${placeholder_key[.type][.grow]}"
+                            language="javascript"/>
+                    <text_920682739
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>For each placeholder an input field is created dynamically in the second line of the input form area (the second line is visible only if placeholders are used).&lt;/p>&lt;p>Each placeholder can have an optional type hint. Currently only 'path' is supported as type hint. A 'path' placeholder input field has an additional path selector button to open the path select dialog.&lt;/p>&lt;p>The 'grow' hint is also optional and is a number which is used as is to define the 'flex-grow' CSS style property of the placeholders input field.&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>By default the query panel is reusing the resource filter of the browsers tree. This is useful to avoid the case that a resource of the query result can not be selected in the tree if such an item of the result is selected - but this filtering can be switched off.&lt;/p>&lt;p>On the left side of the input field the history of executed queries or the template set panel can be opened. The history contains the last 30 executed queries for direct reuse.&lt;/p>&lt;p>The query templates panel is offering a set of queries to use from the template view. This set ist customizable as described in the following section.&lt;/p>"
+                            textAlignment="left"/>
+                </column-1>
+            </row_1981559756>
+            <row_1917061099
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Query Templates">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title>
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            alt="query templates view"
+                            imageRef="/content/ist/composum/assets/console/browser/query-templates.png"/>
+                </column-0>
+            </row_1917061099>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The query tool is browsing the repository for configured query template sets. A template set is a node of any primary type with the resource type"
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="composum/nodes/console/query/template/set"
+                            language="html"/>
+                    <text_1283268681
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>wich can be found as a descendant of one of the resource resolvers root paths. All children of such an export set node which are of resource type&lt;/p>"
+                            textAlignment="left"/>
+                    <codeblock_2144982713
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="composum/nodes/console/query/template"
+                            language="html"/>
+                    <text_2098769211
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>are used as templates for the Composum Console Browser Query panel. You can use the repository to declare your own set of query templates.&lt;/p>&lt;p>The example below illustrates a template set. This is a JSON source view using the direct reference to the the template set shipped with Composum Nodes Console module.&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The properties of a template node are:&lt;/p>&lt;p>&lt;ul>&lt;li>jcr:title (optional; the name is used if not present)&lt;br>the title if the collapsible panel in the templates view&lt;/li>&lt;li>jcr: description (optional)&lt;br>a rich text property to describe the query show as text block in the templates view&lt;/li>&lt;li>group (optional)&lt;br>a key which is used to build the tabs in the templates view; each group is defining a tab with a list of the templates of this group within; the templates set defines not a group&lt;/li>&lt;li>order (optional; is 50 if not present)&lt;br>a number to control the ordering of the templates in the tab; a template wit a 'order' attribute lower than another template is placed before the others template&lt;/li>&lt;li>sql2 (optional)&lt;br>the SQL2 query template code&lt;/li>&lt;li>xpath (optional)&lt;br>the XPath query template code&lt;/li>&lt;/ul>&lt;/p>"/>
+                </column-1>
+            </row>
+            <row_773520243
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            codeRef="/libs/composum/nodes/browser/query/templates"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            copyright="/libs/composum/nodes/browser/query/templates (live snapshot)"
+                            language="json"
+                            serviceParams="indent=4"
+                            serviceUri="/bin/cpm/nodes/node.skip.d2.i4.source.json"
+                            showLanguage="{Boolean}true"
+                            title="Console Nodes query template set"
+                            wrapLines="{Boolean}true"/>
+                </column-0>
+            </row_773520243>
+            <row_2017903448
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <title1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/title"
+                            subtitle="Export Search Results (new feature)">
+                        <image
+                                jcr:primaryType="nt:unstructured"/>
+                    </title1>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>There are a lot of uses cases for exporting search results and it's not really possible to find a general format for all thinkable cases. Thus an approach similar to the templates makes it customizable. The query tool is searching for prepared components to generate ('render') the output files and a menu of the possible export formats is generated from the found components. The query export request is forwarded to the selected renderer with a synthetic resource which contains the search results as children.&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+            </row_2017903448>
+            <row_983763248
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The query tool is browsing the repository for configured query export configuration sets. Such a set is a node of any primary type with the resource type"
+                            textAlignment="left"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="composum/nodes/console/query/export/set"
+                            language="html"/>
+                    <text_1283268681
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>wich can be found as a descendant of one of the resource resolvers root paths. All children of such a template set node which are of resource type&lt;/p>"/>
+                    <codeblock_2144982713
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            code="composum/nodes/console/query/export"
+                            language="html"/>
+                    <text_2098769211
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>are used as export configuration for the Composum Console Browser Query panel. You can use the repository to declare your own set of query export handlers.&lt;/p>&lt;p>The example below illustrates such an export set. This is a JSON source view using the direct reference to the the export set shipped with Composum Nodes Console module.&lt;/p>"
+                            textAlignment="left"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The properties of an export configuration node are:&lt;/p>&lt;ul>&lt;li>jcr:title (optional; the name is used if not present)&lt;br>the label of the export menu link&lt;/li>&lt;li>jcr: description (optional)&lt;br>a short description visible as the title (tooltip) of the menu link&lt;/li>&lt;li>group (optional)&lt;br>a key which is used to build the groups in the export menu&lt;/li>&lt;li>order (optional; is 50 if not present)&lt;br>a number to control the ordering of the handlers in the menu&lt;/li>&lt;li>exportType (required)&lt;br>the resource type of the export handler component; the query request is delegated (forwarded) to this component for the rendering of the export file content&lt;/li>&lt;li>selectors (optional)&lt;br>a selector string witch is added to the query request and available in the handler&lt;/li>&lt;li>filename (optional)&lt;br>the filename hint for the browser to store the download&lt;/li>&lt;/ul>"
+                            textAlignment="left"/>
+                </column-1>
+            </row_983763248>
+            <row_773520244
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            codeRef="/libs/composum/nodes/browser/query/export"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            copyright="/libs/composum/nodes/browser/query/export (live snapshot)"
+                            language="json"
+                            serviceParams="indent=4"
+                            serviceUri="/bin/cpm/nodes/node.skip.d2.i4.source.json"
+                            showLanguage="{Boolean}true"
+                            title="Console Nodes export configuration set"
+                            wrapLines="{Boolean}true"/>
+                </column-0>
+            </row_773520244>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Queries"/>
+    </jcr:content>
+</jcr:root>

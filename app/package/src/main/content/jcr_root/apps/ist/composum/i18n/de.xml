@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        jcr:language="de"
+        jcr:mixinTypes="[mix:language]"
+        jcr:primaryType="sling:Folder"
+        sling:basename="ist-composum-site">
+
+    <general jcr:primaryType="sling:Folder">
+
+        <mandatory jcr:primaryType="sling:MessageEntry"
+                sling:key="mandatory" sling:message="obligatorisch"/>
+        <optional jcr:primaryType="sling:MessageEntry"
+                sling:key="optional" sling:message="optional"/>
+
+    </general>
+
+    <format jcr:primaryType="sling:Folder">
+
+        <default-value jcr:primaryType="sling:MessageEntry"
+                sling:key="default: {}" sling:message="Standard: {}"/>
+
+    </format>
+
+    <messages jcr:primaryType="sling:Folder">
+
+        <request-local jcr:primaryType="sling:MessageEntry"
+                sling:key="the requests locale" sling:message="das Locale-Objekt des Requests"/>
+
+    </messages>
+
+</jcr:root>

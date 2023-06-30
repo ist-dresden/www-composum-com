@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="A multi purpose content page with only one 'main' container to arrange content of all general element types including rows and columns."
+            jcr:title="Composum Site Content Page"
+            allowedChildTemplates="[
+                ^(.*/)?ist/composum/templates/page/([^/]+|subsite/root)$,
+                ^(.*/)?ist/composum/templates/blog/(root)$,
+                ^(.*/)?pages/components/templates/page/(event|news)$,
+                ^(.*/)?pages/options/.*/template(s(/page)?(/.+)?)?$
+            ]">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <cpp:design
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/stage/edit/page/design"
+                    designRef="/apps/ist/composum/templates/page/design/top/cpp:design"/>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <cpp:design
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/stage/edit/page/design"
+                    designRef="/apps/ist/composum/templates/page/design/main/cpp:design"/>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys">
+            <cpp:design
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/stage/edit/page/design"
+                    designRef="/apps/ist/composum/templates/page/design/bottom/cpp:design"/>
+        </bottom>
+        <cpp:design
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="composum/pages/stage/edit/page/design"
+                designRef="/apps/ist/composum/templates/page/design/cpp:design"/>
+    </jcr:content>
+</jcr:root>

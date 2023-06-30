@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more +++ create your own CMS +++ fast and flexible +++ bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="nt:unstructured">
+            <title_340688755
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Search Content">
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"
+                            title="Inhalte Suchen"/>
+                </i18n>
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg">
+                    <i18n
+                            jcr:primaryType="nt:unstructured">
+                        <de
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+                    </i18n>
+                </image>
+            </title_340688755>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Search Section"
+                            hideTitle="{Boolean}true">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                title="Search Term">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        title="Suchmuster"/>
+                            </i18n>
+                        </text>
+                        <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="composum/pages/components/search/field">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"/>
+                            </i18n>
+                        </field>
+                        <result
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="composum/pages/components/search/result"
+                                title="Search Results for '${term}'">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        title="Suchergebnisse für '${term}'"/>
+                            </i18n>
+                        </result>
+                    </section>
+                </column-0>
+            </row>
+        </main>
+    </jcr:content>
+</jcr:root>

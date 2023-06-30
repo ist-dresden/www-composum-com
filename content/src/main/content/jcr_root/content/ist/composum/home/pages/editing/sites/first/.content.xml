@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Describe sthe create of a new site and the site configuration options."
+            jcr:title="The First Site"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="the beginning with a new Site"
+                    title="Your first Site">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1818269807
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            imagePosition="left"
+                            text="&lt;p>If you have set up a fresh Composum Pages instance or if you have created new new tenant of if you have no rights to access an existing site of our tenant then you will be routed to the Composum Pages 'Homepage' prompted to create your first site.&lt;/p>">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/cloud/cloud-site-first.png"/>
+                    </textimage>
+                    <textimage_1140406665
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            imagePosition="left"
+                            text="A click to 'Create your first site now!' will open the dialog for site creation. At first you should choose the template from the set of available site templates. Such a template is a prepared content structure of initial pages, folders and settings which will be applied to your new site.">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/site/site-create-template.png"/>
+                    </textimage_1140406665>
+                    <textimage_932236829
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            imagePosition="right"
+                            text="&lt;p>On the next tab you have to specify the sites node name in the repository. All the other properties are optional. In a multi tenancy context the tenant can be chosen (if the user is joined to more than one tenant). All the other settings of a site are available after the site creation.&lt;/p>">
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/site/site-create-properties.png"/>
+                    </textimage_932236829>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>After the creation of the site the pages edit frame ist opened automatically with the new site selected in the page tree. If the site is created in the site management dialog the management dialog is furthermore and you must select and open the new site in this dialog.&lt;/p>"/>
+                </column-0>
+            </row_1818269807>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            imageRef="/content/ist/composum/assets/pages/site/site-create-opened.png"/>
+                </column-0>
+            </row>
+        </main>
+    </jcr:content>
+</jcr:root>

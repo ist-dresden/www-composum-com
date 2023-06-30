@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="How to set up a new project for pages"
+            jcr:title="Project setup"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>To get started quickly with a new site, it is possible to create a new (maven) project with a maven archetype:&lt;/p>&lt;p>&lt;code>mvn &quot;org.apache.maven.plugins:maven-archetype-plugin:3.1.0:generate&quot; -DarchetypeGroupId=com.composum.meta.ist.archetype -DarchetypeArtifactId=composum-pages-project-archetype&lt;/code>&lt;br>&lt;br>&lt;/p>&lt;p>This will ask for a few properties and create a maven project hierarchy below the current directory. Among those are:&lt;/p>&lt;ul>&lt;li>&lt;code>tenant&lt;/code>:&amp;nbsp;In a multi tenant system, this is the name of the tenant. For a single tenant system, it's default is &lt;em>sites&lt;/em> .&lt;/li>&lt;li>&lt;code>domain&lt;/code>:&amp;nbsp;a group of sites&lt;/li>&lt;li>&lt;code>project&lt;/code>: the name of the site within it's cluster&lt;/li>&lt;/ul>&lt;p>Also, property&amp;nbsp;&lt;code>project&lt;/code>&amp;nbsp;is asked with a default value&amp;nbsp;&lt;code>${tenant}.${domain}.${project}&lt;/code>&amp;nbsp;. We suggest to leave that unchanged to conform to the Composum standard of putting projects into the paths /(content|app)/tenant/cluster/project.&lt;/p>&lt;p>The generated project contains the following maven artefacts:&lt;/p>&lt;ul>&lt;li>{parentartefact}-app-bundle: for your components, content located at /app/{tenant}.{cluster}.{project}&lt;/li>&lt;li>{parentartefact}-app-package: a package for everything&lt;/li>&lt;li>{parentartefact}-content: a package for the content of your site, content located at /content/{tenant}.{cluster}.{project}&lt;/li>&lt;/ul>&lt;p>&amp;nbsp;Of course, it is advisable to look at the content each of the generated files and modify it according to your needs.&lt;/p>&lt;br>"
+                            title="Creating a new site project with a maven archetype"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>&lt;a href=&quot;https://maven.apache.org/archetype/maven-archetype-plugin/&quot;>Creating a new archetype&lt;/a> for your own purposes is relatively easy: you can call&amp;nbsp;&lt;/p>&lt;p>&lt;code>mvn archetype:create-from-project&lt;/code>&lt;/p>&lt;p>and then modify the&amp;nbsp;resulting&amp;nbsp;archetype.&lt;/p>"
+                            title="Creating a new maven archetype"/>
+                    <text_1897876299
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>There is also the&amp;nbsp;&lt;code>composum-platform-subproject-archetype&lt;/code>&amp;nbsp;which is geared towards new subprojects of the Composum platform.&lt;/p>&lt;p>&lt;code>&lt;/code>&lt;code>&lt;/code>&lt;code>&lt;/code>&lt;code>&lt;/code>&lt;/p>&lt;p>&lt;code>&lt;/code>&lt;/p>"
+                            title="Other archetypes"/>
+                    <text_1557879941
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="(We use the version 3.1.0 of the archetype plugin since 3.1.[12] duplicate newlines in the pom.xml for some reason.)"
+                            title="Remarks"/>
+                </column-1>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Project setup for Pages">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Projects"/>
+    </jcr:content>
+</jcr:root>

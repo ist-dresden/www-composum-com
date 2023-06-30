@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Component Scenes"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="live component testing in the Browser"
+                    title="Component Scenes">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Live Component Scenes">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>If a Sling component is selected in the Composum Browser view a 'Scene' view is available (since release 2.1). If this view is chosen the set of configured scene view is available if such a configuration can be found.&lt;/p>&lt;p>After selection of the scene view a scene content for the current component can be generated and used in the chosen tool.&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Scene Declaration">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Scene declaration are searched in the resolvers search paths. Each resource of the resource type 'composum/nodes/console/scene' is used as scene declarations - a declaration in '/apps' hides a declaration with the same key in '/libs'. The found declarations are ordered by their key.&lt;/p>&lt;p>A declaration defines a template for test content creation and a set of tools wich will be applied to the generated content.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+            <row1
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            imageRef="/content/ist/composum/assets/console/scenes/nodes-scenes-pages-editor.png"/>
+                </column-0>
+            </row1>
+            <row2
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Pages Components Scene">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="This scene declaration is part of the Pages Components package and available if Composum Pages is installed on the system. You can found the declaration in the repository."/>
+                        <codeblock1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot; xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;sling:OrderedFolder&quot;&#xd;&#xa;        jcr:title=&quot;Pages Components Scene&quot;&#xd;&#xa;        sling:resourceType=&quot;composum/nodes/console/scene&quot;&#xd;&#xa;        key=&quot;cpmcomp&quot;&#xd;&#xa;        template=&quot;/libs/composum/pages/components/scene/template&quot;&#xd;&#xa;        placeholder=&quot;/libs/composum/pages/components/scene/placeholder.html&quot;>&#xd;&#xa;    &lt;edit jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            jcr:title=&quot;Pages Editor&quot;&#xd;&#xa;            jcr:description=&quot;Composum Pages Components editor scene&quot;&#xd;&#xa;            uri=&quot;/bin/edit.html${path}&quot;/>&#xd;&#xa;    &lt;view jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            jcr:title=&quot;Pages Preview&quot;&#xd;&#xa;            jcr:description=&quot;Composum Pages Components preview scene&quot;&#xd;&#xa;            uri=&quot;${path}.html&quot;/>&#xd;&#xa;&lt;/jcr:root>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/scene/content"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="Scene configuration content"/>
+                        <text3
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>supported properties for the declaration:&lt;/p>&lt;ul>&lt;li>&lt;strong>key&lt;/strong> (required)&lt;br>the internal identifier of the scene and the value for scene sorting&lt;/li>&lt;li>&lt;strong>template&lt;/strong> (required)&lt;br>the path of the content resource used as source to create a scenes content for a component&lt;/li>&lt;li>&lt;strong>scenesRoot&lt;/strong> (optional; default: '/var/composum/nodes/scenes')&lt;br>the root folder for the scenes content; let it point to your project scenes root if the scenes are needing a root node of a special type&lt;/li>&lt;li>&lt;strong>placeholder&lt;/strong> (optional)&lt;br>the URI of a content resource wich will be displayed if no scene content prepared for a component&lt;/li>&lt;li>&lt;strong>disabled&lt;/strong> (boolean, optional)&lt;br>if 'true' the scene plugin is not available; useful to hide a predefined plugin by adding a scene declaration in '/apps' with the same key and 'disabled'='{Boolean}true'&lt;/li>&lt;/ul>&lt;p>properties of a scenes view&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>&lt;strong>jcr:title&lt;/strong> (required)&lt;br>the label the the view in the scene view select box&lt;/li>&lt;li>&lt;strong>jcr:description&lt;/strong> (optional)&lt;br>a short description used as tooltip ind the scene view select box&lt;/li>&lt;li>&lt;strong>uri&lt;/strong> (required)&lt;br>the URI pattern to display the editor / tool in the scenes frame with the scene content within&lt;br>- use the ${&lt;strong>path&lt;/strong>} variable in the URI as placeholder for the path of the scene content&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Each component scene content will be created using the declared page template. This page template implements the necessary page content to test the component of the scene in a complete page environment with needed clientlib references and editing tools initialisation."
+                                title="The scene page template"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:cpp=&quot;http://sling.composum.com/pages/1.0&quot; xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot;&#xd;&#xa;        xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;cpp:Page&quot;>&#xd;&#xa;    &lt;jcr:content jcr:primaryType=&quot;cpp:PageContent&quot;&#xd;&#xa;            jcr:title=&quot;'${type}' Scene&quot;&#xd;&#xa;            jcr:description=&quot;a Composum Nodes scene page for the Pages Component '${type}'&quot;&#xd;&#xa;            sling:resourceType=&quot;composum/pages/components/page/scene&quot;&#xd;&#xa;            templateRef=&quot;composum/pages/components/templates/page/scene&quot;&#xd;&#xa;            isTemplate=&quot;{Boolean}false&quot;>&#xd;&#xa;        &lt;main jcr:primaryType=&quot;cpp:Container&quot; sling:resourceType=&quot;composum/pages/components/container/parsys&quot;>&#xd;&#xa;            &lt;row jcr:primaryType=&quot;cpp:Container&quot;&#xd;&#xa;                    sling:resourceType=&quot;composum/pages/components/container/row&quot;&#xd;&#xa;                    columns=&quot;-12-&quot;>&#xd;&#xa;                &lt;column-0 jcr:primaryType=&quot;cpp:Container&quot;&#xd;&#xa;                        sling:resourceType=&quot;composum/pages/components/container/row/column&quot;>&#xd;&#xa;                    &lt;sample jcr:primaryType=&quot;cpp:Element&quot; sling:resourceType=&quot;${type}&quot;/>&#xd;&#xa;                &lt;/column-0>&#xd;&#xa;            &lt;/row>&#xd;&#xa;        &lt;/main>&#xd;&#xa;    &lt;/jcr:content>&#xd;&#xa;&lt;/jcr:root>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/pages/components/scene/template/.content.xml"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="Scene page template"/>
+                        <text2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>available variables for the template:&lt;/p>&lt;ul>&lt;li>${&lt;strong>type&lt;/strong>} the path of the component used as the samples resource type&lt;/li>&lt;li>${&lt;strong>path&lt;/strong>} the path of the scene content&lt;/li>&lt;li>${&lt;strong>name&lt;/strong>} the key of the scene declaration&lt;/li>&lt;/ul>&lt;p>The template element which shows the component to test should be named '&lt;strong>sample&lt;/strong>' this name is used to create the test target link in the browsers UI.&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="AEM Foundation Scene">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The Nodes for AEM Package is delivered with the following scene declaration blueprint."/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        xmlns:nt=&quot;http://www.jcp.org/jcr/nt/1.0&quot;&#xd;&#xa;        xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;sling:OrderedFolder&quot;&#xd;&#xa;        sling:resourceType=&quot;composum/nodes/console/scene&quot;&#xd;&#xa;        jcr:title=&quot;AEM Foundation Scene&quot;&#xd;&#xa;        disabled=&quot;{Boolean}false&quot;&#xd;&#xa;        key=&quot;aemfndn&quot;&#xd;&#xa;        placeholder=&quot;/libs/composum/nodes/aem/console/scene/placeholder.html&quot;&#xd;&#xa;        template=&quot;/libs/composum/nodes/aem/console/scene/template&quot;>&#xd;&#xa;    &lt;touch&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            jcr:description=&quot;AEM Touch UI editor scene&quot;&#xd;&#xa;            jcr:title=&quot;AEM Touch&quot;&#xd;&#xa;            uri=&quot;/editor.html${path}.html&quot;/>&#xd;&#xa;    &lt;classic&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            jcr:description=&quot;AEM Classic UI editor scene&quot;&#xd;&#xa;            jcr:title=&quot;AEM Classic&quot;&#xd;&#xa;            uri=&quot;/cf#${path}.html&quot;/>&#xd;&#xa;    &lt;view&#xd;&#xa;            jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;            jcr:description=&quot;component content example preview scene&quot;&#xd;&#xa;            jcr:title=&quot;AEM Preview&quot;&#xd;&#xa;            uri=&quot;${path}.html?wcmmode=disabled&quot;/>&#xd;&#xa;&lt;/jcr:root>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/nodes/aem/console/scene/content"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="AEM Foundation scene declaration"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The page template of this scene uses page component simply derived from the foundation page."/>
+                        <codeblock1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xd;&#xa;&lt;jcr:root xmlns:cq=&quot;http://www.day.com/jcr/cq/1.0&quot;&#xd;&#xa;        xmlns:jcr=&quot;http://www.jcp.org/jcr/1.0&quot;&#xd;&#xa;        xmlns:nt=&quot;http://www.jcp.org/jcr/nt/1.0&quot;&#xd;&#xa;        xmlns:sling=&quot;http://sling.apache.org/jcr/sling/1.0&quot;&#xd;&#xa;        jcr:primaryType=&quot;cq:Page&quot;>&#xd;&#xa;    &lt;jcr:content jcr:primaryType=&quot;cq:PageContent&quot;&#xd;&#xa;            sling:resourceType=&quot;composum/nodes/aem/console/scene/page&quot;&#xd;&#xa;            jcr:description=&quot;a AEM Foundation scene page for the component '${type}'&quot;&#xd;&#xa;            jcr:title=&quot;'${type}' Scene&quot;>&#xd;&#xa;        &lt;par jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;                sling:resourceType=&quot;wcm/foundation/components/parsys&quot;>&#xd;&#xa;            &lt;sample jcr:primaryType=&quot;nt:unstructured&quot;&#xd;&#xa;                    sling:resourceType=&quot;${type}&quot;/>&#xd;&#xa;        &lt;/par>&#xd;&#xa;    &lt;/jcr:content>&#xd;&#xa;&lt;/jcr:root>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                copyright="/libs/composum/nodes/aem/console/scene/template"
+                                language="xml"
+                                showLanguage="{Boolean}true"
+                                title="Scene Template"/>
+                        <text2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>You should create your own scene definitions. You can define various scene declarations simultaneously.&lt;/p>&lt;p>Ich you want to switch off one of the predefined scenes overlay these scenes and add simply a property 'disabled=true' (bool).&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row2>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Scenes"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.composum.meta.ist</groupId>
+        <artifactId>parent-2</artifactId>
+        <version>1.7.1</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>sites.ist.composum</groupId>
+    <artifactId>composum-site-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Composum Site</name>
+    <description>Maven parent for the Composum site packages</description>
+
+    <properties>
+        <package.group>tenants/ist</package.group>
+        <package.company>IST GmbH Dresden</package.company>
+        <bundle.category>sites,composum</bundle.category>
+        <composum.nodes.version>4.2.1</composum.nodes.version>
+        <composum.platform.version>1.7.0</composum.platform.version>
+        <cpm.platform.htl.version>1.0.0</cpm.platform.htl.version>
+        <composum.assets.version>1.2.0</composum.assets.version>
+        <composum.pages.version>1.4.1-SNAPSHOT</composum.pages.version>
+    </properties>
+
+    <scm>
+        <connection>scm:git:https://bitbucket.org/ist-software/composum.git</connection>
+        <developerConnection>scm:git:https://bitbucket.org/ist-software/composum.git</developerConnection>
+        <url>https://bitbucket.org/ist-software/composum.git</url>
+    </scm>
+
+    <modules>
+        <module>app</module>
+        <module>mapping</module>
+        <module>content</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Composum Pages -->
+            <dependency>
+                <groupId>com.composum.pages</groupId>
+                <artifactId>composum-pages-components-bundle</artifactId>
+                <version>${composum.pages.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.composum.pages</groupId>
+                <artifactId>composum-pages-commons-bundle</artifactId>
+                <version>${composum.pages.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Composum Assets -->
+            <dependency>
+                <groupId>com.composum.assets</groupId>
+                <artifactId>composum-assets-commons-bundle</artifactId>
+                <version>${composum.assets.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Composum Platform -->
+            <dependency>
+                <groupId>com.composum.platform</groupId>
+                <artifactId>cpm-platform-htl-bundle</artifactId>
+                <version>${cpm.platform.htl.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.composum.platform</groupId>
+                <artifactId>composum-platform-models-bundle</artifactId>
+                <version>${composum.platform.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.composum.platform</groupId>
+                <artifactId>composum-platform-commons-bundle</artifactId>
+                <version>${composum.platform.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Composum Nodes -->
+            <dependency>
+                <groupId>com.composum.nodes</groupId>
+                <artifactId>composum-nodes-commons</artifactId>
+                <version>${composum.nodes.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+</project>

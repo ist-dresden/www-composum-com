@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="A description of the Tags provided by the general Nodes JSP Taglib (cpn)."
+            jcr:title="Nodes Taglib"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <taglib
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/taglib"
+                    jcr:title="Composum Nodes Taglib"
+                    key="cpn">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/taglib/tags">
+                    <tag_N66246
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="Embeds an anchor link tag"
+                            jcr:title="anchor">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute_N66260
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="if set, this is used instead of tag name 'a'."
+                                    jcr:title="name"
+                                    defaultValue="a"
+                                    valueType="String"/>
+                            <attribute_N66275
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="deprecated: use 'class' like a normal HTML tag"
+                                    jcr:title="classes"
+                                    valueType="java.lang.String"/>
+                            <attribute_N66293
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="an EL expression that determines whether the tag is shown"
+                                    jcr:title="test"
+                                    valueType="String"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="Renders an anchor with the name given by model.anchor , if that is not empty. The title attribute is a dynamic attribute - it has no special function in the tag, but is just rendered into the output."
+                                    exampleCode="&lt;cpn:anchor test=&quot;${not empty model.anchor}&quot; &#xd;&#xa;    name=&quot;${model.anchor}&quot; title=&quot;${model.title}&quot;/>"/>
+                        </examples>
+                    </tag_N66246>
+                    <tag
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Declares the topmost resource bundle for i18n translation in the current requests resource bundle stack.&lt;/p>"
+                            jcr:title="bundle">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the Java Resource Bundle base name"
+                                    jcr:title="basename"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="&lt;p>selects the Resource Bundle with the base name 'ist-composum-site' as the topmost resource bundle in the requests processing; this resource bundle is now the first in the chain for translations&lt;/p>"
+                                    exampleCode="&lt;cpn:bundle basename=&quot;ist-composum-site&quot;/>"/>
+                        </examples>
+                    </tag>
+                    <tag_354224103
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Includes a clientlib reference (JS, CSS etc).&lt;/p>&lt;p>Client libraries are folders of sling:resourceType composum/nodes/commons/clientlib containing subfolders for each type, and declare dependencies to other client libraries. The tag can reference multiple client libraries if they are referenced by category, and if the client library/-ies have dependencies to other client libraries / resources. Thus, the tag can render as several link / script / img tags.&lt;/p>&lt;p>see: &lt;a href=&quot;/content/ist/composum/home/platform&quot;>Clientlibs&lt;/a>&lt;/p>"
+                            jcr:title="clientlib">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute1
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the category of client library to be included; one of category or path is required but categories are preferred and more flexible&lt;/p>"
+                                    jcr:title="category"
+                                    valueType="String"/>
+                            <attribute_1873384053
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the repository path to reference the client library to be included; one of category or path is required&lt;/p>"
+                                    jcr:title="path"
+                                    valueType="String"/>
+                            <attribute_296928212
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>type of rendered resources: css, js, link, img, png, jpg&lt;/p>"
+                                    jcr:title="type"
+                                    defaultValue="link"
+                                    valueType="String"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="a typical HTML head snippet to include header link tags ans styles; the edit mode styles are included only if the 'editMode' check returns 'true'"
+                                    exampleCode="&lt;cpn:clientlib type=&quot;link&quot; category=&quot;${model.viewClientlibCategory}&quot;/> &#xa;&lt;cpn:clientlib type=&quot;css&quot; category=&quot;${model.viewClientlibCategory}&quot;/> &#xa;&lt;cpn:clientlib type=&quot;css&quot; test=&quot;${model.editMode}&quot; category=&quot;${model.editClientlibCategory}&quot;/>"/>
+                            <example_776538368
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="the analogous example for the include of clientlib JS code - typically at the end of the HTML body"
+                                    exampleCode="&lt;cpn:clientlib type=&quot;js&quot; category=&quot;${model.viewClientlibCategory}&quot;/> &#xa;&lt;cpn:clientlib type=&quot;js&quot; test=&quot;${model.editMode}&quot; category=&quot;${model.editClientlibCategory}&quot;/> &#xa;"/>
+                        </examples>
+                    </tag_354224103>
+                    <tag_1632415820
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Creates a JSP / Java variable of an instance of a Java Bean class (model class). The variable is declared only in the body of the component tag. Each variable of the same name in the specified scope if hided during tag processing and restored on the tags end.&lt;/p>"
+                            jcr:title="component"
+                            footer="If you want to use the declared variable in the attributes of the component tag itself use @{...} as expression boundary instead of the normal JSP-EL expression boundary (${...}). In this case the expression evaluation is not done by the compiled JSP code (variable is not available). The component tag itself is evaluating such delayed expressions dynamically on tag start.">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the name of the variable; this name must be unique in the declared scope"
+                                    jcr:title="var"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                            <attribute_1476800206
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the complete class name of the Java class of the instance to create"
+                                    jcr:title="type"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                            <attribute_119311365
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the scope of the variable declaration; the variable is declared inside of the component tag body and in this specified scope.&lt;/p>&lt;ul>&lt;li>&lt;strong>page&lt;/strong>: JSP page scope (default)&lt;/li>&lt;li>&lt;strong>request&lt;/strong>: available in the page and all included components&lt;/li>&lt;li>&lt;strong>session&lt;/strong>: the variable is available during session lifetime&lt;/li>&lt;/ul>&lt;p>In each case the availability of the variable is limited by the tag boundaries.&lt;/p>"
+                                    jcr:title="scope"
+                                    defaultValue="page"
+                                    valueType="String"/>
+                            <attribute_447603190
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>If 'true' a new instance is created and set as variable. If 'false' the variable is created only of not existing in the specified scope and reused if always available with a compatible type.&lt;/p>&lt;p>In the 'page' scope the default is 'true' otherwise 'false'. So you can declare a variable in request scope for a set of components in the include tree which is declared in each component which needs this and shared nevertheless independently from the creating script.&lt;/p>"
+                                    jcr:title="replace"
+                                    valueType="Boolean"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="Provides an instance of the specified type as variable 'model' in the page scope."
+                                    exampleCode="&lt;cpn:component var=&quot;model&quot; type=&quot;my.project.model.ComponentModel&quot;> &#xa;    &lt;cpn:text value=&quot;${model.description}&quot;/> &#xa;    ... &#xa;&lt;/cpn:component> &#xa;&lt;%-- 'model' not available outside the component tag --%>"/>
+                            <example_1417669199
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="The declared variable 'model' is also available in the script code of the included component. If the script of the included component declares the the variable 'model' also in request scope and of the same type (and without 'replace=&quot;true&quot;') the instance declared here and its current state is shared with the 'child' component."
+                                    exampleCode="&lt;cpn:component var=&quot;model&quot; type=&quot;my.project.model.ComponentModel&quot; scope=&quot;request&quot;> &#xa;    &lt;sling:include path=&quot;child&quot;/> &#xa;&lt;/cpn:component> &#xa;"/>
+                        </examples>
+                    </tag_1632415820>
+                    <tag_N65556
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>An extension of the sling:defineObjects tag.&lt;/p>&lt;p>&lt;/p>"
+                            jcr:title="defineObjects">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="&lt;p>Creates additional variables:&lt;/p>&lt;p>&lt;ul>&lt;li>pagesAccessAuthor , pagesAccessPreview , pagesAccessPublic : boolean variables that are true if the request runs in access mode author / preview / public , respectively.&lt;/li>&lt;li>pagesModeNone, pagesModePreview, pagesModeEdit, pagesModeDevelop : boolean variables that are true if the request runs in display mode none, preview, edit or develop, respectively.&amp;nbsp;&lt;/li>&lt;/ul>&lt;/p>"
+                                    exampleCode="&lt;cpn:defineObjects/>"/>
+                        </examples>
+                    </tag_N65556>
+                    <tag_121274924
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>The ‚div‘ tag is rendering a HTML div tag if the condition (‚test’ attribute) is ‚true‘.&amp;nbsp;&lt;/p>"
+                            jcr:title="div">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing (exception: the ‚body‘ is ‚true‘) is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute_202944647
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>if the ‚body‘ condition is true the tags body is rendered even if the general ‚test‘ condition is ‚false’ - the 'conditional tag around' case&lt;/p>"
+                                    jcr:title="body"
+                                    defaultValue="false"
+                                    valueType="Boolean"/>
+                            <attribute_1267069690
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the HTML tag name; if ‚none‘ no tag is rendered around the body&lt;/p>"
+                                    jcr:title="tagName"
+                                    defaultValue="div"
+                                    valueType="String"/>
+                            <attribute_137007149
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the CSS class attribute of the HTML tag&lt;/p>"
+                                    jcr:title="class"
+                                    valueType="String"/>
+                            <attribute_1246970738
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>each dynamic attribute with a non null value is rendered as it is in the HTML tag&lt;/p>"
+                                    jcr:title="..."
+                                    valueType="Object"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="Is rendering the 'div' tag if the 'model.isDivAround()'&amp;nbsp; returns 'true'; the body is rendered always even if the 'test' condition is not true."
+                                    exampleCode="&lt;cpn:div test=&quot;${model.divAround}&quot; body=&quot;true&quot; class=&quot;div-around&quot;> &#xa;    ... &#xa;&lt;/cpn:div>"/>
+                            <example_515171834
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="Is rendering the div tag and its body only if the 'model.isNotEmpty()' method returns 'true'."
+                                    exampleCode="&lt;cpn:div test=&quot;${model.notEmpty}&quot; class=&quot;...&quot;>...&lt;/cpn:div>"/>
+                        </examples>
+                    </tag_121274924>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/taglib/tags">
+                    <tag_1521402984
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Generates form elements with mapped action URLs&lt;/p>"
+                            jcr:title="form">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the action URL to send the form data; this URL is mapped (resolver.map()) automatically&lt;/p>"
+                                    jcr:title="action"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                            <attribute_962193616
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the HTTP method of the form request&lt;/p>"
+                                    jcr:title="method"
+                                    valueType="String"/>
+                            <attribute_189253748
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the encoding type of the form request data set ('enctype' attribute of the HTML form tag)"
+                                    jcr:title="enctype"
+                                    valueType="String"/>
+                            <attribute_1180684124
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the value of the HTML form 'accept-charset' attribute"
+                                    jcr:title="charset"
+                                    valueType="String"/>
+                            <attribute_1919773669
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    valueType="String"/>
+                            <attribute_1168135197
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>each dynamic attribute with a non null value is rendered as it is in the HTML tag&lt;/p>"
+                                    jcr:title="..."
+                                    valueType="Object"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="renders a HTML anchor tag to the resource path with additional tag attributes; the resources path is mapped automatically"
+                                    exampleCode="&lt;cpn:image classes=&quot;${fileCssBase}_image&quot; src=&quot;${file.path}&quot; draggable=&quot;false&quot;/>"/>
+                        </examples>
+                    </tag_1521402984>
+                    <tag_28289620
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Rendering of an image HTML tag with resolver mapping of the image URL.&lt;/p>"
+                            jcr:title="image">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing (exception: the ‚body‘ is ‚true‘) is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute_1576939408
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the image URL / URI / path; an external URL is rendered as it is a path or URI is mapped using the Sling resource resolver"
+                                    jcr:title="src"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                            <attribute_2080712182
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the on/off switch for the resolver mapping"
+                                    jcr:title="map"
+                                    valueType="Boolean"/>
+                            <attribute_509991616
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="an optional format rule to prepare the URL before rendering; useful for example if a resource path in the 'src' attribute should be embedded in a service URL"
+                                    jcr:title="format"
+                                    valueType="String"/>
+                            <attribute_137007149
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the CSS class attribute of the HTML tag&lt;/p>"
+                                    jcr:title="class"
+                                    valueType="String"/>
+                            <attribute_1246970738
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>each dynamic attribute with a non null value is rendered as it is in the HTML tag&lt;/p>"
+                                    jcr:title="..."
+                                    valueType="Object"/>
+                        </attributes>
+                    </tag_28289620>
+                    <tag_2121349612
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>Rendering of an anchor HTML tag (hyperlink) this resolver mapping of the link URL ('href' attribute).&lt;/p>"
+                            jcr:title="link">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing (exception: the ‚body‘ is ‚true‘) is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute_202944647
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>if the ‚body‘ condition is true the tags body is rendered even if the general ‚test‘ condition is ‚false’ - the 'conditional link around' case&lt;/p>"
+                                    jcr:title="body"
+                                    defaultValue="false"
+                                    valueType="Boolean"/>
+                            <attribute_1576939408
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the target URL / URI / path; an external URL is rendered as it is, a path or URI is mapped using the Sling resource resolver"
+                                    jcr:title="href"
+                                    mandatory="{Boolean}true"
+                                    valueType="String"/>
+                            <attribute_2080712182
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="the on/off switch for the resolver mapping"
+                                    jcr:title="map"
+                                    valueType="Boolean"/>
+                            <attribute_509991616
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="an optional format rule to prepare the URL before rendering; useful for example if a resource path in the 'href' attribute should be embedded in a service URL"
+                                    jcr:title="format"
+                                    valueType="String"/>
+                            <attribute_137007149
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the CSS class attribute of the HTML tag&lt;/p>"
+                                    jcr:title="class"
+                                    valueType="String"/>
+                            <attribute_1246970738
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>each dynamic attribute with a non null value is rendered as it is in the HTML tag&lt;/p>"
+                                    jcr:title="..."
+                                    valueType="Object"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="Renders a link to a page resource for editing with the 'Pages' editor."
+                                    exampleCode="&lt;cpn:link href=&quot;${target}&quot; format=&quot;/bin/pages.html{}&quot;>${cpn:path(target)}&lt;/cpn:link>"/>
+                            <example_784335307
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="a conditional link around a 'div'; the body (the 'div' inside of the tag) is always rendered but the link around only if condition is 'true'"
+                                    exampleCode="&lt;cpn:link test=&quot;${condition}&quot; body=&quot;true&quot; href=&quot;${target}&quot;> &#xa;    &lt;div class=&quot;...&quot;>...&lt;/div> &#xa;&lt;/cpn:link>"/>
+                        </examples>
+                    </tag_2121349612>
+                    <tag_1894512780
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="ist/composum/components/documentation/taglib/tag"
+                            jcr:description="&lt;p>The ‚text‘ tag ist the general tag to embed text values in the HTML output. The  value is normally escaped to prevent from XSS attacks. If the value is empty (or null) nothing is rendered. It’s possible to format the value before escaping and rendering.&lt;/p>"
+                            jcr:title="text"
+                            footer="&lt;p>If no value attribute can be found and no property can be retrieved or the the value is empty the text tag body is rendered as value if this body is not empty. If the value is null and the body is empty the text HTML tag is not rendered. A format works only for value attributes or properties not for the body text. The text escaping is done in each case even if the tag body is rendered as value.&lt;/p>">
+                        <attributes
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/attributes">
+                            <attribute
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>nothing is rendered if the test attribute value is ‚false‘ (general condition)&lt;/p>"
+                                    jcr:title="test"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute_115820826
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the general on/off switch for text escaping&lt;/p>"
+                                    jcr:title="escape"
+                                    defaultValue="true"
+                                    valueType="Boolean"/>
+                            <attribute_970978810
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the text type to select the escape rule:&lt;/p>&lt;ul>&lt;li>&lt;strong>text&lt;/strong>: HTML text escaping (default)&lt;/li>&lt;li>&lt;strong>rich&lt;/strong>: rich text escaping (text formatting and simple HTML tags allowed)&lt;/li>&lt;li>&lt;strong>path&lt;/strong>: repository path (URI) encoding&lt;/li>&lt;li>&lt;strong>script&lt;/strong>: ECMA script escaping&lt;/li>&lt;li>&lt;strong>style&lt;/strong>: CSS code escaping&lt;/li>&lt;li>&lt;strong>cdata&lt;/strong>: wrap value with&lt;/li>&lt;li>&lt;strong>value&lt;/strong>: no escaping!&lt;/li>&lt;/ul>"
+                                    jcr:title="type"
+                                    defaultValue="text"
+                                    valueType="String"/>
+                            <attribute_1493371683
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the text value to render; if not present the 'property' attribute is used&lt;/p>"
+                                    jcr:title="value"
+                                    valueType="Object"/>
+                            <attribute_1252877217
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the name of a property of the current resource to retrieve the text value; used if no value attribute is specified; if no value found and no property declared the text tag body content is rendered as text (without formatting)&lt;/p>"
+                                    jcr:title="property"
+                                    valueType="String"/>
+                            <attribute_848120417
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>format pattern string ‚{fmt-type}..format..‘ to prepare the text value with {&lt;strong>fmt-type&lt;/strong>}:&lt;/p>&lt;ul>&lt;li>{&lt;strong>Message&lt;/strong>}: a Message text formatter is used&lt;/li>&lt;li>{&lt;strong>Date&lt;/strong>}: a SimpleDateFormat formatier is used&lt;/li>&lt;li>{&lt;strong>String&lt;/strong>}: a string formatter is used&lt;/li>&lt;li>{&lt;strong>Log&lt;/strong>} (or nothing and at least one ‚{}‘ pattern in the format): a Log formatter is used&lt;/li>&lt;/ul>"
+                                    jcr:title="format"
+                                    valueType="String"/>
+                            <attribute_2008182217
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>if ‚true‘ the text value is translated using the requests locale and the requests resource bundle stack; if a format is specified the format is translated before formatting - in this case the value is translated separately before formatting&lt;/p>"
+                                    jcr:title="i18n"
+                                    valueType="Boolean"/>
+                            <attribute_992464182
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the locale to use to create the formatter for the specified format&lt;/p>"
+                                    jcr:title="locale"
+                                    defaultValue="the requests locale"
+                                    valueType="Object"/>
+                            <attribute_1824527097
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the HTML tag name; if ‚none‘ no tag is rendered around the value&lt;/p>"
+                                    jcr:title="tagName"
+                                    defaultValue="div"
+                                    valueType="String"/>
+                            <attribute_529019378
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>the CSS class attribute of the HTML tag&lt;/p>"
+                                    jcr:title="class"
+                                    valueType="String"/>
+                            <attribute_771462876
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/attribute"
+                                    jcr:description="&lt;p>each dynamic attribute with a non null value is rendered as it is in the HTML tag&lt;/p>"
+                                    jcr:title="..."
+                                    valueType="Object"/>
+                        </attributes>
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/taglib/tag/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="a simple text rendering example (escaped as HTML text)"
+                                    exampleCode="&lt;cpn:text value=&quot;${model.title}&quot;/>"/>
+                            <example_473138595
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/taglib/tag/example"
+                                    jcr:description="a formatted text value rendering; if stringValue is not empty the text is rendered with HTML escaping embedded in the format string; the format and the value are translated before formatting if a matching translation can be found"
+                                    exampleCode="&lt;cpn:text property=&quot;stringValue&quot; format=&quot;{String}a string: '%s'&quot; i18n=&quot;true&quot;/>"/>
+                        </examples>
+                    </tag_1894512780>
+                </column-1>
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"
+                            jcr:description="&lt;p>ydfgdrgae dhb dh gdfghdg drg&amp;nbsp;&lt;/p>&lt;p>dy gaeg aegg fwee rgerg ertg&lt;/p>"/>
+                </i18n>
+            </taglib>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Composum Taglibs - Nodes Taglib (cpn)">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="General Tags"/>
+    </jcr:content>
+    <_x002e_DS_Store/>
+</jcr:root>

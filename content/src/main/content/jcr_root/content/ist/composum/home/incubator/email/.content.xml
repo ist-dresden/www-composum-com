@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Email service for platform"
+            jcr:title="Email"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Email Service">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Scope">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The email service should be able to compose and send emails as defined by resources with suitable placeholders.&amp;nbsp;&lt;/p>&lt;p>The emails should be defined by a resource to be easily editable via a dialog. Attachments can be added - either from the email definition, as additional resources (assets) or as computed resources (e.g. a custom PDF for a user).&lt;/p>&lt;p>The configuration of the email server to be used to send the email is also given as input. There might be a system default email server, but in a tenants setting an email server configured by the tenant should be used, to avoid problems with spam blocking.&lt;/p>"/>
+                    </section>
+                    <section_2111074449
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Usage">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The EmailService is part of the cpm-platform-workflow module. It provides a class&amp;nbsp;&lt;code>com.composum.platform.workflow.mail.EmailBuilder&lt;/code>&amp;nbsp;on which all data for the email can be provided. The&amp;nbsp;&lt;code>com.composum.platform.workflow.mail.EmailService&lt;/code>&amp;nbsp;provides methods sendMail (which returns a Future that returns the message Id when the service was able to send the email) and a method sendMailImmediately which immediately sends the email and returns only on successful delivery to an email relay or on exceptional aborts.&lt;/p>"/>
+                    </section_2111074449>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section1
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Requirements">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>For the credentials with mail servers or proxies we should use the&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/extensions/replication/credentialservice&quot;>credential service&lt;/a>.&lt;/li>&lt;li>The mail content should be defined by a resource, containing the text or HTML content of the message, and possibly attachments. It can contain placeholders like&amp;nbsp;&lt;code>${placeholdername}&lt;/code>&amp;nbsp;that are replaced by parameters given for the mail.&lt;/li>&lt;li>The EmailService should be resistent to server crashes: emails that could not yet be delivered to an email relay should be kept in the Repository at /var/composum/platform/mail/queue until successfully delivered to the relay.&lt;/li>&lt;li>If configured, the successfully sent emails should be kept at /var/composum/platform/mail/queue-sent , and emails which could not be sent after several retries should be kept at /var/composum/platform/mail/queue-failed , with automatical cleanup if configured.&lt;/li>&lt;/ul>"/>
+                    </section1>
+                </column-1>
+            </row>
+            <row_749275428
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Configuration">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Composum Workflow Email Service has an OSGI-configuration in which it is possible to enable it, configure timeouts and retry numbers. It also has a debug mode where all communication with relays is printed to stdout. The service needs to be enabled in the configuration before using it.&lt;/p>&lt;p>A companion service is the Composum Workflow Email Cleanup Service. It can be configured to clean up the email queue entries left in a JCR folder for the successfully sent emails and a JCR folder for the emails that could not be delivered to a SMTP relay, even after the configured number of retries. It can also be configured such that these emails are immediately deleted.&lt;/p>&lt;p>The email service uses a threadpool &quot;EmailSrv&quot; . It is possible to add a configuration with that name to &quot;Apache Sling Thread Pool Configuration&quot; to set the number of threads etc.&amp;nbsp; It's sensible to give it graceful shutdown and a few seconds to finish email deliveries to SMTP relays which are done at the moment of shutdown.&lt;/p>"
+                            title="OSGI Configuration"/>
+                    <text_198722356
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>While it is possible to specify the headers and body of a mail directly with an&amp;nbsp;&lt;code>EmailBuilder&lt;/code>, it is also possible to provide an email template covering a type of emails, and just provide all values that change for each individual email. The template can specify various email headers, and a text and / or HTML body for the email, as well as specify attachments. All children of the template resource that are file-resources (nt:file) are added as attachments. The template resource itself can have the following (mostly optional) properties. For mandatory email headers like from, to, subject and body, the values can be either be specified by the template or be set directly on the EmailBuilder. Values set by the various EmailBuilder setters (such as setTo) override values from the template.&lt;/p>&lt;ul>&lt;li>&lt;code>jcr:title&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>jcr:description&lt;/code>: not used for sending emails, but are recommended to keep track of the templates&lt;/li>&lt;li>&lt;code>from&lt;/code>,&amp;nbsp;&lt;code>to&lt;/code>,&amp;nbsp;&lt;code>cc&lt;/code>,&amp;nbsp;&lt;code>bcc&lt;/code>,&amp;nbsp;&lt;code>replyTo&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>bounceAddress&lt;/code>&amp;nbsp;give the corresponding email headers. These have to be RFC822 compatible (as interpreted by javax.mail.internet.InternetAddress). All except from and bounceAddress can have multiple values.&lt;/li>&lt;li>&lt;code>subject&lt;/code>&amp;nbsp;contains the subject of the email.&lt;/li>&lt;li>&lt;code>body&lt;/code>&amp;nbsp;contains the plaintext body of the email,&amp;nbsp;&lt;code>html&lt;/code>&amp;nbsp;the richtext (that is, HTML) body of the email. It's possible to give both for the benefit of text-only email clients.&amp;nbsp;&lt;/li>&lt;/ul>&lt;p>The textual headers (subject, body, html) can contain placeholders of the form ${placeholdername} whose values have to be specified to the EmailBuilder.&lt;/p>"
+                            title="Structure of the email template resource"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_1565551637
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>It is possible to use different email relays for different emails. This seems especially important in a multi-tenant setting, to avoid that that one tenant who's sending broken or even spam emails could be responsible for a shared email relay being blacklisted, thus harming all tenants. So, for every sent email a server configuration resource has to be given as argument to the EmailService. Configurable are:&lt;/p>&lt;ul>&lt;li>&lt;code>jcr:title&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>jcr:description&lt;/code>: not used for sending emails, but are recommended to keep track of the configurations&lt;/li>&lt;li>&lt;code>host&lt;/code>,&amp;nbsp;&lt;code>port&lt;/code>: the hostname and port for the email relay&lt;/li>&lt;li>&lt;code>connectionType&lt;/code>: one of SMTP, SMTPS, STARTTLS . Determines the protocol type.&lt;/li>&lt;li>&lt;code>credentialId&lt;/code>: an id for the &lt;a href=&quot;/content/ist/composum/home/platform/extensions/replication/credentialservice&quot;>CredentialService&lt;/a> that allows to retrieve the username and password for the email relay.&lt;/li>&lt;li>&lt;code>sling:resourceType&lt;/code>: is not required, but could be composum/platform/workflow/components/mail/mailserverconfig to enable editing&lt;/li>&lt;/ul>"
+                            title="Structure of the email relay configuration"/>
+                </column-1>
+            </row_749275428>
+            <row_1510435687
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Implementation">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section_236315912
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Queueing">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The mail queue is held below&amp;nbsp;&lt;code>/var/composum/platform/mail/queue&lt;/code>&amp;nbsp;. If the tenant module is present, we add a subdirectory with the tenant's name. The EmailServiceImpl tries to send new emails immediately, but also writes those in the queue for persistence. Periodically, the EmailServiceImpl queries all emails whose retry time arrived (that is, the nextTry property is less than System.currentTimeMillis()).&lt;/p>&lt;p>Emails which were successfully sent are kept in&amp;nbsp;&lt;code>/var/composum/platform/mail/queue-sent&lt;/code>&amp;nbsp;if so configured in the cleanup service. When the delivery to an SMTP relay fails, they are kept in&amp;nbsp;&lt;code>/var/composum/platform/mail/queue-failed&lt;/code>&amp;nbsp;for manual inspection, also subject to automatic cleanup.&lt;/p>"/>
+                        <text_755099708
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>jcr:created : the time the entry was created&lt;/li>&lt;li>jcr:lastModified : the time the entry was last modified&lt;/li>&lt;li>loggingId: a random ID that appears in all log messages to allow connecting the individual retry attempts.&lt;/li>&lt;li>email: the email written in MIME format&lt;/li>&lt;li>serverConfig: the path to the email relay configuration that should be used for sending this email&lt;/li>&lt;li>credentialKey: optionally a key the service needs to access the credentials with the CredentialService .&lt;/li>&lt;li>retry: the number of the retry that was done. 0 is the first immediate sending attempt&lt;/li>&lt;li>nextTry: the time when the next retry should be done&lt;/li>&lt;li>queuedAt: ID of the EmailService that is currently trying to process the message.&lt;/li>&lt;/ul>"
+                                title="Properties of a mail queue entry"/>
+                        <text_1007381703
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Since it is possible to run the Sling servers in a cluster, several EmailService implementations could run in parallel trying to work on Email retries. So, basically we need to lock the queue entry before sending an email. Since in our experiments JCR locking didn't work right in a cluster, we use the following protocol to ensure no email is sent twice:&lt;/p>&lt;p>&lt;/p>&lt;ol>&lt;li>the service tries to reserve the queue entry by setting its queuedAt attribute to his own service id and increasing retry and the nextTry time.&lt;/li>&lt;li>the actual sending is done at least a couple of seconds later. Then it checks whether the queue entry still has the same value for the queuedAt attribute, and only in this case sends it. Otherwise it doesn't do anything for that queue entry, since another cluster entry won the &quot;race&quot; of the locking in 1.&lt;/li>&lt;/ol>&lt;p>To avoid that only one server in a cluster does all emails, in each run every 10 seconds a server reserves only a third of the available queue entries for himself, or 10 if that's larger.&lt;/p>&lt;p>&lt;/p>"
+                                title="Precautions for Clustering"/>
+                    </section_236315912>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Each email is provided with a random logging ID that is mentioned in every log message about the sending process. The EmailServiceImpl logs an info message (&quot;Assigning logId ...&quot;) with the logging ID, the email template and server configuration path, the tenant's ID (if given), possibly overriding subject (placeholders not resolved) and the String.hashCode of the email addresses. (This way we hide the actual email addresses somewhat, but are still able to find emails to a specific address in the log, up to hashcode collisions.)&lt;/p>&lt;p>If the email is sent, the messageid is logged in a separate message (&quot;Successfully sent email ...&quot;) together with the logging ID. If you run Sling in a cluster: please be aware that this can be on a different host in the cluster, though we do try to do it on the same host.&lt;/p>"
+                            title="Logging"/>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Choice of library for sending emails">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>There are several options for actually sending emails.&lt;/p>&lt;ul>&lt;li>the basic javax.mail , which isn't too pleasant to use.&lt;/li>&lt;li>&lt;a href=&quot;https://commons.apache.org/proper/commons-email/&quot; target=&quot;_blank&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>Apache Commons-Email&lt;/a>&amp;nbsp;which simplifies much of the usage. It's easily deployable as OSGI bundle, but the last version is from 2017.&lt;/li>&lt;li>&lt;a href=&quot;http://www.simplejavamail.org/&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>Simple Java Mail&lt;/a>&amp;nbsp;has the most features and (subjectively) the best interface, but is currently hard to deploy in OSGI due to &lt;a href=&quot;https://github.com/bbottema/simple-java-mail/issues/288&quot;>a bug&lt;/a>, and consists of quite a number of bundles.&lt;/li>&lt;/ul>&lt;p>So it currently (8/2020) seems the best option to use commons-email for now.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row_1510435687>
+            <row_715332060
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Discussion">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_626532081
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If the test code of cpm-platform-workflow is deployed, there is a test form for sending arbitrary emails at&amp;nbsp;&lt;a href=&quot;http://localhost:9090/apps/composum/platform/workflow/test/mail/mailform.html&quot;>http://localhost:9090/apps/composum/platform/workflow/test/mail/mailform.html&lt;/a> . Of course, it needs accessible relay configurations and credentials for the user using it.&lt;/p>"
+                            title="Testing"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>So far there is no real way to protect the passwords for the email servers against access by malicious code using Java reflection. Possibly it would be possible to run Sling with an&amp;nbsp;&lt;a href=&quot;https://stackoverflow.com/questions/63601391/how-to-run-apache-sling-with-an-enabled-securitymanager&quot;>enabled security manager&lt;/a>, but that'd take quite some effort to do it right.&lt;/li>&lt;li>It would be nice if we could check something about the current user, either in the &lt;a href=&quot;/content/ist/composum/home/platform/extensions/replication/credentialservice&quot;>CredentialService&lt;/a> or in the email service, to see whether he is allowed to access credentials / send emails. But it is not clear how to do that in a way &lt;a href=&quot;https://stackoverflow.com/q/63774424/21499&quot;>safe against malicious code&lt;/a>.&lt;/li>&lt;/ul>"
+                            title="Open points"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>There could be a default email server configuration if none is given. (Problem with this: there should be a limitation to which user can send emails using the service.)&lt;/li>&lt;li>For AEM there are&amp;nbsp;&lt;a href=&quot;https://docs.adobe.com/content/help/de-DE/experience-manager-64/administering/operations/notification.translate.html&quot;>several predefined placeholders&lt;/a>&amp;nbsp;(e.g. time, username of sending user etc.) Since the EmailService uses the Composum platform PlaceholderService, it is already able to access tenant properties as placeholders. We could provide additional value providers for more generally available placeholders. (Of course, every application using the EmailService can provide it's own placeholder values for each email.)&lt;/li>&lt;li>There could be a console integration for managing credentials, email templates and email relay configurations. There are already some rudimentary components which are (as of 09/20) providing only a dialog: composum/platform/workflow/components/mail/emailtemplate and composum/platform/workflow/components/mail/mailserverconfig .&lt;/li>&lt;li>At the moment it is not possible to reference attachments to the mail within the email text, e.g. as inline images. There could be a special placeholder to do that - the used library commons-email &lt;a href=&quot;https://commons.apache.org/proper/commons-email/userguide.html&quot;>does have some support&lt;/a> for that.&lt;/li>&lt;li>Possibly some explicit language support? At the moment this can be done by using separate email templates for different languages.&lt;/li>&lt;/ul>&lt;p>Not part of the EmailService, but related:&lt;/p>&lt;ul>&lt;li>Support of email sending during transitions within the workflow module.&lt;/li>&lt;li>Support for receiving email messages, e.g. to integrate those into workflows. But that'd be quite another project.&lt;/li>&lt;/ul>"
+                            title="Possible extensions"/>
+                </column-1>
+            </row_715332060>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

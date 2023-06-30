@@ -1,0 +1,33 @@
+<sly data-sly-use.cpp="/libs/composum/platform/htl/cppl.html"
+     data-sly-use.cpn="/libs/composum/platform/htl/cpnl.html"
+     data-sly-use.cpm="/libs/composum/platform/htl/composum.html"
+     data-sly-use.pageContext="com.composum.platform.htl.impl.EmulatedPageContext"></sly>
+<sly data-sly-call="${cpp.defineObjects}"></sly>
+
+<!--/* For simple models we can also avoid creating a model class but use Element itself and access properties with model.properties.{key}. */-->
+<sly data-sly-call="${cpp.startElement @ var='model', type='com.composum.pages.commons.model.Element'}"></sly>
+<sly data-sly-use.model="${'com.composum.pages.commons.model.Element' @ fromScope='page', key='model'}"
+     data-sly-use.modelCSS="${'modelCSS' @ fromScope='page'}">
+
+    <h3 class="${modelCSS}_header">
+        <span class="${modelCSS}_selector"><span class="${modelCSS}_label">${'Selector'@i18n}</span><span
+                class="${modelCSS}_value">${model.properties.selector}</span></span>
+        <span class="${modelCSS}_extension" data-sly-test="${model.properties.extension}"><span
+                class="${modelCSS}_label">${'Extension'@i18n}</span><span
+                class="${modelCSS}_value"><span class="${modelCSS}_item"
+                data-sly-repeat.extension="${model.properties.extension}">${extension}</span></span></span>
+        <span class="${modelCSS}_method"><span class="${modelCSS}_label">${'Method'@i18n}</span><span
+                class="${modelCSS}_value"><span class="${modelCSS}_item"
+                                                data-sly-repeat.method="${model.properties.method}">${method}</span></span></span>
+        <span class="${modelCSS}_title"><span class="${modelCSS}_label">${'Operation'@i18n}</span><span
+                class="${modelCSS}_value">${model.title}</span></span>
+    </h3>
+
+    <div class="${modelCSS}_description">${model.description}</div>
+
+    <div data-sly-resource="${'./parameters' @ resourceType='ist/composum/components/documentation/servlet/parameters'}"></div>
+
+    <div data-sly-resource="${'./examples' @ resourceType='ist/composum/components/documentation/servlet/examples'}"></div>
+
+    <sly data-sly-call="${cpp.endElement}"></sly>
+</sly>

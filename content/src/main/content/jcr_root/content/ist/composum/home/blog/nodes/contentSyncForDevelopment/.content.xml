@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="We discuss various possibilities to speed up Sling development with automatic content synchronization from the content you edit in your IDE, if possible within seconds."
+            jcr:title="Automatic Content Synchronization during Development"
+            path="/content/ist/composum/home/blog/nodes/contentSyncForDevelopment/jcr:content"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Introduction">
+                <markup
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/options/wiki/components/markup"
+                        wikiCode="When you are developing an application for Apache Sling or AEM, it is often very&#xd;&#xa;helpful to set up a speedy synchronization of content you're developing&#xd;&#xa;in your IDE (such as .content.xml files creating resources, .html, .jsp, .css and .js files)&#xd;&#xa;into the JCR repository of your local development environment. Even if a local build &#xd;&#xa;and deployment takes only one minute, that can still considerably slow down your&#xd;&#xa;workflow, especially if you're doing frontend development. Fortunately, there are&#xd;&#xa;quite a number of possibilities to do that. The goal of&#xd;&#xa;this article is to give some pointers on how to achieve that, and give some examples&#xd;&#xa;for some methods.&#xd;&#xa;&#xd;&#xa;## Some general possibilities&#xd;&#xa;&#xd;&#xa;This collects some pointers, though I didn't try out many of them.&#xd;&#xa;&#xd;&#xa;### Deployment from the build process&#xd;&#xa;&#xd;&#xa;If you're working with [Apache Maven](https://maven.apache.org/) as a build system, &#xd;&#xa;you will probably want to set up automatical deployment of the generated artifacts from your local build&#xd;&#xa;process to your Sling or AEM instance via maven plugins like the&#xd;&#xa;[Apache Sling Maven Plugin](https://sling.apache.org/components/sling-maven-plugin/plugin-info.html)&#xd;&#xa;or the newer&#xd;&#xa;[Content Package Maven Plugin](https://wcm.io/tooling/maven/plugins/wcmio-content-package-maven-plugin/).&#xd;&#xa;Both have goals for automatic deployment, the Content Package Maven Plugin also has a &#xd;&#xa;download goal to update the stored content from JCR.&#xd;&#xa;&#xd;&#xa;If your project is small, that might suffice, but if it is larger, that will take a couple of&#xd;&#xa;minutes, so it could be a painful interruption to your development process, and you might want&#xd;&#xa;speedier alternatives transferring only what was changed."
+                        wikiType="markdown"/>
+                <markup_872430648
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/options/wiki/components/markup"
+                        wikiCode="### Incremental deployment to JCR&#xd;&#xa;&#xd;&#xa;If you're working with npm for your frontend development anyway, and are working with AEM,&#xd;&#xa;[aemsync](https://www.npmjs.com/package/aemsync) is an interesting tool that can help you.&#xd;&#xa;Not sure whether you can use it with the Composum Package Manager that's often used on plain&#xd;&#xa;Sling.&#xd;&#xa;&#xd;&#xa;For IntelliJ there is the (payed) [AEM Support](https://plugins.jetbrains.com/plugin/9863-aem-support)&#xd;&#xa;plugin that can update content in AEM. For eclipse, there is &#xd;&#xa;[documentation on the Sling site](https://sling.apache.org/documentation/development/ide-tooling.html)."
+                        wikiType="markdown"/>
+            </section>
+            <section_1675567527
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="SourceUpdateServlet in Composum">
+                <markup
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/options/wiki/components/markup"
+                        wikiCode="The [Composum Browser](/content/ist/composum/home/nodes/browser) contains a couple of tools which you could use to speed up &#xd;&#xa;synchronization between the JCR and your local IDE.&#xd;&#xa;&#xd;&#xa;1. When editing content in the browser or with other tools that modify JCR, the browser itself&#xd;&#xa;can be a valuable tool in that it provides an XML view that can be used to copy out content of &#xd;&#xa;one page into a .content.xml, and download a ZIP file containing .content.xml etc. files&#xd;&#xa;compatible with the [VaultFS](https://jackrabbit.apache.org/filevault/vaultfs.html) format&#xd;&#xa;used in packages without going through the lengthier process of creating a package and downloading that.&#xd;&#xa;&#xd;&#xa;2. The package manager itself has [a REST API](/content/ist/composum/home/nodes/pckgmgr) &#xd;&#xa;that allows installing a package e.g. via a script.&#xd;&#xa;&#xd;&#xa;3. For updating content there is a &#xd;&#xa;[SourceUpdateServlet.java](https://github.com/ist-dresden/composum-nodes/blob/develop/console/src/main/java/com/composum/sling/nodes/servlet/SourceUpdateServlet.java)&#xd;&#xa;that allows updating an existing content tree.&#xd;&#xa;&#xd;&#xa;As example we give [some scripts](https://github.com/ist-dresden/composum-nodes/tree/develop/tools/bin)&#xd;&#xa;that can be used to upload content trees via the command line, and it's also possible to&#xd;&#xa;use these as external tools in e.g. IntelliJ, where you can select a directory in IntellJ and &#xd;&#xa;either update the sources in IntelliJ from the JCR content or update the JCR content from the&#xd;&#xa;directory - just by calling the appropriate external tool entry from the context menu."
+                        wikiType="markdown"/>
+            </section_1675567527>
+            <section_373596035
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Using the File System Resource Provider">
+                <markup
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/options/wiki/components/markup"
+                        wikiCode="Alternatively to downloading and uploading into JCR, the &#xd;&#xa;[Apache File System Resource Provider](https://sling.apache.org/documentation/bundles/accessing-filesystem-resources-extensions-fsresource.html)&#xd;&#xa;provides the possibility to map filesystem directories temporarily directly into the JCR.&#xd;&#xa;Of course, this works only for local servers, while many of the other methods in this page&#xd;&#xa;can be used to modify content of other remote servers, too.&#xd;&#xa;&#xd;&#xa;Moreover, the [Apache Sling Maven Plugin](https://sling.apache.org/components/sling-maven-plugin/index.html)&#xd;&#xa;provides goals &#xd;&#xa;[sling:fsmount](https://sling.apache.org/components/sling-maven-plugin/fsmount-mojo.html)&#xd;&#xa;and&#xd;&#xa;[sling:fsunmount](https://sling.apache.org/components/sling-maven-plugin/fsunmount-mojo.html)&#xd;&#xa;to automatically add/remove a configuration for such a mapping into a running sling server.&#xd;&#xa;So, configuring your Sling Launcher to take the content of the paths in the maven artifact&#xd;&#xa;you're currently working on directly from the filesystem (according to the artifacts filter.xml), might&#xd;&#xa;be as easy as calling&#xd;&#xa;&#xd;&#xa;    mvn -Dsling.url=http://localhost:8080/system/console sling:fsmount&#xd;&#xa;&#xd;&#xa;That method has it's limits, though, since the filesystem does not provide all features&#xd;&#xa;of a JCR, but might be well worth a try."
+                        wikiType="markdown"/>
+            </section_373596035>
+            <section_1963629358
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Synchronization with WebDAV from IntelliJ">
+                <markup
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/options/wiki/components/markup"
+                        wikiCode="Sling can make the JCR&#xd;&#xa;[accessible via WebDAV](https://sling.apache.org/documentation/development/repository-based-development.html).&#xd;&#xa;IntelliJ supports (at Tools/Deployment)&#xd;&#xa;[creating a WebDAV connection](https://www.jetbrains.com/help/idea/settings-deployment.html)&#xd;&#xa;setting up aritrarily many mappings and uploading / downloading changes, even automatically.&#xd;&#xa;&#xd;&#xa;Example configuration in IntelliJ:  &#xd;&#xa;Web server URL: http://localhost:9090/server/default/jcr%3aroot/  &#xd;&#xa;Mapping: Local path: /Users/hps/dev/composum/nodes/pckgmgr/src/main/resources/root/libs/composum/nodes/pckgmgr  &#xd;&#xa;Deployment path: /libs/composum/nodes/pckgmgr/  &#xd;&#xa;Web path: libs/composum/nodes/pckgmgr"
+                        wikiType="markdown"/>
+            </section_1963629358>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Hans-Peter Störr"
+                date="{Date}2023-01-04T00:00:00.000Z"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="a short overview over the features of Pages"
+            jcr:title="What is Composum Pages"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Introduction">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>At the beginning was the Composum Core Console later renamed to Composum Nodes with the Browser as the main console feature to walk through the repository. This is currently part of the Apache Sling starter.&lt;/p>&lt;p>But the idea was a little bit bigger...&lt;/p>"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>At the end a full featured Content Management System was the goal. A first prototype was presented at adaptTo() 2016. And now the troubles of the level began. After a lot of iterations the first final release of the CMS called Composum Pages is now available. You can see it in action here. This site is made with &lt;a href=&quot;/content/ist/composum/home/pages&quot;>Composum Pages&lt;/a> on the &lt;a href=&quot;/content/ist/composum/home/cloud&quot;>Composum Cloud&lt;/a> platform.&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/adaptto/slide-composum-modules.png"/>
+                        <text2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>An instance of the Composum platform consist of three or four modules:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>the Nodes module is the basic layer with a general repository and user interface API and with the known repository tools&lt;/li>&lt;li>the Platform module provides all necessary services to set up a system which can be used for authoring and to deliver the published content all done by only one instance; this module provides also the API for the content release management&lt;/li>&lt;li>the Asset module was implemented as a prototype to manage images and responsive renditions - this module is currently deferred; there is a refactoring planned to also use the release management features of the Platform in the Assets module&lt;/li>&lt;li>the &amp;nbsp;Pages module is the Content Management System on top of the Platform services; it's a framework to implement Sling content components und a content management application with an extendable user interface&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="One instance for All">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="It should be easy to install the CMS for development and it should be an option to have the same installation in development and in production probably in a clustered installation. Therefore the Platform module enables the setup of one sling instance for authoring and as the publishing instance."/>
+                        <image_2128470565
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/adaptto/slide-platform-filter.png"/>
+                        <text_809233393
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>An 'Access Filter' determines the access mode (author / preview / publish) by analysing the host information and restricts the access according to that access mode. Based on the access mode the release or version of the content to deliver is calculated and an appropriate resource resolver is defined for the request rendering.&lt;/p>"/>
+                        <image_1732990740
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/adaptto/slide-pages-releases.png"/>
+                        <text_100068505
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The Pages part in this chain is to evaluate the requested site and its configuration and map the access mode to the right release of the sites releases list."/>
+                    </section>
+                </column-1>
+            </row>
+            <row_1677147774
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="'Pages'...">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <reference
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/reference"
+                            contentReference="/content/ist/composum/home/pages/jcr:content/main/row-2/column-0/section"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Everything is a Component">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The 'Pages' CMS is declaring a framework to implement content components. Such a component itself is providing a set of editing components which are embedded in the CMS editing user interface. The framework contains a default implementation for each implementation aspect of a content component."/>
+                        <text_1726191578
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>A content component can implement a Sling component for:&lt;/p>&lt;p>&lt;ul>&lt;li>an edit dialog&lt;/li>&lt;li>an edit toolbar&lt;/li>&lt;li>an edit tile (type and instance)&lt;/li>&lt;li>a set of tree actions&lt;/li>&lt;li>custom context actions&lt;/li>&lt;/ul>&lt;/p>"/>
+                        <illustration
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/illustration">
+                            <image
+                                    jcr:primaryType="nt:unstructured"
+                                    imageRef="/content/ist/composum/assets/adaptto/slide-frame-components.png"/>
+                            <annotation
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="The edit toolbar actions of the selected element are embedded in the edit toolbar on top of the edit frame with the page to edit within. This toolbar enabled the selection of the language wich is in the edit focus on the shown page."
+                                    title="Edit Toolbar">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="pencil"
+                                        level="warning"
+                                        position.x="54"
+                                        position.y="7"
+                                        type="roundrect"/>
+                            </annotation>
+                            <annotation_821450997
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="For the various navigation trees a component can provide an action set which is shown if an element of the components type is selected in the tree."
+                                    title="Tree Actions">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="folder-open"
+                                        level="warning"
+                                        position.x="12"
+                                        position.y="15"
+                                        type="roundrect"/>
+                            </annotation_821450997>
+                            <annotation_838990685
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="If the pointer is inside of the selection the toolbar of the selected element is show for direct action access on the edited page."
+                                    title="Edit Toolbar">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="pencil"
+                                        level="warning"
+                                        position.x="34"
+                                        position.y="21"
+                                        type="roundrect"/>
+                            </annotation_838990685>
+                            <annotation_2103477892
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="The edit toolbar of the selected element can be used also in the container context view. In this view all elements of the current container are displayed (using the edit tile component of each element)."
+                                    title="Edit Toolbar">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="pencil"
+                                        level="warning"
+                                        position.x="85"
+                                        position.y="16"
+                                        type="roundrect"/>
+                            </annotation_2103477892>
+                            <annotation_1124461209
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="The edit tile component of a content component is used to show elements of the components type and the type itself in the component type selection tools."
+                                    title="Edit Tile">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="id-card-o"
+                                        level="warning"
+                                        position.x="90"
+                                        position.y="50"
+                                        type="roundrect"/>
+                            </annotation_1124461209>
+                            <annotation_609404128
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="&lt;p>The edit tile component is also used to show the data of the current element at the bottom of the context tools sidebar.&lt;/p>"
+                                    title="Edit Tile">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="id-card-o"
+                                        level="warning"
+                                        position.x="90"
+                                        position.y="87"
+                                        type="roundrect"/>
+                            </annotation_609404128>
+                            <annotation_1058304450
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="On the left side of the edit frame the main navigation tools are arranged. It's possible to register additional navigation tools wich are then integrated in the left sidebar."
+                                    title="Navigation Tree">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="sitemap"
+                                        level="warning"
+                                        position.x="15"
+                                        position.y="70"
+                                        type="roundrect"/>
+                            </annotation_1058304450>
+                            <annotation_699404621
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/composed/illustration/annotation"
+                                    text="The set of visible context tools depends on the component type of the selected element. Similar to the extension of the main navigation tools context tools can be registered to extend the set of tools on the right sidebar."
+                                    title="Context Tool">
+                                <shape
+                                        jcr:primaryType="nt:unstructured"
+                                        icon="cog"
+                                        level="warning"
+                                        position.x="85"
+                                        position.y="74"
+                                        type="roundrect"/>
+                            </annotation_699404621>
+                        </illustration>
+                        <text_676071215
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Besides the content components all the other UI elements of Composum Pages are also Sling components. These components of the edit frame are also customizable and extendable.&amp;nbsp;&lt;/p>"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="right"
+                                text="&lt;p>Especially the set of dialog widgets and the set of navigation and context tools placed on sides of the edit frame are extendable.&lt;/p>&lt;p>Registry services are collecting all available tools and widgets automatically. They must be readable in the resolvers search paths only.&lt;/p>&lt;p>The known overlay mechanism in the resolvers search path is supported for all tools, widgets and components.&lt;/p>">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/adaptto/slide-widgets-in-dialog.png"/>
+                        </textimage>
+                    </section>
+                </column-1>
+            </row_1677147774>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="a short overview"
+                    title="About 'Pages'">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Overview"/>
+    </jcr:content>
+</jcr:root>

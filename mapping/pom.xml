@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>sites.ist.composum</groupId>
+        <artifactId>composum-site-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>composum-site-mapping</artifactId>
+    <packaging>content-package</packaging>
+
+    <name>Composum Site Mapping</name>
+    <description>resolver mapping settings for the Composum site</description>
+
+    <build>
+        <resources>
+
+            <resource>
+                <directory>src/main/content/jcr_root</directory>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/.vlt*</exclude>
+                    <exclude>**/.DS_Store</exclude>
+                    <exclude>**/.gitignore</exclude>
+                    <exclude>**/*.scss</exclude>
+                </excludes>
+            </resource>
+
+            <resource>
+                <directory>${basedir}/src/main/content/META-INF</directory>
+                <targetPath>../vault-work/META-INF</targetPath>
+            </resource>
+
+        </resources>
+        <plugins>
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <configuration>
+
+                    <group>${package.group}</group>
+                    <properties>
+                        <createdBy>${package.company}</createdBy>
+                    </properties>
+
+                    <filters>
+                        <!-- Composum mappings -->
+                        <filter>
+                            <root>/etc/map.cloud/http/cloud.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.cloud/https/cloud.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.live/http/www.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.live/https/www.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.test/http/test.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.test/https/test.composum.com</root>
+                        </filter>
+                        <!-- local development with mapping -->
+                        <filter>
+                            <root>/etc/map.local/http/localhost</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/local.composum.com</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/local.tenant.any</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/localhost.8080</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/localhost.9090</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/local.composum.9090</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/public.composum.9090</root>
+                        </filter>
+                        <filter>
+                            <root>/etc/map.local/http/preview.composum.9090</root>
+                        </filter>
+                    </filters>
+
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+    <profiles>
+
+        <profile>
+            <id>installMapping</id>
+            <activation>
+                <property>
+                    <name>deploy.mapping</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-content-package</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    </profiles>
+</project>

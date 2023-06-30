@@ -1,0 +1,148 @@
+
+.ist-composum-components-documentation-servlet {
+
+    /* rich text... */
+    ul, ol {
+        margin-bottom: 10px;
+    }
+
+    .composum-pages-components-container-row {
+
+        &_label {
+            display: inline-block;
+            min-width: 12rem;
+            margin-right: 1rem;
+        }
+
+        &_title {
+            .composum-pages-components-container-row {
+                &_label {
+                    display: none;
+                }
+            }
+        }
+
+        &_path, &_type, &_suffix {
+            .composum-pages-components-container-row {
+                &_label {
+                    font-weight: normal;
+                }
+            }
+        }
+
+        &_class {
+            margin: 15px 0 10px;
+            font-style: italic;
+        }
+
+        &_description {
+            margin: 10px 0;
+        }
+    }
+
+    .ist-composum-components-documentation-servlet {
+
+        &-selector {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+
+            .ist-composum-components-documentation-servlet {
+                &-selector {
+
+                    &_label {
+                        display: none;
+                    }
+
+                    &_item {
+                        padding-left: 0.6rem;
+                        border-left: 2px solid #ccc;
+
+                        &:first-child {
+                            border: none;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &_header {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-items: baseline;
+                    }
+
+                    &_selector, &_extension, &_method {
+                        margin-right: 2rem;
+                    }
+
+                    &_selector, &_extension {
+
+                        &:before {
+                            content: '.';
+                            display: inline-block;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    &_selector {
+                        min-width: 100px;
+                    }
+
+                    &_extension {
+                        font-size: 90%;
+                    }
+
+                    &_method {
+                        margin-left: 1rem;
+                        font-size: 80%;
+                    }
+
+                    &_title {
+                        flex-grow: 9;
+                        margin-left: 1rem;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        &-parameters,
+        &-examples {
+            margin-top: 15px;
+            padding-left: 10px;
+
+            &_parameter-list,
+            &_xmpl-list {
+                padding-left: 20px;
+            }
+        }
+
+        &-parameter {
+
+            &_name {
+                display: inline-block;
+                min-width: 60px;
+            }
+
+            &_meta {
+                display: inline-block;
+                margin-left: 10px;
+
+                & > div {
+                    display: inline-block;
+                    margin-left: 5px;
+                    border-left: 1px solid #ccc;
+                    padding: 0 0 0 5px;
+                }
+            }
+        }
+
+        &-example {
+
+            code {
+                overflow: auto;
+                white-space: pre;
+                background: inherit;
+                color: inherit;
+            }
+        }
+    }
+}

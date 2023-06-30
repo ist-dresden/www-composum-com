@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="&lt;p>In order to make the use of the Composum Nodes tools usable in different environments and still ensure security against unintended or unauthorized manipulation in the repository, individual features or even complete modules of the Nodes console can be restricted or completely disabled.&lt;/p>"
+            jcr:title="Nodes Restrictions"
+            path="/content/ist/composum/home/blog/nodes/restrictions/jcr:content"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"/>
+            <section_947496234
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section">
+                <text_1299650025
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>All functions of the various nodes tools (browser, user manager, package manager) can be restricted via declared rules. These rules are configured via OSGi and can thus be varied for different systems depending on the runmode. Individual features can be disabled (none), protected against modifications (read) or even explicitly and completely permitted (write) in deviation from the general setting via these explicit, functional service restrictions using the associated key.&lt;/p>">
+                    <i18n
+                            jcr:primaryType="nt:unstructured">
+                        <de
+                                jcr:primaryType="nt:unstructured"
+                                text="&lt;p>All functions of the various nodes tools (browser, user manager, package manager) can be restricted via declared rules. These rules are configured via OSGi and can thus be varied for different systems depending on the runmode. Individual features can be disabled (none), protected against modifications (read) or even explicitly and completely permitted (write) in deviation from the general setting via these explicit, functional service restrictions using the associated key.&lt;/p>"/>
+                    </i18n>
+                </text_1299650025>
+                <table
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/composed/table"
+                        condensed="{Boolean}true"
+                        striped="{Boolean}true">
+                    <row_1592634762
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row"
+                            head="{Boolean}true">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                head="{Boolean}true"
+                                text="Key (Feature)"/>
+                        <cell_888568237
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                head="{Boolean}true"
+                                text="Purpose"/>
+                    </row_1592634762>
+                    <row
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/commons/permissions&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>core/commons/permissions&lt;/p>"/>
+                            </i18n>
+                        </cell>
+                        <cell_1603044719
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval of permissions (ACLs) for the logged-in user; read only&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>Query permissions (ACLs) for the logged-in user; read only&lt;/p>"/>
+                            </i18n>
+                        </cell_1603044719>
+                    </row>
+                    <row_1069778662
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/commons/repository&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>core/commons/repository&lt;/p>"/>
+                            </i18n>
+                        </cell>
+                        <cell_1876096620
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval of system parameters (property, node, mixin types); read only&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>Query of system parameters (property, node, mixin types); read only&lt;/p>"/>
+                            </i18n>
+                        </cell_1876096620>
+                    </row_1069778662>
+                    <row_1099373665
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/commons/restrictions&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>core/commons/restrictions&lt;/p>"/>
+                            </i18n>
+                        </cell>
+                        <cell_583044258
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>API for querying the declared restrictions (read) or switching of the temporary default rules for the logged-in user (write)&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>API for querying the declared restrictions (read) or switching of the temporary default rules for the logged-in user (write)&lt;/p>"/>
+                            </i18n>
+                        </cell_583044258>
+                    </row_1099373665>
+                    <row_587760590
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row"
+                            text="&lt;p>core/commons/translation&lt;/p>">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/commons/translation&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>core/commons/translation&lt;/p>"/>
+                            </i18n>
+                        </cell>
+                        <cell_1323467831
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval of the translations for the currently used language; read only&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>Abfrage der Übersetzungen für die aktuell genutzte Sprache; read only&lt;/p>"/>
+                            </i18n>
+                        </cell_1323467831>
+                    </row_587760590>
+                    <row_1307965104
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/job/execution&lt;/p>"/>
+                        <cell_1776245361
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>API for job control, querying the job status (read) or manipulating job execution and starting new jobs (write)&lt;/p>"/>
+                    </row_1307965104>
+                    <row_73983517
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>core/setup/execution&lt;/p>"/>
+                        <cell_1378464048
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>applying of ACLs (permissions) by executing appropriate setup scripts (write); write only&lt;/p>"/>
+                    </row_73983517>
+                    <row_571445231
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/components/operations&lt;/p>"/>
+                        <cell_1254076623
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>component manipulation, e.g. create and remove component overlays (write); write only&lt;/p>"/>
+                    </row_571445231>
+                    <row_909110280
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/components/scenes&lt;/p>"/>
+                        <cell_1659751551
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval (read) and create (write) scenes for testing components&lt;/p>"/>
+                    </row_909110280>
+                    <row_327164410
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/packages/manager&lt;/p>"/>
+                        <cell_557078354
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>display (read) and management (write) of installed content packages via the Nodes Package Manager&lt;/p>"/>
+                    </row_327164410>
+                    <row_1063371089
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/nodetypes&lt;/p>"/>
+                        <cell_1639369113
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval of the defined node types as configuration file (read); read only&lt;/p>"/>
+                    </row_1063371089>
+                    <row_1914487322
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/permissions&lt;/p>"/>
+                        <cell_1545579282
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval (read) and manipulation (write) of the ACLs at the nodes of the repository&lt;/p>"/>
+                    </row_1914487322>
+                    <row_1580588348
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/properties&lt;/p>"/>
+                        <cell_722561980
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval (read) and manipulation (write) of the properties of the nodes of the repository&lt;/p>"/>
+                    </row_1580588348>
+                    <row_857633151
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/resources&lt;/p>"/>
+                        <cell_1668397632
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval (read) and manipulation (write) of the resources (JCR nodes or provided via provider) of the repository&lt;/p>"/>
+                    </row_857633151>
+                    <row_465315682
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/source&lt;/p>"/>
+                        <cell_2074627485
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>display and download in the source view of the browser (read); read only&lt;/p>"/>
+                    </row_465315682>
+                    <row_1693877136
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/repository/versions&lt;/p>"/>
+                        <cell_1931888401
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval (read) and manipulation (write) of the versions of the versionable nodes of the repository.&lt;/p>"/>
+                    </row_1693877136>
+                    <row_50466911
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/users/manager&lt;/p>"/>
+                        <cell_1678344684
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>display (read) and management (write) of users (system, service, regular users) via the Nodes User Manager&lt;/p>"/>
+                    </row_50466911>
+                    <row_157406373
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>nodes/users/profile&lt;/p>"/>
+                        <cell_280189966
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>retrieval of a user's profile data (read); read only&lt;/p>"/>
+                    </row_157406373>
+                    <row_1830727942
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/cpm/clientlibs&lt;/p>"/>
+                        <cell_1628164916
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>analysis and retrieval of Composum clientlibs (read); read only&lt;/p>"/>
+                    </row_1830727942>
+                    <row_2134323865
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/service/graph&lt;/p>"/>
+                        <cell_1735234824
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>analysis and graphical representation of services and their dependencies (read); read only&lt;/p>"/>
+                    </row_2134323865>
+                    <row_176930781
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/osgi/bundles&lt;/p>"/>
+                        <cell_825767086
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>display of OSGi bundles and their status (read); read only&lt;/p>"/>
+                    </row_176930781>
+                    <row_2005157030
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/runtime/files&lt;/p>"/>
+                        <cell_1193740456
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>display of files in the working directory of the sling instance (read), the path pattern of the allowed files can be further restricted via regular expressions; read only&lt;/p>"/>
+                    </row_2005157030>
+                    <row_1602083354
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/runtime/threads&lt;/p>"/>
+                        <cell_1639882964
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>analysis of the running threads (read); read only&lt;/p>"/>
+                    </row_1602083354>
+                    <row_561339151
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/sling/adapters&lt;/p>"/>
+                        <cell_978093715
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>proxy of the Sling Webconsole to analyze the available adapters (read); read only&lt;/p>"/>
+                    </row_561339151>
+                    <row_839754549
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/sling/requests&lt;/p>"/>
+                        <cell_1838347291
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>proxy of the Sling Webconsole to analyze the last Sling requests (read); read only&lt;/p>"/>
+                    </row_839754549>
+                    <row_380553197
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/sling/resolver&lt;/p>"/>
+                        <cell_1344087408
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>proxy of the Sling Webconsole to analyze the Sling Resolver configuration (read); read only.&lt;/p>"/>
+                    </row_380553197>
+                    <row_565925608
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/sling/servlets&lt;/p>"/>
+                        <cell_1697259982
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>Sling Webconsole proxy to analyze the Sling servlet resolver (read); read only.&lt;/p>"/>
+                    </row_565925608>
+                    <row_1517766183
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/sling/jobs&lt;/p>"/>
+                        <cell_192181569
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>proxy of the Sling Webconsole to analyze the Sling jobs (read); read only.&lt;/p>"/>
+                    </row_1517766183>
+                    <row_519454635
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/table/row">
+                        <cell
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>system/webconsole&lt;/p>"/>
+                        <cell_1088509737
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/composed/table/cell"
+                                text="&lt;p>iFrame of the Sling Webconsole (only if Webconsole is available)&lt;/p>"/>
+                    </row_519454635>
+                </table>
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>For each of the features (keys) the general restriction - none / read / write - can be defined. For individual users or user groups, additional deviating rules can be defined. Individual features also allow additional patterns to further restrict access in detail.&lt;/p>"/>
+            </section_947496234>
+            <section_1687539802
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Examples">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The configuration of the service restrictions is done via matching OSGi configuration files to the implementing service - com.composum.sling.core.service.impl.ServiceRestrictionsImpl - in the respective preferred format. Below are a few examples in JSON format (com.composum.sling.core.service.impl.ServiceRestrictionsImpl.cfg.json):&lt;/p>"/>
+                <list
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/composed/list"
+                        listType="ol">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Removable Restriction">
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="\{&#xd;&#xa;  &quot;enabled&quot;: true,&#xd;&#xa;  &quot;defaultPermission&quot;: &quot;read&quot;,&#xd;&#xa;  &quot;userOption&quot;: &quot;write&quot;,&#xd;&#xa;  &quot;restrictions&quot;: [&#xd;&#xa;    &quot;system/service/graph=none&quot;&#xd;&#xa;  ]&#xd;&#xa;}"
+                                language="json"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Configures 'read' as the default functional constraint for all services and allows the user to temporarily extend it to 'write' if they see fit. However, the service dependency visualization feature is completely disabled.&lt;/p>"/>
+                        <text_782664475
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>This configuration is a kind of 'self-protection' against accidental changes.&lt;/p>"/>
+                        <section_1165668410
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                icon="info-circle"
+                                level="info">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="&lt;p>The 'enabled' property allows the service restrictions itself. An 'enabled=false' disables the functional restrictions!&lt;/p>"/>
+                        </section_1165668410>
+                    </section>
+                    <section_435682125
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="No Manipulation allowed and File Access Limited to log files">
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="\{&#xd;&#xa;  &quot;enabled&quot;: true,&#xd;&#xa;  &quot;defaultPermission&quot;: &quot;read&quot;,&#xd;&#xa;  &quot;userOption&quot;: &quot;read,write:admin&quot;,&#xd;&#xa;  &quot;restrictions&quot;: [&#xd;&#xa;    &quot;system/runtime/files=read:^/((sling|launcher)(/logs(/[^.]+\\\\.log(.[0-9-]+)?)?)?)?$&quot;&#xd;&#xa;  ]&#xd;&#xa;}"
+                                language="json"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The default 'read' restriction can only be temporarily disabled by the 'admin' user. Without the additional rule for the 'admin' user, no user could temporarily disable the 'read' restriction.&lt;/p>"/>
+                        <text_415488782
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>For the retrieval (display or download) of the files of the working directory, a restriction to log files defined by a corresponding regular expression of the allowed file paths applies.&lt;/p>"/>
+                    </section_435682125>
+                    <section_1770019131
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Productive Use">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The following example only allows read-only browsing of the repository without ACL access. In addition, all 'system' features are prohibited except for access to the log files. Such a configuration could possibly allow the use of the nodes tools in a production system.&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                code="\{&#xd;&#xa;  &quot;enabled&quot;: true,&#xd;&#xa;  &quot;defaultPermission&quot;: &quot;read&quot;,&#xd;&#xa;  &quot;userOption&quot;: &quot;read&quot;,&#xd;&#xa;  &quot;restrictions&quot;: [&#xd;&#xa;    &quot;core/job=none&quot;,&#xd;&#xa;    &quot;core/setup=none&quot;,&#xd;&#xa;    &quot;nodes/components=none&quot;,&#xd;&#xa;    &quot;nodes/packages=none&quot;,&#xd;&#xa;    &quot;nodes/users=none&quot;,&#xd;&#xa;    &quot;nodes/repository/permissions=none&quot;,&#xd;&#xa;    &quot;system=none&quot;,&#xd;&#xa;    &quot;system/runtime/files=read:^/((sling|launcher)(/logs(/[^.]+\\\\.log(.[0-9-]+)?)?)?)?$&quot;&#xd;&#xa;  ]&#xd;&#xa;}"
+                                language="json"/>
+                        <section
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                icon="exclamation"
+                                level="warning">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="&lt;p>If the installations / updates are done via the package manager, then this feature and the used 'core' features must be explicitly allowed (write), if the default setting is reduced to 'read', otherwise the installation of a package and thus possibly also the change of this configuration is not (anymore) possible:&lt;/p>"/>
+                            <codeblock
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/codeblock"
+                                    code="\{&#xd;&#xa;  &quot;enabled&quot;: true,&#xd;&#xa;  &quot;defaultPermission&quot;: &quot;read&quot;,&#xd;&#xa;  &quot;restrictions&quot;: [&#xd;&#xa;    &quot;core/job=write&quot;,&#xd;&#xa;    &quot;core/setup=write&quot;,&#xd;&#xa;    &quot;nodes/packages/manager=write&quot;&#xd;&#xa;  ]&#xd;&#xa;}"
+                                    language="json"/>
+                        </section>
+                    </section_1770019131>
+                </list>
+                <text_487297456
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The functional service restrictions supplement the restrictions defined via ACLs in the repository. The ACLs continue to apply without restriction and in addition. They are not overridden in any case by any administrative permissions of the nodes tools. The functional restrictions of the Composum Nodes via ACLs on the Nodes components are also still possible.&lt;/p>"/>
+            </section_1687539802>
+            <section_2061899341
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="Status display and status adjustment">
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The currently set default restriction is displayed in the Nodes Console in the navigation bar on the right-hand side next to the current user ID, provided that the tool currently used in the Console supports service restrictions.&lt;/p>"/>
+                <image
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/nodes/nodes-service-restrictions-state.png"/>
+                <text_16167133
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The 'shield' symbol illustrates the 'read' restriction, a 'wrench' the 'write' status. If a different temporary user option is possible, the default restriction can be switched by clicking on the symbol. A colored background is used if the current status is a temporary user option. It is also possible to temporarily downgrade a configured 'write' restriction (everything allowed) as user to 'read', e.g. to exclude accidental changes.&lt;/p>"/>
+            </section_2061899341>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Ralf Wunsch"
+                date="{Date}2022-01-05T23:00:00.000Z"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Restrictions"/>
+    </jcr:content>
+</jcr:root>

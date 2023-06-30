@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="About encoding URLs"
+            jcr:title="URL encoding"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="About building / encoding URLs">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Special character handling">
+                        <text_963383603
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>As of 07/2020 there are the following issues for resources some characters in JCR names.&lt;/p>&lt;ul>&lt;li>; works in resource names if it's percent-encoded. If not, it is treated by Sling as a path parameter so that the part after the semikolon does not appear in the suffix in the RequestPathInfo object. Since the usage of path parameters is rare when using Sling, Composum's SlingUrl does not support these.&lt;/li>&lt;li>&amp;lt;&amp;gt;&amp;amp;&quot; do not work since usually paths (as user input) are filtered with the XSS filter, which replaces those with encodings. (Not filtering paths would be dangerous since resource paths might be shown in some pages, and are normally trusted.)&lt;/li>&lt;li>? and # are dangerous and lead to trouble since &lt;a href=&quot;https://issues.apache.org/jira/browse/SLING-9514&quot;>resolver.map ignores them&lt;/a>.&lt;/li>&lt;/ul>"
+                                title="Handling of HTTP special characters in JCR names"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>As&amp;nbsp;&lt;a href=&quot;https://docs.adobe.com/docs/en/spec/jcr/2.0/3_Repository_Model.html&quot;>names of JCR nodes&lt;/a>&amp;nbsp;all &lt;a href=&quot;https://www.w3.org/TR/xml/#NT-Names&quot;>XML-admissible characters&lt;/a> are admitted, minus /:[]|* , and obviously except the special names '.' or '..' .&lt;/p>&lt;p>For filenames there &lt;a href=&quot;https://jackrabbit.apache.org/filevault/vaultfs.html#Filename_escaping&quot;>is some escaping&lt;/a>&amp;nbsp;that applies to prefixes with : and URL-encoding unusual characters in filenames. (The documentation there says nothing about the encoding, and at least on MacOS this is ISO-8859-1 encoded.)&lt;/p>&lt;p>For xml serialization an encoding defined in&amp;nbsp;&lt;code>org.apache.jackrabbit.util.ISO9075&lt;/code>&amp;nbsp;can be applied to encode unusual characters in node names, e.g. ';' as '_x003b_' based on &lt;a href=&quot;https://en.wikipedia.org/wiki/UTF-16&quot;>UTF-16 hex code units&lt;/a>&amp;nbsp;(for example _x20ac_ is the euro sign, and _xd852__xdf62_ a single symbol from the &amp;gt;16bit range).&lt;/p>"
+                                title="JCR Resources"/>
+                    </section>
+                </column-0>
+            </row>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more - create your own CMS - fast and flexible - the tenant and host management extension of the Composum Platform - bring back the fun to Content Management&lt;/p>"
+            jcr:title="Multi-Tenancy"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="the team and domain management option"
+                    title="Tenant Management">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The Composum Platform Tenants extension enables you to manage the sites of a lot of customers, corporate divisions or filiales on one Apache Slin platform. Each tenant can have its own applications, components and designs on such a platform. With the embedded domain configuration is it very easy to manage a lot of various internet sites."/>
+                </column-0>
+            </row>
+            <row_1181461564
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Tenants Console">
+                        <text_39844661
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The tenants extension of the platform adds a new console view to the Composum Nodes Console to manage the tenants of a platform. An administrator can manage (add, configure and remove) the set of tenants for a system.&lt;/p>&lt;p>A set of predefined roles (user groups) is set up for each tenant automatically. The tenants are separated from each other by repository ACLs based on the predefined user roles.&lt;br>&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/tenants/tenant-potpuri.png"/>
+                        <text_39844662
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Each tenant has a management user (a user with the 'manager' role of the tenant) which can use the tenants console to control the users of the tenants and to configure internet hosts and assign stages of the tenants sites to the configured hosts.&lt;/p>"/>
+                    </section>
+                    <section_1714126433
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="User Management">
+                        <text_758006937
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Each registered user of the platform can be assigned to the tenants roles (the groups of the tenant). A user can be joined to various tenants in varioues roles. In the tenants management console view all joined users and their roles are listed."/>
+                        <image_1828031731
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/tenants/tenant-users.png"/>
+                        <text_613099231
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="A tenant manager (a user in the 'manager' role) can add and remove users of the platform and change the roles of each user which is joined to the tenant."/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/tenants/tenant-user-edit.png"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The available role are shown in the role select widget in the image above."/>
+                    </section_1714126433>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Host Management">
+                        <text_2059766065
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>On the hosts management view the list of internets hosts assigned to a tenant is shown. A tenant manager can add, remove and configure hosts of its own domains here.&lt;/p>&lt;p>The declaration of a host is only useful if the DNS configuration for that host maps the host to the Composum Platform system (this must be configured in the domains DNS configuration). If the DNS points to the Composum Platform a tenant manager can configure the webserver rules to route requests to the host to the Composum Platform and map the host to a stage ('preview' or 'public') of a site.&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/tenants/tenant-hosts.png"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>It's also possible to request a SSL certificate (a 'Let’s Encrypt' SSL certificate) for every host and configure a host as a secured host (all requests are SSL encrypted).&lt;/p>"/>
+                    </section>
+                    <section_589851173
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Workflow Processing">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="To define and use collaborative processes the Workflow Option is embedded in the tenants extension of the Composum Platform. The tenants console contains a worklfow inbox view an enables the start and processing of workflows."/>
+                        <set
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/platform/extensions/workflow"
+                                    title="Workflow Processing"/>
+                        </set>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/platform/workflow/wf-manually-option-assign.png"/>
+                        <text_700297395
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The workflow option is also embedded in the Composum Pages user interface. All users of a tenant which have no access to the tenants console can work with workflows in the Pages edtiting frame."/>
+                    </section_589851173>
+                </column-1>
+            </row_1181461564>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Tenants"/>
+    </jcr:content>
+</jcr:root>

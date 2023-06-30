@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/sequence"
+            jcr:title="Composum Nodes"
+            template="ist/composum/templates/blog/sequence">
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <i18n
+                jcr:primaryType="nt:unstructured">
+            <de
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Composum Nodes">
+                <navigation
+                        jcr:primaryType="nt:unstructured"
+                        title="Nodes"/>
+            </de>
+        </i18n>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Nodes"/>
+    </jcr:content>
+    <restrictions/>
+    <aemasacloud/>
+    <tools/>
+    <packageregistries/>
+    <contentSyncForDevelopment/>
+</jcr:root>

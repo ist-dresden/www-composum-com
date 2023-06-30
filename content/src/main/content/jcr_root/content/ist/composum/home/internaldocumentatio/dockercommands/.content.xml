@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&quot;Cheat sheet&quot; for common docker commands"
+            jcr:title="Docker commands"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Docker command cheat sheet">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/software/assets/background/synchlotron.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <set
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/link/set">
+                        <link
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="https://docs.docker.com/engine/reference/commandline/cli/"
+                                linkTarget="_blank"
+                                title="Docker command line reference"/>
+                        <link_764352249
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="https://docs.docker.com/compose/compose-file/"
+                                linkTarget="_blank"
+                                title="Docker compose file documentation"/>
+                        <link_1678111678
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="https://docs.docker.com/compose/"
+                                title="Docker compose documentation"/>
+                        <link_1164790222
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/link"
+                                link="https://docs.docker.com/engine/reference/builder/"
+                                title="Dockerfile reference"/>
+                    </set>
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Docker">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>docker images&lt;br>lists images; -a : all images&lt;/li>&lt;/ul>"
+                                title="Common docker commands"/>
+                    </section>
+                    <section_1014662918
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Docker Compose">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>docker-compose up --force-recreate -V --abort-on-container-exit&lt;br>starts the containers defined in docker-compose.yml from scratch&lt;/li>&lt;li>docker-compose down --rmi local -v --remove-orphans&lt;br>stops the containers, removing all resources&lt;/li>&lt;li>docker-compose exec sling bash&lt;br>executes a bash in the running container&lt;/li>&lt;/ul>"
+                                title="Common docker compose commands"/>
+                    </section_1014662918>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>&lt;ul>&lt;li>docker system prune --volumes&lt;/li>&lt;li>docker volume prune&lt;/li>&lt;li>docker image prune -a&lt;/li>&lt;/ul>&lt;/p>"
+                            title="Docker Cleanup"/>
+                    <text_503394539
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ul>&lt;li>docker stats -a&lt;/li>&lt;li>docker ps -a&lt;/li>&lt;/ul>"
+                            title="Docker process list"/>
+                </column-1>
+            </row>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

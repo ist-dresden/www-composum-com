@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Description of the servlet that renders the various renditions of an asset."
+            jcr:title="Adaptive Image Servlet"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="The Adaptive Image Servlet">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <servlet
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="ist/composum/components/documentation/servlet"
+                    jcr:description="The servlet generates the various renditions of assets."
+                    jcr:title="Adaptive Image Servlet"
+                    className="com.composum.assets.commons.servlet.AdaptiveImageServlet"
+                    resourceType="sling/servlet/default">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="ist/composum/components/documentation/servlet/selectors">
+                    <selector
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="ist/composum/components/documentation/servlet/selector"
+                            jcr:description="The servlet checks whether there is already a rendition corresponding to the variation and rendition selectors given in addition to the 'adaptive selector. If not, it creates the rendition. The rendition is then delivered in the response."
+                            jcr:title="Create and deliver an adaptive image"
+                            extension="[jpg,jpeg,png,gif]"
+                            method="[GET]"
+                            selector="adaptive">
+                        <examples
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="ist/composum/components/documentation/servlet/examples">
+                            <example
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="ist/composum/components/documentation/servlet/example"
+                                    jcr:description="&lt;p>The cpa:Asset resource /public/composum/prototype/assets/demo/site-3/images/image-03.jpg is rendered with this servlet, since the method GET, the selector adaptive and the extension jpg match this servlet. It locates the variation square and rendition medium for this asset, creates it if there is none, and delivers the rendered image as stream in the response.&lt;/p>&lt;br>&lt;p>The variation is the first selector after the adaptive selector, and the rendition is the second selector. To enable indefinite caching by proxies / browsers, the URL is modified by attaching a suffix with a hash key and repeating the file name. The servlet redirects to the correct URL if the hash key is wrong. (See section URL design).&lt;/p>"
+                                    exampleCode="http://localhost:9090/public/composum/prototype/assets/demo/site-3/images/image-03.jpg.adaptive.square.medium.jpg &#xd;&#xa;http://localhost:9090/public/composum/prototype/assets/demo/site-3/images/image-03.jpg.adaptive.square.medium.jpg/T1573642762278/image-03.jpg"
+                                    exampleResult="The rendition is returned in the response as stream."/>
+                        </examples>
+                    </selector>
+                </column-0>
+            </servlet>
+            <row_1033313213
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="URL design">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Design goals">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ol>&lt;li>For enduser performance it is desirable that image URLs are indefinitely cacheable. This avoids that the browser has to request the images (even if it would be only HEAD or &quot;If-Modified-Since&quot; / &quot;If-None-Match&quot; requests) when rendering the page for the second time.&lt;/li>&lt;li>As far as sensible, the URLs generated for an asset should only change when the content changes, as this would congest caches / reduce cache hit ratio otherwise.&lt;br>&lt;/li>&lt;li>We must be able to calculate the URL for the asset even before the actual rendering is created.&lt;/li>&lt;/ol>"/>
+                        <section
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/container/section"
+                                jcr:title="URL design">
+                            <text
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/text"
+                                    text="&lt;p>To make asset URLs unique for their content, we use a suffix (in the Sling sense):&lt;/p>&lt;p>&lt;/p>&lt;p>http://../{pathtoasset}/{assetname}.adaptive.{variation}.{rendition}.{extension}/{hash}/{assetname}.{extension}&lt;/p>&lt;p>The suffix is here /{hash}/{assetname}.{extension} and changes every time an rendition content is changed.&lt;/p>&lt;p>&lt;/p>"/>
+                        </section>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Design discussion">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>These goals can be attained by using a suffix for assets that changes every time the rendering content could change (that is, on changes of any asset configuration in higher nodes or on changes of the original).&lt;/p>&lt;p>If the incorrect suffix (that is, hash) is given, we redirect the browser to the correct suffix - only then the content is actually returned. (Returning the content only on the correct suffix prevents a DOS-attack if an image is requested with changing suffixes, filling up caches quickly).&lt;/p>&lt;p>The redirects to the correct suffix can only be temporary redirects, since the correct suffix can change back and forth if the versions of an asset in a release change back and forth. These redirects can, however, only occur if an image is requested from an outdated HTML page, since a freshly rendered HTML page contains the image URLs with the correct suffix. (Or if the user bookmarks / saves the URL of an image, which is a border case we do not optimize for.)&lt;/p>&lt;p>Since the rendering of a rendition was not necessarily performed yet when the page with the links is rendered, we cannot use a timestamp of the rendering or a hash of the file content as {hash} in the URL. However, the path for the transient renderings (as discussed below) is designed such that it integrates the versions of the used original and all relevant configurations, so we can use a hash of this path as {hash}.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row_1033313213>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Implementation remarks">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>To be compatible with Composum Pages &lt;a href=&quot;/content/ist/composum/home/platform/staging&quot;>versioning / staging&lt;/a>&amp;nbsp;, the assets mechanism needs to take into account that the Assets resources are not necessarily modifiable, since they can be part of a release that is presented read-only through a StagingResourceResolver, or should not be modified, if the assets are part of a release that is replicated to e.g. /public or /preview . Thus, transient images cannot be stored at the place in the Resource tree where the cpa:Asset and it's cpa:AssetConfiguration and cpa:RenditionConfig and the originals live.&lt;/p>&lt;p>Thus, they are stored below /var/composum/assets in a tree that shadows the cpa:Asset tree. There is, however, an additional concern: since several releases can be rendered in parallel using the StagingResourceResolver under the same resource path, there can be different transient renditions for the same path, which therefore have to be stored at different paths. Transient renditions depend both on the applied inherited asset configurations and on the original. We therefore insert the uuid of the version of the configuration and the used original into the path. These can be read through the attribute &lt;a href=&quot;/content/ist/composum/home/platform/staging#replicatedVersion&quot;>cpl:replicatedVersion&lt;/a>&amp;nbsp;, that is introduced by the staging mechanism to make the presented version number of a versionable easily accessible.&lt;/p>&lt;p>For example: the 'small' rendition of the 'square' variant of an asset /content/foo/bar/somesite/assets/bloom.jpg , for which the original is stored at /content/foo/bar/somesite/assets/bloom.jpg/square/original/bloom.jpg, is stored at a path&lt;br>&lt;/p>&lt;p>/var/composum/assets/content/foo/bar /somesite/{sitecfgversion}/assets/{assetscfgversion} /bloom.jpg/{bloomcfgversion} /square/{originalversion}/small/bloom.jpg&amp;nbsp;&lt;/p>&lt;br>&lt;p>where {*cfgversion} is the cpl:replicatedVersion of the jcr:content node of that node, possibly containing some relevant asset configuration, and {originalversion} is the cpl:replicatedVersion of the original of the image itself. If the image is from workspace (as opposed to some release), we use the string 'workspace' there and add the last modification date of the corresponding jcr:content as a way to check whether the rendition is current wrt. the configuration and the originals. (If the workspace is more current, the corresponding subtree has to be deleted and recreated if necessary.)&lt;/p>"
+                                title="Storage in the repository; interactions with versioning / staging"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Metadata">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The AdjustMetaDataResourceChangeListener watches for changes of (image and video) files, adds the mixin&amp;nbsp;&lt;code>cpa:AssetResource&lt;/code>&amp;nbsp;to it's nt:resource (thus making it versionable) and creates / updates a&amp;nbsp;&lt;code>jcr:content/meta&lt;/code>&amp;nbsp;node with metadata taken from the meta-information embedded in the images. This listener is also called during content package installations.&lt;/p>&lt;p>Likewise, if an original is uploaded or a transient rendition is created, the MetaPropertiesService is called for adding the metadata node.&lt;/p>&lt;p>Caution: the attributes of the jcr:content/meta node are automatically cleared and overwritten with the information from the uploaded file whenever the jcr:content is changed (i.e. by file upload). If you want to manually overwrite metadata information, it is necessary to e.g. create a subnode like&amp;nbsp;&lt;code>jcr:content/meta/override&lt;/code>&amp;nbsp;and use an inheritance mechanism when accessing the data. Subnodes of meta are not touched.&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+            <row_16877229
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Transient renditions cleanup">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Since the automatically created transient renditions can become obsolete, a cleanup mechanism is needed. But since recreating renditions is computationally costly and delays the page access for the first user, we want to do that conservatively. In some cases it's relatively easy to find out that renditions are not needed anymore: if the active releases are replicated into /public or /preview, the renditions can be thrown away when the version of an asset configuration or original changes. In other cases that's not so easy: with a StagingResolver all existing releases and even other versions can be reached. For this case, we can only discard older renderings once they haven't been used for a while. Afterwards all now unused folders in /var/composum/assets which contain no rendition are deleted."
+                            title="General plan for cleanup"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text_1533959842
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>To make checking for unused renditions easier, we keep the path to the asset (in /public or /preview) and the variation name in attributes&amp;nbsp;&lt;code>cpa:assetPath&lt;/code>&amp;nbsp;and&amp;nbsp;&lt;code>cpa:assetVariation&lt;/code>&amp;nbsp;at the resource for the transient rendition. A daily cleanup process scans /var/composum/assets and checks whether the transient renditions for these assets still have this path - if not (likely because the version nodes changed), the rendition is deleted.&lt;/p>&lt;p>Caution: this process does not remove renditions that are obsolete because e.g. the rendition or variation name is no longer used for this asset.&lt;/p>"
+                            title="Cleanup for in-place replication at /public and /preview"/>
+                    <text_712452168
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>This has two parts: a process to mark usages of renditions, and the cleanup.&lt;/p>&lt;ol>&lt;li>When a transient rendition is delivered to a browser, we put this as last usage time in an attribute&amp;nbsp;&lt;code>cpa:lastRendered&lt;/code>&amp;nbsp;into the rendition. To reduce the impact on the performance of the system, this attribute is only updated once it is more than a day (configurable) old.&lt;/li>&lt;li>In a daily cleanup process, the tree is scanned for renderings, for which the cpa:lastRendered tells that it hasn't been used for two weeks (configurable), it is deleted.&lt;/li>&lt;/ol>"
+                            title="Cleanup for other transient renditions"/>
+                </column-1>
+            </row_16877229>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+    </jcr:content>
+</jcr:root>

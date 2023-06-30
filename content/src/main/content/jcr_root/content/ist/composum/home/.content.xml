@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page/home"
+            jcr:description="Content Management and more - create your own CMS - fast and flexible - bring back the fun to Content Management"
+            jcr:title="Composum"
+            pageLanguages="[en,de]"
+            template="/apps/ist/composum/templates/page/home">
+        <stage
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/composed/carousel"
+                interval="15000"
+                showIndicators="{Boolean}true"
+                useControls="{Boolean}true">
+            <teaser-01
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/teaser"
+                    link="/content/ist/composum/home/pages"
+                    subtitle="bring back the fun to content management"
+                    text="&lt;ul>&lt;li>the Pages module provides the content management feature of the Composum platform&lt;/li>&lt;li>the Pages module brings a powerful user interface for content editing and component development&lt;/li>&lt;li>a lot of sites can be created each with its own theme, page structure and release management&amp;nbsp;&lt;br>&lt;/li>&lt;/ul>"
+                    title="Pages"
+                    variation="bgimage">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg"/>
+                <video
+                        jcr:primaryType="nt:unstructured"/>
+            </teaser-01>
+            <teaser
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/teaser"
+                    link="/content/ist/composum/home/assets"
+                    subtitle="easy responsive asset management"
+                    title="Assets"
+                    variation="bgimage">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/gravitational_waves.jpg"/>
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"/>
+                </i18n>
+            </teaser>
+            <teaser-02
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/teaser"
+                    link="/content/ist/composum/home/platform"
+                    subtitle="makes one system do everything"
+                    text="&lt;ul>&lt;li>the Platform module enables the co-existence of development, content editing and content delivery on one single instance&lt;/li>&lt;li>the Platform module allows you to configure access rules for the authoring and the public access to the Composum based Sling instance&lt;/li>&lt;li>the content delivery separation by releases is also part of the Platform module&lt;/li>&lt;/ul>"
+                    title="Platform"
+                    variation="bgimage">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </teaser-02>
+            <teaser-03
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/teaser"
+                    link="/content/ist/composum/home/nodes"
+                    linkTitle="Composum Nodes"
+                    subtitle="the 'Swiss knife' for the content repository"
+                    text="&lt;ul>&lt;li>the &lt;em>Nodes&lt;/em> module enables the exploring and manipulation of the entire repository on a raw (JCR) level extended with Sling features&lt;/li>&lt;li>the &lt;em>Console Browser&lt;/em> provides a quick view to the Sling components and the component based content&lt;/li>&lt;li>the &lt;em>Nodes&lt;/em> module provides also a package management UI and service for content and code export and import via UI or HTTP&lt;/li>&lt;li>a simple user management and the management of the access control rules is also part of the &lt;em>Nodes&lt;/em> module&lt;/li>&lt;/ul>"
+                    title="Nodes"
+                    variation="bgimage">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
+            </teaser-03>
+        </stage>
+        <logo
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="composum/pages/components/element/image"
+                imageRef="/content/ist/composum/assets/general/Composum-color.svg"/>
+        <search
+                jcr:primaryType="nt:unstructured"
+                buttonSymbol="search"
+                searchResultPath="/content/ist/composum/meta/search">
+            <field
+                    jcr:primaryType="nt:unstructured"
+                    buttonSymbol="search"
+                    searchResultPath="/content/ist/composum/meta/search">
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"/>
+                </i18n>
+            </field>
+        </search>
+        <navigation
+                jcr:primaryType="nt:unstructured"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <composum
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    path="/content/ist/composum/home/jcr:content/main/composum"
+                    subtitle="an Apache Sling based web application platform"
+                    title="Composum">
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"/>
+                </i18n>
+                <image
+                        jcr:primaryType="nt:unstructured">
+                    <i18n
+                            jcr:primaryType="nt:unstructured">
+                        <de
+                                jcr:primaryType="nt:unstructured"/>
+                    </i18n>
+                </image>
+            </composum>
+            <row_1701953227
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Composum is a set of useful tools and a framework to make it easy to use the Apache Sling framework as a general application development platform. There are some modules published as Open Source and more modules in development to prepare the publishing.&lt;/p>&lt;p>There are four modules available:&lt;/p>">
+                        <i18n
+                                jcr:primaryType="nt:unstructured">
+                            <de
+                                    jcr:primaryType="nt:unstructured"/>
+                        </i18n>
+                    </text>
+                </column-0>
+            </row_1701953227>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="globe"
+                            link="/content/ist/composum/home/pages"
+                            text="&lt;p>the content management package of the Composum Platform with the 'Pages Stage' editing user interface to manage your content&lt;/p>&lt;p>Composum Pages is a full featured Content Management System system. You can set up your own CMS based on 'Pages' and customised according to your requirements.&lt;/p>"
+                            title="Composum Pages"/>
+                    <teaser_1708062393
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            elementType="composum/pages/components/element/text"
+                            icon="image"
+                            link="/content/ist/composum/home/assets"
+                            text="&lt;p>an asset management tool to configure and prepare responsive images for the content management&lt;/p>&lt;p>work in progress - not released yet&lt;/p>"
+                            title="Composum Assets"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="cogs"
+                            link="/content/ist/composum/home/platform"
+                            text="&lt;p>the Package to set up a software platform with the access manager and the release delivery service (the staging aproach of the Composum Platform)&lt;br>&lt;/p>"
+                            title="Composum Platform"/>
+                    <teaser_702482672
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="wrench"
+                            link="/content/ist/composum/home/nodes"
+                            text="&lt;p>the core API on the JCR level with the &lt;em>Composum Console Browser&lt;/em> as the central 'Swiss Knife' to manipulate the repository resources and with the &lt;em>Package Manage&lt;/em>&lt;em>r&lt;/em> to handle content and code; this is also the 'core' application layer for all the other &lt;em>Composum&lt;/em> modules.&lt;/p>"
+                            title="Composum Nodes"/>
+                </column-1>
+            </row>
+            <row_1962856557
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Try it!">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="cloud"
+                            link="/content/ist/composum/home/pages/setup/cloud"
+                            text="&lt;p>You can try it directly - there is a cloud platform available for testing purposes.&lt;/p>"
+                            title="Composum Cloud">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/setup/cloud"
+                                    title="Composum Cloud"/>
+                            <link_494378375
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://cloud.composum.com/"
+                                    linkTitle="go to cloud.composum.com"
+                                    title="cloud.composum.com"/>
+                        </links>
+                    </teaser>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Request your own tenant on the Composum Cloud platform and create your first site!"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="download"
+                            link="/content/ist/composum/home/pages/setup"
+                            text="It's also easy to set up your own Composum system. Look at the installation guid for more information."
+                            title="System Setup">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="/content/ist/composum/home/pages/setup"
+                                    title="Composum Pages installation guide"/>
+                        </links>
+                    </teaser>
+                </column-1>
+            </row_1962856557>
+            <row_484198368
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-"
+                    title="Extensions">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="The professional subscription provides some more modules to set up your own enterprise platform. All these modules are available on the &lt;a href=&quot;/content/ist/composum/home/cloud&quot;>Composum Cloud&lt;/a>."/>
+                </column-0>
+            </row_484198368>
+            <row_1557509234
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="users"
+                            link="/content/ist/composum/home/platform/extensions/tenants"
+                            text="&lt;p>The multi tenancy module contains a setup and management console to manage a lot of tenants on the same system. All tenants are separated by access rights. Each tenant can mange its users an each user can be member of various tenants in various roles.&lt;/p>"
+                            title="Tenants"/>
+                    <teaser_888909153
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="id-badge"
+                            text="&lt;p>This module is linking &lt;em>Keycloak&lt;/em> as authentication provider to integrate users of various authentication sources into the &lt;em>Composum Platform&lt;/em>.&lt;/p>"
+                            title="Authentication">
+                        <links
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/element/link/set">
+                            <link
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/link"
+                                    link="https://www.keycloak.org"/>
+                        </links>
+                    </teaser_888909153>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="exchange"
+                            link="/content/ist/composum/home/platform/extensions/workflow"
+                            text="&lt;p>The workflow extension provides a very flexible solution to declare tasks and combine them to workflows. Manual steps are listed in a personalized View integrated in the tenants console and in the &lt;em>Composum Pages&lt;/em> editing user interface.&lt;/p>"
+                            title="Workflow"/>
+                    <teaser_174974230
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="clone"
+                            text="&lt;p>Set up dedicated publishing instances or replicate the content to external repositories.&lt;/p>&lt;p>&lt;/p>&lt;p>work in progress&lt;/p>&lt;p>&lt;/p>"
+                            title="Replication"/>
+                </column-1>
+            </row_1557509234>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys">
+            <text
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="powered by &lt;a href=&quot;/content/ist/composum/home/pages&quot; title=&quot;Composum Pages&quot;>Composum Pages&lt;/a> @ &lt;a href=&quot;/content/ist/composum/home/cloud&quot; title=&quot;Composum Cloud&quot;>Composum Cloud&lt;/a>"/>
+        </bottom>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+    <blog/>
+    <pages/>
+    <assets/>
+    <platform/>
+    <nodes/>
+    <contact/>
+    <incubator/>
+    <sitemap
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="composum/pages/components/navigation/sitemap"/>
+    <internaldocumentatio/>
+    <archive/>
+</jcr:root>

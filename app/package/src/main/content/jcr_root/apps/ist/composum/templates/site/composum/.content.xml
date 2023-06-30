@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Site">
+    <jcr:content
+            jcr:primaryType="cpp:SiteConfiguration"
+            sling:resourceType="composum/pages/stage/edit/site"
+            jcr:description="A site template to create a new Composum content site."
+            jcr:title="A Composum Site"
+            allowedChildTemplates="[
+                ^(.*/)?composum/templates/(page/)?home(page)?$,
+                ^(.*/)?templates/page/meta/sitemap$
+            ]"
+            siteComponentSettings="composum/pages/components/site/settings">
+        <style
+                jcr:primaryType="nt:unstructured"
+                category.edit="sites.ist.composum.edit"
+                category.view="sites.ist.composum.view"/>
+        <languages
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="composum/pages/stage/edit/site/languages">
+            <english
+                    jcr:primaryType="nt:unstructured"
+                    default="true"
+                    key="en"
+                    label="english"/>
+            <german
+                    jcr:primaryType="nt:unstructured"
+                    key="de"
+                    label="deutsch"/>
+        </languages>
+        <thumbnail
+                jcr:primaryType="nt:unstructured">
+            <image
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/image"
+                    imageRef="${site}/assets/thumbnail/composum-lt.png"/>
+        </thumbnail>
+    </jcr:content>
+    <home/>
+    <assets/>
+</jcr:root>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="a demonstration how easy is is to create a new content component"
+            jcr:title="A first simple image component"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="The 'develop' mode">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>If you have a developer role you can use den Composum Pages edit frame in the 'develop' mode. This mode is an extended 'edit' mode with additional tools and additional technical information in edit components.&lt;/p>"/>
+                        <textimage
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="left"
+                                text="&lt;p>You can switch on the 'develop' mode with the parameter&amp;nbsp;&lt;code>pages.mode=develop&lt;/code>&amp;nbsp;in the edit frames URL or via the 'general tools' popup witch is shown on clicking the pages logo.&lt;/p>">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/develop/logo-popup.png"/>
+                        </textimage>
+                        <textimage_1392958688
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                imagePosition="right"
+                                text="If the 'develop' mode is switched on you will see an additional tab in the main navigation sidebar. This devleop tree lets you browse through the resolvers search paths. The trees toolbar is offering a set of actions to create and manipulate components.">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/develop/develop-tree-add-menu.png"/>
+                        </textimage_1392958688>
+                        <textimage_1928562848
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/textimage"
+                                text="&lt;p>You can create a new component here. Create your folder to determine the 'parent part' of the designated resource type and then your new component.&lt;/p>&lt;p>A dialog is shown to input the properties of the new component. You can inherit from an existing resource super type; in this case the component type is the same as the super type. But if you not have a super type or if you want to define a different component type you have to choose one of:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>Element&lt;/li>&lt;li>Container or&lt;/li>&lt;li>Page&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <carousel
+                                jcr:primaryType="cpp:Container"
+                                sling:resourceType="composum/pages/components/composed/carousel"
+                                autoStart="{Boolean}true"
+                                showIndicators="{Boolean}true"
+                                useControls="{Boolean}true">
+                            <image
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/develop/develop-new-comp-pr.png"/>
+                            <image_275882374
+                                    jcr:primaryType="cpp:Element"
+                                    sling:resourceType="composum/pages/components/element/image"
+                                    imageRef="/content/ist/composum/assets/pages/develop/develop-new-comp-el.png"/>
+                        </carousel>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="You can also select which edit component of a component you want to implement. For each selected edit component the implementation is prepared. This set can also be changed at any time later with the &quot;Add / Elements...&quot; tool."/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="A new Image component">
+                        <text_1210727823
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Our first component should be a simple image component (resource type: tenant/domain/project/components/image) to demonstrate component creation with featured editing functions like drop zones.&lt;/p>"/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Let's create a folder"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="tenant/domain/project/components"/>
+                        <text_1119837413
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>and our image component using the 'develop' tools with the properties:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>name: image&lt;/li>&lt;li>component type: Element&lt;/li>&lt;li>title: A new Image component&lt;/li>&lt;li>description: a simple image component for demonstration&lt;/li>&lt;li>category: Image, adaptTo&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <text_452739629
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Edit the rendering script of the image component and replace the cpp:element tag by"/>
+                        <codeblock_1930132369
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="... &#xa;&lt;cpp:element var=&quot;model&quot; type=&quot;com.composum.pages.commons.model.Image&quot;> &#xa;    &lt;c:choose> &#xa;        &lt;c:when test=&quot;${model.valid}&quot;> &#xa;            &lt;div class=&quot;${modelCSS}_frame&quot;> &#xa;                &lt;cpn:image class=&quot;${modelCSS}_picture&quot; src=&quot;${model.src}&quot; &#xa;                           alt=&quot;${model.alt}&quot; title=&quot;${model.title}&quot;/> &#xa;            &lt;/div> &#xa;        &lt;/c:when> &#xa;        &lt;c:otherwise> &#xa;            &lt;cpp:include replaceSelectors=&quot;placeholder&quot;/> &#xa;        &lt;/c:otherwise> &#xa;    &lt;/c:choose> &#xa;&lt;/cpp:element> &#xa;..."
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="image.jsp"/>
+                        <text_1059892120
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="It's a good idea to create a placeholder script in the components' main folder to have a handle during editing even if no element data are available."/>
+                        <codeblock_1930132370
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineObjects/> &#xa;&lt;cpp:element var=&quot;model&quot; type=&quot;com.composum.pages.commons.model.Image&quot; mode=&quot;none&quot; &#xa;             test=&quot;@{model.editMode}&quot; cssBase=&quot;composum-pages-components-placeholder&quot;> &#xa;    &lt;span class=&quot;fa-stack ${modelCSS}_icon&quot;> &#xa;        &lt;i class=&quot;fa fa-picture-o fa-stack-2x&quot;>&lt;/i> &#xa;        &lt;i class=&quot;fa fa-plus fa-stack-1x add-plus&quot;>&lt;/i> &#xa;    &lt;/span> &#xa;&lt;/cpp:element>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="placeholder.jsp"/>
+                        <text_266120030
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>We should insert the edit widgets for the components properties in the edit dialog component script into the cpp:editDialog tag.&lt;/p>"/>
+                        <codeblock_1930132371
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="... &#xa;    &lt;cpp:widget label=&quot;Image&quot; property=&quot;imageRef&quot; type=&quot;imagefield&quot; &#xa;                hint=&quot;the path to the image asset in the repository or an URL&quot;/> &#xa;    &lt;cpp:widget label=&quot;Title&quot; property=&quot;title&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;                hint=&quot;the title text normally shown as the elements tooltip&quot;/> &#xa;    &lt;cpp:widget label=&quot;Alt Text&quot; property=&quot;alt&quot; type=&quot;textfield&quot; i18n=&quot;true&quot; &#xa;                hint=&quot;the text used as alternative content in text based view&quot;/> &#xa;..."
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="edit/dialog/dialog.jsp"/>
+                        <text_114487782
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Now the new component is available. Let's add a custom title (red bar) and icon (graduation-cap) to the tile title to make the new component a little bit more showy.&lt;/p>"/>
+                        <codeblock_1930132372
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;UTF-8&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;cpp:defineFrameObjects/> &#xa;&lt;cpp:model var=&quot;model&quot; type=&quot;com.composum.pages.commons.model.Image&quot; &#xa;           cssBase=&quot;composum-pages-component-tile&quot;> &#xa;    &lt;div class=&quot;${modelCSS}_title&quot; style=&quot;background:#c00&quot;>${cpn:text(model.tileTitle)}&lt;/div> &#xa;&lt;/cpp:model>"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="edit/tile/_title.jsp"/>
+                        <text_917753816
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Let's use our new component..."/>
+                        <text_346171042
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>You can download the sources here:&lt;/p>&lt;p>&lt;ul>&lt;li>&lt;a href=&quot;https://github.com/ist-dresden/composum-prototype/tree/develop/pages/demo/tenant&quot;>prototype-tenant-project@GitHuB&lt;/a>&lt;/li>&lt;/ul>&lt;/p>"/>
+                    </section>
+                </column-1>
+            </row>
+            <row_797743192
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="use and extend">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Usage and drop image assets">
+                        <image1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/container/container-drag-into.png"/>
+                        <text1
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If you open the 'test' page an empty page will be shown (or the content edited before). But in the components tab in the navigation area our new component is offered to insert. Drag this component into the prepared 'column' container, edit the components properties and save - that's all."/>
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Let's use our new component on a content page. If not yet available you can create a site ('&lt;strong>mysite&lt;/strong>') and a page with the 'Test Page' template (with an 'all components allowed' design). If you create a new site using the '&lt;strong>Site for Testing&lt;/strong>' &lt;strong>template&lt;/strong> such a test page is created automatically during site creation.&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/site/site-template-select.png"/>
+                        <text2
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Great, we've now used our first component in the testpage. But if we are dragging an image some other components are signalising that you can drop the image here - your component does that not (yet)...&lt;/p>&lt;p>Let's add a drop zone for images to our component to solve this.&lt;/p>"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;cpp:dropZone property=&quot;imageRef&quot; filter=&quot;asset:image&quot;> &#xa;... &#xa;&lt;/cpp:dropZone> &#xa;"/>
+                        <text_1711991389
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="Such a drop zone is simply declared by a JSP tag around the content area of our component. The final JSP file of or image component looks now like this:"/>
+                        <codeblock_1930132369
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;UTF-8&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %> &#xa;&lt;%@taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %> &#xa;&lt;cpp:defineObjects/> &#xa;&lt;cpp:element var=&quot;model&quot; type=&quot;com.composum.pages.commons.model.Image&quot;> &#xa;    &lt;cpp:dropZone property=&quot;imageRef&quot; filter=&quot;asset:image&quot;> &#xa;        &lt;c:choose> &#xa;            &lt;c:when test=&quot;${model.valid}&quot;> &#xa;                &lt;div class=&quot;${modelCSS}_frame&quot;> &#xa;                    &lt;cpn:image class=&quot;${modelCSS}_picture&quot; src=&quot;${model.src}&quot; &#xa;                               alt=&quot;${model.alt}&quot; title=&quot;${model.title}&quot;/> &#xa;                &lt;/div> &#xa;            &lt;/c:when> &#xa;            &lt;c:otherwise> &#xa;                &lt;cpp:include replaceSelectors=&quot;placeholder&quot;/> &#xa;            &lt;/c:otherwise> &#xa;        &lt;/c:choose> &#xa;    &lt;/cpp:dropZone> &#xa;&lt;/cpp:element>"
+                                collapsed="medium"
+                                collapsible="{Boolean}true"
+                                language="jsp"
+                                showLanguage="{Boolean}true"
+                                title="image.jsp"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Styling and a custom widget">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="We want to add some styling rules to our component. It‘s possible to add CSS-Files and extend die client libraries in the UI but we should now switch to normal IDE and enhance the image component ‚external‘ with build and deployment driven by Maven."/>
+                        <text_1269579700
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="We want to use the project structure to develop an ‚app‘ and also to manage the content. Such a project can be created using the prepared maven archetype - &amp;nbsp;- or downloaded from the Pages prototype repository:"/>
+                        <text_346171042
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;ul>&lt;li>&lt;a href=&quot;https://github.com/ist-dresden/composum-prototype/tree/develop/pages/demo/tenant&quot;>prototype-tenant-project@GitHuB&lt;/a>&lt;/li>&lt;/ul>&lt;p>&lt;/p>"/>
+                        <image
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/image"
+                                imageRef="/content/ist/composum/assets/pages/develop/develop-ide-project.png"/>
+                        <codeblock
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code=".tenant-domain-project-components-image { &#xa;    width: 100%; &#xa;    text-align: center; &#xa; &#xa;    &amp;_frame { &#xa;        display: inline-block; &#xa;    } &#xa; &#xa;    &amp;_picture { &#xa;        width: 100%; &#xa;    } &#xa;}"
+                                collapsed="small"
+                                collapsible="{Boolean}true"
+                                language="scss"
+                                showLanguage="{Boolean}true"
+                                title="apps/-t-/-d-/-p-/components/image/css/image.scss"/>
+                        <text_1440888584
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="The simplest way to embed your new style is the extension of the pages ‚view‘ clientlib. The clientlib category is normally specified in the sites configuration. Our test pages are using the Composum Components view client library."/>
+                        <text_446655932
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="To extend the components clientlib we create our own new clientlib with the same category (&lt;code>composum.pages.components.view&lt;/code>) and a reference to the CSS file of our new image component."/>
+                        <codeblock_1984669663
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/codeblock"
+                                bordered="{Boolean}true"
+                                code=" { &#xa;  &quot;jcr:primaryType&quot;: &quot;sling:Folder&quot;, &#xa;  &quot;sling:resourceType&quot;: &quot;composum/nodes/commons/clientlib&quot;, &#xa;  &quot;category&quot;: [ &#xa;    &quot;composum.pages.components.view&quot; &#xa;  ], &#xa;  &quot;css&quot;: { &#xa;    &quot;jcr:primaryType&quot;: &quot;sling:OrderedFolder&quot;, &#xa;    &quot;embed&quot;: [ &#xa;      &quot;tenant/domain/project/components/image/css/image.css&quot; &#xa;    ] &#xa;  } &#xa;}"
+                                language="json"
+                                showLanguage="{Boolean}true"
+                                title="/apps/tenant/domain/project/clientlib"/>
+                        <text_446655933
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="After the next project build (and deploy) and a page reload the added style should be active and our new image components claims not more than the containers width."/>
+                    </section>
+                    <section_183679367
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Why we use JSP">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>That right, we are using JSP for component templating. There is a simple reason - JSP are extendable by tag libraries and this gives us the opportunity to merge editing hints and the markup language dynamically according to the various display modes. Furthermore the Taglibs are opening a way keep the code of the content components very clear, short and easy to understand.&lt;/p>&lt;p>The JSP taglibs are an important part of the Composum Pages component development framework. They are producing the markup for the editing UI but the code on the client side needs only this generated HTML code. Probably we will add support for alternative templating frameworks (HTL, Thymeleaf) in the future. (We have already some &lt;a href=&quot;https://github.com/ist-dresden/cpm-platform-htl&quot;>experiments for supporting HTL&lt;/a>). Currently we are using the 'old' JSP - a well-tried scripting framework.&lt;/p>"/>
+                    </section_183679367>
+                </column-1>
+            </row_797743192>
+        </main>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Component"/>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="quick start with a new component"
+                    title="A Component">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="composum/pages/components/element/image"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+    </jcr:content>
+</jcr:root>

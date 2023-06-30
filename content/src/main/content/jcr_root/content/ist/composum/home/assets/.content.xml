@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:title="Composum Assets"
+            template="/apps/ist/composum/templates/page/content">
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                hideInNav="{Boolean}true"
+                isNavRoot="{Boolean}true"
+                title="Assets"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1409750311
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Composum asset management provides tools to configure and prepare responsive images for the content management. Please note that this is work in progress.&lt;/p>"/>
+                </column-0>
+            </row_1409750311>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            imagePosition="bottom"
+                            text="The 'Assets' Composum module is set up as a package which extends the Composum Console UI.">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/assetsmodule/composum-assets-manager.png"
+                                title="Image of the assets management console"/>
+                    </textimage>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            floatingText="{Boolean}true"
+                            imagePosition="right"
+                            text="&lt;p>With this extension a new 'cpa:Asset' node type and a set of configuration node types and mixing types are installed. The module provides the configuration of image variations and renditions based on only one uploaded image original (one high quality image source for various renditions). An Image Asset created by the Asset Manager is a node with the node type 'cpa:Asset'. This node contains at least one original image and must have a configuration folder parent node (manageable with the Asset Manager) with the parameters to build the renditions according to the sites design rules. The renditions are build on demand and stored (cached) as subnodes of the asset node.&lt;/p>&lt;br>&lt;p>&lt;br>&lt;/p>">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/assetsmodule/composum-assets-module.png"
+                                title="Assets are a part of the Composum suite"/>
+                    </textimage>
+                    <textimage_577923591
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            floatingText="{Boolean}true"
+                            text="&lt;p>If such an Image Asset is requested by a browser the AdaptiveImageServlet is delivering the image data of the selected rendition. The servlet fills the responses with the content of the rendition determined by the Sling selectors in the requests URL. If the rendition image is not already present, the servlet generates the rendition image from the original image as specified in the corresponding configuration (the next parent folder of the Image Asset with an 'assetconfig' content element of type 'cpa:AssetConfiguration').&lt;/p>">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/assetsmodule/Assets.png"
+                                title="Asset structure"/>
+                    </textimage_577923591>
+                </column-1>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Composum Assets">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+        <style
+                jcr:primaryType="nt:unstructured"
+                theme="ist/composum/themes/book"/>
+    </jcr:content>
+    <configuration/>
+    <servlet/>
+</jcr:root>

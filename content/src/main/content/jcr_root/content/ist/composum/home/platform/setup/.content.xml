@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="Instructions for setting up the platform"
+            jcr:title="Platform Setup"
+            template="/apps/ist/composum/templates/page/content">
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_1608866902
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="General Setup">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Configuring the Author Host">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>To enable access control, it is necessary to enable and perhaps configure the following filter in the OSGI Configuration manager:&lt;/p>&lt;ul>&lt;li>&lt;strong>Composum Platform Access Filter&lt;/strong>: the &quot;Access restriction&quot; has to be switched on. Remember to check / change the &quot;Author Hosts&quot; to enable the author interface for the appropriate virtual hosts. Otherwise authors will not be able to login.&lt;/li>&lt;/ul>"
+                                textAlignment="left"
+                                title="Enable Access Control"/>
+                        <text_1611275568
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>The Platform supports an easy way to present the various releases out of the JCR version control (see &lt;a href=&quot;/content/ist/composum/home/platform/staging&quot;>Versioning of Pages&lt;/a>). For that, access control has to be enabled (see above), and the following filter:&lt;/p>&lt;p>&lt;/p>&lt;ul>&lt;li>&lt;strong>Composum Platform Release Resolver Filter&lt;/strong> : has to be enabled. It switches to a resolver presenting the release chosen by request attributes set by the:&lt;/li>&lt;li>&lt;strong>Composum Pages Release Filter&lt;/strong> : if enabled, it reads out the URL parameters cpm.release or cpm.version.&lt;/li>&lt;/ul>&lt;p>This is essential to be able to compare releases and document versions.&lt;/p>&lt;p>&lt;/p>"
+                                textAlignment="left"
+                                title="Enable the version resolver"/>
+                    </section>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Configuring a Public Host">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;br>&lt;p>In a basic setup with just one Sling instance or a homogenous Sling cluster, the most performant way to present the public release is to configure a virtual host accessing the Sling instance / Sling cluster, and set the publish policy to InPlace replication on the Site. This copies the public release of the site into a path configured in the &lt;strong>Composum Pages Replication Configuration &lt;/strong>(by default /public). This replication is repeated on each change of the release marked as public / on each move of the public mark.&lt;/p>&lt;p>Besides setting up the virtual host (e.g. with a load balancer or apache, preferably caching requests), an appropriate mapping into the resource tree below /public needs to be configured (see&amp;nbsp;&lt;a href=&quot;https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>URL Mappings for Resource Resolution&lt;/a>). (It might be necessary to change the settings in the &quot;Apache Sling Resource Resolver Factory&quot;.)&lt;/p>&lt;p>Caution: in an installation of Platform and Pages without the Tenants enterprise module, it will be neccesary to allow readability to the replicated release in /public and /libs/composum/pages/components for everyone.&lt;/p>"
+                                textAlignment="left"
+                                title="Configure a public host with InPlace replication"/>
+                        <text_1782719284
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="If no release management is wanted, it is possible to set a site to &quot;Live immediately&quot;. Thus, all changes made to pages are immediately shown to the public. This setting requires a virtual host that is not configured as an author host, defining an appropriate URL mapping and making the required parts of /content readable for everyone."
+                                title="Configure a public host with &quot;Live immediately&quot;"/>
+                        <text_1018518707
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>When set to publish policy &quot;Versions resolver&quot;, the site content is served directly from the checked in versions of the pages according the release marked as &quot;public&quot; via the StagingResolver described in&amp;nbsp;&lt;a href=&quot;/content/ist/composum/home/platform/staging&quot;>Staging&lt;/a>. This requires configuring the URL mapping for the (non author) virtual host according to the normal content path of the site.&lt;/p>&lt;p>Please keep in mind that this setting reduces the performance of the site, since the release JCR content is reconstructed from version storage on the fly.&lt;/p>&lt;p>This also requires opening the permissions of the site to everyone.&lt;/p>"
+                                title="Configure a public host with &quot;Versions resolver&quot;"/>
+                    </section>
+                </column-1>
+            </row_1608866902>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Howtos">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>If a special virtual host should be configured that presents the preview release, and this host needs to be access controlled, it needs to be configured in the &lt;strong>Composum Platform Access Filter Configuration&lt;/strong> as an preview host.&amp;nbsp;&lt;/p>&lt;br>&lt;p>To separate several preview hosts for several sites, or to have convenient URLs like http://preview.composum/home.html (as opposed to http://preview.composum/preview/ist/composum/home.html), it is sensible to configure an appropriate URL mapping.&lt;/p>"
+                            textAlignment="left"
+                            title="Configure a preview host in Author mode (InPlace replication)"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="Logging improvements">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>To make it easier to follow the log entries one request generates through the various logfiles, some suggestions for configuring the logging.&lt;/p>&lt;ul>&lt;li>For both the access log and the request log it is possible to log the thread name by setting the mesage pattern for the corresponding configuration to&amp;nbsp;&lt;code>%msg [%t]%n&lt;/code>&amp;nbsp;. But please note that&amp;nbsp; the thead name is temporarily changed to something that describes the request, so it'll be different in error.log. Thus this just makes some crossreferences easier.&lt;/li>&lt;li>You can add another request data logger with a custom pattern to the &quot;Apache Sling &lt;a href=&quot;https://sling.apache.org/documentation/development/client-request-logging.html&quot;>Customizable Request Data Logger&lt;/a>&quot;. For example, to get another entry per request in the request.log you can use the logger name &quot;log.request&quot;, type of&amp;nbsp; destination to &quot;Logger Name&quot;, and a log format&amp;nbsp;&lt;code>%t [%R] = %v %{X-Forwarded-For}i %{JSESSIONID}C %{Referer}i&lt;/code>&amp;nbsp;will write an additional line with the canonical hostname the request was received at (important in the case of several virtual hosts), the IP it comes from (if you got an apache as front end), the session id and the Referer header. (Please be aware that the session id is a security risk if an attacker is able to read this logfile. It would be better to somehow find another unique id to follow the requests of one session.)&lt;/li>&lt;/ul>"/>
+                    </section>
+                </column-1>
+            </row>
+        </main>
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"
+                parentInheritanceCancelled="{Boolean}true">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    title="Platform Setup Hints">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </title>
+        </top>
+    </jcr:content>
+</jcr:root>

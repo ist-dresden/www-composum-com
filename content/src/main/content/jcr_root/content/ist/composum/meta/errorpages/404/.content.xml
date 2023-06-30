@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Content Management and more +++ create your own CMS +++ fast and flexible +++ bring back the fun to Content Management&lt;/p>"
+            jcr:title="Composum"
+            template="/apps/ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="nt:unstructured">
+            <title
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/title"
+                    subtitle="the page is not available"
+                    title="404 - ooops... not found">
+                <i18n
+                        jcr:primaryType="nt:unstructured">
+                    <de
+                            jcr:primaryType="nt:unstructured"
+                            subtitle="die Seite ist nicht verfügbar"
+                            title="404 - ooops... nicht gefunden"/>
+                </i18n>
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/synchlotron.jpg">
+                    <i18n
+                            jcr:primaryType="nt:unstructured">
+                        <de
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+                    </i18n>
+                </image>
+            </title>
+        </top>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <section
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/container/section"
+                            jcr:title="under construction">
+                        <text
+                                jcr:primaryType="cpp:Element"
+                                sling:resourceType="composum/pages/components/element/text"
+                                text="&lt;p>Currently we are moving the pages from Atlassian Confluence to Composum Cloud. Therefore ist possible that pages are not available temporarily.&lt;/p>">
+                            <i18n
+                                    jcr:primaryType="nt:unstructured">
+                                <de
+                                        jcr:primaryType="nt:unstructured"
+                                        text="&lt;p>Die Site zieht gerade um - von &lt;em>Atlassian Confluence&lt;/em> in die &lt;em>Composum Cloud&lt;/em>. Daher kann es vorkommen, dass Seiten zwischenzeitlich nicht verfügbar sind.&lt;/p>"/>
+                            </i18n>
+                        </text>
+                        <i18n
+                                jcr:primaryType="nt:unstructured">
+                            <de
+                                    jcr:primaryType="nt:unstructured"
+                                    jcr:title="die Site ist in Arbeit"/>
+                        </i18n>
+                    </section>
+                </column-0>
+            </row>
+        </main>
+    </jcr:content>
+</jcr:root>
