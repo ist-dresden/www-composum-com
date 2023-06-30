@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <name>Composum Site</name>
-    <description>Maven parent for the Composum site packages</description>
+    <description>Maven parent for the Composum site packages for www.composum.com</description>
 
     <properties>
         <package.group>tenants/ist</package.group>
