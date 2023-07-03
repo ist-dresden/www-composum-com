@@ -16,4 +16,5 @@
                 jcr:primaryType="nt:unstructured"/>
     </jcr:content>
     <themes/>
+    <composumAI/>
 </jcr:root>

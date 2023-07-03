@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page"
+            jcr:description="&lt;p>Composum AI is a tool that supports content creation with artificial intelligence. It offers various assistants such as the content creation assistant, translation assistant, and page category assistant to aid in different aspects of editing components in Composum. The Translation Dialog allows users to easily translate text attributes into different languages, while the page category assistant suggests SEO keywords based on the page's content. The content creation assistant provides helpful tips and tricks for generating and improving text, with the ability to specify prompts and select different sources. The text sources include the widget, component, page, last output, and no text added options. Predefined prompts are available for tasks like summarizing, introducing, expanding, generating headlines, answering questions, improving the text, and creating SEO descriptions. Composum AI offers a powerful and flexible tool for generating and optimizing content.&lt;/p>"
+            jcr:title="Composum AI"
+            subtitle="Harness the power of AI text generation"
+            template="ist/composum/templates/page/content">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row_169271960
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="Introduction to Composum AI">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The advance of generative artificial intelligence (AI) for texts has revolutionized content creation, providing new opportunities and efficiencies for content management systems (CMS) like Composum Pages. With the emergence of tools like Composum AI, the power of AI can now be harnessed to support content creation in a way that was not possible before.&lt;br>&lt;/p>&lt;p>Integrated into the Composum Pages UI, the Composum AI offers assistance for translation, content creation or SEO. Especially the content creation assistant provides a flexible, yet simple to use power that can support for many tasks like summarizing, expanding, creating headlines, rewriting text or generating excerpts from text, generating ideas or even answering questions about a page.&lt;br>&lt;/p>"/>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The translation assistant simplifies the process of translating text attributes into different languages. With just a few clicks, users can access the Translation Dialog within Composum Pages to view and manage translations for various languages. This feature streamlines the localization process and enhances the user experience for multilingual websites.&lt;/p>&lt;p>The category assistant helps with selecting SEO keywords based on the content of a page. By providing intelligent suggestions and options for categorizing pages, Composum AI optimizes the SEO potential of each page, improving its visibility and search engine rankings.&lt;/p>&lt;p>The integration of generative AI into Composum Pages empowers content creators to generate and optimize content more efficiently. Technical details, specifications and so forth you can find on the&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>project's Github repository&lt;/a>&lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>&lt;/a>.&lt;/p>"/>
+                </column-1>
+            </row_169271960>
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-6--6-"
+                    title="How to access the Composum AI">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="When editing the components in Composum, there are a couple of icons that are present in the title of the fields of the component. A click on one of these icons opens the corresponding dialog."/>
+                    <illustration
+                            jcr:primaryType="cpp:Container"
+                            sling:resourceType="composum/pages/components/composed/illustration">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/ai/dialogs/AI-DialogAccess.png"/>
+                    </illustration>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <teaser_779786357
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="magic"
+                            link="/content/ist/composum/home/pages/editing/Composum-AI"
+                            text="For text fields the content creation assistant offers his help."
+                            title="Content Creation Assistant"/>
+                    <teaser
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="language"
+                            link="/content/ist/composum/home/pages/editing/Composum-AI"
+                            text="If for the given field there is a text in one or more different languages, the translation assistent icon is available,&amp;nbsp;"
+                            title="Translation assistent"/>
+                    <teaser_2102709749
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="tags"
+                            link="/content/ist/composum/home/pages/editing/Composum-AI"
+                            text="When editing page properties, the page category assistant suggests SEO keywords based on the content of the page."
+                            title="Page category assistant"/>
+                </column-1>
+            </row>
+            <row_1162663393
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    anchor="translationAndCategories"
+                    columns="-6--6-"
+                    title="The assistants">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="&lt;p>The Translation Dialog is a feature in Composum Pages that allows users to easily translate text attributes into different languages. When editing a page, users may encounter a text field with a translation icon. By clicking on this icon, the Translation Dialog opens. In the dialog, users can see the texts for all languages that have translations for the selected attribute. If there is only one source language, the translation request is triggered immediately. Users can review the translated text, and then choose to accept it (which populates the text field) or cancel the operation. The dialog includes elements such as a source language selector, a translation display area, accept and cancel buttons, an error message display, and a loading indicator. The Translation Dialog aims to provide a user-friendly and intuitive way for users to efficiently manage translations of text attributes in Composum Pages.&lt;/p>"
+                            title="The translation assistant">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/ai/dialogs/AI-TranslationAssistant.png"/>
+                    </textimage>
+                </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage"
+                            text="The page category assistant displays the current categories along with suggestions of the AI. After the AI suggestions have been generated, you can select or deselect current categories and suggestions as needed, and then save or abort. If you feel the need to add further categories or edit them, please select 'Accept' and use the original page properties dialog for further modification. The page categories can then enhance the SEO potential of the page.&lt;p>&lt;br>&lt;/p>">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/ai/dialogs/AI-PageCategorySuggestions.png"
+                                title="Dialog window for the page category assistant"/>
+                    </textimage>
+                </column-1>
+            </row_1162663393>
+            <row_853679870
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    anchor="contentcreationassistant"
+                    columns="-6--6-"
+                    title="The content creation assistant">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <textimage
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/textimage">
+                        <image
+                                jcr:primaryType="nt:unstructured"
+                                imageRef="/content/ist/composum/assets/ai/dialogs/AI-ContentCreationAssistant.png"/>
+                    </textimage>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>To use the make an excerpt from or rewrite of an existing text, you can copy and paste that text into the existing dialog field and select the text field as base text, or paste it into the content suggestion field and select that as base text, and then specify in the prompt what you want to be done.&lt;/p>&lt;p>The dialog can be maximized to accomodate more text, and there is also a help window accessible with the &quot;?&quot; icon.&lt;/p>&lt;p>If you are not satisfied with the generated text, there are several ways to improve it:&lt;br>&lt;/p>&lt;ul>&lt;li>You can simply retry by pressing the &quot;Generate&quot; button again.&lt;/li>&lt;li>You can add hints to the prompt how the text should be written. For example &quot;Use passive voice and an informative style.&quot; or &quot;Make the text engaging and motivating.&quot;&lt;br>&lt;/li>&lt;/ul>&lt;p>If you want to gerate headlines for a component, you could select the component's text as base text and use the &quot;10 suggestions for headline&quot; prompt. Generally, to get ideas for short texts it can be a good idea to ask the AI to list a number of suggestions.&lt;br>&lt;/p>&lt;p>Even though that's not the primary use of the assistant, you can (creatively) use it to get answers from the AI about general questions, or have it use the page content to answer your questions. Just open the assistant on any text field in the page, use &quot;current page text&quot; as base text or even &quot;no text&quot; and ask away. Of course you might want to press &quot;Cancel&quot; after such use.&lt;/p>"
+                            title="Tipps and Tricks for using the Content Creation Assistant"/>
+                </column-1>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>&#xd;&#xa;&#xd;&#xa;This dialog is currently by far the most powerful and flexible tool Composum AI offers. The user is able to provide a prompt that describes what content should be generated and how it should look like, and can select a source from which to generate.&amp;nbsp;It is possible to select one of a number of predefined prompts and use them as they are or refine them as needed. A press of the &quot;Generate&quot; button triggers the content generation. It's possible to edit the generated text or switch back and forth in a history of generated content for this field, to select the best attempt.&lt;br>&lt;/p>&lt;p>There is also an optional dropdown menu from which text length recommendations can be selected. Additionally, the dialog is resizable to accommodate large amounts of text, and it displays a loading indicator to indicate when the system is processing a prompt.&lt;br>&lt;/p>&lt;br>&#xd;&#xa;&#xd;&#xa;"/>
+                    <text_1435984829
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ol>&lt;li>&lt;p>&lt;strong>Widget:&lt;/strong> The AI is provided with the text contained in the field you were editing.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa; &lt;li>&#xd;&#xa; &lt;p>&lt;strong>Component:&lt;/strong> The text content of the component you were editing, including subcomponents. Useful e.g. for suggesting headlines for components or sections.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa; &lt;li>&#xd;&#xa; &lt;p>&lt;strong>Page:&lt;/strong>&amp;nbsp;The text content of the current page. Useful e.g. for writing summaries, introductions, page descriptions etc.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa; &lt;li>&#xd;&#xa; &lt;p>&lt;strong>Last Output:&lt;/strong>&amp;nbsp;The current content suggestion shown in this dialog, for iterative improvement of a text.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa; &lt;li>&#xd;&#xa; &lt;p>&lt;strong>No Text Added:&lt;/strong> If you like to generate text by just giving the AI some instructions that do not refer to any current text content, this is your choice.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa;&lt;/ol>"
+                            title="Text sources (base text)"/>
+                    <text_1092707487
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The predefined prompts are valuable as they are, but please take them as an inspiration what you can do with the text.&lt;/p>&lt;ul>&#xd;&#xa;&lt;li>&lt;strong>Summarize:&lt;/strong> The selected text is summarized.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Introduction:&lt;/strong> The AI writes an introduction for the text.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Conclusion:&lt;/strong> The AI writes a conclusion for the text.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Expand:&lt;/strong> The AI uses the provided notes as inspiration to write a text that expresses the main ideas and themes present in a businesslike informative style.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Headline:&lt;/strong> The AI writes a headline for the text in a businesslike informative style.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>10 headline suggestions:&lt;/strong> The AI provides10 headline suggestions for the text in a businesslike informative style.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>10 headline + subheadline suggestions:&lt;/strong> The AI provides10 headline and subheading suggestions for the text in a businesslike informative style.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Question:&lt;/strong> The AI answers a question based on the given text.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Improve:&lt;/strong> The AI improves the text into a businesslike informative style, fixing orthographical and grammar errors.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>SEO Description:&lt;/strong> The AI creates a description for a web page with the given text, usable for search engine optimization (SEO).&lt;/li>&lt;/ul>"
+                            title="Predefined prompts"/>
+                </column-0>
+            </row_853679870>
+        </main>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

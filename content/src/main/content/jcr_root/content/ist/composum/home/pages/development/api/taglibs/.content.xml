@@ -7,6 +7,7 @@
     <jcr:content
             jcr:primaryType="cpp:PageContent"
             sling:resourceType="composum/pages/components/page"
+            jcr:description="Overview over the Composum Tag Libraries"
             jcr:title="Composum Taglibs"
             template="/apps/ist/composum/templates/page/content">
         <top
@@ -24,12 +25,32 @@
         </top>
         <main
                 jcr:primaryType="cpp:Container"
-                sling:resourceType="composum/pages/components/container/parsys"/>
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>For JSP develoment, Composum serves special tag libraries that support the easy use of components. These are:&lt;/p>&lt;p>&lt;ul>&lt;li>&lt;a href=&quot;/content/ist/composum/home/pages/development/api/taglibs/cpn&quot;>General Tags&lt;/a>&amp;nbsp;, part of Composum Nodes, which provide access to client libraries, additional variables, links, use of components etc.&lt;/li>&lt;li>&lt;a href=&quot;/content/ist/composum/home/pages/development/api/taglibs/cpp-rendering&quot;>Pages Component Tags&lt;/a>&amp;nbsp;, part of Composum Pages, which support the concise implementation of the component views, and&lt;br>&lt;/li>&lt;li>&lt;a href=&quot;/content/ist/composum/home/pages/development/api/taglibs/cpp-editing&quot;>Pages Editing Tags&lt;/a>&amp;nbsp;(in the same cpp.tld as the Component Tags), which support creating and structuring dialogs to set the properties of components.&lt;br>&lt;/li>&lt;/ul>&lt;p>In many JSPs you will find all of them included for being readily usable at the fingertips of the developer:&lt;br>&lt;/p>&lt;/p>"/>
+                    <codeblock
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            code="&lt;%@page session=&quot;false&quot; pageEncoding=&quot;UTF-8&quot; %>&#xd;&#xa;&lt;%@taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %>&#xd;&#xa;&lt;%@taglib prefix=&quot;sling&quot; uri=&quot;http://sling.apache.org/taglibs/sling/1.2&quot; %>&#xd;&#xa;&lt;%@taglib prefix=&quot;cpn&quot; uri=&quot;http://sling.composum.com/cpnl/1.0&quot; %>&#xd;&#xa;&lt;%@taglib prefix=&quot;cpp&quot; uri=&quot;http://sling.composum.com/cppl/1.0&quot; %>"/>
+                </column-0>
+            </row>
+        </main>
         <navigation
                 jcr:primaryType="nt:unstructured"
                 title="Taglibs"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
     </jcr:content>
     <cpn/>
-    <cpp-editing/>
     <cpp-rendering/>
+    <cpp-editing/>
 </jcr:root>

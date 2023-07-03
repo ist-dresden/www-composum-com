@@ -78,6 +78,8 @@
         </main>
         <navigation
                 jcr:primaryType="nt:unstructured"
-                title="Try it!"/>
+                title="Try it in the cloud!"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>

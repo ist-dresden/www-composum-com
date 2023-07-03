@@ -28,7 +28,7 @@
             <row
                     jcr:primaryType="cpp:Container"
                     sling:resourceType="composum/pages/components/container/row"
-                    columns="-12-">
+                    columns="-6--6-">
                 <column-0
                         jcr:primaryType="cpp:Container"
                         sling:resourceType="composum/pages/components/container/row/column">
@@ -39,8 +39,28 @@
                     <text
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/text"
-                            text="&lt;p>&lt;ul>&lt;li>assetfield&lt;/li>&lt;li>checkbox&lt;/li>&lt;li>checkselect&lt;/li>&lt;li>clientlib&lt;/li>&lt;li>codearea&lt;/li>&lt;li>combobox&lt;/li>&lt;li>datefield&lt;/li>&lt;li>datetimefield&lt;/li>&lt;li>dimension&lt;/li>&lt;li>email&lt;/li>&lt;li>fileupload&lt;/li>&lt;li>hidden&lt;/li>&lt;li>iconcombobox&lt;/li>&lt;li>imagefield&lt;/li>&lt;li>linkfield&lt;/li>&lt;li>multicheck&lt;/li>&lt;li>multiselect&lt;/li>&lt;li>multiwidget&lt;/li>&lt;li>numberfield&lt;/li>&lt;li>pathfield&lt;/li>&lt;li>position&lt;/li>&lt;li>radio&lt;/li>&lt;li>radiolist&lt;/li>&lt;li>richtext&lt;/li>&lt;li>select&lt;/li>&lt;li>slider&lt;/li>&lt;li>static&lt;/li>&lt;li>textarea&lt;/li>&lt;li>textfield&lt;/li>&lt;li>timefield&lt;/li>&lt;li>videofield&lt;/li>&lt;/ul>&lt;/p>"/>
+                            text="Each dialog consists of widgets for presenting the dialog fields to the user. Composum provides a number of widget types, ranging from simple text fields to file uploads, assets selectors and calendars. But of course, it is possible to extend these as needed, or develop new widgets."/>
+                    <codeblock_1285204157
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/codeblock"
+                            bordered="{Boolean}true"
+                            codeRef="/libs/composum/pages/components/element/iframe/edit/dialog/dialog.jsp"
+                            collapsed="medium"
+                            collapsible="{Boolean}true"
+                            copyright="the dialog of the 'iFrame' component"
+                            language="jsp"
+                            showLanguage="{Boolean}true"
+                            title="Dialog example with various widget types"/>
                 </column-0>
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text1
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>&lt;/p>&lt;ul>&lt;li>assetfield&lt;/li>&lt;li>checkbox&lt;/li>&lt;li>checkselect&lt;/li>&lt;li>clientlib&lt;/li>&lt;li>codearea&lt;/li>&lt;li>combobox&lt;/li>&lt;li>datefield&lt;/li>&lt;li>datetimefield&lt;/li>&lt;li>dimension&lt;/li>&lt;li>email&lt;/li>&lt;li>fileupload&lt;/li>&lt;li>hidden&lt;/li>&lt;li>iconcombobox&lt;/li>&lt;li>imagefield&lt;/li>&lt;li>linkfield&lt;/li>&lt;li>multicheck&lt;/li>&lt;li>multiselect&lt;/li>&lt;li>multiwidget&lt;/li>&lt;li>numberfield&lt;/li>&lt;li>pathfield&lt;/li>&lt;li>position&lt;/li>&lt;li>radio&lt;/li>&lt;li>radiolist&lt;/li>&lt;li>richtext&lt;/li>&lt;li>select&lt;/li>&lt;li>slider&lt;/li>&lt;li>static&lt;/li>&lt;li>textarea&lt;/li>&lt;li>textfield&lt;/li>&lt;li>timefield&lt;/li>&lt;li>videofield&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                            title="Available dialog widget types"/>
+                </column-1>
             </row>
         </main>
         <navigation

@@ -64,6 +64,17 @@
                         sling:resourceType="composum/pages/components/element/image"
                         imageRef="/content/ist/composum/assets/background/history_of_pi.jpg"/>
             </teaser-03>
+            <teaser
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/teaser"
+                    link="/content/ist/composum/home/pages/editing/Composum-AI"
+                    text="&lt;p>&lt;/p>&lt;ul>&lt;li>Supports content creation with artificial intelligence&lt;/li>&lt;li>Assistants for content creation, translation, and page categorization&lt;/li>&lt;li>Translation Dialog for easy translation of text attributes into different languages&lt;/li>&lt;li>Page category assistant suggests SEO keywords based on page content&lt;/li>&lt;li>Content creation assistant provides tips and tricks for generating and improving text&lt;/li>&lt;/ul>&lt;p>&lt;/p>"
+                    title="Composum AI"
+                    variation="bgimage">
+                <image
+                        jcr:primaryType="nt:unstructured"
+                        imageRef="/content/ist/composum/assets/background/apres_midi_dun_faune.jpg"/>
+            </teaser>
         </stage>
         <navigation
                 jcr:primaryType="nt:unstructured"
@@ -229,15 +240,15 @@
                                         type="roundrect"/>
                             </annotation>
                         </illustration-01>
-                        <text_553173455
-                                jcr:primaryType="cpp:Element"
-                                sling:resourceType="composum/pages/components/element/text"
-                                text="&lt;p>The Composum Pages CMS supports:&lt;/p>&lt;ul>&lt;li>publishing of site releases with a 'public and &amp;nbsp;'preview' stage&lt;/li>&lt;li>internationalization on the property and/or the page level&lt;/li>&lt;li>a modularised organisation of client side resources (CSS, JS)&lt;/li>&lt;li>content structure templates and page content design rules&lt;/li>&lt;li>custom content components available in the CMS editing user interface&lt;/li>&lt;li>the extension of the CMS user interface using Sling components&lt;/li>&lt;/ul>"/>
                     </section>
                 </column-0>
                 <column-1
                         jcr:primaryType="cpp:Container"
                         sling:resourceType="composum/pages/components/container/row/column">
+                    <text_553173455
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Composum Pages CMS supports:&lt;/p>&lt;ul>&lt;li>publishing of site releases with a 'public and &amp;nbsp;'preview' stage&lt;/li>&lt;li>internationalization on the property and/or the page level&lt;/li>&lt;li>a modularised organisation of client side resources (CSS, JS)&lt;/li>&lt;li>content structure templates and page content design rules&lt;/li>&lt;li>custom content components available in the CMS editing user interface&lt;/li>&lt;li>the extension of the CMS user interface using Sling components&lt;/li>&lt;li>AI support for the editor&lt;/li>&lt;/ul>"/>
                     <teaser
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/teaser"
@@ -252,6 +263,13 @@
                             link="/content/ist/composum/home/pages/editing/sites"
                             text="&lt;p>The content of a site is published by releases. A release in Composum Pages is a view of the content tree with references to the page versions wich are part of the release. The releases are managend in the site tools.&lt;/p>"
                             title="Content Releases"/>
+                    <teaser_1220510308
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="lightbulb-o"
+                            link="/content/ist/composum/home/pages/editing/Composum-AI"
+                            text="The optional Composum-AI&amp;nbsp;supports the editor with translations, keyword suggestions, and a multi purpose content creation dialog to create content for edited text fields according to an user supplied or predefined prompt from existing text of the page or component. With the content creation dialog it is possible to collect ideas and text fragments for summaries, topical extracts, overviews, or just request suggestions to reformulate or expand text fragments, ... Your imagination is the limit."
+                            title="AI Support"/>
                 </column-1>
             </row-2>
             <row

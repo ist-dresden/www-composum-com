@@ -7,7 +7,8 @@
     <jcr:content
             jcr:primaryType="cpp:PageContent"
             sling:resourceType="composum/pages/components/page"
-            jcr:title="Servlets"
+            jcr:description="An excerpt of the operations provided by the Node Servlet."
+            jcr:title="Pages Node Servlet"
             template="/apps/ist/composum/templates/page/content">
         <top
                 jcr:primaryType="cpp:Container"
@@ -155,6 +156,8 @@
                 sling:resourceType="composum/pages/components/container/iparsys"/>
         <navigation
                 jcr:primaryType="nt:unstructured"
-                title="Node"/>
+                title="Node Servlet"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>

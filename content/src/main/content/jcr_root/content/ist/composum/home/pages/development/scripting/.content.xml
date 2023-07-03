@@ -14,7 +14,22 @@
                 sling:resourceType="composum/pages/components/container/parsys"/>
         <main
                 jcr:primaryType="cpp:Container"
-                sling:resourceType="composum/pages/components/container/parsys"/>
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-"
+                    title="Scripting in Composum">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>When developing components for Composum Pages, you have various options for scripting languages to bring your designs to life. The default choice is using JavaServer Pages (JSP), which offers seamless integration with Java Models and JSP tag libraries such as the standard tag libraries and &lt;a href=&quot;/content/ist/composum/home/pages/development/api/taglibs&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>Composum JSP tag libraries&lt;/a>, of course supported with Javascript and CSS or SCSS, as needed. This is the style used in the Composum Platform implementation itself or, for that matter, this site.&lt;br>&lt;br>However, Composum is build on top of Apache Sling, which means you can also leverage other scripting languages like Groovy for your projects. For instance, we have created a special, though somewhat preliminary, &lt;a href=&quot;/content/ist/composum/home/pages/development/scripting/htl&quot;>Composum support for using HTL &lt;/a>&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;>(HTML Template Language)&lt;/span>.&lt;/p>"/>
+                </column-0>
+            </row>
+        </main>
         <bottom
                 jcr:primaryType="cpp:Container"
                 sling:resourceType="composum/pages/components/container/iparsys"/>

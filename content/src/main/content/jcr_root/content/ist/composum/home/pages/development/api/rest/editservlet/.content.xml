@@ -7,6 +7,7 @@
     <jcr:content
             jcr:primaryType="cpp:PageContent"
             sling:resourceType="composum/pages/components/page"
+            jcr:description="An excerpt of the operations provided by the Edit Servlet."
             jcr:title="Pages Edit Servlet"
             template="/apps/ist/composum/templates/page/content">
         <top
@@ -100,6 +101,8 @@
                 sling:resourceType="composum/pages/components/container/iparsys"/>
         <navigation
                 jcr:primaryType="nt:unstructured"
-                title="Edit"/>
+                title="Edit Servlet"/>
+        <style
+                jcr:primaryType="nt:unstructured"/>
     </jcr:content>
 </jcr:root>

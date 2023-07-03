@@ -6,7 +6,7 @@
         jcr:title="Content incubator">
     <testservletcomp/>
     <componentexamples/>
-    <tmp/>
     <slides/>
     <emptypage/>
+    <lizensierung/>
 </jcr:root>

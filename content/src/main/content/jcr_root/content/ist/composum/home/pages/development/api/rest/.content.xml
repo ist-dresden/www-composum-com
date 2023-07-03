@@ -14,7 +14,21 @@
                 sling:resourceType="composum/pages/components/container/parsys"/>
         <main
                 jcr:primaryType="cpp:Container"
-                sling:resourceType="composum/pages/components/container/parsys"/>
+                sling:resourceType="composum/pages/components/container/parsys">
+            <row
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="Much of the editor is controlled by two servlets: the &lt;a href=&quot;/content/ist/composum/home/pages/development/api/rest/nodeservlet&quot;>NodeServlet&lt;/a>, which serves for inspecting and manipulating the page tree,&amp;nbsp;and the &lt;a href=&quot;/content/ist/composum/home/pages/development/api/rest/editservlet&quot;>EditServlet&lt;/a>, which is used to display dialogs. Both of them follow the REST pattern."/>
+                </column-0>
+            </row>
+        </main>
         <bottom
                 jcr:primaryType="cpp:Container"
                 sling:resourceType="composum/pages/components/container/iparsys"/>
