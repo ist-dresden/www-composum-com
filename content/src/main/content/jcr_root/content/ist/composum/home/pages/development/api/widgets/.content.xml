@@ -44,7 +44,7 @@
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/codeblock"
                             bordered="{Boolean}true"
-                            codeRef="/libs/composum/pages/components/element/iframe/edit/dialog/dialog.jsp"
+                            codeRef="/content/ist/composum/libs/composum/pages/components/element/iframe/edit/dialog/dialog.jsp"
                             collapsed="medium"
                             collapsible="{Boolean}true"
                             copyright="the dialog of the 'iFrame' component"

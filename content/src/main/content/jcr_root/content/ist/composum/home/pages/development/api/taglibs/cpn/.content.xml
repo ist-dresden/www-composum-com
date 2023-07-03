@@ -16,6 +16,7 @@
             <taglib
                     jcr:primaryType="cpp:Container"
                     sling:resourceType="ist/composum/components/documentation/taglib"
+                    jcr:description="These are general tags contained in Composum Nodes that can be used in rendering pages and dialogs, and are used widely in the various parts of the Composum Platform itself."
                     jcr:title="Composum Nodes Taglib"
                     key="cpn">
                 <column-0
@@ -558,5 +559,4 @@
                 jcr:primaryType="nt:unstructured"
                 title="General Tags"/>
     </jcr:content>
-    <_x002e_DS_Store/>
 </jcr:root>

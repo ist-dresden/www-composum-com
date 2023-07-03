@@ -32,10 +32,12 @@
         <main
                 jcr:primaryType="cpp:Container"
                 sling:resourceType="composum/pages/components/container/parsys">
-            <search
+            <newest
                     jcr:primaryType="cpp:Element"
-                    sling:resourceType="composum/pages/options/blog/components/collection/search"
-                    period="about"/>
+                    sling:resourceType="composum/pages/options/blog/components/collection/newest">
+                <meta
+                        jcr:primaryType="nt:unstructured"/>
+            </newest>
         </main>
         <aside
                 jcr:primaryType="cpp:Container"

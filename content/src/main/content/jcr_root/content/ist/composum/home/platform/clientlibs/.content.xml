@@ -586,5 +586,4 @@
                 jcr:primaryType="nt:unstructured"
                 title="Clientlibs"/>
     </jcr:content>
-    <implementation/>
 </jcr:root>

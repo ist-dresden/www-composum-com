@@ -168,6 +168,5 @@
                 title="Replication"/>
     </jcr:content>
     <replicationservlets/>
-    <replicationimplementation/>
     <credentialservice/>
 </jcr:root>

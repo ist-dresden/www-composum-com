@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/components/page/redirect"
+            sling:target="https://www.ist-software.com/"
+            jcr:title="About us"
+            template="/apps/ist/composum/templates/page/redirect">
+        <i18n
+                jcr:primaryType="nt:unstructured">
+            <de
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Über uns">
+                <navigation
+                        jcr:primaryType="nt:unstructured"/>
+            </de>
+        </i18n>
+        <navigation
+                jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

@@ -153,8 +153,6 @@
                 theme="ist/composum/themes/book"/>
     </jcr:content>
     <sites/>
-    <pages/>
-    <internationalisation/>
     <policies/>
     <Composum-AI/>
 </jcr:root>
