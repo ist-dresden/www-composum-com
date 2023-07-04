@@ -1,6 +1,6 @@
 # Builds and deploys the branch to the Github package repository.
 # Compare https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
-name: Build and Deploy on Github packages
+name: Build and Deploy on Github packages (run from public!)
 run-name: Build and Deploy on Github packages from ${{ github.ref_name }}
 
 on:
