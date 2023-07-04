@@ -13,6 +13,8 @@ jobs:
 
     env:
       MVNCMD: mvn -B -ntp -s .github/settings-istrepo.xml
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_ACTOR: ${{ github.actor }}
 
     steps:
       - uses: actions/checkout@v3
@@ -50,5 +52,3 @@ jobs:
 
       - name: Deploy with Maven to Github Package Repository of www-composum-com
         run: $MVNCMD deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
