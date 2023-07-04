@@ -15,6 +15,11 @@
     <name>Composum Site Mapping</name>
     <description>resolver mapping settings for the Composum site</description>
 
+    <properties>
+        <!-- Skip deployment for this package, since that's too risky if not done manually and is not useful for anybody except the exact site www.composum.com -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
     <build>
         <resources>
 
