@@ -23,8 +23,8 @@
 		<!-- OSSRH deliberately omitted since that belongs to the projectspecific repo on Github, not maven central. -->
 		<server>
 			<id>github</id>
-			<username>ist-dresden</username>
-			<password>${GITHUB_TOKEN}</password>
+			<username>${env.GITHUB_ACTOR}</username>
+			<password>${env.GITHUB_TOKEN}</password>
 		</server>
 	</servers>
 
