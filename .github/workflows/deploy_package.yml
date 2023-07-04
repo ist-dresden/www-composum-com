@@ -1,0 +1,54 @@
+# Builds and deploys the branch to the Github package repository.
+# Compare https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
+name: Build and Deploy on Github packages
+run-name: Build and Deploy on Github packages from ${{ github.ref_name }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 3
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      # TODO currently maven 3.9.0 creates an error in the maven-minify-plugin , so we use 3.8.7 as workaround
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4.5
+        with:
+          maven-version: 3.8.7
+
+      - name: Git & Maven Status
+        run: |
+          git status --untracked-files --ignored
+          git log -3 --no-color
+          mvn -version
+          pwd
+          find . -name 'settings*xml'
+          find /home/runner/work/ -name 'settings*xml'
+
+      - name: Mvn Effective POM
+        run: mvn -B -ntp -s .github/settings-istrepo.xml -N help:effective-pom
+
+      - name: Mvn Effective Settings
+        run: mvn -B -ntp -s .github/settings-istrepo.xml -N help:effective-settings
+
+      - name: Build with Maven
+        # When parent-2:1.7 is active, -P ensureSnapshots will do a sanity check of the version number
+        run: mvn -B -ntp -s .github/settings-istrepo.xml install
+
+      - name: Deploy with Maven to Github Package Repository of www-composum-com
+        run: mvn -B -X -ntp -s .github/settings-istrepo.xml deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
