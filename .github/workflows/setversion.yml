@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SUBDIR: ${{ github.event.inputs.subdir }}
-      MVNCMD: mvn -B -ntp -s ${{ github.workspace }}/.github/settings-public.xml -P allmodules
+      MVNCMD: mvn -B -ntp -s .github/settings-istrepo.xml -P allmodules
 
     steps:
     - uses: actions/checkout@v3
@@ -90,4 +89,4 @@ jobs:
 
     - name: Push changes
       run: |
-        echo FIXME git push
+        echo git push
