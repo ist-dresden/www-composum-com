@@ -7,6 +7,7 @@ develop components or structure a site using Composum, or just to load it into o
 [Docker image](https://hub.docker.com/repository/docker/composum/featurelauncher-composum) with Composum Pages
 to play around, try how editing works or perhaps have a look at our all new
 [Composum AI](https://github.com/ist-dresden/composum-AI). :-)
+You will find the site at /content/ist/composum/home in Pages.
 
 Please keep in mind that this is only sometimes updated from
 [www.composum.com](https://www.composum.com/), so the better source for information is there.
