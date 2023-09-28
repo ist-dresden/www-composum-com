@@ -7,9 +7,9 @@
     <jcr:content
             jcr:primaryType="cpp:PageContent"
             sling:resourceType="composum/pages/options/blog/components/page/article"
-            jcr:description="We announce the new release of the new Composum-AI module that brings AI text generation capabilities into Composum Pages. It is available in the public releases of Composum and and on &lt;a href=&quot;https://cloud.composum.com/&quot; target=&quot;_new&quot;>cloud.composum.com&lt;/a>&amp;nbsp;. Details are in the &lt;a href=&quot;/content/ist/composum/home/pages/editing/Composum-AI&quot;>usage documentation&lt;/a>&amp;nbsp;and on the &lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>project homepage on Github&lt;/a>."
+            jcr:description="&lt;p>The Composum AI is a module that brings AI text generation and analysis capabilities into Composum Pages. In 4 dialogs that can support generating keywords, translation, text content generation and page text review and various other operation modi, including a chat with the AI if needed. This blog gives a short tour with some examples. You can try it out yourself!&lt;br>&lt;br>More documentation &lt;a href=&quot;/content/ist/composum/home/pages/editing/Composum-AI&quot;>is here&lt;/a>, the project homepage is &lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>on Github&lt;/a>.&lt;/p>"
             jcr:title="Composum AI"
-            category="[Composum AI,Composum Pages]"
+            category="[Composum AI,Composum Pages,artificial intelligence,large language models,ChatGPT,AI text analysis,AI text generation]"
             path="/content/ist/composum/home/blog/pages/composumAI/jcr:content"
             template="ist/composum/templates/blog/article">
         <top
@@ -17,7 +17,110 @@
                 sling:resourceType="composum/pages/components/container/iparsys"/>
         <main
                 jcr:primaryType="cpp:Container"
-                sling:resourceType="composum/pages/components/container/parsys"/>
+                sling:resourceType="composum/pages/components/container/parsys">
+            <video
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/video"
+                    autoplay="{Boolean}true"
+                    controls="{Boolean}true"
+                    copyrightUrl="https://www.ist-software.com/"
+                    loop="{Boolean}true"
+                    muted="{Boolean}true"
+                    posterRef="/content/ist/composum/assets/ai/video/QuickDemo-poster.png"
+                    videoRef="/content/ist/composum/assets/ai/video/QuickDemo.mp4"/>
+            <text_1397926618
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Marked with the advent of OpenAI's&amp;nbsp;&lt;a href=&quot;https://chat.openai.com/&quot;>ChatGPT&lt;/a>, the development of artificial intelligence reached a stage where large language models reach often near human level capabilities in using languages, exhibit serious reasoning capabilities and often exhibit an incredible breadth of general knowledge. Composum AI provides a way to use these capabilities integrated into several assistant dialogs. In this blog will give a short tour through these.&lt;/p>"/>
+            <text_1938429205
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>The Composum AI is &lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>publicly available&lt;/a>&amp;nbsp;at MIT licence. Probably the easiest way to try it out is to use our cloud&amp;nbsp;&lt;a href=&quot;https://cloud.composum.com/&quot;>cloud.composum.com&lt;/a>&amp;nbsp;, where you can sign in and try out Composum Pages with the Composum AI. It is also integrated into the&amp;nbsp;&lt;a href=&quot;https://mvnrepository.com/artifact/com.composum.platform.features/composum-launcher-feature-composumstarter&quot;>composumstarter&lt;/a> and into the docker image&amp;nbsp;&lt;a href=&quot;https://hub.docker.com/r/composum/featurelauncher-composum&quot;>composum/featurelauncher-composum&lt;/a>, but both of which do require an &lt;a href=&quot;https://platform.openai.com/account/api-keys&quot;>OpenAI API key&lt;/a> - compare the &lt;a href=&quot;https://github.com/ist-dresden/composum-launch/tree/develop&quot;>Composum AI README&lt;/a> on Github. The docker image has the advantage that you have the &lt;a href=&quot;https://github.com/ist-dresden/www-composum-com&quot;>content of www.composum.com&lt;/a>&amp;nbsp;imported as a site with ample content to play around with. To try it out yourself using docker, that could be as simple as this (login with admin/admin):&lt;/p>"
+                    title="How to try it out yourself"/>
+            <codeblock
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/codeblock"
+                    code="export OPENAI_API_KEY=&quot;(your api key)&quot;&#xd;&#xa;docker pull composum/featurelauncher-composum:develop&#xd;&#xa;docker run --rm -p 8080:8080 composum/featurelauncher-composum:develop&#xd;&#xa;open &quot;http://localhost:8080/bin/pages.html/content/ist/composum/home/pages/editing/Composum-AI&quot;"/>
+            <text_678140758
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Composum AI is currently based on the&amp;nbsp;&lt;a href=&quot;https://openai.com/blog/introducing-chatgpt-and-whisper-apis&quot;>OpenAI chat completion API&lt;/a>&amp;nbsp;, but since some users might require more stringent data privacy requirements than OpenAI might provide and because of the rapid technological advances of OpenAI's competitors, the module is structured so that it'll be simple to&amp;nbsp;provide alternative backends. So it would be easy to use e.g&amp;nbsp; &lt;a href=&quot;https://www.anthropic.com/index/introducing-claude&quot;>Anthropic's Claude&lt;/a>&amp;nbsp;(UK) or&amp;nbsp;&lt;a href=&quot;https://bard.google.com/&quot;>Google's Bard&lt;/a>&amp;nbsp;or&amp;nbsp;&lt;a href=&quot;https://www.aleph-alpha.com/luminous&quot; style=&quot;background-color: rgb(255, 255, 255);&quot;>Aleph's Luminous&lt;/a>, once they are publicly available.&lt;br>&lt;br>The frontend is integrated with Composum Pages, but the functionality is generic enough to lend itself to be easily ported to other CMS like Adobes AEM or others.&lt;/p>"
+                    title="Technology"/>
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="The functionality">
+                <textimage_788822380
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="right"
+                        text="&lt;p>When you are editing a field in a component in Pages, there are, depending on the field type, some icons on the right side of the line with the field label. For text fields there is a magic wand for the content creation dialog, but there can also be the translate symbol if there is a text in an alternative language available, from which a translation could be triggered. There is also a special 'tags' symbol on the page categories that calls the page category assistant.&amp;nbsp;&lt;/p>&lt;p>The Sidebar AI can be found in the right &lt;a href=&quot;/content/ist/composum/home/pages&quot;>&quot;context tools&quot; sidebar&lt;/a>&amp;nbsp;under the tab with the 'chat' symbol.&lt;/p>"
+                        title="How to access the dialogs">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            alt="Picture of a component editing dialog"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-DialogAccess.png"/>
+                </textimage_788822380>
+                <textimage
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="left"
+                        text="&lt;p>When editing components, the translation dialog allows quickly selecting a source language (if there are several) and retrieving a translation into the edited component field, which can then be adapted as needed.&lt;/p>"
+                        title="The translation assistant">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            alt="Picture of the translation assistant"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-TranslationAssistant.png"
+                            title="The translation assistant"/>
+                </textimage>
+                <textimage_1494056702
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="right"
+                        text="As a productivity tool, the page category assistant can help you selecting page categories for SEO optimization based on the text content of the page. It lists current and some suggested categories and let's you check which you like to be applied."
+                        title="The page category assistant">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            alt="Picture of the page category dialog"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-PageCategorySuggestions.png"
+                            title="Page category dialog"/>
+                </textimage_1494056702>
+                <textimage_503488980
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="left"
+                        text="&lt;p>This dialog provides access to a powerful and flexible tool the Composum AI offers for creating content.&amp;nbsp;&lt;/p>&lt;p>First, it allows you to select a base text for the AI to draw from. That can be the text field you were editing when calling up the dialog, it can be the text content of the component you were editing or the text content of the current page. But you can also take the last output of the AI, to have it refine the text iteratively, or just describe what you need without providing any additional base text.&lt;/p>&lt;p>Then you can either select one from a range of predefined prompts, like Summarize, Introduction, Conclusion, Expand, Headline suggestions, Improve, ..., and apply these. You are invited to modify or extend the prompt you selected, or create your entirely own request to the AI.&lt;/p>&lt;p>A history in the dialog supports you to switch back and forth between your requests, so it's easy to retry and switch back if the first generated text was better.&lt;/p>&lt;p>As the last step, you can replace the edited component field by the generated text, or append it for further editing.&lt;/p>"
+                        title="The content creation assistant">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-ContentCreationAssistant.png"/>
+                </textimage_503488980>
+                <textimage_300310498
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="left"
+                        text="&lt;p>The Sidebar AI is a complement to the content creation assistant whose&amp;nbsp;primary focus is not on content generation, but employing the AI's reasoning capabilities to generate reports about the text content of the page or individual components. Its purpose is to assist you in improving the content or seek explanations through a chat with the AI.&lt;/p>&lt;p>Similar to the Content Creation Assistant, the Sidebar AI enables you to select a base text for the AI to work with, such as the current page's text, or the text content of a selected component along with its subcomponents. Then you can either select one of a range of predefined prompts, or write your own request to the AI. The predefined prompts range from text / content flow review, suggestions for simplification, to suggestions for &quot;call to action&quot; phrases, and, of course, you can provide your own. If you are not yet satisfied with the result, you can both modify the prompt and try again, or ask for further refinement or additional information in a chat like fashion.&lt;br>&lt;/p>"
+                        title="The Sidebar AI">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-Sidebar-AI.png"/>
+                </textimage_300310498>
+            </section>
+            <section_60010062
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section">
+                <text_1096827454
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Of course, I've been employing this for writing documentations at www.composum.com. I'd like to share some examples where I found it very useful.&lt;/p>&lt;p>What I found amazing is how nicely you can use it as a &quot;content transformation&quot; tool. For instance, I've got files in JSON format that &lt;a href=&quot;https://github.com/ist-dresden/composum-AI/blob/develop/composum/bundle/src/main/resources/create/predefinedprompts.json&quot;>contain the predefined prompts&lt;/a>, and wanted to document what these do. So I copied that into the text field of the editor, and asked it to &quot;Make bullet points (HTML unordered list), keys in bold, values should be turned into a description what the AI does when executing the prompt&quot;. And there it was.&lt;/p>&lt;p>Something like &quot;Convert this text from markdown to HTML: &quot; (with text appended and &quot;no text added&quot; base text selection) can be pretty useful as well - especially if there are many links in the converted text.&lt;/p>&lt;p>Or, to create a quite good initial dialog description I just copied a large part of the&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/composum-AI/blob/develop/featurespecs/1ContentCreationDialog.md&quot;>feature specification&lt;/a> into the text field and prompted &quot;Describe the dialog from the users perspective. Use passive voice and a businesslike informative style.&quot;&amp;nbsp;&lt;/p>&lt;p>Of course, you might want to edit that to fit your personal style, preferences and what exactly you want to convey, but it's a marvellous way to make a quick first structure of the page, collect ideas and phrases, or see what you've missed, and many of the texts are rather good.&lt;/p>&lt;p>The Sidebar AI did help me find a number of typos I missed (though that is admittedly troublesome with ChatGPT-3.5); what I found very useful was e.g. the content gap analysis or review to find ideas, or the &quot;simplification suggestions&quot; to fight endless sentences like this. :-)&lt;/p>&lt;br>"
+                        title="Some experiences using it"/>
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="The Composum AI module brings you many new abilities for AI text generation and analysis, supported by large language models like ChatGPT in a seamless integration into Composum Pages. Please give it a try, tell us what you think, and enjoy using it creatively for your site!&lt;br>"
+                        title="Conclusion"/>
+            </section_60010062>
+        </main>
         <aside
                 jcr:primaryType="cpp:Container"
                 sling:resourceType="composum/pages/components/container/iparsys"/>
@@ -27,7 +130,7 @@
         <meta
                 jcr:primaryType="nt:unstructured"
                 author="Hans-Peter Störr"
-                date="{Date}2023-06-30T00:00:00.000Z"/>
+                date="{Date}2023-07-12T00:00:00.000Z"/>
         <style
                 jcr:primaryType="nt:unstructured"/>
         <navigation

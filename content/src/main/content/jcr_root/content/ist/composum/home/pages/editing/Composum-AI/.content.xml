@@ -9,6 +9,8 @@
             sling:resourceType="composum/pages/components/page"
             jcr:description="&lt;p>Composum AI is a tool that supports content creation with artificial intelligence. It offers various assistants such as the content creation assistant, translation assistant, and page category assistant to aid in different aspects of editing components in Composum. The Translation Dialog allows users to easily translate text attributes into different languages, while the page category assistant suggests SEO keywords based on the page's content. The content creation assistant provides helpful tips and tricks for generating and improving text, with the ability to specify prompts and select different sources. The text sources include the widget, component, page, last output, and no text added options. Predefined prompts are available for tasks like summarizing, introducing, expanding, generating headlines, answering questions, improving the text, and creating SEO descriptions. Composum AI offers a powerful and flexible tool for generating and optimizing content.&lt;/p>"
             jcr:title="Composum AI"
+            alternatives="[/content/ist/composum/AI.html,/AI.html]"
+            category="[Composum AI,artificial intelligence,translation assistant,generative artificial intelligence,Composum Pages,content creation assistant,large language models,ChatGPT]"
             subtitle="Harness the power of AI text generation"
             template="ist/composum/templates/page/content">
         <top
@@ -39,6 +41,26 @@
                             text="&lt;p>The translation assistant simplifies the process of translating text attributes into different languages. With just a few clicks, users can access the Translation Dialog within Composum Pages to view and manage translations for various languages. This feature streamlines the localization process and enhances the user experience for multilingual websites.&lt;/p>&lt;p>The category assistant helps with selecting SEO keywords based on the content of a page. By providing intelligent suggestions and options for categorizing pages, Composum AI optimizes the SEO potential of each page, improving its visibility and search engine rankings.&lt;/p>&lt;p>The integration of generative AI into Composum Pages empowers content creators to generate and optimize content more efficiently. Technical details, specifications and so forth you can find on the&amp;nbsp;&lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>project's Github repository&lt;/a>&lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot;>&lt;/a>.&lt;/p>"/>
                 </column-1>
             </row_169271960>
+            <row_261928431
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    columns="-12-"
+                    title="A quick demo">
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <video
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/video"
+                            autoplay="{Boolean}true"
+                            controls="{Boolean}true"
+                            copyrightUrl="https://www.ist-software.com/"
+                            loop="{Boolean}true"
+                            muted="{Boolean}true"
+                            posterRef="/content/ist/composum/assets/ai/video/QuickDemo.png"
+                            videoRef="/content/ist/composum/assets/ai/video/QuickDemo.mp4"/>
+                </column-0>
+            </row_261928431>
             <row
                     jcr:primaryType="cpp:Container"
                     sling:resourceType="composum/pages/components/container/row"
@@ -67,15 +89,22 @@
                             sling:resourceType="composum/pages/components/element/teaser"
                             icon="magic"
                             link="/content/ist/composum/home/pages/editing/Composum-AI"
-                            text="For text fields the content creation assistant offers his help."
+                            text="For text fields the content creation assistant offers its help."
                             title="Content Creation Assistant"/>
+                    <teaser_1932221740
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/teaser"
+                            icon="commenting-o"
+                            link="/content/ist/composum/home/pages/editing/Composum-AI"
+                            text="The sidebar AI can support you by reviewing the text of the page under various aspects, find typos or answer questions in a chat."
+                            title="Sidebar AI"/>
                     <teaser
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/teaser"
                             icon="language"
                             link="/content/ist/composum/home/pages/editing/Composum-AI"
-                            text="If for the given field there is a text in one or more different languages, the translation assistent icon is available,&amp;nbsp;"
-                            title="Translation assistent"/>
+                            text="If for the given field there is a text in one or more different languages, the translation assistant icon is available,&amp;nbsp;"
+                            title="Translation assistant"/>
                     <teaser_2102709749
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/teaser"
@@ -137,8 +166,8 @@
                     <text
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/text"
-                            text="&lt;p>To use the make an excerpt from or rewrite of an existing text, you can copy and paste that text into the existing dialog field and select the text field as base text, or paste it into the content suggestion field and select that as base text, and then specify in the prompt what you want to be done.&lt;/p>&lt;p>The dialog can be maximized to accomodate more text, and there is also a help window accessible with the &quot;?&quot; icon.&lt;/p>&lt;p>If you are not satisfied with the generated text, there are several ways to improve it:&lt;br>&lt;/p>&lt;ul>&lt;li>You can simply retry by pressing the &quot;Generate&quot; button again.&lt;/li>&lt;li>You can add hints to the prompt how the text should be written. For example &quot;Use passive voice and an informative style.&quot; or &quot;Make the text engaging and motivating.&quot;&lt;br>&lt;/li>&lt;/ul>&lt;p>If you want to gerate headlines for a component, you could select the component's text as base text and use the &quot;10 suggestions for headline&quot; prompt. Generally, to get ideas for short texts it can be a good idea to ask the AI to list a number of suggestions.&lt;br>&lt;/p>&lt;p>Even though that's not the primary use of the assistant, you can (creatively) use it to get answers from the AI about general questions, or have it use the page content to answer your questions. Just open the assistant on any text field in the page, use &quot;current page text&quot; as base text or even &quot;no text&quot; and ask away. Of course you might want to press &quot;Cancel&quot; after such use.&lt;/p>"
-                            title="Tipps and Tricks for using the Content Creation Assistant"/>
+                            text="&lt;p>To use the make an excerpt from or rewrite of an existing text, you can copy and paste that text into the existing dialog field and select the text field as base text, or paste it into the content suggestion field and select that as base text, and then specify in the prompt what you want to be done.&lt;/p>&lt;p>The dialog can be maximized to accomodate more text, and there is also a help window accessible with the &quot;?&quot; icon.&lt;/p>&lt;p>If you are not satisfied with the generated text, there are several ways to improve it:&lt;br>&lt;/p>&lt;ul>&lt;li>You can simply retry by pressing the &quot;Generate&quot; button again.&lt;/li>&lt;li>You can add hints to the prompt how the text should be written. For example &quot;Use passive voice and an informative style.&quot; or &quot;Make the text engaging and motivating.&quot;&lt;br>&lt;/li>&lt;/ul>&lt;p>If you want to generate headlines for a component, you could select the component's text as base text and use the &quot;10 suggestions for headline&quot; prompt. Generally, to get ideas for short texts it can be a good idea to ask the AI to list a number of suggestions.&lt;br>&lt;/p>&lt;p>Even though that's not the primary use of the assistant, you can (creatively) use it to get answers from the AI about general questions, or have it use the page content to answer your questions. Just open the assistant on any text field in the page, use &quot;current page text&quot; as base text or even &quot;no text&quot; and ask away. Of course you might want to press &quot;Cancel&quot; after such use.&lt;/p>"
+                            title="Tips and Tricks for using the Content Creation Assistant"/>
                 </column-1>
                 <column-0
                         jcr:primaryType="cpp:Container"
@@ -146,7 +175,7 @@
                     <text
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/text"
-                            text="&lt;p>&#xd;&#xa;&#xd;&#xa;This dialog is currently by far the most powerful and flexible tool Composum AI offers. The user is able to provide a prompt that describes what content should be generated and how it should look like, and can select a source from which to generate.&amp;nbsp;It is possible to select one of a number of predefined prompts and use them as they are or refine them as needed. A press of the &quot;Generate&quot; button triggers the content generation. It's possible to edit the generated text or switch back and forth in a history of generated content for this field, to select the best attempt.&lt;br>&lt;/p>&lt;p>There is also an optional dropdown menu from which text length recommendations can be selected. Additionally, the dialog is resizable to accommodate large amounts of text, and it displays a loading indicator to indicate when the system is processing a prompt.&lt;br>&lt;/p>&lt;br>&#xd;&#xa;&#xd;&#xa;"/>
+                            text="&lt;p>&#xd;&#xa;&#xd;&#xa;This dialog is probably the most powerful and flexible tool Composum AI offers. The user is able to provide a prompt that describes what content should be generated and how it should look like, and can select a source from which to generate.&amp;nbsp;It is possible to select one of a number of predefined prompts and use them as they are or refine them as needed. A press of the &quot;Generate&quot; button triggers the content generation. It's possible to edit the generated text or switch back and forth in a history of generated content for this field, to select the best attempt.&lt;br>&lt;/p>&lt;p>There is also an optional dropdown menu from which text length recommendations can be selected. Additionally, the dialog is resizable to accommodate large amounts of text, and it displays a loading indicator to indicate when the system is processing a prompt.&lt;br>&lt;/p>&lt;br>&#xd;&#xa;&#xd;&#xa;"/>
                     <text_1435984829
                             jcr:primaryType="cpp:Element"
                             sling:resourceType="composum/pages/components/element/text"
@@ -159,6 +188,49 @@
                             title="Predefined prompts"/>
                 </column-0>
             </row_853679870>
+            <row_1273279444
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/row"
+                    anchor="sidebarai"
+                    columns="-6--6-"
+                    title="The Sidebar AI">
+                <column-1
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <image
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/image"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AI-Sidebar-AI.png"/>
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>Currently, ChatGPT has some trouble with some of the prompts, especially proofreading (though it can help even there) - it might be necessary to retry sending the prompt.&lt;br>&lt;/p>"
+                            title="Tips and Tricks for the Sidebar AI"/>
+                </column-1>
+                <column-0
+                        jcr:primaryType="cpp:Container"
+                        sling:resourceType="composum/pages/components/container/row/column">
+                    <text
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>The Sidebar AI can serve as a complementary addition to the content creation assistant. It's primary focus is not so much content creation, but to use the AI to generate reports about the text content of the page or individual components that can help you improve it, or provide you with the possibility to ask questions about it's responses in a chat format.&lt;br>&lt;/p>&lt;p>There is also a number of predefined prompts you could select, but you are invited to modify them or write your own requests to the AI. The dialog also has a history, which is specific to the displayed page.&lt;/p>"/>
+                    <text_1435984829
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;ol>&lt;li>&lt;p>&lt;strong>Page:&lt;/strong>&amp;nbsp;The text content of the current page.&lt;/p>&#xd;&#xa; &lt;/li>&#xd;&#xa; &lt;li>&#xd;&#xa; &lt;p>&lt;strong>Component:&lt;/strong> The text content of the selected component including subcomponents.&lt;/p>&lt;/li>&#xd;&#xa;&lt;/ol>"
+                            title="Text sources (base text)"/>
+                    <text_1092707487
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="&lt;p>We collected a number of prompts that might be useful for you when improving the text. As always, please feel free to extend / clarify / refine them, or to write your own requests. Among them are&lt;/p>&lt;ul>&lt;li>&lt;strong>Review:&lt;/strong> The text is checked for good text flow, contradictions, repetitions, redundancy, etc.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Content Flow:&lt;/strong>&amp;nbsp;Checks for problems with the flow of the tex&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Question:&lt;/strong> The AI answers a question based on the provided text.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>10 headline suggestions:&lt;/strong> Ten headline suggestions for the text are generated using a businesslike informative style.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Summary:&lt;/strong> A brief summary of the main points and themes in the text is generated.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Simplification Suggestions: &lt;/strong>Identifies parts of the text that could be simplified and provides alternative suggestions..&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>CTA Suggestions:&lt;/strong> Five distinct call-to-action (CTA) phrases are suggested to motivate further engagement with the content or brand.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Content Gap Analysis:&lt;/strong>&amp;nbsp;Tries to identify relevant topics or subtopics that are not covered.&lt;/li>&#xd;&#xa;&lt;li>&lt;strong>Relevance Evaluation:&lt;/strong> The content of the text is evaluated to determine if it is relevant to a specific topic or purpose.&lt;/li>&lt;li>&lt;strong>Proofread:&lt;/strong> The text is checked for spelling, grammar, punctuation errors. This might need a couple of retries, though.&lt;br>&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;"
+                            title="Predefined prompts"/>
+                    <text_1875373284
+                            jcr:primaryType="cpp:Element"
+                            sling:resourceType="composum/pages/components/element/text"
+                            text="In this dialog there are several ways to improve the result. It is possible to edit the prompt and resend it (or even just retry), and it is possible to use a chat to ask further questions about the response and have the AI elaborate. At the bottom of reach response appears a new prompt input field, where it's possible to continue in a conversation. There is, however, a limit in the length of conversations, so it's better to start fresh when the topic is changed. You can always go back using the history, and even continue the old conversation, which will be saved as a new history entry."
+                            title="Using the Chat feature"/>
+                </column-0>
+            </row_1273279444>
         </main>
         <bottom
                 jcr:primaryType="cpp:Container"
