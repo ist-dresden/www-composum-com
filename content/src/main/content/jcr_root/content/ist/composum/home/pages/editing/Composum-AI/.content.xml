@@ -8,8 +8,8 @@
             jcr:primaryType="cpp:PageContent"
             sling:resourceType="composum/pages/components/page"
             jcr:description="&lt;p>Composum AI is a tool that supports content creation with artificial intelligence. It offers various assistants such as the content creation assistant, translation assistant, and page category assistant to aid in different aspects of editing components in Composum. The Translation Dialog allows users to easily translate text attributes into different languages, while the page category assistant suggests SEO keywords based on the page's content. The content creation assistant provides helpful tips and tricks for generating and improving text, with the ability to specify prompts and select different sources. The text sources include the widget, component, page, last output, and no text added options. Predefined prompts are available for tasks like summarizing, introducing, expanding, generating headlines, answering questions, improving the text, and creating SEO descriptions. Composum AI offers a powerful and flexible tool for generating and optimizing content.&lt;/p>"
-            jcr:title="Composum AI"
-            alternatives="[/content/ist/composum/AI.html,/AI.html]"
+            jcr:title="Editing with the Composum AI"
+            alternatives="/AI.html"
             category="[Composum AI,artificial intelligence,translation assistant,generative artificial intelligence,Composum Pages,content creation assistant,large language models,ChatGPT]"
             subtitle="Harness the power of AI text generation"
             template="ist/composum/templates/page/content">
@@ -237,5 +237,8 @@
                 sling:resourceType="composum/pages/components/container/iparsys"/>
         <style
                 jcr:primaryType="nt:unstructured"/>
+        <navigation
+                jcr:primaryType="nt:unstructured"
+                title="Composum AI"/>
     </jcr:content>
 </jcr:root>

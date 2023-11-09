@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/sequence"
+            jcr:description="Composum modules for the Adobe Experience Manager"
+            jcr:title="Adobe AEM"
+            template="ist/composum/templates/blog/sequence">
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys">
+            <siblings
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="/libs/composum/pages/components/navigation/siblings"/>
+        </bottom>
+    </jcr:content>
+    <composumAI-AEM/>
+</jcr:root>

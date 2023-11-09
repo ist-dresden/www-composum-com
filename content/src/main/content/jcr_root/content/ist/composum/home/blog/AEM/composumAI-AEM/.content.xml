@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cpp="http://sling.composum.com/pages/1.0"
+        xmlns:jcr="http://www.jcp.org/jcr/1.0"
+        xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+        jcr:primaryType="cpp:Page">
+    <jcr:content
+            jcr:primaryType="cpp:PageContent"
+            sling:resourceType="composum/pages/options/blog/components/page/article"
+            jcr:description="&lt;p>Composum AI for AEM extends Adobe AEM by providing a Content Creation Dialog that is accessible via the toolbar of richtext editors as well es text areas in dialogs, and with a Side panel AI that is geared for content analysis of the page including a chat feature. This blog gives a tour with some examples. You can try it out yourself - it is publicly available as installable package and is open source (MIT license).&lt;/p>"
+            jcr:title="Composum AI für Adobe AEM"
+            path="/content/ist/composum/home/blog/AEM/composumAI-AEM/jcr:content"
+            template="ist/composum/templates/blog/article">
+        <top
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <main
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/parsys">
+            <text
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Large language models like &lt;a href=&quot;https://chat.openai.com/&quot;>ChatGPT&lt;/a>&amp;nbsp;increasingly provide often near human level capabilities in using languages, and exhibit serious reasoning capabilities and offer an incredible breadth of general knowledge. The Composum AI provides the editor in Adobe AEM with a seamless integration that allows analysing content, content generation and transformation according to the users wishes. It integrates two assistant dialogs with different focus and capabilities. Both of them offer a library with various prompt examples that can be used as is or modified into processing / analysis instructions to process page parts or the whole page text, or external texts into summaries, introductions, conclusions, rewrite texts, generate suggestions for extending texts, phrases, headlines and so forth.&lt;/p>"/>
+            <text_377050055
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="The Composum AI is open source and &lt;a href=&quot;https://github.com/ist-dresden/composum-AI&quot; target=&quot;_new&quot;>publicly available&lt;/a> with a MIT license - compare the &lt;a href=&quot;https://github.com/ist-dresden/composum-AI/releases&quot;>list of releases&lt;/a>. To test it, you can deploy the &lt;a href=&quot;https://central.sonatype.com/artifact/com.composum.ai.aem/composum-ai.all&quot;>package for AEM&lt;/a>&amp;nbsp;on your AEMaaCS development server. A version for Adobe AEM 6.5 &lt;a href=&quot;https://github.com/ist-dresden/composum-AI/issues/31&quot;>is planned&lt;/a>. Since ChatGPT is used as a backend, you need an &lt;a href=&quot;https://platform.openai.com/account/api-keys&quot;>OpenAI API key&lt;/a>&amp;nbsp;- compare the &lt;a href=&quot;https://github.com/ist-dresden/composum-launch/tree/develop&quot;>Composum AI README&lt;/a> on Github. The API key can as an environment variable OPENAI_API_KEY."
+                    title="How to try it out yourself"/>
+            <text_523143419
+                    jcr:primaryType="cpp:Element"
+                    sling:resourceType="composum/pages/components/element/text"
+                    text="&lt;p>Composum AI is currently based on the &lt;a href=&quot;https://openai.com/blog/introducing-chatgpt-and-whisper-apis&quot;>OpenAI chat completion API&lt;/a> , but if some users might require more stringent data privacy requirements than OpenAI might provide even in it's&amp;nbsp;&lt;a href=&quot;https://openai.com/blog/introducing-chatgpt-enterprise&quot;>ChatGPT Enterprise&lt;/a>&amp;nbsp;or&amp;nbsp;&lt;a href=&quot;https://learn.microsoft.com/en-us/azure/ai-services/openai&quot;>Microsoft OpenAI service&lt;/a>&amp;nbsp;form,&amp;nbsp;and because of the rapid technological advances of OpenAI's competitors, the module is structured so that it'll be simple to provide alternative backends. So it would be easy to use e.g  &lt;a href=&quot;https://www.anthropic.com/index/introducing-claude&quot;>Anthropic's Claude&lt;/a> (UK) or &lt;a href=&quot;https://bard.google.com/&quot;>Google's Bard&lt;/a> or &lt;a href=&quot;https://www.aleph-alpha.com/luminous&quot;>Aleph's Luminous&lt;/a>, once they are publicly available.&lt;/p>&lt;br>&lt;p>The frontend is integrated with Adobe AEM as a cloud service; we intend to make it usable on AEM 6.5.x, too. There is a &lt;a href=&quot;/content/ist/composum/home/blog/pages/composumAI&quot;>version for Composum Pages&lt;/a> as well with mostly identical functionality, and the functionality is generic enough to lend itself to be easily ported to other CMS.&lt;/p>"
+                    title="Technology"/>
+            <section
+                    jcr:primaryType="cpp:Container"
+                    sling:resourceType="composum/pages/components/container/section"
+                    jcr:title="The provided functionality">
+                <textimage
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="right"
+                        text="&lt;p>There are two ways to access content creation dialog. If the Composum AI is enabled, you will find a new icon (gears and pen) in the toolbar of richtext editors. It will call up the Content Creation Dialog. The content created with it can then either replace the richtext editor's content and be edited further or the edit be aborted, if needed, or the dialog can be cancelled, returning to an unmodified richtext editor.&lt;/p>&lt;p>The dialogs are currently accessible in the AEM page editor, the page properties and the experience fragment editor.&lt;/p>"
+                        title="How to access the dialogs">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AEMCCDialogIntegration.png"/>
+                </textimage>
+                <textimage_221255649
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="left"
+                        text="Second: for text areas in component dialogs, there is a new 'gears and pen' icon in the label line, next to the help icon (if present). This will call up the content creation dialog, and the results will be put into the text area in the component dialog, without yet being saved to JCR.">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AEMDialogIntegration.png"/>
+                </textimage_221255649>
+                <text
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The side panel AI is integrated into the side panel to the left with the same 'gears and pen' icon as the content creation dialog.&lt;/p>"/>
+                <textimage_1734003194
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="left"
+                        text="&lt;p>This dialog provides access to a powerful and flexible tool the Composum AI offers for creating content.&amp;nbsp;&lt;/p>&lt;p>First, it allows you to select a base text for the AI to draw from. That can be the text field you were editing when calling up the dialog, it can be the text content of the component you were editing or the text content of the current page. But you can also take the last output of the AI, to have it refine the text iteratively, paste in an external text or just describe what you need without providing any additional base text.&lt;/p>&lt;br>&lt;p>Then you can either select one from a range of predefined prompts, like Summarize, Introduction, Conclusion, Expand, Headline suggestions, Improve, ..., and apply these. You are invited to modify or extend the prompt you selected, or create your entirely own request to the AI.&lt;/p>&lt;p>A history in the dialog supports you to switch back and forth between your requests, so it's easy to retry and switch back if the first generated text was better.&lt;/p>&lt;p>As the last step, you can replace the edited component field by the generated text, or cancel the operation. The calling dialog / the richtext editor from which the content creation was called will still be open for editing.&lt;/p>"
+                        title="The content creation assistant">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AEMContentCreationDialog.png"/>
+                </textimage_1734003194>
+                <textimage_2100494093
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/textimage"
+                        imagePosition="right"
+                        text="&lt;p>The Sidebar AI is a complement to the content creation assistant whose primary focus is not on content generation, but employing the AI's reasoning capabilities to generate reports about the text content of the page or individual components. Its purpose is to assist you in improving the content or seek explanations through a chat with the AI.&lt;/p>&lt;br>&lt;p>Similar to the Content Creation Assistant, the Sidebar AI enables you to select a base text for the AI to work with, such as the current page's text, or the text content of a selected component along with its subcomponents. Then you can either select one of a range of predefined prompts, or write your own request to the AI. The predefined prompts range from text / content flow review, suggestions for simplification, to suggestions for &quot;call to action&quot; phrases, and, of course, you can provide your own. If you are not yet satisfied with the result, you can both modify the prompt and try again, or ask for further refinement or additional information in a chat like fashion.&lt;/p>"
+                        title="The Side Panel AI">
+                    <image
+                            jcr:primaryType="nt:unstructured"
+                            imageRef="/content/ist/composum/assets/ai/dialogs/AEMSidePanelAI.png"/>
+                </textimage_2100494093>
+                <text_1954998069
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>Using the Composum AI needs an &lt;a href=&quot;https://platform.openai.com/api-keys&quot;>OpenAI API key&lt;/a> that can either be configured for the whole server in the OSGI configuration &quot;Composum AI GPT Chat Completion Service&quot; or flexibly per site or content-tree with Sling Context Aware Configuration in the&amp;nbsp; &quot;Composum AI OpenAI Configuration&quot;.&lt;/p>&lt;p>It is also possible to restrict Composum AI via OSGI or context aware configuration to certain users / groups, components, paths, page templates and views (configuration &quot;Composum AI Permission Configuration&quot;).&lt;/p>&lt;br>"
+                        title="Configuration"/>
+                <text_1873897270
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="You can find tricks and tips in the documentation of the &lt;a href=&quot;/content/ist/composum/home/pages/editing/Composum-AI&quot;>sister project Composum AI for Composum Pages&lt;/a>, which has mostly the same functionality. It's &lt;a href=&quot;/content/ist/composum/home/blog/pages/composumAI&quot;>blog entry&lt;/a> also contains some interesting usecases I had with it."
+                        title="More about it"/>
+                <text_935427583
+                        jcr:primaryType="cpp:Element"
+                        sling:resourceType="composum/pages/components/element/text"
+                        text="&lt;p>The Composum AI module brings you many new abilities for AI text generation and analysis to the AEM author, supported by large language models like ChatGPT in a seamless integration into Composum Pages. Please give it a try, tell us what you think, and enjoy using it creatively for your site!&lt;/p>"
+                        title="Conclusion"/>
+            </section>
+        </main>
+        <aside
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <bottom
+                jcr:primaryType="cpp:Container"
+                sling:resourceType="composum/pages/components/container/iparsys"/>
+        <meta
+                jcr:primaryType="nt:unstructured"
+                author="Hans-Peter Störr"
+                date="{Date}2023-10-20T00:00:00.000Z"/>
+    </jcr:content>
+</jcr:root>

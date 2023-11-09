@@ -9,6 +9,7 @@
             sling:resourceType="composum/pages/components/page"
             jcr:description="&lt;p>Content Management and more +++ try our Cloud CMS +++ fast and flexible +++ bring back the fun to Content Management&lt;/p>"
             jcr:title="cloud.composum.com"
+            alternatives="[/home/cloud.html,/cloud.html]"
             template="/apps/ist/composum/templates/page/content">
         <top
                 jcr:primaryType="cpp:Container"
