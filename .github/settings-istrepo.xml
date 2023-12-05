@@ -22,7 +22,7 @@
 		</server>
 		<!-- OSSRH deliberately omitted since that belongs to the projectspecific repo on Github, not maven central. -->
 		<server>
-			<id>github</id>
+			<id>github-www-composum-com</id>
 			<username>${env.GITHUB_ACTOR}</username>
 			<password>${env.GITHUB_TOKEN}</password>
 		</server>
@@ -107,16 +107,16 @@
 			</pluginRepositories>
 		</profile>
 
-		<!-- The project specific repository on Github -->
+		<!-- The project specific repository for www-composum-com on Github -->
 		<profile>
-			<id>github</id>
+			<id>github-www-composum-com</id>
 			<repositories>
 				<repository>
 					<id>central</id>
 					<url>https://repo1.maven.org/maven2</url>
 				</repository>
 				<repository>
-					<id>github</id>
+					<id>github-www-composum-com</id>
 					<url>https://maven.pkg.github.com/ist-dresden/www-composum-com</url>
 					<snapshots>
 						<enabled>true</enabled>

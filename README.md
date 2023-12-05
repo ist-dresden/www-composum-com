@@ -48,7 +48,7 @@ Add the maven repository. Unfortunately, you have to
 to use that.
 
     <repository>
-      <id>github</id>
+      <id>github-www-composum-com</id>
       <url>https://maven.pkg.github.com/ist-dresden/www-composum-com</url>
       <snapshots>
         <enabled>true</enabled>
