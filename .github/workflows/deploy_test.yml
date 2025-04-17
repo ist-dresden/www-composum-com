@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MVNCMD: mvn -B -ntp -s .github/settings-istrepo.xml
+      MVNCMD: mvn -B -ntp -s .github/settings.xml
 
     steps:
     - uses: actions/checkout@v3
